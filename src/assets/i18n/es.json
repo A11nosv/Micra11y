@@ -9,6 +9,7 @@
     "TITLE": "Proyectos Micro:bit",
     "OPEN_PROJECT_PREFIX": "Abrir el proyecto ",
     "PROJECTS": {
+      "IMAGE_ALT": "Imagen para el proyecto {projectTitle}",
       "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Programación Accesible",
         "DESCRIPTION": "Explora la programación de Micro:bit de forma accesible.",
@@ -100,5 +101,59 @@
     "MODAL_CODE_TITLE": "Código"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
-  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad"
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad",
+  "SETTINGS_TITLE": "Configuración",
+  "SETTINGS": {
+    "TITLE": "Configuración",
+    "DESCRIPTION": "Aquí puedes ajustar las configuraciones de la aplicación.",
+    "DARK_MODE": "Modo Oscuro",
+    "THEME_TITLE": "Apariencia",
+    "DARK_MODE_TOGGLE": "Modo Oscuro",
+    "FONT_FAMILY_SELECT": "Tipo de Letra",
+    "FONT_SIZE_SELECT": "Tamaño de Letra",
+    "FONT_SIZE_SMALL": "Pequeño",
+    "FONT_SIZE_MEDIUM": "Mediano",
+    "FONT_SIZE_LARGE": "Grande",
+    "ANIMATIONS_TOGGLE": "Desactivar Animaciones",
+    "LANGUAGE_SELECT": "Idioma"
+  },
+  "MICROPYTHON_PAGE": {
+    "H1": "Curso de Programación en MicroPython para Micro:bit (Énfasis en Accesibilidad)",
+    "H2_INTRO": "Introducción a MicroPython y Micro:bit",
+    "P_INTRO": "Este curso te introducirá al emocionante mundo de la programación con MicroPython en la placa Micro:bit. Aprenderás a crear proyectos interactivos, con un enfoque especial en cómo hacerlos accesibles para todos los usuarios, independientemente de sus capacidades. La Micro:bit es una pequeña computadora programable diseñada para hacer que el aprendizaje de la programación sea divertido y accesible. Con MicroPython, un dialecto optimizado de Python para microcontroladores, podrás escribir código de manera sencilla y eficiente.",
+    "H2_MODULE1": "Módulo 1: Primeros Pasos y Salidas Accesibles",
+    "H3_MODULE1_BASIC": "Conceptos Básicos de MicroPython",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "H3_MODULE1_LED": "Mostrando Texto en la Pantalla LED (con consideraciones de Accesibilidad)",
+    "P_MODULE1_LED": "Aprenderemos a usar la matriz de LEDs de la Micro:bit para mostrar mensajes. Es crucial considerar que los usuarios con discapacidad visual podrían no percibir esta salida. Más adelante, exploraremos métodos alternativos para comunicar la información.",
+    "H2_MODULE2": "Módulo 2: Entradas Interactivas y Retroalimentación Multisensorial",
+    "H3_MODULE2_INPUTS": "Uso de Botones y Entradas Digitales",
+    "P_MODULE2_INPUTS": "Exploraremos cómo los botones A y B, así como las entradas digitales, pueden ser utilizados para interactuar con nuestros programas. Para la accesibilidad, consideraremos cómo estas entradas pueden ser adaptadas o complementadas.",
+    "H3_MODULE2_SOUND": "Integrando Sonido para Retroalimentación",
+    "P_MODULE2_SOUND": "La retroalimentación auditiva es fundamental para la accesibilidad. Aprenderemos a usar el zumbador (o altavoz externo) para proporcionar sonidos que refuercen la información visual o la sustituyan completamente para usuarios con discapacidad visual. Por ejemplo, si un juego requiere que el usuario presione un botón, una combinación de una flecha visual en la pantalla LED y un sonido distintivo al presionar el botón puede mejorar significativamente la experiencia para todos.",
+    "H2_MODULE3": "Módulo 3: Sensores y Adaptaciones para Diversidad Funcional",
+    "H3_MODULE3_SENSORS": "Lectura de Sensores (Acelerómetro, Brújula, Temperatura)",
+    "P_MODULE3_SENSORS": "La Micro:bit cuenta con varios sensores incorporados que nos permiten interactuar con el entorno. Aprenderemos a leer datos del acelerómetro (para detectar movimiento), la brújula (para la orientación) y el sensor de temperatura.",
+    "H3_MODULE3_ADAPTATIONS": "Adaptaciones de Sensores para Accesibilidad",
+    "P_MODULE3_ADAPTATIONS": "Analizaremos cómo los datos de los sensores pueden ser utilizados para crear interacciones alternativas. Por ejemplo, un programa que se activa al inclinar la Micro:bit podría ser más accesible para personas con movilidad reducida que un botón tradicional. Además, veremos cómo la información obtenida de los sensores puede ser traducida a salidas multisensoriales (visual, auditiva, táctil).",
+    "H2_CONCLUSIONS": "Conclusiones y Próximos Pasos",
+    "P_CONCLUSIONS": "Este curso ha cubierto las bases de la programación en MicroPython con un fuerte énfasis en el diseño accesible. Recuerda que la accesibilidad no es una característica adicional, sino un principio fundamental para crear tecnología inclusiva. ¡Anímate a explorar más proyectos y a seguir aprendiendo cómo hacer la tecnología accesible para todos!"
+  },
+  "REPOSITORIO_PAGE": {
+    "CONTENT": "Contenido de la página Repositorio."
+  },
+  "ACCESSIBILITY_EVALUATOR_PAGE": {
+    "H2": "Editor de Código MicroPython con Énfasis en Accesibilidad",
+    "P": "Introduce tu código MicroPython para Micro:bit en el área de texto. El editor te ayudará a visualizar cómo se ve el código y te permitirá comprobar su accesibilidad.",
+    "TEXTAREA_PLACEHOLDER": "Escribe tu código MicroPython aquí...",
+    "EVALUATION_RESULTS_H3": "Resultado de la evaluación",
+    "SCORE": "Puntuación",
+    "IMPROVEMENT": "Mejora",
+    "REDUNDANCY_DETECTED": "Redundancia de entrada detectada",
+    "YES": "Sí",
+    "NO": "No",
+    "ERRORS": "Errores",
+    "WARNINGS": "Advertencias",
+    "CODE_PREVIEW_H3": "Previsualización del Código"
+  }
 }

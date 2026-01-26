@@ -32,7 +32,7 @@
   <div class="projects-grid">
     <ion-card *ngFor="let projectEntry of (projects$ | async | keyvalue)" [routerLink]="projectEntry.value.route" button="true" class="project-card"
       [attr.aria-label]="('MICROBIT_PAGE.OPEN_PROJECT_PREFIX' | translate) + (projectEntry.value.TITLE | translate)">
-      <img [src]="projectEntry.value.img" [alt]="('Imagen para el proyecto ' + projectEntry.value.TITLE) | translate" />
+      <img [src]="projectEntry.value.img" [alt]="('MICROBIT_PAGE.PROJECTS.IMAGE_ALT' | translate: { projectTitle: (projectEntry.value.TITLE | translate) })" />
       <ion-card-header>
         <ion-card-title>{{ projectEntry.value.TITLE | translate }}</ion-card-title>
       </ion-card-header>
