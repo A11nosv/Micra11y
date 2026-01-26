@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonTextarea } from '@ionic/angular/standalone'; // Import IonTextarea
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Highlight } from 'ngx-highlightjs'; // Import Highlight
 import { MicrobitValidatorPro } from '../../../testacce'; // Import the validator
 
@@ -49,7 +49,7 @@ while True:
 
   private validator: MicrobitValidatorPro; // Declare the validator instance
 
-  constructor() {
+  constructor(private translate: TranslateService) {
     this.highlightedCode = this.userCode; // Initialize highlighted code
     this.validator = new MicrobitValidatorPro(); // Instantiate the validator
     this.checkAccessibility(); // Perform initial check
@@ -72,13 +72,16 @@ while True:
     this.warningCount = result.issues.filter(issue => issue.type === 'warning').length;
 
     // Process issues to generate improvementMessage and redundancyDetected
-    this.improvementMessage = result.issues
+    const suggestionKeys = result.issues
       .filter(issue => issue.suggestion)
-      .map(issue => issue.suggestion)
-      .join(';\n');
+      .map(issue => issue.suggestion);
+
+    this.translate.get(suggestionKeys as string[]).subscribe(translations => {
+      this.improvementMessage = Object.values(translations).join(';\n');
+    });
     
     this.redundancyDetected = result.issues.some(issue => 
-      issue.message.includes("Entrada accesible") || issue.message.includes("Solo usas botones físicos")
+      issue.message === "VALIDATOR.INPUT_REDUNDANCY.ERROR_MESSAGE"
     );
   }
 }

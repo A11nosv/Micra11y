@@ -12,22 +12,22 @@ export class MicrobitValidatorPro {
         // 1. REGLA: Feedback Auditivo
         if (/import\s+(speech|music)|from\s+(speech|music)/.test(code)) {
             score += 1.5;
-            issues.push({ type: 'success', message: "Multimodalidad: Se detectó importación de audio." });
+            issues.push({ type: 'success', message: "VALIDATOR.AUDIO_FEEDBACK.SUCCESS_MESSAGE" });
             if ((/music\.play\(.*\)|speech\.say\(.*\)/).test(code)) {
                 score += 1.5;
-                issues.push({ type: 'success', message: "Multimodalidad: Se detectó salida de audio." });
+                issues.push({ type: 'success', message: "VALIDATOR.AUDIO_FEEDBACK.SUCCESS_MESSAGE_2" });
             } else {
                 issues.push({
                     type: 'error',
-                    message: "Falta salida sonora.",
-                    suggestion: "Añade 'speech.say('[string]')', 'music.play(music.[song])' o 'music.([number])'  para que usuarios con discapacidad visual reciban información."
+                    message: "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE",
+                    suggestion: "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION"
                 });
             }
         } else {
             issues.push({
                 type: 'error',
-                message: "Falta salida sonora.",
-                suggestion: "Importa 'speech' o 'music' para que usuarios con discapacidad visual reciban información."
+                message: "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE",
+                suggestion: "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2"
             });
         }
 
@@ -41,8 +41,8 @@ export class MicrobitValidatorPro {
             if (longSleep) {
                 issues.push({
                     type: 'warning',
-                    message: "Bucle bloqueante detectado.",
-                    suggestion: "Usas sleep() muy largos. Esto impide que la Micro:bit reaccione a botones o comandos de voz rápidamente."
+                    message: "VALIDATOR.BLOCKING_LOOPS.WARNING_MESSAGE",
+                    suggestion: "VALIDATOR.BLOCKING_LOOPS.WARNING_SUGGESTION"
                 });
             } else {
                 score += 2;
@@ -53,12 +53,12 @@ export class MicrobitValidatorPro {
         const hasAlternativeInput = /pin_logo\.is_touched|accelerometer|pin[0-2]\.is_touched/.test(code);
         if (hasAlternativeInput) {
             score += 3;
-            issues.push({ type: 'success', message: "Entrada accesible: Usas sensores táctiles o de movimiento." });
+            issues.push({ type: 'success', message: "VALIDATOR.INPUT_REDUNDANCY.SUCCESS_MESSAGE" });
         } else {
             issues.push({
                 type: 'error',
-                message: "Solo usas botones físicos.",
-                suggestion: "Añade 'pin_logo.is_touched()' para facilitar el uso a personas con dificultad motriz."
+                message: "VALIDATOR.INPUT_REDUNDANCY.ERROR_MESSAGE",
+                suggestion: "VALIDATOR.INPUT_REDUNDANCY.ERROR_SUGGESTION"
             });
         }
 
@@ -68,12 +68,12 @@ export class MicrobitValidatorPro {
             score -= 1; // Reduce score for complex presses
             issues.push({
                 type: 'warning',
-                message: "Pulsación compleja detectada.",
-                suggestion: "Evita solicitar la pulsación simultánea de dos botones o un botón y el logo, ya que dificulta la interacción para usuarios con ciertas discapacidades motrices."
+                message: "VALIDATOR.COMPLEX_PRESSES.WARNING_MESSAGE",
+                suggestion: "VALIDATOR.COMPLEX_PRESSES.WARNING_SUGGESTION"
             });
         } else {
             score += 1; // Award score if no complex presses are found
-            issues.push({ type: 'success', message: "Pulsaciones simples: No se detectaron pulsaciones complejas." });
+            issues.push({ type: 'success', message: "VALIDATOR.COMPLEX_PRESSES.SUCCESS_MESSAGE" });
         }
 
 
@@ -81,12 +81,12 @@ export class MicrobitValidatorPro {
         const namingScore = /(variable|estado|boton|sensor)_/.test(code) ? 2 : 0;
         if (namingScore > 0) {
             score += 2;
-            issues.push({ type: 'success', message: "Semántica: Las variables tienen nombres descriptivos." });
+            issues.push({ type: 'success', message: "VALIDATOR.CODE_SEMANTICS.SUCCESS_MESSAGE" });
         } else {
             issues.push({
                 type: 'warning',
-                message: "Nombres de variables genéricos.",
-                suggestion: "Usa nombres como 'estado_alarma' en lugar de 'a' para facilitar la lectura con lectores de pantalla."
+                message: "VALIDATOR.CODE_SEMANTICS.WARNING_MESSAGE",
+                suggestion: "VALIDATOR.CODE_SEMANTICS.WARNING_SUGGESTION"
             });
         }
 

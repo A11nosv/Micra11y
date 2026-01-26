@@ -38,7 +38,21 @@
     }
   },
   "COUNTDOWN_PAGE": {
-    "TITLE": "The Final Countdown"
+    "TITLE": "The Final Countdown",
+    "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "INTRODUCTION_H2": "Introduction",
+    "INTRODUCTION_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "MATERIALS_H2": "Materials",
+    "MATERIAL_MICROBIT": "Micro:bit",
+    "MATERIAL_ITEM_1": "Lorem ipsum dolor sit amet",
+    "MATERIAL_ITEM_2": "Consectetur adipiscing elit",
+    "STEPS_H2": "Steps",
+    "STEP_1_H3": "Step 1: Lorem ipsum",
+    "STEP_1_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "STEP_2_H3": "Step 2: The code",
+    "STEP_2_P": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "STEP_3_H3": "Step 3: Lorem ipsum",
+    "STEP_3_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "SETTINGS": {
     "THEME_TITLE": "Appearance",
@@ -155,5 +169,33 @@
     "ERRORS": "Errors",
     "WARNINGS": "Warnings",
     "CODE_PREVIEW_H3": "Code Preview"
+  },
+  "VALIDATOR": {
+    "AUDIO_FEEDBACK": {
+      "SUCCESS_MESSAGE": "Multimodality: Audio import detected.",
+      "SUCCESS_MESSAGE_2": "Multimodality: Audio output detected.",
+      "ERROR_MESSAGE": "Missing sound output.",
+      "ERROR_SUGGESTION": "Add 'speech.say(\"[string]\")', 'music.play(music.[song])' or 'music.([number])' for visually impaired users to receive information.",
+      "ERROR_SUGGESTION_2": "Import 'speech' or 'music' for visually impaired users to receive information."
+    },
+    "BLOCKING_LOOPS": {
+      "WARNING_MESSAGE": "Blocking loop detected.",
+      "WARNING_SUGGESTION": "You are using very long sleep(). This prevents the Micro:bit from reacting quickly to buttons or voice commands."
+    },
+    "INPUT_REDUNDANCY": {
+      "SUCCESS_MESSAGE": "Accessible input: You use touch or motion sensors.",
+      "ERROR_MESSAGE": "You only use physical buttons.",
+      "ERROR_SUGGESTION": "Add 'pin_logo.is_touched()' to make it easier for people with motor difficulties to use."
+    },
+    "COMPLEX_PRESSES": {
+      "WARNING_MESSAGE": "Complex press detected.",
+      "WARNING_SUGGESTION": "Avoid requesting the simultaneous pressing of two buttons or a button and the logo, as this makes interaction difficult for users with certain motor disabilities.",
+      "SUCCESS_MESSAGE": "Simple presses: No complex presses were detected."
+    },
+    "CODE_SEMANTICS": {
+      "SUCCESS_MESSAGE": "Semantics: Variables have descriptive names.",
+      "WARNING_MESSAGE": "Generic variable names.",
+      "WARNING_SUGGESTION": "Use names like 'alarm_status' instead of 'a' to make it easier for screen readers to read."
+    }
   }
 }
