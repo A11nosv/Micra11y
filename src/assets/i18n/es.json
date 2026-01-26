@@ -190,7 +190,7 @@
     "COMPLEX_PRESSES": {
       "WARNING_MESSAGE": "Pulsación compleja detectada.",
       "WARNING_SUGGESTION": "Evita solicitar la pulsación simultánea de dos botones o un botón y el logo, ya que dificulta la interacción para usuarios con ciertas discapacidades motrices.",
-      "SUCCESS_MESSAGE": "Pulsaciones simples: No se detectaron pulsaciones complejas."
+      "SUCCESS_MESSAGE": "Pulsaciones simples: No se detectaron pulsaciones complexas."
     },
     "CODE_SEMANTICS": {
       "SUCCESS_MESSAGE": "Semántica: Las variables tienen nombres descriptivos.",

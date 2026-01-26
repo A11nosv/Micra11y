@@ -137,7 +137,9 @@
       "SUCCESS_MESSAGE_2": "Modu anitzekoa: Audio irteera detektatu da.",
       "ERROR_MESSAGE": "Soinu irteera falta da.",
       "ERROR_SUGGESTION": "Gehitu 'speech.say(\"[string]\")', 'music.play(music.[song])' edo 'music.([number])' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko.",
-      "ERROR_SUGGESTION_2": "Inportatu 'speech' edo 'music' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko."
+      "ERROR_SUGGESTION_2": "Inportatu 'speech' edo 'music' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko.",
+      "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Display.show() bakarrik erabiltzen ari zara audio irteerarik gabe.",
+      "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Gehitu 'import speech' edo 'import music' eta erabili 'speech.say()' edo 'music.play()' ikusmen urritasuna duten erabiltzaileei entzumen feedback-a emateko."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "Blokeo-begizta detektatu da.",

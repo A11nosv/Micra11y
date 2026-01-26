@@ -136,8 +136,10 @@
       "SUCCESS_MESSAGE": "Multimodalidade: Detectouse importación de audio.",
       "SUCCESS_MESSAGE_2": "Multimodalidade: Detectouse saída de audio.",
       "ERROR_MESSAGE": "Falta saída sonora.",
-      "ERROR_SUGGESTION": "Engade 'speech.say("[string]")', 'music.play(music.[song])' ou 'music.([number])' para que usuarios con discapacidade visual reciban información.",
-      "ERROR_SUGGESTION_2": "Importa 'speech' ou 'music' para que usuarios con discapacidade visual reciban información."
+      "ERROR_SUGGESTION": "Engade 'speech.say(\"[string]\")', 'music.play(music.[song])' ou 'music.([number])' para que usuarios con discapacidade visual reciban información.",
+      "ERROR_SUGGESTION_2": "Importa 'speech' ou 'music' para que usuarios con discapacidade visual reciban información.",
+      "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Só usas display.show() sen saída de audio.",
+      "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Engade 'import speech' ou 'import music' e utiliza 'speech.say()' ou 'music.play()' para proporcionar retroalimentación auditiva aos usuarios con discapacidade visual."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "Bucle bloqueante detectado.",

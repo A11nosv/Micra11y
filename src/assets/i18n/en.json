@@ -176,7 +176,9 @@
       "SUCCESS_MESSAGE_2": "Multimodality: Audio output detected.",
       "ERROR_MESSAGE": "Missing sound output.",
       "ERROR_SUGGESTION": "Add 'speech.say(\"[string]\")', 'music.play(music.[song])' or 'music.([number])' for visually impaired users to receive information.",
-      "ERROR_SUGGESTION_2": "Import 'speech' or 'music' for visually impaired users to receive information."
+      "ERROR_SUGGESTION_2": "Import 'speech' or 'music' for visually impaired users to receive information.",
+      "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "You are only using display.show() without audio output.",
+      "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Add 'import speech' or 'import music' and use 'speech.say()' or 'music.play()' to provide auditory feedback for visually impaired users."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "Blocking loop detected.",
