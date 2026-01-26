@@ -1,0 +1,103 @@
+{
+  "TABS": {
+    "MICROPYTHON": "MicroPython",
+    "MICROBIT": "Micro:bit",
+    "MICROIA": "MicroIA",
+
+
+  },
+  "MICROBIT_PAGE": {
+    "TITLE": "Projectes Micro:bit",
+    "OPEN_PROJECT_PREFIX": "Obrir el projecte ",
+    "PROJECTS": {
+      "ACCESSIBLE_PROGRAMMING": {
+        "TITLE": "Programació Accessible",
+        "DESCRIPTION": "Explora la programació de Micro:bit de forma accessible.",
+        "img": "assets/img/microbit-a11y.png"
+      },
+      "COUNTDOWN": {
+        "TITLE": "The Final Countdown",
+        "DESCRIPTION": "Un compte enrere personalitzable."
+      },
+      "DUEL": {
+        "TITLE": "Duel al Sol",
+        "DESCRIPTION": "Un joc de reflexos per a dos jugadors."
+      },
+      "RPS": {
+        "TITLE": "Pedra, Paper, Tisora",
+        "DESCRIPTION": "El clàssic joc, ara a la teva Micro:bit."
+      },
+      "SECRET": {
+        "TITLE": "Missatge Secret",
+        "DESCRIPTION": "Envia i rep missatges secrets."
+      },
+      "HEARTBEAT": {
+        "TITLE": "El Batec de la Micro:bit",
+        "DESCRIPTION": "Visualitza el batec de la teva placa."
+      }
+    }
+  },
+  "COUNTDOWN_PAGE": {
+    "TITLE": "The Final Countdown"
+  },
+  "SETTINGS": {
+    "THEME_TITLE": "Aparença",
+    "DARK_MODE_TOGGLE": "Mode Fosc",
+    "FONT_FAMILY_SELECT": "Tipus de Lletra",
+    "FONT_SIZE_SELECT": "Mida de Lletra",
+    "FONT_SIZE_SMALL": "Petita",
+    "FONT_SIZE_MEDIUM": "Mitjana",
+    "FONT_SIZE_LARGE": "Gran",
+    "ANIMATIONS_TOGGLE": "Desactivar Animacions",
+    "LANGUAGE_SELECT": "Idioma"
+  },
+  "ACCESSIBLE_PROGRAMMING": {
+    "TITLE": "Programació Accessible",
+    "H1": "Programació Accessible amb Micro:bit",
+    "INTRO_P1": "La programació amb Micro:bit ofereix una excel·lent oportunitat per introduir a persones de totes les edats i habilitats en el món de la tecnologia. No obstant això, per assegurar que sigui realment inclusiva, és fonamental considerar l'accessibilitat des del disseny dels projectes.",
+    "INTRO_P2": "L'accessibilitat no pot ser un pedaç que s'afegeix al final del projecte per intentar complir amb un expedient o obtenir beneficis.",
+    "CREATION_TITLE": "Creació de Projectes Accessibles per a Micro:bit",
+    "CREATION_P1": "Per crear projectes de Micro:bit que siguin accessibles, és important tenir en compte diversos aspectes:",
+    "CREATION_LI1_TITLE": "Retroalimentació Multisensorial:",
+    "CREATION_LI1_TEXT": "Utilitza no només la pantalla LED, sinó també el so (si el model de Micro:bit ho permet o es connecta a un altaveu) per proporcionar informació. Per exemple, un joc pot emetre un so quan s'encerta i un altre diferent quan es falla.",
+    "CREATION_LI2_TITLE": "Entrades Alternatives:",
+    "CREATION_LI2_TEXT": "Considera opcions més enllà dels botons A i B. Els pins de la Micro:bit poden connectar-se a sensors externs o interruptors adaptats, facilitant la interacció per a persones amb mobilitat reduïda. Una altra opció és utilitzar l'acceleròmetre de la Micro:bit.",
+    "CREATION_LI3_TITLE": "Claredat i Simplicitat:",
+    "CREATION_LI3_TEXT": "Mantingues els programes el més senzills i clars possible. Evita seqüències d'accions complexes que puguin confondre a usuaris amb dificultats cognitives o de memòria.",
+    "CREATION_LI4_TITLE": "Documentació Clara:",
+    "CREATION_LI4_TEXT": "Proporciona instruccions detallades i fàcils d'entendre, idealment en múltiples formats (text, àudio, pictogrames).",
+    "BLOCKLY_TITLE": "Programació per Blocs (Blockly) i Discapacitat",
+    "BLOCKLY_P1": "Les interfícies de programació per blocs, com la que utilitza MakeCode per a Micro:bit, són una eina poderosa per a l'accessibilitat. La seva naturalesa visual i intuïtiva redueix barreres significatives:",
+    "BLOCKLY_OVERCOME_TITLE": "Barreres Superades:",
+    "BLOCKLY_OVERCOME_LI1_TITLE": "Discapacitat visual (baixa visió):",
+    "BLOCKLY_OVERCOME_LI1_TEXT": "Encara que les interfícies visuals poden ser un repte, l'ús d'una codificació de blocs segons colors fa que els usuaris amb una baixa visió puguin reconèixer de forma més ràpida i senzilla la tipologia de bloc que està utilitzant.",
+    "BLOCKLY_OVERCOME_LI2_TITLE": "Discapacitat motriu:",
+    "BLOCKLY_OVERCOME_LI2_TEXT": "La manipulació de blocs és sovint més senzilla que teclejar codi, especialment amb adaptacions de ratolí o teclat. La funció d'arrossegar i deixar anar pot ser substituïda per navegació per teclat per a aquells que no poden usar un ratolí.",
+    "BLOCKLY_OVERCOME_LI3_TITLE": "Discapacitat cognitiva i d'aprenentatge:",
+    "BLOCKLY_OVERCOME_LI3_TEXT": "La representació visual del codi redueix la càrrega cognitiva, al no requerir memoritzar sintaxi complexa. Els blocs guien a l'usuari a través de l'estructura lògica del programa.",
+    "BLOCKLY_CHALLENGES_TITLE": "Desafiaments Actuals:",
+    "BLOCKLY_CHALLENGES_LI1_TITLE": "Lectors de Pantalla:",
+    "BLOCKLY_CHALLENGES_LI1_TEXT": "Sovint, les interfícies d'arrossegar i deixar anar no són totalment compatibles amb els lectors de pantalla, la qual cosa dificulta la interacció per a persones cegues o amb baixa visió severa.",
+    "BLOCKLY_CHALLENGES_LI2_TITLE": "Navegació per Teclat:",
+    "BLOCKLY_CHALLENGES_LI2_TEXT": "La navegació completa i eficient només amb teclat no sempre està implementada a la perfecció en totes les plataformes de programació per blocs.",
+    "BLOCKLY_CHALLENGES_LI3_TITLE": "Personalització:",
+    "BLOCKLY_CHALLENGES_LI3_TEXT": "La manca d'opcions de personalització (mida de font, contrast de color, eliminació d'animacions) pot afectar a usuaris amb diverses necessitats visuals o cognitives.",
+    "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentació i Exemples:",
+    "BLOCKLY_CHALLENGES_LI4_TEXT": "No sempre es disposa de documentació i exemples de projectes que estiguin dissenyats específicament pensant en l'accessibilitat.",
+    "PYTHON_TITLE": "Programació per Codi (Micro:bit Python Editor)",
+    "PYTHON_P1": "Enfront de la programació mitjançant blocs pot utilitzar-se la programació mitjançant codi (microPython o JavaScript). Aquesta programació, en tractar-se de text pla, és altament accessible per als lectors de pantalla.",
+    "PYTHON_P2": "El problema que representa aquesta programació és que els usuaris han de tenir un coneixement mínim del llenguatge de programació, per la qual cosa se'ls ha d'ensenyar el llenguatge i els conceptes alhora. Això no succeeix amb la programació per blocs en no ser necessari un coneixement del llenguatge i on es treballen principalment els conceptes de programació com variables, constants, bucles, etcètera.",
+    "PYTHON_P3": "L'únic procediment en l'actualitat per minimitzar aquesta frontera (coneixement del llenguatge) és la creació de blocs de programació on l'alumne només hagi de substituir o completar part de codi. La creació en codi de l'esquelet dels blocs de programació seria l'única opció actual per assegurar un accés del 100% mitjançant un lector de pantalla.",
+    "PYTHON_P4": "Fomentar la programació accessible no només beneficia a les persones amb discapacitat, sinó que millora l'experiència per a tots els usuaris, promovent una cultura de disseny inclusiu en l'àmbit de la tecnologia.",
+    "PYTHON_P5": "A continuació es mostren dos exemples, un exemple on la resposta de la Micro:bit només es fa mitjançant el display i un altre, més accessible, on la sortida de la informació es realitza mitjançant el display i es reforça amb una sortida sonora.",
+    "MODAL_NON_ACCESSIBLE_TITLE": "Exemple No Accessible",
+    "MODAL_CLOSE": "Tancar",
+    "MODAL_NON_ACCESSIBLE_H2": "Videoclip (No Accessible)",
+    "MODAL_NON_ACCESSIBLE_P": "Aquí aniria el videoclip de l'exemple no accessible.",
+    "MODAL_VIEW_CODE": "Veure Codi",
+    "MODAL_ACCESSIBLE_TITLE": "Exemple Accessible",
+    "MODAL_ACCESSIBLE_H2": "Videoclip (Accessible)",
+    "MODAL_ACCESSIBLE_P": "Aquí aniria el videoclip de l'exemple accessible.",
+    "MODAL_CODE_TITLE": "Codi"
+  }
+}

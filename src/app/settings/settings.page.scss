@@ -1,0 +1,15 @@
+.content-wrapper {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  /* Default: stack elements vertically */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the different sections (text, input+button, preview) */
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+}

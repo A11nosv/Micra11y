@@ -1,0 +1,235 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import '@ionic/angular/css/palettes/dark.system.css';
+
+/* Custom Dark Theme */
+body.dark-theme {
+  --ion-color-primary: #5a91f0;
+  --ion-color-primary-rgb: 90,145,240;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #4f7ecd;
+  --ion-color-primary-tint: #6b9af2;
+
+  --ion-color-secondary: #a9adb4;
+  --ion-color-secondary-rgb: 169,173,180;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0,0,0;
+  --ion-color-secondary-shade: #94979e;
+  --ion-color-secondary-tint: #b1b5bd;
+
+  --ion-color-tertiary: #f0c242;
+  --ion-color-tertiary-rgb: 240,194,66;
+  --ion-color-tertiary-contrast: #000000;
+  --ion-color-tertiary-contrast-rgb: 0,0,0;
+  --ion-color-tertiary-shade: #d3aa3a;
+  --ion-color-tertiary-tint: #f2c755;
+
+  --ion-color-success: #3dd28b;
+  --ion-color-success-rgb: 61,210,139;
+  --ion-color-success-contrast: #000000;
+  --ion-color-success-contrast-rgb: 0,0,0;
+  --ion-color-success-shade: #36ba7a;
+  --ion-color-success-tint: #50d796;
+
+  --ion-color-warning: #ffd352;
+  --ion-color-warning-rgb: 255,211,82;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0,0,0;
+  --ion-color-warning-shade: #e0b948;
+  --ion-color-warning-tint: #ffd663;
+
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 240,65,65;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255,255,255;
+  --ion-color-danger-shade: #d33939;
+  --ion-color-danger-tint: #f25454;
+
+  --ion-color-dark: #f4f5f8;
+  --ion-color-dark-rgb: 244,245,248;
+  --ion-color-dark-contrast: #000000;
+  --ion-color-dark-contrast-rgb: 0,0,0;
+  --ion-color-dark-shade: #d7d8da;
+  --ion-color-dark-tint: #f5f6f9;
+
+  --ion-color-medium: #92949c;
+  --ion-color-medium-rgb: 146,148,156;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255,255,255;
+  --ion-color-medium-shade: #808289;
+  --ion-color-medium-tint: #9d9fa6;
+
+  --ion-color-light: #222428;
+  --ion-color-light-rgb: 34,36,40;
+  --ion-color-light-contrast: #ffffff;
+  --ion-color-light-contrast-rgb: 255,255,255;
+  --ion-color-light-shade: #1e2023;
+  --ion-color-light-tint: #383a3e;
+
+  /* Global text and link colors for dark mode */
+  color: #ffffff; /* Ensure all text is white */
+  a {
+    color: var(--ion-color-tertiary); /* Yellow links */
+  }
+
+  /* Overrides for elements with --background or --color properties */
+  ion-content {
+    --background: var(--ion-color-light);
+    --color: #ffffff; /* Ensure text within ion-content is white */
+  }
+
+  ion-tab-bar {
+    --background: var(--ion-color-light); /* Darker tab bar in dark mode */
+    --color: #ffffff; /* Unselected tabs text/icon color should be white */
+    --color-selected: var(--ion-color-tertiary); /* Selected tab text/icon color should be yellow */
+  }
+
+  ion-toolbar {
+    --background: var(--ion-color-light);
+    --color: #ffffff; /* Ensure text within ion-toolbar is white */
+    ion-icon {
+      color: #ffffff; /* Ensure icons within ion-toolbar are white */
+    }
+  }
+
+  ion-card {
+    --background: var(--ion-color-medium); /* Darker cards in dark mode */
+  }
+
+  ion-card-title {
+    color: var(--ion-color-primary);
+  }
+
+  ion-item {
+    --background: var(--ion-color-light); /* Item background in dark mode */
+    --color: #ffffff; /* Item text color in dark mode */
+  }
+
+  ion-label {
+    color: #ffffff; /* Label text color in dark mode */
+  }
+
+  ion-select {
+    color: #ffffff; /* Select text color in dark mode */
+    --placeholder-color: #ffffff;
+  }
+
+  ion-toggle {
+    --handle-background: #ffffff; /* Toggle handle color */
+    --handle-background-checked: var(--ion-color-primary);
+    --background: var(--ion-color-medium); /* Toggle track color */
+    --background-checked: var(--ion-color-primary-tint);
+    color: #ffffff;
+  }
+
+  ion-list {
+    --ion-background-color: var(--ion-color-light); /* List background in dark mode */
+  }
+}
+
+/* Explicit overrides for tab bar icons in dark mode */
+body.dark-theme ion-tab-button ion-icon {
+  color: #ffffff; // Unselected icons should be white
+}
+
+body.dark-theme ion-tab-button.tab-selected ion-icon {
+  color: var(--ion-color-tertiary); // Selected icon should be yellow
+}
+
+/* Font Size Classes */
+body.font-size-small {
+  font-size: 0.8em;
+}
+
+body.font-size-medium {
+  font-size: 1em; /* Default */
+}
+
+body.font-size-large {
+  font-size: 1.2em;
+}
+
+/* Animation Control Class */
+body.animations-disabled * {
+  /* Disable all transitions and animations */
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Light Mode specific tab bar styling for WCAG compliance */
+body:not(.dark-theme) {
+  ion-tab-bar {
+    --color: var(--ion-color-medium); /* Unselected tabs text/icon color in light mode */
+    --color-selected: var(--ion-color-primary); /* Selected tab text/icon color in light mode (blue) */
+  }
+}
+
+ion-toolbar.aligned-with-content {
+  --padding-start: 5vw;
+  --padding-end: 5vw;
+
+  @media (min-width: 768px) {
+    --padding-start: 15vw;
+    --padding-end: 15vw;
+  }
+}
+
+/* Enhanced visibility for input elements */
+/* Light Mode */
+:root:not(.dark-theme) {
+  ion-textarea,
+  ion-input,
+  ion-select,
+  ion-toggle {
+    --border-color: #000000;
+    --border-width: 2px;
+    --border-style: solid;
+  }
+}
+
+/* Dark Mode */
+body.dark-theme {
+  ion-textarea,
+  ion-input,
+  ion-select,
+  ion-toggle {
+    --border-color: #ffffff;
+    --border-width: 2px;
+    --border-style: solid;
+  }
+}

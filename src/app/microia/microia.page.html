@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="aligned-with-content">
+    <ion-title>
+      {{ 'TABS.MICROIA' | translate }}
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+        <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar class="aligned-with-content">
+      <ion-title size="large">{{ 'TABS.MICROIA' | translate }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+          <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>

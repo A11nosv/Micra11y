@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="aligned-with-content">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'SETTINGS_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+        <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar class="aligned-with-content">
+      <ion-title size="large">{{ 'SETTINGS_TITLE' | translate }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+          <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="content-wrapper">
+    <h2>Configuración</h2>
+    <p>Aquí puedes ajustar las configuraciones de la aplicación.</p>
+
+    <!-- Example settings option -->
+    <ion-item>
+      <ion-toggle justify="space-between" [(ngModel)]="darkMode" (ionChange)="onDarkModeToggle()">Modo Oscuro</ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-select [label]="'SETTINGS.LANGUAGE_SELECT' | translate" [(ngModel)]="selectedLanguage" (ionChange)="onLanguageChange()">
+        <ion-select-option value="es">Español</ion-select-option>
+        <ion-select-option value="en">English</ion-select-option>
+        <ion-select-option value="ca">Català</ion-select-option>
+        <ion-select-option value="eu">Euskera</ion-select-option>
+        <ion-select-option value="gl">Gallego</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</ion-content>

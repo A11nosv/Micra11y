@@ -1,0 +1,12 @@
+.content-wrapper {
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    margin-left: 15vw;
+    margin-right: 15vw;
+  }
+}
+

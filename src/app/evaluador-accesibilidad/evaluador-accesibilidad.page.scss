@@ -1,0 +1,115 @@
+.content-wrapper {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  /* Default: stack elements vertically */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between the different sections (text, input+button, preview) */
+}
+
+/* Styles for smaller screens (default, no media query needed) */
+.input-and-button-row { /* Stack textarea and button vertically */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%; /* Almost full width for the entire block */
+}
+
+.code-input {
+  width: 100%; /* Almost full width for textarea */
+}
+
+.button-column { /* For smaller screens, this will contain the button and results */
+  display: flex;
+  flex-direction: column; /* Stack button and results vertically */
+  justify-content: center; /* Center button horizontally */
+  align-items: center; /* Center items in its column */
+  width: 100%; /* Take full width to center the button */
+  gap: 15px; /* Space between button and results */
+}
+
+.evaluation-results { /* Styles for evaluation results section on smaller screens */
+  width: 100%; /* Take full width */
+  margin-top: 0; /* Remove top margin */
+  padding: 15px;
+  border-radius: 8px;
+  background-color: var(--ion-color-light-shade);
+  border: 1px solid var(--ion-color-step-150);
+
+  p:nth-of-type(2) { /* Targets the second paragraph for improvementMessage */
+    white-space: pre-wrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    display: flex; /* Make content-wrapper a flex container */
+    gap: 20px; /* Gap between top-section and code-display-container */
+    align-items: flex-start;
+  }
+
+  .input-and-button-row { /* This will contain the textarea and button */
+    display: flex;
+    flex-direction: row; /* Textarea and button side-by-side */
+    gap: 10px; /* Space between textarea and button */
+    align-items: flex-start; /* Align button to the top of the textarea */
+    width: 100%; /* Occupies full width within content-wrapper */
+  }
+
+  .code-input {
+    flex-grow: 1;    /* Allows textarea to grow */
+    flex-shrink: 1;  /* Allows textarea to shrink */
+    flex-basis: 60%; /* Takes 60% of the available space */
+  }
+
+  .button-column { /* This will contain the button and results */
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 40%; /* Takes the other 40% of the available space */
+    display: flex;
+    flex-direction: column; /* Stack button and results vertically */
+    justify-content: flex-start; /* Align to the top */
+    align-items: center; /* Center horizontally in its column */
+    gap: 10px; /* Space between button and results */
+  }
+
+  .button-column ion-button {
+    flex-grow: 0;   /* Button should not grow */
+    flex-shrink: 0; /* Button should not shrink */
+    /* width: auto;    Allow button to size naturally */
+    /* height: auto;   Allow button to size naturally */
+  }
+
+  .code-display-container {
+    width: 100%; /* Ensure it takes full width within content-wrapper */
+    background-color: var(--ion-color-light-shade); /* Or any color to match your theme */
+    border-radius: 8px;
+    padding: 10px;
+    overflow-x: auto;
+  }
+
+  .evaluation-results { /* Styles for evaluation results section on larger screens */
+    width: 100%; /* Take full width within its parent (button-column) */
+    margin-top: 0; /* Remove top margin as it's now inside a flex container */
+    padding: 15px;
+    border-radius: 8px;
+    background-color: var(--ion-color-light-shade);
+    border: 1px solid var(--ion-color-step-150);
+  }
+}
+
+/* Styling for score */
+.score-bad {
+  color: var(--ion-color-danger);
+  font-weight: bold;
+}
+.score-medium {
+  color: var(--ion-color-warning);
+  font-weight: bold;
+}
+.score-good {
+  color: var(--ion-color-success);
+  font-weight: bold;
+}

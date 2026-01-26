@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="aligned-with-content">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'ACCESSIBILITY_EVALUATOR_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+        <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar class="aligned-with-content">
+      <ion-title size="large">{{ 'ACCESSIBILITY_EVALUATOR_TITLE' | translate }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+          <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="content-wrapper">
+    <h2>Editor de Código MicroPython con Énfasis en Accesibilidad</h2>
+    <p>Introduce tu código MicroPython para Micro:bit en el área de texto. El editor te ayudará a visualizar cómo se ve el código y te permitirá comprobar su accesibilidad.</p>
+
+    <div class="input-and-button-row">
+      <ion-textarea
+        class="code-input"
+        placeholder="Escribe tu código MicroPython aquí..."
+        rows="15"
+        auto-grow="true"
+        [(ngModel)]="userCode"
+        (ngModelChange)="onCodeChange()"
+        spellcheck="false"
+      ></ion-textarea>
+
+      <div class="button-column">
+        <ion-button (click)="checkAccessibility()" [title]="'COMPROBAR_ACCESIBILIDAD_TITLE' | translate">
+          <ion-icon slot="start" name="search-outline"></ion-icon>
+          {{ 'COMPROBAR_ACCESIBILIDAD_TITLE' | translate }}
+        </ion-button>
+
+        <div class="evaluation-results">
+          <h3>Resultado de la evaluación</h3>
+          <p>Puntuación: <span [ngClass]="{'score-bad': score < 5, 'score-medium': score >=5 && score < 8, 'score-good': score >= 8}">{{ score }}/10</span></p>
+          <p>Mejora: {{ improvementMessage }}</p>
+          <p>Redundancia de entrada detectada: {{ redundancyDetected ? 'Sí' : 'No' }}</p>
+          <p>Errores: {{ errorCount }}</p>
+          <p>Advertencias: {{ warningCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-display-container">
+      <h3>Previsualización del Código</h3>
+      <pre><code [highlight]="highlightedCode" [language]="'python'"></code></pre>
+    </div>
+  </div>
+</ion-content>

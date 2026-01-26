@@ -1,0 +1,105 @@
+{
+  "TABS": {
+    "MICROPYTHON": "MicroPython",
+    "MICROBIT": "Micro:bit",
+    "MICROIA": "MicroIA",
+    "REPOSITORIO": "Repository"
+  },
+  "MICROBIT_PAGE": {
+    "TITLE": "Micro:bit Projects",
+    "OPEN_PROJECT_PREFIX": "Open project ",
+    "PROJECTS": {
+      "ACCESSIBLE_PROGRAMMING": {
+        "TITLE": "Accessible Programming",
+        "DESCRIPTION": "Explore Micro:bit programming in an accessible way.",
+        "img": "assets/img/microbit-a11y.png"
+      },
+      "COUNTDOWN": {
+        "TITLE": "The Final Countdown",
+        "DESCRIPTION": "A customizable countdown."
+      },
+      "DUEL": {
+        "TITLE": "Duel in the Sun",
+        "DESCRIPTION": "A reflex game for two players."
+      },
+      "RPS": {
+        "TITLE": "Rock, Paper, Scissors",
+        "DESCRIPTION": "The classic game, now on your Micro:bit."
+      },
+      "SECRET": {
+        "TITLE": "Mensaje Secreto",
+        "DESCRIPTION": "Send and receive secret messages."
+      },
+      "HEARTBEAT": {
+        "TITLE": "The Micro:bit's Heartbeat",
+        "DESCRIPTION": "Visualize your board's heartbeat."
+      }
+    }
+  },
+  "COUNTDOWN_PAGE": {
+    "TITLE": "The Final Countdown"
+  },
+  "SETTINGS": {
+    "THEME_TITLE": "Appearance",
+    "DARK_MODE_TOGGLE": "Dark Mode",
+    "FONT_FAMILY_SELECT": "Font Family",
+    "FONT_SIZE_SELECT": "Font Size",
+    "FONT_SIZE_SMALL": "Small",
+    "FONT_SIZE_MEDIUM": "Medium",
+    "FONT_SIZE_LARGE": "Large",
+    "ANIMATIONS_TOGGLE": "Disable Animations",
+    "LANGUAGE_SELECT": "Language"
+  },
+  "ACCESSIBLE_PROGRAMMING": {
+    "TITLE": "Accessible Programming",
+    "H1": "Accessible Programming with Micro:bit",
+    "INTRO_P1": "Programming with Micro:bit offers an excellent opportunity to introduce people of all ages and abilities to the world of technology. However, to ensure it is truly inclusive, it is essential to consider accessibility from the project design stage.",
+    "INTRO_P2": "Accessibility cannot be a patch that is added at the end of the project to try to meet a requirement or obtain benefits.",
+    "CREATION_TITLE": "Creating Accessible Projects for Micro:bit",
+    "CREATION_P1": "To create accessible Micro:bit projects, it is important to consider several aspects:",
+    "CREATION_LI1_TITLE": "Multisensory Feedback:",
+    "CREATION_LI1_TEXT": "Use not only the LED screen, but also sound (if the Micro:bit model allows it or is connected to a speaker) to provide information. For example, a game can emit one sound when you get it right and a different one when you get it wrong.",
+    "CREATION_LI2_TITLE": "Alternative Inputs:",
+    "CREATION_LI2_TEXT": "Consider options beyond buttons A and B. The Micro:bit's pins can be connected to external sensors or adapted switches, facilitating interaction for people with reduced mobility. Another option is to use the Micro:bit's accelerometer.",
+    "CREATION_LI3_TITLE": "Clarity and Simplicity:",
+    "CREATION_LI3_TEXT": "Keep the programs as simple and clear as possible. Avoid complex action sequences that may confuse users with cognitive or memory difficulties.",
+    "CREATION_LI4_TITLE": "Clear Documentation:",
+    "CREATION_LI4_TEXT": "Provide detailed and easy-to-understand instructions, ideally in multiple formats (text, audio, pictograms).",
+    "BLOCKLY_TITLE": "Block-Based Programming (Blockly) and Disability",
+    "BLOCKLY_P1": "Block-based programming interfaces, like the one used by MakeCode for Micro:bit, are a powerful tool for accessibility. Their visual and intuitive nature reduces significant barriers:",
+    "BLOCKLY_OVERCOME_TITLE": "Barriers Overcome:",
+    "BLOCKLY_OVERCOME_LI1_TITLE": "Visual impairment (low vision):",
+    "BLOCKLY_OVERCOME_LI1_TEXT": "Although visual interfaces can be a challenge, the use of color-coded blocks allows users with low vision to recognize the type of block being used more quickly and easily.",
+    "BLOCKLY_OVERCOME_LI2_TITLE": "Motor impairment:",
+    "BLOCKLY_OVERCOME_LI2_TEXT": "Manipulating blocks is often easier than typing code, especially with mouse or keyboard adaptations. The drag-and-drop function can be replaced by keyboard navigation for those who cannot use a mouse.",
+    "BLOCKLY_OVERCOME_LI3_TITLE": "Cognitive and learning disabilities:",
+    "BLOCKLY_OVERCOME_LI3_TEXT": "The visual representation of the code reduces the cognitive load, as it does not require memorizing complex syntax. The blocks guide the user through the logical structure of the program.",
+    "BLOCKLY_CHALLENGES_TITLE": "Current Challenges:",
+    "BLOCKLY_CHALLENGES_LI1_TITLE": "Screen Readers:",
+    "BLOCKLY_CHALLENGES_LI1_TEXT": "Often, drag-and-drop interfaces are not fully compatible with screen readers, which makes interaction difficult for blind or severely low-vision individuals.",
+    "BLOCKLY_CHALLENGES_LI2_TITLE": "Keyboard Navigation:",
+    "BLOCKLY_CHALLENGES_LI2_TEXT": "Full and efficient keyboard-only navigation is not always perfectly implemented in all block-based programming platforms.",
+    "BLOCKLY_CHALLENGES_LI3_TITLE": "Customization:",
+    "BLOCKLY_CHALLENGES_LI3_TEXT": "The lack of customization options (font size, color contrast, removal of animations) can affect users with various visual or cognitive needs.",
+    "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentation and Examples:",
+    "BLOCKLY_CHALLENGES_LI4_TEXT": "Documentation and examples of projects specifically designed with accessibility in mind are not always available.",
+    "PYTHON_TITLE": "Code-Based Programming (Micro:bit Python Editor)",
+    "PYTHON_P1": "As an alternative to block-based programming, code-based programming (microPython or JavaScript) can be used. This type of programming, being plain text, is highly accessible to screen readers.",
+    "PYTHON_P2": "The problem with this type of programming is that users must have a minimum knowledge of the programming language, so they have to be taught the language and the concepts at the same time. This does not happen with block-based programming, as knowledge of the language is not necessary and the main concepts worked on are programming concepts such as variables, constants, loops, etc.",
+    "PYTHON_P3": "The only procedure currently available to minimize this barrier (language knowledge) is the creation of programming blocks where the student only has to replace or complete part of the code. The creation of the skeleton of the programming blocks in code would be the only current option to ensure 100% access via a screen reader.",
+    "PYTHON_P4": "Promoting accessible programming not only benefits people with disabilities, but also improves the experience for all users, promoting a culture of inclusive design in the field of technology.",
+    "PYTHON_P5": "Below are two examples, one example where the Micro:bit's response is only done through the display and another, more accessible, where the information output is done through the display and is reinforced with a sound output.",
+    "MODAL_NON_ACCESSIBLE_TITLE": "Non-Accessible Example",
+    "MODAL_CLOSE": "Close",
+    "MODAL_NON_ACCESSIBLE_H2": "Video Clip (Non-Accessible)",
+    "MODAL_NON_ACCESSIBLE_P": "The video clip of the non-accessible example would go here.",
+    "MODAL_VIEW_CODE": "View Code",
+    "MODAL_ACCESSIBLE_TITLE": "Accessible Example",
+    "MODAL_ACCESSIBLE_H2": "Video Clip (Accessible)",
+    "MODAL_ACCESSIBLE_P": "The video clip of the accessible example would go here.",
+    "MODAL_CODE_TITLE": "Code"
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Accessibility Evaluator",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Check Accessibility"
+}
+}

@@ -1,0 +1,104 @@
+{
+  "TABS": {
+    "MICROPYTHON": "MicroPython",
+    "MICROBIT": "Micro:bit",
+    "MICROIA": "MicroIA",
+    "REPOSITORIO": "Repositorio"
+  },
+  "MICROBIT_PAGE": {
+    "TITLE": "Proyectos Micro:bit",
+    "OPEN_PROJECT_PREFIX": "Abrir el proyecto ",
+    "PROJECTS": {
+      "ACCESSIBLE_PROGRAMMING": {
+        "TITLE": "Programación Accesible",
+        "DESCRIPTION": "Explora la programación de Micro:bit de forma accesible.",
+        "img": "assets/img/microbit-a11y.png"
+      },
+      "COUNTDOWN": {
+        "TITLE": "La Cuenta Atrás Final",
+        "DESCRIPTION": "Una cuenta atrás personalizable."
+      },
+      "DUEL": {
+        "TITLE": "Duelo al Sol",
+        "DESCRIPTION": "Un juego de reflejos para dos jugadores."
+      },
+      "RPS": {
+        "TITLE": "Piedra, Papel, Tijera",
+        "DESCRIPTION": "El clásico juego, ahora en tu Micro:bit."
+      },
+      "SECRET": {
+        "TITLE": "Mensaje Secreto",
+        "DESCRIPTION": "Envía y recibe mensajes secretos."
+      },
+      "HEARTBEAT": {
+        "TITLE": "El Latido de la Micro:bit",
+        "DESCRIPTION": "Visualiza el latido de tu placa."
+      }
+    }
+  },
+  "COUNTDOWN_PAGE": {
+    "TITLE": "La Cuenta Atrás Final"
+  },
+  "SETTINGS": {
+    "THEME_TITLE": "Apariencia",
+    "DARK_MODE_TOGGLE": "Modo Oscuro",
+    "FONT_FAMILY_SELECT": "Tipo de Letra",
+    "FONT_SIZE_SELECT": "Tamaño de Letra",
+    "FONT_SIZE_SMALL": "Pequeño",
+    "FONT_SIZE_MEDIUM": "Mediano",
+    "FONT_SIZE_LARGE": "Grande",
+    "ANIMATIONS_TOGGLE": "Desactivar Animaciones",
+    "LANGUAGE_SELECT": "Idioma"
+  },
+  "ACCESSIBLE_PROGRAMMING": {
+    "TITLE": "Programación Accesible",
+    "H1": "Programación Accesible con Micro:bit",
+    "INTRO_P1": "La programación con Micro:bit ofrece una excelente oportunidad para introducir a personas de todas las edades y habilidades en el mundo de la tecnología. Sin embargo, para asegurar que sea verdaderamente inclusiva, es fundamental considerar la accesibilidad desde la fase de diseño de los proyectos.",
+    "INTRO_P2": "La accesibilidad no puede ser un parche que se añade al final del proyecto para intentar cumplir con un requisito u obtener beneficios.",
+    "CREATION_TITLE": "Creación de Proyectos Accesibles para Micro:bit",
+    "CREATION_P1": "Para crear proyectos accesibles con Micro:bit, es importante tener en cuenta varios aspectos:",
+    "CREATION_LI1_TITLE": "Feedback Multisensorial:",
+    "CREATION_LI1_TEXT": "Utilizar no solo la pantalla de LEDs, sino también el sonido (si el modelo de Micro:bit lo permite o se conecta a un altavoz) para proporcionar información. Por ejemplo, un juego puede emitir un sonido al acertar y otro diferente al fallar.",
+    "CREATION_LI2_TITLE": "Entradas Alternativas:",
+    "CREATION_LI2_TEXT": "Considerar opciones más allá de los botones A y B. Los pines de la Micro:bit pueden conectarse a sensores externos o pulsadores adaptados, facilitando la interacción para personas con movilidad reducida. Otra opción es utilizar el acelerómetro de la Micro:bit.",
+    "CREATION_LI3_TITLE": "Claridad y Simplicidad:",
+    "CREATION_LI3_TEXT": "Mantener los programas tan simples y claros como sea posible. Evitar secuencias de acciones complejas que puedan confundir a usuarios con dificultades cognitivas o de memoria.",
+    "CREATION_LI4_TITLE": "Documentación Clara:",
+    "CREATION_LI4_TEXT": "Proporcionar instrucciones detalladas y fáciles de entender, idealmente en múltiples formatos (texto, audio, pictogramas).",
+    "BLOCKLY_TITLE": "Programación por Bloques (Blockly) y Discapacidad",
+    "BLOCKLY_P1": "Las interfaces de programación por bloques, como la que utiliza MakeCode para Micro:bit, son una herramienta potente para la accesibilidad. Su naturaleza visual e intuitiva reduce barreras importantes:",
+    "BLOCKLY_OVERCOME_TITLE": "Barreras que Supera:",
+    "BLOCKLY_OVERCOME_LI1_TITLE": "Discapacidad visual (baja visión):",
+    "BLOCKLY_OVERCOME_LI1_TEXT": "Aunque las interfaces visuales pueden ser un reto, el uso de bloques con códigos de color permite que los usuarios con baja visión reconozcan el tipo de bloque que se está utilizando de manera más rápida y sencilla.",
+    "BLOCKLY_OVERCOME_LI2_TITLE": "Discapacidad motriz:",
+    "BLOCKLY_OVERCOME_LI2_TEXT": "La manipulación de bloques suele ser más sencilla que la escritura de código, especialmente con adaptaciones de ratón o teclado. La función de arrastrar y soltar puede ser reemplazada por la navegación con teclado para quienes no pueden usar un ratón.",
+    "BLOCKLY_OVERCOME_LI3_TITLE": "Discapacidad cognitiva y del aprendizaje:",
+    "BLOCKLY_OVERCOME_LI3_TEXT": "La representación visual del código reduce la carga cognitiva, al no requerir la memorización de sintaxis complejas. Los bloques guían al usuario en la estructura lógica del programa.",
+    "BLOCKLY_CHALLENGES_TITLE": "Desafíos Actuales:",
+    "BLOCKLY_CHALLENGES_LI1_TITLE": "Lectores de Pantalla:",
+    "BLOCKLY_CHALLENGES_LI1_TEXT": "A menudo, las interfaces de arrastrar y soltar no son completamente compatibles con los lectores de pantalla, lo que dificulta la interacción para personas ciegas o con baja visión severa.",
+    "BLOCKLY_CHALLENGES_LI2_TITLE": "Navegación por Teclado:",
+    "BLOCKLY_CHALLENGES_LI2_TEXT": "La navegación completa y eficiente solo con teclado no siempre está implementada a la perfección en todas las plataformas de programación por bloques.",
+    "BLOCKLY_CHALLENGES_LI3_TITLE": "Personalización:",
+    "BLOCKLY_CHALLENGES_LI3_TEXT": "La falta de opciones de personalización (tamaño de fuente, contraste de color, eliminación de animaciones) puede afectar a usuarios con diversas necesidades visuales o cognitivas.",
+    "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentación y Ejemplos:",
+    "BLOCKLY_CHALLENGES_LI4_TEXT": "No siempre se dispone de documentación y ejemplos de proyectos diseñados específicamente con la accesibilidad en mente.",
+    "PYTHON_TITLE": "Programación por Código (Editor Micro:bit Python)",
+    "PYTHON_P1": "Como alternativa a la programación por bloques se puede utilizar la programación por código (microPython o JavaScript). Este tipo de programación, al ser texto plano, es altamente accesible para los lectores de pantalla.",
+    "PYTHON_P2": "El problema de este tipo de programación es que los usuarios deben tener un conocimiento mínimo del lenguaje de programación, por lo que se les tiene que enseñar el lenguaje y los conceptos al mismo tiempo. Esto no sucede con la programación por bloques, ya que el conocimiento del lenguaje no es necesario y los conceptos principales que se trabajan son los conceptos de programación como variables, constantes, bucles, etc.",
+    "PYTHON_P3": "El único procedimiento que existe actualmente para minimizar esta barrera (conocimiento del lenguaje) es la creación de bloques de programación donde el alumno solo debe reemplazar o completar una parte del código. La creación del esqueleto de los bloques de programación en código sería la única opción actual para garantizar un acceso del 100% mediante un lector de pantalla.",
+    "PYTHON_P4": "Fomentar la programación accesible no solo beneficia a las personas con discapacidad, sino que también mejora la experiencia para todos los usuarios, promoviendo una cultura de diseño inclusivo en el ámbito de la tecnología.",
+    "PYTHON_P5": "A continuación se muestran dos ejemplos, un ejemplo donde la respuesta de la Micro:bit solo se realiza a través de la pantalla y otro, más accesible, donde la salida de información se realiza a través de la pantalla y se refuerza con una salida de sonido.",
+    "MODAL_NON_ACCESSIBLE_TITLE": "Ejemplo no Accesible",
+    "MODAL_CLOSE": "Cerrar",
+    "MODAL_NON_ACCESSIBLE_H2": "Videoclip (No Accesible)",
+    "MODAL_NON_ACCESSIBLE_P": "El videoclip del ejemplo no accesible iría aquí.",
+    "MODAL_VIEW_CODE": "Ver Código",
+    "MODAL_ACCESSIBLE_TITLE": "Ejemplo Accesible",
+    "MODAL_ACCESSIBLE_H2": "Videoclip (Accesible)",
+    "MODAL_ACCESSIBLE_P": "El videoclip del ejemplo accesible iría aquí.",
+    "MODAL_CODE_TITLE": "Código"
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad"
+}

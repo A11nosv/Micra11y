@@ -1,0 +1,47 @@
+{
+  "TABS": {
+    "MICROPYTHON": "MicroPython",
+    "MICROBIT": "Micro:bit",
+    "MICROIA": "MicroIA",
+    "CONFIGURACION": "Konfigurazioa"
+  },
+  "MICROBIT_PAGE": {
+    "TITLE": "Micro:bit Proiektuak",
+    "PROJECTS": {
+      "COUNTDOWN": {
+        "TITLE": "The Final Countdown",
+        "DESCRIPTION": "Atzerako kontaketa pertsonalizagarria."
+      },
+      "DUEL": {
+        "TITLE": "Duelua Eguzkitan",
+        "DESCRIPTION": "Bi jokalarirentzako erreflexu jokoa."
+      },
+      "RPS": {
+        "TITLE": "Harri, Orri, Ar",
+        "DESCRIPTION": "Joko klasikoa, orain zure Micro:bit-ean."
+      },
+      "SECRET": {
+        "TITLE": "Mezu Sekretua",
+        "DESCRIPTION": "Mezu sekretuak bidali eta jaso."
+      },
+      "HEARTBEAT": {
+        "TITLE": "Micro:bit-aren Taupada",
+        "DESCRIPTION": "Ikusi zure plakaren taupadak."
+      }
+    }
+  },
+  "COUNTDOWN_PAGE": {
+    "TITLE": "The Final Countdown"
+  },
+  "SETTINGS": {
+    "THEME_TITLE": "Itxura",
+    "DARK_MODE_TOGGLE": "Modu Iluna",
+    "FONT_FAMILY_SELECT": "Letra Mota",
+    "FONT_SIZE_SELECT": "Letra Tamaina",
+    "FONT_SIZE_SMALL": "Txikia",
+    "FONT_SIZE_MEDIUM": "Ertaina",
+    "FONT_SIZE_LARGE": "Handia",
+    "ANIMATIONS_TOGGLE": "Animazioak Desgaitu",
+    "LANGUAGE_SELECT": "Hizkuntza"
+  }
+}

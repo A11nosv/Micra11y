@@ -1,0 +1,47 @@
+{
+  "TABS": {
+    "MICROPYTHON": "MicroPython",
+    "MICROBIT": "Micro:bit",
+    "MICROIA": "MicroIA",
+    "CONFIGURACION": "Configuración"
+  },
+  "MICROBIT_PAGE": {
+    "TITLE": "Proxectos Micro:bit",
+    "PROJECTS": {
+      "COUNTDOWN": {
+        "TITLE": "The Final Countdown",
+        "DESCRIPTION": "Unha conta atrás personalizable."
+      },
+      "DUEL": {
+        "TITLE": "Duelo ao Sol",
+        "DESCRIPTION": "Un xogo de reflexos para dous xogadores."
+      },
+      "RPS": {
+        "TITLE": "Pedra, Papel, Tesoura",
+        "DESCRIPTION": "O clásico xogo, agora no teu Micro:bit."
+      },
+      "SECRET": {
+        "TITLE": "Mensaxe Secreta",
+        "DESCRIPTION": "Envía e recibe mensaxes secretas."
+      },
+      "HEARTBEAT": {
+        "TITLE": "O Latexado da Micro:bit",
+        "DESCRIPTION": "Visualiza o latexado da túa placa."
+      }
+    }
+  },
+  "COUNTDOWN_PAGE": {
+    "TITLE": "The Final Countdown"
+  },
+  "SETTINGS": {
+    "THEME_TITLE": "Apariencia",
+    "DARK_MODE_TOGGLE": "Modo Escuro",
+    "FONT_FAMILY_SELECT": "Tipo de Letra",
+    "FONT_SIZE_SELECT": "Tamaño de Letra",
+    "FONT_SIZE_SMALL": "Pequeno",
+    "FONT_SIZE_MEDIUM": "Mediano",
+    "FONT_SIZE_LARGE": "Grande",
+    "ANIMATIONS_TOGGLE": "Desactivar Animacións",
+    "LANGUAGE_SELECT": "Idioma"
+  }
+}

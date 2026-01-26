@@ -1,0 +1,7 @@
+{
+  "name": "microbit-web",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
