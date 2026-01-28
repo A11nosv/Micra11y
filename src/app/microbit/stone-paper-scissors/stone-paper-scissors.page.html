@@ -20,27 +20,27 @@
     <h1>{{ title }}</h1>
 
     <video controls width="100%" height="auto">
-      <source src="assets/videos/accessible_clip.mp4" type="video/mp4">
-      {{ 'COUNTDOWN_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
+      <source src="assets/videos/rps_clip.mp4" type="video/mp4">
+      {{ 'RPS_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
     </video>
 
-    <h2>{{ 'COUNTDOWN_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
-    <p>{{ 'COUNTDOWN_PAGE.INTRODUCTION_TEXT' | translate }}</p>
+    <h2>{{ 'RPS_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
+    <p>{{ 'RPS_PAGE.INTRODUCTION_TEXT' | translate }}</p>
 
-    <h2>{{ 'COUNTDOWN_PAGE.MATERIALS_TITLE' | translate }}</h2>
+    <h2>{{ 'RPS_PAGE.MATERIALS_TITLE' | translate }}</h2>
     <ul>
-      <li *ngFor="let item of ('COUNTDOWN_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
+      <li *ngFor="let item of ('RPS_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
     </ul>
 
-    <h2>{{ 'COUNTDOWN_PAGE.STEPS_TITLE' | translate }}</h2>
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_1_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_1_TEXT' | translate }}</p>
+    <h2>{{ 'RPS_PAGE.STEPS_TITLE' | translate }}</h2>
+    <h3>{{ 'RPS_PAGE.STEP_1_TITLE' | translate }}</h3>
+    <p>{{ 'RPS_PAGE.STEP_1_TEXT' | translate }}</p>
 
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_2_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_2_TEXT' | translate }}</p>
+    <h3>{{ 'RPS_PAGE.STEP_2_TITLE' | translate }}</h3>
+    <p>{{ 'RPS_PAGE.STEP_2_TEXT' | translate }}</p>
     <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
 
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_3_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_3_TEXT' | translate }}</p>
+    <h3>{{ 'RPS_PAGE.STEP_3_TITLE' | translate }}</h3>
+    <p>{{ 'RPS_PAGE.STEP_3_TEXT' | translate }}</p>
   </div>
 </ion-content>

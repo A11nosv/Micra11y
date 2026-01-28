@@ -7,13 +7,13 @@ import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-countdown',
-  templateUrl: './countdown.page.html',
-  styleUrls: ['./countdown.page.scss'],
+  selector: 'app-heart',
+  templateUrl: './heart.page.html',
+  styleUrls: ['./heart.page.scss'],
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor]
 })
-export class CountdownPage implements OnInit {
+export class HeartPage implements OnInit {
 
   pythonCode: string = '';
   title: string = '';
@@ -21,12 +21,12 @@ export class CountdownPage implements OnInit {
   constructor(private http: HttpClient, private translate: TranslateService) { }
 
   ngOnInit() {
-    this.http.get('assets/Microbit/01_Beginner/03_ConteEnrere/Countdown-main.py', { responseType: 'text' })
+    this.http.get('assets/Microbit/01_Beginner/02_ElBatecDeLaMicrobit/Beating heart (with sound)-main.py', { responseType: 'text' })
       .subscribe(data => {
         this.pythonCode = data;
       });
     
-    this.translate.get('COUNTDOWN_PAGE.TITLE').subscribe((res: string) => {
+    this.translate.get('HEART_PAGE.TITLE').subscribe((res: string) => {
       this.title = res;
     });
   }

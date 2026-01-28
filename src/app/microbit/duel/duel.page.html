@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar class="aligned-with-content">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/microbit"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
+        <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="content-wrapper">
+    <h1>{{ title }}</h1>
+
+    <video controls width="100%" height="auto">
+      <source src="assets/videos/duel_clip.mp4" type="video/mp4">
+      {{ 'DUEL_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
+    </video>
+
+    <h2>{{ 'DUEL_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
+    <p>{{ 'DUEL_PAGE.INTRODUCTION_TEXT' | translate }}</p>
+
+    <h2>{{ 'DUEL_PAGE.MATERIALS_TITLE' | translate }}</h2>
+    <ul>
+      <li *ngFor="let item of ('DUEL_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
+    </ul>
+
+    <h2>{{ 'DUEL_PAGE.TARGET' | translate }}</h2>
+    <p>{{ 'DUEL_PAGE.TARGET_TEXT_1' | translate }}</p>
+    <p>{{ 'DUEL_PAGE.TARGET_TEXT_2' | translate }}</p>
+
+    <h2>{{ 'DUEL_PAGE.STEPS_TITLE' | translate }}</h2>
+    <h3>{{ 'DUEL_PAGE.STEP_1_TITLE' | translate }}</h3>
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT' | translate }}</p>
+    <pre><code [highlight]="pythonCode_step_1" [language]="'python'"></code></pre>
+
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_1' | translate }}</p>
+    <pre><code [highlight]="pythonCode_step_1_2" [language]="'python'"></code></pre>
+
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_2' | translate }}</p>
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_3' | translate }}</p>
+    <pre><code [highlight]="pythonCode_step_1_3" [language]="'python'"></code></pre>
+    
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_4' | translate }}</p>
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_5' | translate }}</p>
+    <pre><code [highlight]="pythonCode_step_1_4" [language]="'python'"></code></pre>
+
+    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_6' | translate }}</p>
+    
+    <h3>{{ 'DUEL_PAGE.STEP_2_TITLE' | translate }}</h3>
+    <p>{{ 'DUEL_PAGE.STEP_2_TEXT' | translate }}</p>
+    <pre><code [highlight]="pythonCode_step_1_5" [language]="'python'"></code></pre>
+
+    <p>{{ 'DUEL_PAGE.STEP_2_TEXT_1' | translate }}</p>
+    <pre><code [highlight]="pythonCode_step_1_6" [language]="'python'"></code></pre>
+
+    <h3>{{ 'DUEL_PAGE.STEP_2_TITLE' | translate }}</h3>
+    <p>{{ 'DUEL_PAGE.STEP_2_TEXT' | translate }}</p>
+    <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
+    
+
+    <h3>{{ 'DUEL_PAGE.STEP_3_TITLE' | translate }}</h3>
+    <p>{{ 'DUEL_PAGE.STEP_3_TEXT' | translate }}</p>
+  </div>
+</ion-content>

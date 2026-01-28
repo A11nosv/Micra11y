@@ -20,27 +20,27 @@
     <h1>{{ title }}</h1>
 
     <video controls width="100%" height="auto">
-      <source src="assets/videos/accessible_clip.mp4" type="video/mp4">
-      {{ 'COUNTDOWN_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
+      <source src="assets/videos/heart_clip.mp4" type="video/mp4">
+      {{ 'HEART_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
     </video>
 
-    <h2>{{ 'COUNTDOWN_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
-    <p>{{ 'COUNTDOWN_PAGE.INTRODUCTION_TEXT' | translate }}</p>
+    <h2>{{ 'HEART_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
+    <p>{{ 'HEART_PAGE.INTRODUCTION_TEXT' | translate }}</p>
 
-    <h2>{{ 'COUNTDOWN_PAGE.MATERIALS_TITLE' | translate }}</h2>
+    <h2>{{ 'HEART_PAGE.MATERIALS_TITLE' | translate }}</h2>
     <ul>
-      <li *ngFor="let item of ('COUNTDOWN_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
+      <li *ngFor="let item of ('HEART_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
     </ul>
 
-    <h2>{{ 'COUNTDOWN_PAGE.STEPS_TITLE' | translate }}</h2>
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_1_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_1_TEXT' | translate }}</p>
+    <h2>{{ 'HEART_PAGE.STEPS_TITLE' | translate }}</h2>
+    <h3>{{ 'HEART_PAGE.STEP_1_TITLE' | translate }}</h3>
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT' | translate }}</p>
 
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_2_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_2_TEXT' | translate }}</p>
+    <h3>{{ 'HEART_PAGE.STEP_2_TITLE' | translate }}</h3>
+    <p>{{ 'HEART_PAGE.STEP_2_TEXT' | translate }}</p>
     <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
 
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_3_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_3_TEXT' | translate }}</p>
+    <h3>{{ 'HEART_PAGE.STEP_3_TITLE' | translate }}</h3>
+    <p>{{ 'HEART_PAGE.STEP_3_TEXT' | translate }}</p>
   </div>
 </ion-content>

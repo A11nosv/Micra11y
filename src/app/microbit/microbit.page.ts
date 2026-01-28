@@ -32,7 +32,7 @@ export class MicrobitPage {
           if (projects.hasOwnProperty(key)) {
             transformedProjects[key] = {
               ...projects[key],
-              route: `/tabs/microbit/${key.toLowerCase()}` // Dynamically create the route
+              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}` // Dynamically create the route
             };
           }
         }
