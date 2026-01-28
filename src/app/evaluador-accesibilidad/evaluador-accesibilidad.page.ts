@@ -44,7 +44,8 @@ while True:
   correctedCode: string = ''; // New property for corrected code with annotations
   score: number = 0; // Initialize score to 0
   improvementMessage: string = ''; // Initialize message to empty
-  redundancyDetected: boolean = false; // Initialize to false
+  improvementSuggestions: string[] = []; // New property for the suggestions list
+  redundancyStatus: string = 'ACCESSIBILITY_EVALUATOR_PAGE.NO'; // New property for redundancy status
   errorCount: number = 0; // New property for error count
   warningCount: number = 0; // New property for warning count
 
@@ -77,13 +78,26 @@ while True:
     const allTranslationKeys = [...messageKeys, ...suggestionKeys];
 
     this.translate.get(allTranslationKeys as string[]).subscribe(translations => {
-      this.improvementMessage = Object.values(
+      this.improvementSuggestions = Object.values(
         suggestionKeys.map(key => translations[key as string])
-      ).join(';\n');
+      );
+      this.improvementMessage = this.improvementSuggestions.join(';\\n'); // Set for *ngIf
 
-      this.redundancyDetected = result.issues.some(
+      // New logic for three-state redundancy status
+      const noButtonsIssue = result.issues.find(
+        issue => issue.message === 'VALIDATOR.INPUT_REDUNDANCY.NO_BUTTONS_USED'
+      );
+      const redundancyErrorIssue = result.issues.find(
         issue => issue.message === 'VALIDATOR.INPUT_REDUNDANCY.ERROR_MESSAGE'
       );
+
+      if (noButtonsIssue) {
+        this.redundancyStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.NO_BUTTONS_USED';
+      } else if (redundancyErrorIssue) {
+        this.redundancyStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.YES';
+      } else {
+        this.redundancyStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.NO';
+      }
 
       let lines = this.userCode.split('\n');
       // Filter out success messages for annotations, sort by line number in reverse for safe insertion
@@ -98,14 +112,15 @@ while True:
 
       // Pre-scan for existing imports to avoid duplication
       lines.forEach((line, index) => {
-        if (line.includes("from microbit import *") || line.includes("import microbit")) {
+        const trimmedLine = line.trim();
+        if (trimmedLine.startsWith("from microbit import *") || trimmedLine.startsWith("import microbit")) {
           hasMicrobitImport = true;
           microbitImportLine = index;
         }
-        if (line.includes("import speech")) {
+        if (trimmedLine.startsWith("import speech")) {
           hasSpeechImport = true;
         }
-        if (line.includes("import music")) {
+        if (trimmedLine.startsWith("import music")) {
           hasMusicImport = true;
         }
       });
@@ -117,18 +132,18 @@ while True:
         // Specific correction for VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE (Missing audio import)
         if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE" && issue.suggestion === "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2") {
           if (!hasSpeechImport && !hasMusicImport) { // Only add if neither speech nor music is imported
-            let correctionSnippet = '';
-            if (!hasMicrobitImport) {
-              correctionSnippet += `from microbit import *\n`;
-            }
-            correctionSnippet += `import speech # SUGERENCIA: ${translatedSuggestion}\nimport music # Opcional: también puedes usar 'import music'`;
+            const snippetToAdd = [
+              '#Import auditory content for visual impaired users',
+              'import music #You can also: import speech'
+            ];
             
             if (microbitImportLine !== -1) {
-                lines.splice(microbitImportLine + 1, 0, correctionSnippet);
+                lines.splice(microbitImportLine + 1, 0, ...snippetToAdd);
             } else {
-                lines.unshift(correctionSnippet);
+                // If microbit import is missing, add it before our snippet
+                lines.unshift(...['from microbit import *', ...snippetToAdd]);
             }
-            hasSpeechImport = true; // Mark as added to prevent further additions
+            hasSpeechImport = true; // Mark as added
             hasMusicImport = true; // Mark as added
           }
         } 
@@ -136,36 +151,33 @@ while True:
         else if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW" && issue.line !== undefined) {
           const lineNumber = issue.line - 1; // Convert to 0-based index
           if (lineNumber >= 0 && lineNumber < lines.length) {
-            let correctionLine = '';
-            // Ensure necessary imports are present for the suggestion
-            if (!hasMicrobitImport) {
-                lines.unshift(`from microbit import *`);
-                hasMicrobitImport = true;
-                microbitImportLine = 0; // Adjust if prepended
-            }
-            if (!hasSpeechImport && !hasMusicImport) {
-                const importSnippet = `import speech # Necesario para la sugerencia\nimport music # Opcional`;
-                if (microbitImportLine !== -1) {
-                  lines.splice(microbitImportLine + 1, 0, importSnippet);
-                } else {
-                  lines.unshift(importSnippet);
-                }
-                hasSpeechImport = true;
-                hasMusicImport = true;
-            }
-            correctionLine = `music.play(music.BA_DING) # SUGERENCIA: ${translatedSuggestion.replace(/'import speech' o 'import music' y /g, '')}`; // Use BA_DING as example
-            lines.splice(lineNumber + 1, 0, correctionLine);
+            // Get the original line to find its indentation
+            const originalLine = lines[lineNumber];
+            const indentationMatch = originalLine.match(/^\s*/); // Regex to get leading whitespace
+            const indentation = indentationMatch ? indentationMatch[0] : ''; // Fallback to no indentation
+
+            const snippetToAdd = [
+              '#Auditory feedback for visual impaired users',
+              'music.play(music.BA_DING) #You can also: speech.say("Displayed")' // Using a default sound/text
+            ].map(line => indentation + line); // Prepend indentation to each new line
+
+            lines.splice(lineNumber + 1, 0, ...snippetToAdd);
           }
         }
         // General line-specific annotation
         else if (issue.line !== undefined) {
           const lineNumber = issue.line - 1; // Convert to 0-based index
           if (lineNumber >= 0 && lineNumber < lines.length) {
+            // Get the original line to find its indentation
+            const originalLine = lines[lineNumber];
+            const indentationMatch = originalLine.match(/^\s*/); // Regex to get leading whitespace
+            const indentation = indentationMatch ? indentationMatch[0] : ''; // Fallback to no indentation
+
             let annotation = `# ${issue.type.toUpperCase()}: ${translatedMessage}`;
             if (translatedSuggestion) {
               annotation += ` # SUGERENCIA: ${translatedSuggestion}`;
             }
-            lines.splice(lineNumber + 1, 0, annotation);
+            lines.splice(lineNumber + 1, 0, indentation + annotation); // Prepend indentation
           }
         }
         // General file-level annotation
@@ -181,5 +193,11 @@ while True:
       this.correctedCode = lines.join('\n');
       this.highlightedCode = this.correctedCode;
     });
+  }
+
+  formatSuggestion(suggestion: string): string {
+    let formatted = suggestion.replace(/;/g, ';<br>');
+    formatted = formatted.replace(/,/g, ',<br>');
+    return formatted;
   }
 }

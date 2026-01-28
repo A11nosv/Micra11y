@@ -129,7 +129,8 @@
     "NO": "Non",
     "ERRORS": "Erros",
     "WARNINGS": "Advertencias",
-    "CODE_PREVIEW_H3": "Previsualización do Código"
+    "CODE_PREVIEW_H3": "Previsualización do Código",
+    "NO_BUTTONS_USED": "Non se utilizan os botóns"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {

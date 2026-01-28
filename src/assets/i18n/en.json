@@ -151,7 +151,7 @@
     "H3_MODULE3_ADAPTATIONS": "Sensor Adaptations for Accessibility",
     "P_MODULE3_ADAPTATIONS": "We will analyze how sensor data can be used to create alternative interactions. For example, a program that is activated by tilting the Micro:bit could be more accessible for people with reduced mobility than a traditional button. In addition, we will see how the information obtained from the sensors can be translated into multisensory outputs (visual, auditory, tactile).",
     "H2_CONCLUSIONS": "Conclusions and Next Steps",
-    "P_CONCLUSIONS": "This course has covered the basics of MicroPython programming with a strong emphasis on accessible design. Remember that accessibility is not an additional feature, but a fundamental principle for creating inclusive technology. We encourage you to explore more projects and continue learning how to make technology accessible to everyone!"
+    "P_CONCLUSIONS": "This course has covered the basics of MicroPython programming with a strong emphasis on accessible design. Remember that accessibility is not an additional feature, but a fundamental principle for creating technology inclusive. We encourage you to explore more projects and continue learning how to make technology accessible to everyone!"
   },
   "REPOSITORIO_PAGE": {
     "CONTENT": "Repository page content."
@@ -168,7 +168,8 @@
     "NO": "No",
     "ERRORS": "Errors",
     "WARNINGS": "Warnings",
-    "CODE_PREVIEW_H3": "Code Preview"
+    "CODE_PREVIEW_H3": "Code Preview",
+    "NO_BUTTONS_USED": "Buttons are not used"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {

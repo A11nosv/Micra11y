@@ -54,8 +54,11 @@
         <div class="evaluation-results">
           <h3>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.EVALUATION_RESULTS_H3' | translate }}</h3>
           <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.SCORE' | translate }}: <span [ngClass]="{'score-bad': score < 5, 'score-medium': score >=5 && score < 8, 'score-good': score >= 8}">{{ score }}/10</span></p>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.IMPROVEMENT' | translate }}: {{ improvementMessage }}</p>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED' | translate }}: {{ redundancyDetected ? ('ACCESSIBILITY_EVALUATOR_PAGE.YES' | translate) : ('ACCESSIBILITY_EVALUATOR_PAGE.NO' | translate) }}</p>
+          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.IMPROVEMENT' | translate }}:</p>
+          <ul *ngIf="improvementMessage">
+            <li *ngFor="let suggestion of improvementSuggestions" [innerHTML]="formatSuggestion(suggestion)"></li>
+          </ul>
+          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED' | translate }}: {{ redundancyStatus | translate }}</p>
           <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.ERRORS' | translate }}: {{ errorCount }}</p>
           <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.WARNINGS' | translate }}: {{ warningCount }}</p>
         </div>
