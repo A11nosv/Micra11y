@@ -14,7 +14,7 @@
         "DESCRIPTION": "Explora la programació de Micro:bit de forma accessible."
       },
       "COUNTDOWN": {
-        "TITLE": "The Final Countdown",
+        "TITLE": "La Cuenta Atrás Final",
         "DESCRIPTION": "Un compte enrere personalitzable."
       },
       "DUEL": {
@@ -118,23 +118,21 @@
     "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "COUNTDOWN_PAGE": {
-    "TITLE": "La Compte Enrere Final",
+    "TITLE": "La Cuenta Atrás Final",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
-    "INTRODUCTION_TITLE": "Introducció",
-    "INTRODUCTION_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "MATERIALS_TITLE": "Materials",
-    "MATERIALS_LIST": [
-      "Micro:bit",
-      "Lorem ipsum dolor sit amet",
-      "Consectetur adipiscing elit"
-    ],
-    "STEPS_TITLE": "Passos",
-    "STEP_1_TITLE": "Pas 1: Lorem ipsum",
-    "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "STEP_2_TITLE": "Pas 2: El codi",
-    "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_3_TITLE": "Pas 3: Lorem ipsum",
-    "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "INTRODUCTION_H2": "Introducció",
+    "INTRODUCTION_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "MATERIALS_H2": "Materials",
+    "MATERIAL_MICROBIT": "Micro:bit",
+    "MATERIAL_ITEM_1": "Lorem ipsum dolor sit amet",
+    "MATERIAL_ITEM_2": "Consectetur adipiscing elit",
+    "STEPS_H2": "Passos",
+    "STEP_1_H3": "Pas 1: Lorem ipsum",
+    "STEP_1_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "STEP_2_H3": "Pas 2: El codi",
+    "STEP_2_P": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "STEP_3_H3": "Pas 3: Lorem ipsum",
+    "STEP_3_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "SETTINGS": {
     "THEME_TITLE": "Aparença",
@@ -163,13 +161,13 @@
     "CREATION_LI4_TITLE": "Documentació Clara:",
     "CREATION_LI4_TEXT": "Proporciona instruccions detallades i fàcils d'entendre, idealment en múltiples formats (text, àudio, pictogrames).",
     "BLOCKLY_TITLE": "Programació per Blocs (Blockly) i Discapacitat",
-    "BLOCKLY_P1": "Les interfícies de programació per blocs, com la que utilitza MakeCode per a Micro:bit, són una eina poderosa per a l'accessibilitat. La seva naturalesa visual i intuïtiva redueix barreres significatives:",
+    "BLOCKLY_P1": "Les interfícies de programació per blocs, com la que utilitza MakeCode per a Micro:bit, són una eina poderosa per a l'accessibilitat. La seva naturalesa visual i intuitiva redueix barreres significatives:",
     "BLOCKLY_OVERCOME_TITLE": "Barreres Superades:",
     "BLOCKLY_OVERCOME_LI1_TITLE": "Discapacitat visual (baixa visió):",
     "BLOCKLY_OVERCOME_LI1_TEXT": "Encara que les interfícies visuals poden ser un repte, l'ús d'una codificació de blocs segons colors fa que els usuaris amb una baixa visió puguin reconèixer de forma més ràpida i senzilla la tipologia de bloc que està utilitzant.",
     "BLOCKLY_OVERCOME_LI2_TITLE": "Discapacitat motriu:",
-    "BLOCKLY_OVERCOME_LI2_TEXT": "La manipulació de blocs és sovint més senzilla que teclejar codi, especialment amb adaptacions de ratolí o teclat. La funció d'arrossegar i deixar anar pot ser substituïda per navegació per teclat per a aquells que no poden usar un ratolí.",
-    "BLOCKLY_OVERCOME_LI3_TITLE": "Discapacitat cognitiva i d'aprenentatge:",
+    "BLOCKLY_OVERCOME_LI2_TEXT": "La manipulació de blocs és sovint més senzilla que teclejar codi, especialment com adaptacions de ratolí o teclat. La funció d'arrossegar i deixar anar pot ser substituïda per navegació per teclat per a aquells que no poden usar un ratolí.",
+    "BLOCKLY_OVERCOME_LI3_TITLE": "Discapacidad cognitiva i d'aprenentatge:",
     "BLOCKLY_OVERCOME_LI3_TEXT": "La representació visual del codi redueix la càrrega cognitiva, al no requerir memoritzar sintaxi complexa. Els blocs guien a l'usuari a través de l'estructura lògica del programa.",
     "BLOCKLY_CHALLENGES_TITLE": "Desafiaments Actuals:",
     "BLOCKLY_CHALLENGES_LI1_TITLE": "Lectors de Pantalla:",
@@ -182,7 +180,7 @@
     "BLOCKLY_CHALLENGES_LI4_TEXT": "No sempre es disposa de documentació i exemples de projectes que estiguin dissenyats específicament pensant en l'accessibilitat.",
     "PYTHON_TITLE": "Programació per Codi (Micro:bit Python Editor)",
     "PYTHON_P1": "Enfront de la programació mitjançant blocs pot utilitzar-se la programació mitjançant codi (microPython o JavaScript). Aquesta programació, en tractar-se de text pla, és altament accessible per als lectors de pantalla.",
-    "PYTHON_P2": "El problema que representa aquesta programació és que els usuaris han de tenir un coneixement mínim del llenguatge de programació, per la qual cosa se'ls ha d'ensenyar el llenguatge i els conceptes alhora. Això no succeeix amb la programació per blocs en no ser necessari un coneixement del llenguatge i on es treballen principalment els conceptes de programació com variables, constants, bucles, etcètera.",
+    "PYTHON_P2": "El problema que representa aquesta programació és que els usuaris han de tenir un coneixement mínim del llenguatge de programació, per la qual mara se'ls ha d'ensenyar el llenguatge i els conceptes alhora. Això no succeeix amb la programació per blocs en no ser necessari un coneixement del llenguatge i on es treballen principalment els conceptes de programació com variables, constants, bucles, etcètera.",
     "PYTHON_P3": "L'únic procediment en l'actualitat per minimitzar aquesta frontera (coneixement del llenguatge) és la creació de blocs de programació on l'alumne només hagi de substituir o completar part de codi. La creació en codi de l'esquelet dels blocs de programació seria l'única opció actual per assegurar un accés del 100% mitjançant un lector de pantalla.",
     "PYTHON_P4": "Fomentar la programació accessible no només beneficia a les persones amb discapacitat, sinó que millora l'experiència per a tots els usuaris, promovent una cultura de disseny inclusiu en l'àmbit de la tecnologia.",
     "PYTHON_P5": "A continuació es mostren dos exemples, un exemple on la resposta de la Micro:bit només es fa mitjançant el display i un altre, més accessible, on la sortida de la informació es realitza mitjançant el display i es reforça amb una sortida sonora.",
@@ -195,5 +193,91 @@
     "MODAL_ACCESSIBLE_H2": "Videoclip (Accessible)",
     "MODAL_ACCESSIBLE_P": "Aquí aniria el videoclip de l'exemple accessible.",
     "MODAL_CODE_TITLE": "Codi"
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad",
+  "SETTINGS_TITLE": "Configuración",
+  "SETTINGS": {
+    "TITLE": "Configuración",
+    "DESCRIPTION": "Aquí puedes ajustar las configuraciones de la aplicación.",
+    "DARK_MODE": "Modo Oscuro",
+    "THEME_TITLE": "Apariencia",
+    "DARK_MODE_TOGGLE": "Modo Oscuro",
+    "FONT_FAMILY_SELECT": "Tipus de Lletra",
+    "FONT_SIZE_SELECT": "Mida de Letra",
+    "FONT_SIZE_SMALL": "Petita",
+    "FONT_SIZE_MEDIUM": "Mitjana",
+    "FONT_SIZE_LARGE": "Gran",
+    "ANIMATIONS_TOGGLE": "Desactivar Animacions",
+    "LANGUAGE_SELECT": "Idioma"
+  },
+  "MICROPYTHON_PAGE": {
+    "H1": "Curso de Programación en MicroPython para Micro:bit (Énfasis en Accesibilidad)",
+    "H2_INTRO": "Introducción a MicroPython y Micro:bit",
+    "P_INTRO": "Este curso te introducirá al emocionante mundo de la programación con MicroPython en la placa Micro:bit. Aprenderás a crear proyectos interactivos, con un enfoque especial en cómo hacerlos accesibles para todos los usuarios, independientemente de sus capacidades. La Micro:bit es una pequeña computadora programable diseñada para hacer que el aprendizaje de la programación sea divertido y accesible. Con MicroPython, un dialecto optimizado de Python para microcontroladores, podrás escribir código de manera sencilla y eficiente.",
+    "H2_MODULE1": "Módulo 1: Primeros Pasos y Salidas Accesibles",
+    "H3_MODULE1_BASIC": "Conceptos Básicos de MicroPython",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "H3_MODULE1_LED": "Mostrando Texto en la Pantalla LED (con consideraciones de Accesibilidad)",
+    "P_MODULE1_LED": "Aprenderemos a usar la matriz de LEDs de la Micro:bit para mostrar mensajes. Es crucial considerar que los usuarios con discapacidad visual podrían no percibir esta salida. Más adelante, exploraremos métodos alternativos para comunicar la información.",
+    "H2_MODULE2": "Módulo 2: Entradas Interactivas y Retroalimentación Multisensorial",
+    "H3_MODULE2_INPUTS": "Uso de Botones y Entradas Digitales",
+    "P_MODULE2_INPUTS": "Exploraremos cómo los botones A y B, así como las entradas digitales, pueden ser utilizados para interactuar con nuestros programas. Para la accesibilidad, consideraremos cómo estas entradas pueden ser adaptadas o complementadas.",
+    "H3_MODULE2_SOUND": "Integrando Sonido para Retroalimentación",
+    "P_MODULE2_SOUND": "La retroalimentación auditiva es fundamental para la accesibilidad. Aprenderemos a usar el zumbador (o altavoz externo) para proporcionar sonidos que refuercen la información visual o la sustituyan completamente para usuarios con discapacidad visual. Por ejemplo, si un juego requiere que el usuario presione un botón, una combinación de una flecha visual en la pantalla LED y un sonido distintivo al presionar el botón puede mejorar significativamente la experiencia para todos.",
+    "H2_MODULE3": "Módulo 3: Sensores y Adaptaciones para Diversidad Funcional",
+    "H3_MODULE3_SENSORS": "Lectura de Sensores (Acelerómetro, Brújula, Temperatura)",
+    "P_MODULE3_SENSORS": "La Micro:bit cuenta con varios sensores incorporados que nos permiten interactuar con el entorno. Aprenderemos a leer datos del acelerómetro (para detectar movimiento), la brújula (para la orientación) y el sensor de temperatura.",
+    "H3_MODULE3_ADAPTATIONS": "Adaptaciones de Sensores para Accesibilidad",
+    "P_MODULE3_ADAPTATIONS": "Analizaremos cómo los datos de los sensores pueden ser utilizados para crear interacciones alternativas. Por ejemplo, un programa que se activa al inclinar la Micro:bit podría ser más accesible para personas con movilidad reducida que un botón tradicional. Además, veremos cómo la información obtenida de los sensores puede ser traducida a salidas multisensoriales (visual, auditiva, táctil).",
+    "H2_CONCLUSIONS": "Conclusiones y Próximos Pasos",
+    "P_CONCLUSIONS": "Este curso ha cubierto las bases de la programación en MicroPython con un fuerte énfasis en el diseño accesible. Recuerda que la accesibilidad no es una característica adicional, sino un principio fundamental para crear tecnología inclusiva. ¡Anímate a explorar más proyectos y a seguir aprendiendo cómo hacer la tecnología accesible para todos!"
+  },
+  "REPOSITORIO_PAGE": {
+    "CONTENT": "Contenido de la página Repositorio."
+  },
+  "ACCESSIBILITY_EVALUATOR_PAGE": {
+    "H2": "Editor de Código MicroPython con Énfasis en Accesibilidad",
+    "P": "Introduce tu código MicroPython para Micro:bit en el área de texto. El editor te ayudará a visualizar cómo se ve el código y te permitirá comprobar su accesibilidad.",
+    "TEXTAREA_PLACEHOLDER": "Escribe tu código MicroPython aquí...",
+    "EVALUATION_RESULTS_H3": "Resultado de la evaluación",
+    "SCORE": "Puntuación",
+    "IMPROVEMENT": "Mejora",
+    "REDUNDANCY_DETECTED": "Redundancia de entrada detectada",
+    "YES": "Sí",
+    "NO": "No",
+    "ERRORS": "Errores",
+    "WARNINGS": "Advertencias",
+    "CODE_PREVIEW_H3": "Previsualización del Código"
+  },
+  "VALIDATOR": {
+    "AUDIO_FEEDBACK": {
+      "SUCCESS_MESSAGE": "Multimodalidad: S'ha detectat la importació d'àudio.",
+      "SUCCESS_MESSAGE_2": "Multimodalidad: S'ha detectat la sortida d'àudio.",
+      "ERROR_MESSAGE": "Falta sortida de so.",
+      "ERROR_SUGGESTION": "Afegeix 'speech.say('[string]')', 'music.play(music.[song])' o 'music.([number])' perquè els usuaris amb discapacitat visual rebin informació.",
+      "ERROR_SUGGESTION_2": "Importa 'speech' o 'music' perquè els usuaris amb discapacitat visual rebin informació.",
+      "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Només fas servir display.show() sense sortida d'àudio.",
+      "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Afegeix 'import speech' o 'import music' i utilitza 'speech.say()' o 'music.play()' per proporcionar retroalimentació auditiva als usuaris amb discapacitat visual."
+    },
+    "BLOCKING_LOOPS": {
+      "WARNING_MESSAGE": "S'ha detectat un bucle de bloqueig.",
+      "WARNING_SUGGESTION": "Fas servir sleep() molt llargs. Això impedeix que la Micro:bit reaccioni ràpidament als botons o a les ordres de veu."
+    },
+    "INPUT_REDUNDANCY": {
+      "SUCCESS_MESSAGE": "Entrada accessible: Utilitzes sensors tàctils o de moviment.",
+      "ERROR_MESSAGE": "Només fas servir botons físics.",
+      "ERROR_SUGGESTION": "Afegeix 'pin_logo.is_touched()' per facilitar l'ús a persones amb dificultat motriu."
+    },
+    "COMPLEX_PRESSES": {
+      "WARNING_MESSAGE": "S'ha detectat una premuda complexa.",
+      "WARNING_SUGGESTION": "Evita sol·licitar la premuda simultània de dos botons o un botó i el logotip, ja que dificulta la interacció per a usuaris amb certes discapacitats motrius.",
+      "SUCCESS_MESSAGE": "Premudes simples: No s'han detectat premudes complexes."
+    },
+    "CODE_SEMANTICS": {
+      "SUCCESS_MESSAGE": "Semàntica: Les variables tenen noms descriptius.",
+      "WARNING_MESSAGE": "Noms de variables genèrics.",
+      "WARNING_SUGGESTION": "Utilitza noms com 'estat_alarma' en lloc de 'a' per facilitar la lectura amb lectors de pantalla."
+    }
   }
 }

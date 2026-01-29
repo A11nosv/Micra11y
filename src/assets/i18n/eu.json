@@ -7,13 +7,14 @@
   },
   "MICROBIT_PAGE": {
     "TITLE": "Micro:bit Proiektuak",
+    "OPEN_PROJECT_PREFIX": "Ireki proiektua ",
     "PROJECTS": {
       "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Programazio Irisgarria",
         "DESCRIPTION": "Arakatu Micro:bit programazioa modu irisgarrian."
       },
       "COUNTDOWN": {
-        "TITLE": "The Final Countdown",
+        "TITLE": "Azken Atzerako Kontaketa",
         "DESCRIPTION": "Atzerako kontaketa pertsonalizagarria."
       },
       "DUEL": {
@@ -132,5 +133,101 @@
     "FONT_SIZE_LARGE": "Handia",
     "ANIMATIONS_TOGGLE": "Animazioak Desgaitu",
     "LANGUAGE_SELECT": "Hizkuntza"
+  },
+  "ACCESSIBLE_PROGRAMMING": {
+    "TITLE": "Programazio Irisgarria",
+    "H1": "Micro:bit-ekin Programazio Irisgarria",
+    "INTRO_P1": "Micro:bit-ekin programatzeak aukera bikaina eskaintzen du adin eta gaitasun guztietako pertsonak teknologiaren munduan sartzeko. Hala ere, benetan inklusiboa dela ziurtatzeko, funtsezkoa da irisgarritasuna proiektuen diseinu fasetik kontuan hartzea.",
+    "INTRO_P2": "Irisgarritasuna ezin da proiektuaren amaieran gehitzen den adabaki bat izan, baldintza bat bete edo onurak lortu nahian.",
+    "CREATION_TITLE": "Micro:bit-erako Proiektu Irisgarriak Sortzea",
+    "CREATION_P1": "Micro:bit-ekin proiektu irisgarriak sortzeko, garrantzitsua da hainbat alderdi kontuan hartzea:",
+    "CREATION_LI1_TITLE": "Zentzumen Anitzeko Feedback-a:",
+    "CREATION_LI1_TEXT": "LED pantaila ez ezik, soinua ere erabili (Micro:bit modeloak ahalbidetzen badu edo bozgorailu batera konektatuta badago) informazioa emateko. Adibidez, joko batek soinu bat eman dezake ondo asmatzean eta beste bat gaizki asmatzean.",
+    "CREATION_LI2_TITLE": "Sarrera Alternatiboak:",
+    "CREATION_LI2_TEXT": "A eta B botoietatik haratago aukerak kontuan hartu. Micro:bit-eko pinak kanpoko sentsoreetara edo egokitutako botoietara konektatu daitezke, mugikortasun murriztua duten pertsonentzat interakzioa erraztuz. Beste aukera bat Micro:bit-eko azelerometroa erabiltzea da.",
+    "CREATION_LI3_TITLE": "Argi eta Sinpletasuna:",
+    "CREATION_LI3_TEXT": "Programak ahalik eta sinple eta argien mantendu. Saihestu ekintza-sekuentzia konplexuak, zailtasun kognitiboak edo memoria-arazoak dituzten erabiltzaileak nahasi ditzaketenak.",
+    "CREATION_LI4_TITLE": "Dokumentazio Argi eta Garbia:",
+    "CREATION_LI4_TEXT": "Instrukzio zehatzak eta erraz ulertzeko modukoak eman, ahal izanez gero formatu anitzetan (testu, audio, piktogramak).",
+    "BLOCKLY_TITLE": "Bloke bidezko Programazioa (Blockly) eta Desgaitasuna",
+    "BLOCKLY_P1": "Bloke bidezko programazio interfazeak, hala nola Micro:bit-erako MakeCode-k erabiltzen duena, tresna indartsua dira irisgarritasunerako. Beraien izaera bisual eta intuitiboak oztopo garrantzitsuak murrizten ditu:",
+    "BLOCKLY_OVERCOME_TITLE": "Gainditutako Oztopoak:",
+    "BLOCKLY_OVERCOME_LI1_TITLE": "Ikusmen urritasuna (ikusmen baxua):",
+    "BLOCKLY_OVERCOME_LI1_TEXT": "Nahiz eta interfaze bisualak erronka izan daitezkeen, kolore-kodea duten blokeak erabiltzeak ikusmen baxua duten erabiltzaileei erabiltzen ari diren bloke mota azkarrago eta errazago antzematea ahalbidetzen die.",
+    "BLOCKLY_OVERCOME_LI2_TITLE": "Mugikortasun urritasuna:",
+    "BLOCKLY_OVERCOME_LI2_TEXT": "Blokeak manipulatzea kodea idaztea baino errazagoa izan ohi da, batez ere sagu edo teklatu egokitzapenekin. Arrastatu eta jaregin funtzioa teklatu bidezko nabigazioarekin ordezkatu daiteke sagua erabili ezin dutenentzat.",
+    "BLOCKLY_OVERCOME_LI3_TITLE": "Gaitasun kognitibo eta ikaskuntza urritasunak:",
+    "BLOCKLY_OVERCOME_LI3_TEXT": "Kodearen irudikapen bisualak karga kognitiboa murrizten du, sintaxi konplexuak memorizatu beharrik ez izatean. Blokeek erabiltzailea programaren egitura logikoan gidatzen dute.",
+    "BLOCKLY_CHALLENGES_TITLE": "Egungo Erronkak:",
+    "BLOCKLY_CHALLENGES_LI1_TITLE": "Pantaila-irakurgailuak:",
+    "BLOCKLY_CHALLENGES_LI1_TEXT": "Askotan, arrastatu eta jaregin interfazeak ez dira guztiz bateragarriak pantaila-irakurgailuekin, eta horrek interakzioa zailtzen die itsuei edo ikusmen baxu larria duten pertsonei.",
+    "BLOCKLY_CHALLENGES_LI2_TITLE": "Teklatu bidezko Nabigazioa:",
+    "BLOCKLY_CHALLENGES_LI2_TEXT": "Teklatu bidezko nabigazio osoa eta eraginkorra ez da beti ezin hobeto inplementatuta egoten bloke bidezko programazio plataforma guztietan.",
+    "BLOCKLY_CHALLENGES_LI3_TITLE": "Pertsonalizazioa:",
+    "BLOCKLY_CHALLENGES_LI3_TEXT": "Pertsonalizazio aukerarik eza (letra-tamaina, kolore-kontrastea, animazioak kentzea) erabiltzaileei eragin diezaieke ikusmen edo kognitibo behar desberdinak dituztenei.",
+    "BLOCKLY_CHALLENGES_LI4_TITLE": "Dokumentazioa eta Adibideak:",
+    "BLOCKLY_CHALLENGES_LI4_TEXT": "Ez dago beti irisgarritasuna kontuan hartuta diseinatutako proiektuen dokumentazio eta adibiderik eskuragarri.",
+    "PYTHON_TITLE": "Kode bidezko Programazioa (Micro:bit Python Editorea)",
+    "PYTHON_P1": "Bloke bidezko programazioaren alternatiba gisa, kode bidezko programazioa (MicroPython edo JavaScript) erabil daiteke. Programazio mota hau, testu hutsa denez, oso irisgarria da pantaila-irakurgailuentzat.",
+    "PYTHON_P2": "Programazio mota honekin dagoen arazoa da erabiltzaileek programazio lengoaiaren gutxieneko ezagutza izan behar dutela, beraz, lengoaia eta kontzeptuak aldi berean irakatsi behar zaizkie. Hau ez da gertatzen bloke bidezko programazioarekin, lengoaiaren ezagutza ez baita beharrezkoa eta lantzen diren kontzeptu nagusiak programazio kontzeptuak dira, hala nola aldagaiak, konstanteak, begiztak, etab.",
+    "PYTHON_P3": "Gaur egun oztopo hau (lengoaiaren ezagutza) minimizatzeko dagoen prozedura bakarra programazio blokeak sortzea da, non ikasleak kodearen zati bat ordezkatu edo osatu besterik ez duen. Programazio blokeen hezurdura kodean sortzea litzateke pantaila-irakurgailu baten bidez %100eko sarbidea bermatzeko aukera bakarra.",
+    "PYTHON_P4": "Programazio irisgarria sustatzeak ez die bakarrik desgaitasuna duten pertsonei mesede egiten, baizik eta erabiltzaile guztientzat esperientzia hobetzen du, teknologiaren arloan diseinu inklusiboaren kultura sustatuz.",
+    "PYTHON_P5": "Jarraian bi adibide erakusten dira: bata, Micro:bit-en erantzuna pantailaren bidez bakarrik egiten dena, eta bestea, irisgarriagoa dena, non informazioaren irteera pantailaren bidez egiten den eta soinu irteera batekin indartzen den.",
+    "MODAL_NON_ACCESSIBLE_TITLE": "Adibide Ez Irisgarria",
+    "MODAL_CLOSE": "Itxi",
+    "MODAL_NON_ACCESSIBLE_H2": "Bideoklipa (Ez Irisgarria)",
+    "MODAL_NON_ACCESSIBLE_P": "Hemen joango litzateke adibide ez irisgarriaren bideoklipa.",
+    "MODAL_VIEW_CODE": "Kodea Ikusi",
+    "MODAL_ACCESSIBLE_TITLE": "Adibide Irisgarria",
+    "MODAL_ACCESSIBLE_H2": "Bideoklipa (Irisgarria)",
+    "MODAL_ACCESSIBLE_P": "Hemen joango litzateke adibide irisgarriaren bideoklipa.",
+    "MODAL_CODE_TITLE": "Kodea"
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Irisgarritasun Ebaluatzailea",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Irisgarritasuna Egiaztatu",
+  "SETTINGS_TITLE": "Ezarpenak",
+  "ACCESSIBILITY_EVALUATOR_PAGE": {
+    "H2": "MicroPython Kode Editorea Irisgarritasunean Azpimarra Jarriz",
+    "P": "Sartu zure MicroPython kodea Micro:bit-erako testu-eremuan. Editoreak kodea nola ikusten den ikusten lagunduko dizu eta irisgarritasuna egiaztatzeko aukera emango dizu.",
+    "TEXTAREA_PLACEHOLDER": "Idatzi zure MicroPython kodea hemen...",
+    "EVALUATION_RESULTS_H3": "Ebaluazioaren Emaitza",
+    "SCORE": "Puntuazioa",
+    "IMPROVEMENT": "Hobekuntza",
+    "REDUNDANCY_DETECTED": "Sarrera erredundantzia detektatua",
+    "YES": "Bai",
+    "NO": "Ez",
+    "ERRORS": "Erroreak",
+    "WARNINGS": "Abisuak",
+    "CODE_PREVIEW_H3": "Kodearen Aurrebista"
+  },
+  "VALIDATOR": {
+    "AUDIO_FEEDBACK": {
+      "SUCCESS_MESSAGE": "Modu anitzekoa: Audio inportazioa detektatu da.",
+      "SUCCESS_MESSAGE_2": "Modu anitzekoa: Audio irteera detektatu da.",
+      "ERROR_MESSAGE": "Soinu irteera falta da.",
+      "ERROR_SUGGESTION": "Gehitu 'speech.say(\"[string]\")', 'music.play(music.[song])' edo 'music.([number])' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko.",
+      "ERROR_SUGGESTION_2": "Inportatu 'speech' edo 'music' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko.",
+      "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Display.show() bakarrik erabiltzen ari zara audio irteerarik gabe.",
+      "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Gehitu 'import speech' edo 'import music' eta erabili 'speech.say()' edo 'music.play()' ikusmen urritasuna duten erabiltzaileei entzumen feedback-a emateko."
+    },
+    "BLOCKING_LOOPS": {
+      "WARNING_MESSAGE": "Blokeo-begizta detektatu da.",
+      "WARNING_SUGGESTION": "Sleep() oso luzeak erabiltzen ari zara. Horrek Micro:bit-ak botoiei edo ahots-komandoei azkar erantzutea eragozten du."
+    },
+    "INPUT_REDUNDANCY": {
+      "SUCCESS_MESSAGE": "Sarrera irisgarria: Ukimen edo mugimendu sentsoreak erabiltzen dituzu.",
+      "ERROR_MESSAGE": "Botoi fisikoak bakarrik erabiltzen dituzu.",
+      "ERROR_SUGGESTION": "Gehitu 'pin_logo.is_touched()' mugikortasun arazoak dituzten pertsonentzat erabilera errazteko."
+    },
+    "COMPLEX_PRESSES": {
+      "WARNING_MESSAGE": "Sakadura konplexua detektatu da.",
+      "WARNING_SUGGESTION": "Saihestu bi botoi edo botoi bat eta logoa aldi berean sakatzea eskatzea, horrek interakzioa zailtzen baitu mugikortasun urritasun zehatzak dituzten erabiltzaileentzat.",
+      "SUCCESS_MESSAGE": "Sakadura sinpleak: Ez da sakadura konplexurik detektatu."
+    },
+    "CODE_SEMANTICS": {
+      "SUCCESS_MESSAGE": "Semantika: Aldagaiek izen deskribatzaileak dituzte.",
+      "WARNING_MESSAGE": "Aldagai izen generikoak.",
+      "WARNING_SUGGESTION": "Erabili 'alarm_status' bezalako izenak 'a' ordez, pantaila-irakurgailuek irakurtzea errazteko."
+    }
   }
 }

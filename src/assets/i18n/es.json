@@ -239,5 +239,33 @@
     "ERRORS": "Errores",
     "WARNINGS": "Advertencias",
     "CODE_PREVIEW_H3": "Previsualización del Código"
+  },
+  "VALIDATOR": {
+    "AUDIO_FEEDBACK": {
+      "SUCCESS_MESSAGE": "Multimodalidad: Se detectó importación de audio.",
+      "SUCCESS_MESSAGE_2": "Multimodalidad: Se detectó salida de audio.",
+      "ERROR_MESSAGE": "Falta salida sonora.",
+      "ERROR_SUGGESTION": "Añade 'speech.say('[string]')', 'music.play(music.[song])' o 'music.([number])'  para que usuarios con discapacidad visual reciban información.",
+      "ERROR_SUGGESTION_2": "Importa 'speech' o 'music' para que usuarios con discapacidad visual reciban información."
+    },
+    "BLOCKING_LOOPS": {
+      "WARNING_MESSAGE": "Bucle bloqueante detectado.",
+      "WARNING_SUGGESTION": "Usas sleep() muy largos. Esto impide que la Micro:bit reaccione a botones o comandos de voz rápidamente."
+    },
+    "INPUT_REDUNDANCY": {
+      "SUCCESS_MESSAGE": "Entrada accesible: Usas sensores táctiles o de movimiento.",
+      "ERROR_MESSAGE": "Solo usas botones físicos.",
+      "ERROR_SUGGESTION": "Añade 'pin_logo.is_touched()' para facilitar el uso a personas con dificultad motriz."
+    },
+    "COMPLEX_PRESSES": {
+      "WARNING_MESSAGE": "Pulsación compleja detectada.",
+      "WARNING_SUGGESTION": "Evita solicitar la pulsación simultánea de dos botones o un botón y el logo, ya que dificulta la interacción para usuarios con ciertas discapacidades motrices.",
+      "SUCCESS_MESSAGE": "Pulsaciones simples: No se detectaron pulsaciones complexas."
+    },
+    "CODE_SEMANTICS": {
+      "SUCCESS_MESSAGE": "Semántica: Las variables tienen nombres descriptivos.",
+      "WARNING_MESSAGE": "Nombres de variables genéricos.",
+      "WARNING_SUGGESTION": "Usa nombres como 'estado_alarma' en lugar de 'a' para facilitar la lectura con lectores de pantalla."
+    }
   }
 }

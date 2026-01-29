@@ -239,5 +239,35 @@
     "ERRORS": "Errors",
     "WARNINGS": "Warnings",
     "CODE_PREVIEW_H3": "Code Preview"
+  },
+  "VALIDATOR": {
+    "AUDIO_FEEDBACK": {
+      "SUCCESS_MESSAGE": "Multimodality: Audio import detected.",
+      "SUCCESS_MESSAGE_2": "Multimodality: Audio output detected.",
+      "ERROR_MESSAGE": "Missing sound output.",
+      "ERROR_SUGGESTION": "Add 'speech.say(\"[string]\")', 'music.play(music.[song])' or 'music.([number])' for visually impaired users to receive information.",
+      "ERROR_SUGGESTION_2": "Import 'speech' or 'music' for visually impaired users to receive information.",
+      "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "You are only using display.show() without audio output.",
+      "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Add 'import speech' or 'import music' and use 'speech.say()' or 'music.play()' to provide auditory feedback for visually impaired users."
+    },
+    "BLOCKING_LOOPS": {
+      "WARNING_MESSAGE": "Blocking loop detected.",
+      "WARNING_SUGGESTION": "You are using very long sleep(). This prevents the Micro:bit from reacting quickly to buttons or voice commands."
+    },
+    "INPUT_REDUNDANCY": {
+      "SUCCESS_MESSAGE": "Accessible input: You use touch or motion sensors.",
+      "ERROR_MESSAGE": "You only use physical buttons.",
+      "ERROR_SUGGESTION": "Add 'pin_logo.is_touched()' to make it easier for people with motor difficulties to use."
+    },
+    "COMPLEX_PRESSES": {
+      "WARNING_MESSAGE": "Complex press detected.",
+      "WARNING_SUGGESTION": "Avoid requesting the simultaneous pressing of two buttons or a button and the logo, as this makes interaction difficult for users with certain motor disabilities.",
+      "SUCCESS_MESSAGE": "Simple presses: No complex presses were detected."
+    },
+    "CODE_SEMANTICS": {
+      "SUCCESS_MESSAGE": "Semantics: Variables have descriptive names.",
+      "WARNING_MESSAGE": "Generic variable names.",
+      "WARNING_SUGGESTION": "Use names like 'alarm_status' instead of 'a' to make it easier for screen readers to read."
+    }
   }
 }

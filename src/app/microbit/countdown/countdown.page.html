@@ -24,23 +24,25 @@
       {{ 'COUNTDOWN_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
     </video>
 
-    <h2>{{ 'COUNTDOWN_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
-    <p>{{ 'COUNTDOWN_PAGE.INTRODUCTION_TEXT' | translate }}</p>
+    <h2>{{ 'COUNTDOWN_PAGE.INTRODUCTION_H2' | translate }}</h2>
+    <p>{{ 'COUNTDOWN_PAGE.INTRODUCTION_P' | translate }}</p>
 
-    <h2>{{ 'COUNTDOWN_PAGE.MATERIALS_TITLE' | translate }}</h2>
+    <h2>{{ 'COUNTDOWN_PAGE.MATERIALS_H2' | translate }}</h2>
     <ul>
-      <li *ngFor="let item of ('COUNTDOWN_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
+      <li>{{ 'COUNTDOWN_PAGE.MATERIAL_MICROBIT' | translate }}</li>
+      <li>{{ 'COUNTDOWN_PAGE.MATERIAL_ITEM_1' | translate }}</li>
+      <li>{{ 'COUNTDOWN_PAGE.MATERIAL_ITEM_2' | translate }}</li>
     </ul>
 
-    <h2>{{ 'COUNTDOWN_PAGE.STEPS_TITLE' | translate }}</h2>
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_1_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_1_TEXT' | translate }}</p>
+    <h2>{{ 'COUNTDOWN_PAGE.STEPS_H2' | translate }}</h2>
+    <h3>{{ 'COUNTDOWN_PAGE.STEP_1_H3' | translate }}</h3>
+    <p>{{ 'COUNTDOWN_PAGE.STEP_1_P' | translate }}</p>
 
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_2_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_2_TEXT' | translate }}</p>
+    <h3>{{ 'COUNTDOWN_PAGE.STEP_2_H3' | translate }}</h3>
+    <p>{{ 'COUNTDOWN_PAGE.STEP_2_P' | translate }}</p>
     <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
 
-    <h3>{{ 'COUNTDOWN_PAGE.STEP_3_TITLE' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_3_TEXT' | translate }}</p>
+    <h3>{{ 'COUNTDOWN_PAGE.STEP_3_H3' | translate }}</h3>
+    <p>{{ 'COUNTDOWN_PAGE.STEP_3_P' | translate }}</p>
   </div>
 </ion-content>
