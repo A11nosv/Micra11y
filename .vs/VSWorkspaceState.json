@@ -4,8 +4,9 @@
     "\\src",
     "\\src\\app",
     "\\src\\app\\evaluador-accesibilidad",
-    "\\src\\assets"
+    "\\src\\assets",
+    "\\src\\assets\\i18n"
   ],
-  "SelectedNode": "\\src\\app\\evaluador-accesibilidad\\evaluador-accesibilidad.page.ts",
+  "SelectedNode": "\\testacce.ts",
   "PreviewInSolutionExplorer": false
 }

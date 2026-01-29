@@ -14,7 +14,7 @@
         "DESCRIPTION": "Explora la programació de Micro:bit de forma accessible."
       },
       "COUNTDOWN": {
-        "TITLE": "La Cuenta Atrás Final",
+        "TITLE": "El Compte Enrere Final",
         "DESCRIPTION": "Un compte enrere personalitzable."
       },
       "DUEL": {
@@ -32,18 +32,6 @@
       "HEARTBEAT": {
         "TITLE": "El Batec de la Micro:bit",
         "DESCRIPTION": "Visualitza el batec de la teva placa."
-      },
-      "DUEL": {
-        "TITLE": "Duel al Sol",
-        "DESCRIPTION": "Un joc de reflexos per a dos jugadors."
-      },
-      "HEARTBEAT": {
-        "TITLE": "El Batec de la Micro:bit",
-        "DESCRIPTION": "Visualitza el batec de la teva placa."
-      },
-      "RPS": {
-        "TITLE": "Pedra, Paper, Tisora",
-        "DESCRIPTION": "El clàssic joc, ara a la teva Micro:bit."
       }
     }
   },
@@ -103,7 +91,7 @@
     "STEPS_TITLE": "Passos",
     "STEP_1_TITLE": "Pas 1: Importació de mòduls",
     "STEP_1_TEXT": "Per crear el nostre projecte començarem, com sempre, important els mòduls necessaris, que en aquest cas serà només el de Micro:bit.",
-    "STEP_1_TEXT_1":"Un cop importat el mòdul començarem el bucle de l’aplicació amb un bucle while de la següent manera:",
+    "STEP_1_TEXT_1": "Un cop importat el mòdul començarem el bucle de l’aplicació amb un bucle while de la següent manera:",
     "STEP_1_TEXT_2": "Els bucles while s’executen sempre que la condició sigui certa. D’aquest forma, si creem un bucle while True, estem creant un bucle infinit ja que la condició d’inicialització del bucle sempre serà certa.",
     "STEP_1_TEXT_3": "Un cop creat el bucle que controlarà l’execució del projecte, hem de crear dos bucles if. Un pel botó A i un altre pel botó B. El bucle pel botó serà:",
     "STEP_1_TEXT_4": "Segons aquest bucle, quan es pitgi el botó A apareixerà en pantalla un fletxa indicant que el botó A ha sigut el primer en ser pitjat.",
@@ -119,7 +107,7 @@
     "STEP_3_TITLE": "Afegint un compte enrere",
     "STEP_3_TEXT": "El primer que hem de fer és afegir la declaració d’una variable a sota del bloc dels imports, però iniciant la variable a 3. D’aquesta forma escriurem:",
     "STEP_3_TEXT_1": "El següent pas serà escriure el bucle for dins del bucle while de la següent forma:",
-    "STEP_3_TEXT_2":"Si executem el codi del projecte veurem que el compte enrere és infinit, i un cop s’arriba al zero es continua comptant en nombre negatius.",
+    "STEP_3_TEXT_2": "Si executem el codi del projecte veurem que el compte enrere és infinit, i un cop s’arriba al zero es continua comptant en nombre negatius.",
     "STEP_3_TEXT_3": "Per que això no succeeixi s’ha de fer segon bucle while niat, és a dir, un bucle while dins un altre bucle while. El codi anterior quedarà de la següent forma:",
     "STEP_3_TEXT_4": "Al niar un bucle while, estem fent que el bucle for s’executi dins el segon bucle while. Aquest segon bucle while només s’executarà quan el valor d’i sigui superior a menys 1 (–1). En el moment en que el valor de la variable sigui zero (0), es mostrarà el valor en pantalla, s’emetrà un so i es sortirà d’aquest bucle while; continuant-se l’execució del bucle while inicial.",
     "STEP_3_TEXT_5": "Una cosa que ens em de fixar és que ara el rang de i és tres (3) i no quatre (4) com abans. El rang s’ha disminuït en un valor per evitar una superposició de dos sons al arribar al valor de zero (0). Amb aquesta modificació s’evita que el zero faci el so de a conta enrere.",
@@ -128,7 +116,7 @@
     "STEP_3_TEXT_8": "El bucle principal del projecte hauria de tenir la següent forma:",
     "STEP_3_TEXT_9": "Si executem ara el codi del nostre projecte ens cridarà l’atenció que al pitjar el botó A o B de la Micro:bit la fletxa es mostra tota l’estona i si es torna a pitjar una altre cop, la fletxa modifica el seu sentit depenent del botó pitjar, és a dir, no es torna a realitzar una conta enrere.",
     "STEP_3_TEXT_10": "El que es vol és que es torni a iniciar el conta enrere per tornar a jugar. Anem a veure com ho podem fer.",
-    "STEP_3_TITLE": "Reiniciant el compte enrere",
+    "STEP_4_TITLE": "Reiniciant el compte enrere",
     "STEP_4_TEXT": "El primer que hem de fer és redefinir el bucle while intern i convertir-lo en una funció. Les funcions són blocs de codi que es poden utilitzar i que s’han de declarar abans de la seva utilització. Si es declara desprès de la seva utilització el programa ens retornarà un error.",
     "STEP_4_TEXT_1": "Dit això, declararem la funció abans del primer bucle while de la següent forma:",
     "STEP_4_TEXT_2": "Ara que tenim la funció definida, expliquem-la. Per definir una funció sempre s’utilitzarà la paraula reservada def seguida del nom de la funció. En el cas anterior seria def countdown( ). Desprès dels parèntesis s’han d’escriure dos punts ( : ) que indiquen l’inici de la definició de la funció, de igual manera que es fa amb un bucle while, per exemple.",
@@ -159,12 +147,34 @@
     "STEP_6_TEXT_6": "Amb això ja hem aconseguit el nostre marcador. Ara només manca que es mostri al finalitzar la partida.",
     "STEP_6_TEXT_7": "Per fer-ho modificarem el darrer bucle, on es finalitza la partida, afegint les següents línies:",
     "STEP_6_TEXT_8": "Les partides han estat programades per 5 torn. Si volem jugar més torns només hem d’incrementar el valor de la variable turns.",
-    "STEP_7_TITLE": "",
-    "STEP_7_TEXT": "",
-    "STEP_15_TITLE": "Pas 2: El codi",
-    "STEP_15_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_16_TITLE": "Pas 3: Lorem ipsum",
-    "STEP_16_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "STEP_7_TITLE": "Connexió per ràdio",
+    "STEP_7_TEXT": "Per poder connectar dues Micro:bits per ràdio el primer que s’ha de fer és importar el mòdul de ràdio. Per aquest motiu, al bloc dels imports escriurem:",
+    "STEP_7_TEXT_1": "Ara ja podem utilitzar el mòdul per connectar les Micro:bits. Per fer-ho definirem una nova funció a sota de la darrera funció i just abans del bucle principal.",
+    "STEP_8_TITLE": "Connectant les Micro:bits",
+    "STEP_8_TEXT": "La funció per connectar les Micro:bits estarà composta de dues línies i serà de la forma:",
+    "STEP_8_TEXT_1": "A aquest funció estem encenent la ràdio i creant un grup de connexió. En aquest cas al grup li hem donat l’identificador de 4, però no vol dir que s’hagin de vincular 4 Micro:bits al grup. El nombre vindria a ser el canal de connexió del grup de Micro:bits.",
+    "STEP_8_TEXT_2": "Ara ja tenim les Micro:bits aparellades. A aquesta funció no la cridarem des de el bucle while principal, la cridarem des de la funció on_shake( ). Que ara serà de la forma:",
+    "STEP_8_TEXT_3": "Com podem veure, hi ha una nova variable anomenada press i s’han eliminat les variables: game, turns player_a i player_b. També s’ha eliminat la funció btn_pressed(btn, result).",
+    "STEP_8_TEXT_4": "Al haver modificat la funció on_shake(3, press) i retornar una variable, es cridarà a la funció assignant-li el valor de la variable retornada segons:",
+    "STEP_8_TEXT_5": "També modificarem els bucles if quan es pitja un dels botons. Esborrarem els dos bucles anteriors i definirem un únic que s’activarà es cas de pitjar un o un altre botó.",
+    "STEP_8_TEXT_6": "Aquest bucle s’executarà si es pitjar el botó A o B i sempre i quan s’hagi sacsejat la Micro:bit un cop. Aquesta acció es controla mitjançant el valor de la variable press. Quan aquesta és certa (True) es pot executar el bucle; si no ho és, no es podrà executar el bucle.",
+    "STEP_8_TEXT_7": "A dins del bucle escriurem el següent bloc de codi:",
+    "STEP_8_TEXT_8": "Com es pot observar al bloc de codi superior, hi ha noves variables. Anem a veure les seves funcions.",
+    "STEP_9_TITLE": "Les noves variables",
+    "STEP_9_TEXT": "La variable press ja l’hem explicat. Aquesta variable ens permet bloquejar la funció de pitjar els botons A i B.",
+    "STEP_9_TEXT_1": "La variable msg és una nova variable, que hem de declarar just a sota de la variable press i que se li assignarà un valor de True. Aquesta variable fa que no es pugui tornar a sacsejar la Micro:bit per realitzar una altre tirada fins que no s’hagi finalitzat la tirada actual.",
+    "STEP_9_TEXT_2": "Per últim, la variable winner, que es defineix amb un valor inicial de False, la definició es realitza sota de la variable msg. Aquesta variable serveix per enviar un missatge de Micro:bit a Micro:bit i bloquejar l’enviament en cas de rebre un missatge. Això ho veurem al següent bloc.",
+    "STEP_10_TITLE": "Rebent un missatge",
+    "STEP_10_TEXT": "El següent bloc de codi el que fa es veure si hem rebut un missatge. En cas de rebre el missatge, el primer que es fa és bloquejar el codi per evitar que l’altre jugador pugui enviar un missatge. Això es farà modificant el valor de la variable msg. El següent pas es mirar el valor de la variable press i depenent del mateix mostrarà una cara i emetrà un so o un altre",
+    "STEP_11_TITLE": "Guanyador de la tirada",
+    "STEP_11_TEXT": "Al bloc on es mostra que s’ha guanyat la partida s’accedeix depenent del valor de la variable winner. El que farà aquest bloc és mostrar una cara somrient y una música alegra.",
+    "STEP_12_TITLE": "Reiniciant el joc",
+    "STEP_12_TEXT": "Ara ja tenim el joc funcionant i es pot decidir qui ha guanyat la tirada, però hauríem de fer un joc més llarg, on hi hagin al mínim cinc (5) tirades i dir qui és el guanyador la partida. EL guanyador, serà el primer que arribi a tres (3) tirades guanyadores.",
+    "STEP_12_TEXT_1": "Per tant, el que hem de fer es emmagatzemar alguns valors i reiniciar algunes variables per poder tornar a executar el joc. La reinicialització es realitzarà si es porten menys de cinc (5) tirades.",
+    "STEP_12_TEXT_2": "Ara ja només ens queda gravar el codi a dues Micro:bits i iniciar una partida!",
+    "STEPS_TITLE_2": "Pas 2: El codi",
+    "STEPS_TITLE_3": "Pas 3: Evoluciona el codi",
+    "STEP_13_TEXT": "Ja has vist com crear un jc per a dos jugador, ara pensa com evolucionar i afeigr només opcions, com triar el nombre de partides, o afegir un tercer jugador. L imaginació no té límits!"
   },
   "COUNTDOWN_PAGE": {
     "TITLE": "La Cuenta Atrás Final",
@@ -184,7 +194,10 @@
     "STEP_3_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "SETTINGS": {
+    "TITLE": "Configuració",
+    "DESCRIPTION": "Aquí pots ajustar les configuracions de l'aplicació.",
     "THEME_TITLE": "Aparença",
+    "DARK_MODE": "Mode Fosc",
     "DARK_MODE_TOGGLE": "Mode Fosc",
     "FONT_FAMILY_SELECT": "Tipus de Lletra",
     "FONT_SIZE_SELECT": "Mida de Lletra",
@@ -244,22 +257,6 @@
     "MODAL_CODE_TITLE": "Codi"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
-  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad",
-  "SETTINGS_TITLE": "Configuración",
-  "SETTINGS": {
-    "TITLE": "Configuración",
-    "DESCRIPTION": "Aquí puedes ajustar las configuraciones de la aplicación.",
-    "DARK_MODE": "Modo Oscuro",
-    "THEME_TITLE": "Apariencia",
-    "DARK_MODE_TOGGLE": "Modo Oscuro",
-    "FONT_FAMILY_SELECT": "Tipus de Lletra",
-    "FONT_SIZE_SELECT": "Mida de Letra",
-    "FONT_SIZE_SMALL": "Petita",
-    "FONT_SIZE_MEDIUM": "Mitjana",
-    "FONT_SIZE_LARGE": "Gran",
-    "ANIMATIONS_TOGGLE": "Desactivar Animacions",
-    "LANGUAGE_SELECT": "Idioma"
-  },
   "MICROPYTHON_PAGE": {
     "H1": "Curso de Programación en MicroPython para Micro:bit (Énfasis en Accesibilidad)",
     "H2_INTRO": "Introducción a MicroPython y Micro:bit",
