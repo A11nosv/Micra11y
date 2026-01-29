@@ -149,7 +149,7 @@
     "CREATION_LI3_TITLE": "Claridad y Simplicidad:",
     "CREATION_LI3_TEXT": "Mantener los programas tan simples y claros como sea posible. Evitar secuencias de acciones complejas que puedan confundir a usuarios con dificultades cognitivas o de memoria.",
     "CREATION_LI4_TITLE": "Documentación Clara:",
-    "CREATION_LI4_TEXT": "Proporcionar instrucciones detalladas y fáciles de entender, idealmente en múltiples formatos (texto, audio, pictogramas).",
+    "CREATION_LI4_TEXT": "Proporcionar instrucciones detalladas y fáciles de entender, idealmente en múltiples formatos (text, audio, pictogramas).",
     "BLOCKLY_TITLE": "Programación por Bloques (Blockly) y Discapacidad",
     "BLOCKLY_P1": "Las interfaces de programación por bloques, como la que utiliza MakeCode para Micro:bit, son una herramienta potente para la accesibilidad. Su naturaleza visual e intuitiva reduce barreras importantes:",
     "BLOCKLY_OVERCOME_TITLE": "Barreras que Supera:",
@@ -238,7 +238,8 @@
     "NO": "No",
     "ERRORS": "Errores",
     "WARNINGS": "Advertencias",
-    "CODE_PREVIEW_H3": "Previsualización del Código"
+    "CODE_PREVIEW_H3": "Previsualización del Código",
+    "NO_BUTTONS_USED": "No se utilizan los botones"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {

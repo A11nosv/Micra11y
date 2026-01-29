@@ -14,16 +14,17 @@ export class MicrobitValidatorPro {
         let hasMicrobitImport = false;
         let hasAudioImport = false;
         let hasAudioOutput = false;
-        let hasDisplayShow = false;
+        let displayShowLines: number[] = [];
 
         lines.forEach((line, index) => {
             const lineNumber = index + 1;
 
+            // 1. REGLA: Uso de retroalimentación multisensorial
             // Track imports
             if (/(from microbit import \*|import microbit)/.test(line)) {
                 hasMicrobitImport = true;
             }
-            if (/import\s+(speech|music)|from\s+(speech|music)/.test(line)) {
+            if (!/^\s*#/.test(line) && /import\s+(speech|music)|from\s+(speech|music)/.test(line)) {
                 hasAudioImport = true;
             }
 
@@ -32,7 +33,7 @@ export class MicrobitValidatorPro {
                 hasAudioOutput = true;
             }
             if (/display\.show\(.*\)/.test(line)) {
-                hasDisplayShow = true;
+                displayShowLines.push(lineNumber);
             }
 
             // 2. REGLA: Bucles Bloqueantes (Uso excesivo de sleep)
@@ -41,7 +42,7 @@ export class MicrobitValidatorPro {
                 const ms = parseInt(sleepMatch[1]);
                 if (ms > 2000) { // Más de 2 segundos bloqueado
                     issues.push({
-                        type: 'warning',
+                        type: 'error',
                         message: "VALIDATOR.BLOCKING_LOOPS.WARNING_MESSAGE",
                         suggestion: "VALIDATOR.BLOCKING_LOOPS.WARNING_SUGGESTION",
                         line: lineNumber
@@ -60,17 +61,33 @@ export class MicrobitValidatorPro {
                 });
             }
 
-            // 5. REGLA: Semántica de Código
-            const namingRegex = /(variable|estado|boton|sensor)_/;
-            if (namingRegex.test(line) && !line.includes("=")) { // Simple check: descriptive name used, and not part of an assignment (heuristic)
-                issues.push({ type: 'success', message: "VALIDATOR.CODE_SEMANTICS.SUCCESS_MESSAGE", line: lineNumber });
-            } else if (!namingRegex.test(line) && line.includes("=")) { // Simple check: generic name used in assignment
-                 // This rule is more about patterns than specific lines. Let's make it file-level for now.
-                 // issues.push({type: 'warning', message: "VALIDATOR.CODE_SEMANTICS.WARNING_MESSAGE", suggestion: "VALIDATOR.CODE_SEMANTICS.WARNING_SUGGESTION", line: lineNumber});
+            // 5. REGLA: Semántica de Código (Nueva lógica)
+            const assignmentMatch = line.match(/^\s*(\w+)\s*=\s*(.*)$/);
+            if (assignmentMatch) {
+                const variableName = assignmentMatch[1];
+                const assignedValue = assignmentMatch[2].trim();
+
+                if (variableName.length <= 4) {
+                    // Check if value is a literal number, boolean, or string
+                    const isNumber = /^-?\d+(\.\d*)?([eE][+-]?\d+)?$/.test(assignedValue);
+                    const isBoolean = /^(True|False)$/.test(assignedValue);
+                    const isString = /^(".*"|'.*')$/.test(assignedValue);
+
+                    if (isNumber || isBoolean || isString) {
+                        issues.push({
+                            type: 'warning',
+                            message: "VALIDATOR.CODE_SEMANTICS.WARNING_MESSAGE",
+                            suggestion: "VALIDATOR.CODE_SEMANTICS.WARNING_SUGGESTION",
+                            line: lineNumber
+                        });
+                    }
+                }
             }
         });
         
         // --- REGLA 1: Feedback Auditivo (Evaluación a nivel de archivo/después de recorrer todas las líneas) ---
+        const hasDisplayShow = displayShowLines.length > 0;
+
         if (hasAudioImport) {
             score += 1.5;
             // The success message for import is handled here, but output is separate
@@ -87,10 +104,13 @@ export class MicrobitValidatorPro {
             });
         } else { // No audio import
             if (hasDisplayShow && !hasAudioOutput) { // Using display.show but no audio output
-                issues.push({
-                    type: 'warning',
-                    message: "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW",
-                    suggestion: "VALIDATOR.AUDIO_FEEDBACK.SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW"
+                displayShowLines.forEach(lineNumber => {
+                    issues.push({
+                        type: 'error',
+                        message: "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW",
+                        suggestion: "VALIDATOR.AUDIO_FEEDBACK.SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW",
+                        line: lineNumber // The crucial fix: ADD THE LINE NUMBER
+                    });
                 });
             } else if (!hasAudioImport) { // General case: no audio import at all
                 issues.push({
@@ -102,11 +122,22 @@ export class MicrobitValidatorPro {
         }
 
         // --- REGLA 3: Redundancia de Entrada (Evaluación a nivel de archivo/después de recorrer todas las líneas) ---
+        const hasButtonA = /button_a\.is_pressed\(\)/.test(code);
+        const hasButtonB = /button_b\.is_pressed\(\)/.test(code);
         const hasAlternativeInput = /pin_logo\.is_touched|accelerometer|pin[0-2]\.is_touched/.test(code);
-        if (hasAlternativeInput) {
+
+        if (!hasButtonA && !hasButtonB) {
+            // New state: No buttons are used at all.
+            issues.push({
+                type: 'success', // Changed from 'warning'
+                message: "VALIDATOR.INPUT_REDUNDANCY.NO_BUTTONS_USED"
+            });
+        } else if (hasAlternativeInput) {
+            // Original success state: Alternative inputs are present.
             score += 3;
             issues.push({ type: 'success', message: "VALIDATOR.INPUT_REDUNDANCY.SUCCESS_MESSAGE" });
         } else {
+            // Original error state: Buttons are used, but no alternatives.
             issues.push({
                 type: 'error',
                 message: "VALIDATOR.INPUT_REDUNDANCY.ERROR_MESSAGE",
@@ -114,21 +145,6 @@ export class MicrobitValidatorPro {
             });
         }
 
-        // --- REGLA 5: Semántica de Código (Re-evaluate as file-level) ---
-        const genericNamingDetected = issues.some(issue => issue.message === "VALIDATOR.CODE_SEMANTICS.WARNING_MESSAGE");
-        if (!genericNamingDetected) { // Only add success if no warnings were added
-            const hasDescriptiveNaming = /(variable|estado|boton|sensor)_/.test(code);
-            if (hasDescriptiveNaming) {
-                score += 2;
-                issues.push({ type: 'success', message: "VALIDATOR.CODE_SEMANTICS.SUCCESS_MESSAGE" });
-            } else {
-                issues.push({
-                    type: 'warning',
-                    message: "VALIDATOR.CODE_SEMANTICS.WARNING_MESSAGE",
-                    suggestion: "VALIDATOR.CODE_SEMANTICS.WARNING_SUGGESTION"
-                });
-            }
-        }
         
         return { score: Math.min(score, 10), issues };
     }

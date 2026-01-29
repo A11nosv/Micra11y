@@ -198,7 +198,8 @@
     "NO": "Ez",
     "ERRORS": "Erroreak",
     "WARNINGS": "Abisuak",
-    "CODE_PREVIEW_H3": "Kodearen Aurrebista"
+    "CODE_PREVIEW_H3": "Kodearen Aurrebista",
+    "NO_BUTTONS_USED": "Ez dira botoiak erabiltzen"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {
