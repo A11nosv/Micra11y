@@ -24,5 +24,9 @@ export const MICROBIT_ROUTES: Routes = [
   {
     path: 'stone-paper-scissors',
     loadComponent: () => import('./stone-paper-scissors/stone-paper-scissors.page').then(m => m.StonePaperScissorsPage)
+  },
+  {
+    path: 'secret-message',
+    loadComponent: () => import('./secret-message/secret-message.page').then(m => m.SecretMessagePage)
   }
 ];

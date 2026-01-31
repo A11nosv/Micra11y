@@ -21,27 +21,38 @@
         "TITLE": "Duelo ao Sol",
         "DESCRIPTION": "Un xogo de reflexos para dous xogadores."
       },
-      "RPS": {
+      "STONE_PAPER_SCISSORS": {
         "TITLE": "Pedra, Papel, Tesoura",
         "DESCRIPTION": "O clásico xogo, agora no teu Micro:bit."
       },
-      "SECRET": {
+      "SECRET_MESSAGE": {
         "TITLE": "Mensaxe Secreta",
         "DESCRIPTION": "Envía e recibe mensaxes secretas."
       },
       "HEARTBEAT": {
         "TITLE": "O Latexado da Micro:bit",
         "DESCRIPTION": "Visualiza o latexado da túa placa."
-      },
-      "DUEL": {
-        "TITLE": "Duelo ao Sol",
-        "DESCRIPTION": "Un xogo de reflexos para dous xogadores."
-      },
-      "HEARTBEAT": {
-        "TITLE": "O Latexado da Micro:bit",
-        "DESCRIPTION": "Visualiza o latexado da túa placa."
       }
     }
+  },
+  "SECRET_MESSAGE_PAGE": {
+    "TITLE": "Mensaxe Secreta",
+    "VIDEO_NOT_SUPPORTED": "O teu navegador non soporta a etiqueta de vídeo.",
+    "INTRODUCTION_TITLE": "Introdución",
+    "INTRODUCTION_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "MATERIALS_TITLE": "Materiais",
+    "MATERIALS_LIST": [
+      "Micro:bit",
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit"
+    ],
+    "STEPS_TITLE": "Pasos",
+    "STEP_1_TITLE": "Paso 1: Lorem ipsum",
+    "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "STEP_2_TITLE": "Paso 2: O código",
+    "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "STEP_3_TITLE": "Paso 3: Lorem ipsum",
+    "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "HEART_PAGE": {
     "TITLE": "O Latexado da Micro:bit",

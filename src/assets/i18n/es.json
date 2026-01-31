@@ -22,31 +22,38 @@
         "TITLE": "Duelo al Sol",
         "DESCRIPTION": "Un juego de reflejos para dos jugadores."
       },
-      "RPS": {
+      "STONE_PAPER_SCISSORS": {
         "TITLE": "Piedra, Papel, Tijera",
         "DESCRIPTION": "El clásico juego, ahora en tu Micro:bit."
       },
-      "SECRET": {
+      "SECRET_MESSAGE": {
         "TITLE": "Mensaje Secreto",
         "DESCRIPTION": "Envía y recibe mensajes secretos."
       },
       "HEARTBEAT": {
         "TITLE": "El Latido de la Micro:bit",
         "DESCRIPTION": "Visualiza el latido de tu placa."
-      },
-      "DUEL": {
-        "TITLE": "Duelo al Sol",
-        "DESCRIPTION": "Un juego de reflejos para dos jugadores."
-      },
-      "HEARTBEAT": {
-        "TITLE": "El Latido de la Micro:bit",
-        "DESCRIPTION": "Visualiza el latido de tu placa."
-      },
-      "RPS": {
-        "TITLE": "Piedra, Papel, Tijera",
-        "DESCRIPTION": "El clásico juego, ahora en tu Micro:bit."
       }
     }
+  },
+  "SECRET_MESSAGE_PAGE": {
+    "TITLE": "Mensaje Secreto",
+    "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta el tag de video.",
+    "INTRODUCTION_TITLE": "Introducción",
+    "INTRODUCTION_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "MATERIALS_TITLE": "Materiales",
+    "MATERIALS_LIST": [
+      "Micro:bit",
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit"
+    ],
+    "STEPS_TITLE": "Pasos",
+    "STEP_1_TITLE": "Paso 1: Lorem ipsum",
+    "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "STEP_2_TITLE": "Paso 2: El código",
+    "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "STEP_3_TITLE": "Paso 3: Lorem ipsum",
+    "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "RPS_PAGE": {
     "TITLE": "Piedra, Papel, Tijera",

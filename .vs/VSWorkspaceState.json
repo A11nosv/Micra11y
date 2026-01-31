@@ -2,11 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\evaluador-accesibilidad",
+    "\\src\\app\\microbit",
     "\\src\\assets",
-    "\\src\\assets\\i18n"
+    "\\src\\assets\\i18n",
+    "\\src\\assets\\Microbit",
+    "\\src\\assets\\Microbit\\03_Advanced",
+    "\\src\\assets\\Microbit\\03_Advanced\\00_Shooter"
   ],
-  "SelectedNode": "\\testacce.ts",
+  "SelectedNode": "\\src\\assets\\i18n\\ca.json",
   "PreviewInSolutionExplorer": false
 }

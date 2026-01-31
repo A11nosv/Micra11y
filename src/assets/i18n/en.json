@@ -22,31 +22,38 @@
         "TITLE": "Duel in the Sun",
         "DESCRIPTION": "A reflex game for two players."
       },
-      "RPS": {
+      "STONE_PAPER_SCISSORS": {
         "TITLE": "Rock, Paper, Scissors",
         "DESCRIPTION": "The classic game, now on your Micro:bit."
       },
-      "SECRET": {
+      "SECRET_MESSAGE": {
         "TITLE": "Secret Message",
         "DESCRIPTION": "Send and receive secret messages."
       },
       "HEARTBEAT": {
         "TITLE": "The Micro:bit's Heartbeat",
         "DESCRIPTION": "Visualize your board's heartbeat."
-      },
-      "DUEL": {
-        "TITLE": "Duel in the Sun",
-        "DESCRIPTION": "A reflex game for two players."
-      },
-      "HEARTBEAT": {
-        "TITLE": "The Micro:bit's Heartbeat",
-        "DESCRIPTION": "Visualize your board's heartbeat."
-      },
-      "RPS": {
-        "TITLE": "Rock, Paper, Scissors",
-        "DESCRIPTION": "The classic game, now on your Micro:bit."
       }
     }
+  },
+  "SECRET_MESSAGE_PAGE": {
+    "TITLE": "Secret Message",
+    "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "INTRODUCTION_TITLE": "Introduction",
+    "INTRODUCTION_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "MATERIALS_TITLE": "Materials",
+    "MATERIALS_LIST": [
+      "Micro:bit",
+      "Lorem ipsum dolor sit amet",
+      "Consectetur adipiscing elit"
+    ],
+    "STEPS_TITLE": "Steps",
+    "STEP_1_TITLE": "Step 1: Lorem ipsum",
+    "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "STEP_2_TITLE": "Step 2: The code",
+    "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "STEP_3_TITLE": "Step 3: Lorem ipsum",
+    "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "RPS_PAGE": {
     "TITLE": "Rock, Paper, Scissors",
