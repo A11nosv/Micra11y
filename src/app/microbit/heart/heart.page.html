@@ -25,7 +25,7 @@
     </video>
 
     <h2>{{ 'HEART_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
-    <p>{{ 'HEART_PAGE.INTRODUCTION_TEXT' | translate }}</p>
+    <p *ngFor="let item of ('HEART_PAGE.INTRODUCTION_TEXT' | translate)">{{ item }}</p>
 
     <h2>{{ 'HEART_PAGE.MATERIALS_TITLE' | translate }}</h2>
     <ul>
@@ -34,7 +34,86 @@
 
     <h2>{{ 'HEART_PAGE.STEPS_TITLE' | translate }}</h2>
     <h3>{{ 'HEART_PAGE.STEP_1_TITLE' | translate }}</h3>
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_1' | translate }}</h4>
     <p>{{ 'HEART_PAGE.STEP_1_TEXT' | translate }}</p>
+    <pre><code [highlight]="pythonCode_1_1" [language]="'python'"></code></pre>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_2' | translate }}</h4>
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_1' | translate }}</p>
+    <pre><code [highlight]="pythonCode_2_1" [language]="'python'"></code></pre>
+
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_2' | translate)">{{ item }}</p>
+    <pre><code [highlight]="pythonCode_2_2" [language]="'python'"></code></pre>
+
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_3' | translate }}</p>
+    <pre><code [highlight]="pythonCode_2_3" [language]="'python'"></code></pre>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_3' | translate }}</h4>
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_4' | translate }}</p>
+    <ol>
+      <li *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_5' | translate)">{{ item }}</li>
+    </ol>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_4' | translate }}</h4>
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_6' | translate)">{{ item }}</p>
+    <pre><code [highlight]="pythonCode_3_1" [language]="'python'"></code></pre>
+
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_7' | translate }}</p>
+    <pre><code [highlight]="pythonCode_3_2" [language]="'python'"></code></pre>
+
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_8' | translate }}</p>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_5' | translate }}</h4>
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_9' | translate)">{{ item }}</p>
+    <pre><code [highlight]="pythonCode_4_1" [language]="'python'"></code></pre>
+
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_10' | translate)">{{ item }}</p>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_6' | translate }}</h4>
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_11' | translate)">{{ item }}</p>
+    <pre><code [highlight]="pythonCode_5_1" [language]="'python'"></code></pre>
+
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_12' | translate)">{{ item }}</p>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_7' | translate }}</h4>
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_13' | translate }}</p>
+    <pre><code [highlight]="pythonCode_6_1" [language]="'python'"></code></pre>
+
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_14' | translate }}</p>
+
+    <h4>{{ 'HEART_PAGE.STEP_1_TITLE_8' | translate }}</h4>
+    <p>{{ 'HEART_PAGE.STEP_1_TEXT_15' | translate }}</p>
+    <table>
+      <caption>{{ 'HEART_PAGE.TABLE_TITLE' | translate }}</caption>
+      <thead>
+        <tr>
+          <th scope="col">{{ 'HEART_PAGE.TABLE_HD_1' | translate }}</th>
+          <th scope="col">{{ 'HEART_PAGE.TABLE_HD_2' | translate }}</th>
+          <th scope="col">{{ 'HEART_PAGE.TABLE_HD_3' | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>60</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>80</td>
+          <td>1.33</td>
+          <td>0.75</td>
+        </tr>
+        <tr>
+          <td>80</td>
+          <td>1.67</td>
+          <td>0.6</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p *ngFor="let item of ('HEART_PAGE.STEP_1_TEXT_16' | translate)">{{ item }}</p>
+
+
 
     <h3>{{ 'HEART_PAGE.STEP_2_TITLE' | translate }}</h3>
     <p>{{ 'HEART_PAGE.STEP_2_TEXT' | translate }}</p>
