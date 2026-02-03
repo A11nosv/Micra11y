@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
 export class CountdownPage implements OnInit {
 
   pythonCode: string = '';
+  pythonCode_1_1: string = '';
+  pythonCode_1_2: string = '';
+  pythonCode_2_1: string = '';
   title: string = '';
 
   constructor(private http: HttpClient, private translate: TranslateService) { }
@@ -25,7 +28,11 @@ export class CountdownPage implements OnInit {
       .subscribe(data => {
         this.pythonCode = data;
       });
-    
+
+    this.pythonCode_1_1 = "i = 10";
+    this.pythonCode_1_2 = "# Imports go at the top \nfrom microbit import * \nimport music \n\n# Variables \nstep = 10";
+    this.pythonCode_2_1 =  "# Main loop \nfor index in range(11): \n\tdisplay.show(step) \n\tmusic.play(‘a’) \n\tstep = step - 1 \n\tsleep(1000)";
+
     this.translate.get('COUNTDOWN_PAGE.TITLE').subscribe((res: string) => {
       this.title = res;
     });

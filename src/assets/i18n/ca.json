@@ -347,9 +347,9 @@
     "STEP_1_TITLE_13": "Comentaris",
     "STEP_1_TEXT_29": "Com s’ha vist, un atac al cor no implica que un cor acceleri molt el seu batec o el disminueixi. L’atac no implica que la freqüència cardíaca augmenti o disminueixi de forma considerable, o perceptible. Així que si es vol fer el joc més divertit, es poden modificar els límits de la variable a i establir-ho a 100 i 1500 per veure com estem augmentant i disminuint el batec al realitzar els diferents gestos.",
     "STEP_2_TITLE": "Pas 2: El codi",
-    "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_3_TITLE": "Pas 3: Lorem ipsum",
-    "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "STEP_2_TEXT": "Descàrrega del fitxer hex.",
+    "STEP_3_TITLE": "Pas 3: Evoluciona el codi",
+    "STEP_3_TEXT": "Crea nous estats del cor. Per exemple, estableix un estat on la Micro:bit comenci a fer un soroll si té el polse molt accelerat, o que en comptes d'una caravel·la mostri la típica línia plana de les pel·lícules.'."
   },
   "DUEL_PAGE": {
     "TITLE": "Duel al Sol",
@@ -455,21 +455,53 @@
     "STEP_13_TEXT": "Ja has vist com crear un joc per a dos jugador, ara pensa com evolucionar i afegir només opcions, com triar el nombre de partides, o afegir un tercer jugador. L imaginació no té límits!"
   },
   "COUNTDOWN_PAGE": {
-    "TITLE": "La Cuenta Atrás Final",
+    "TITLE": "El Compte Enrere Final",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
     "INTRODUCTION_H2": "Introducció",
-    "INTRODUCTION_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "MATERIALS_H2": "Materials",
-    "MATERIAL_MICROBIT": "Micro:bit",
-    "MATERIAL_ITEM_1": "Lorem ipsum dolor sit amet",
-    "MATERIAL_ITEM_2": "Consectetur adipiscing elit",
+    "INTRODUCTION_P": [
+      "Aquest projecte és la programació d’una conta enrere des de 10 fins a 0. La conta enrere es mostrarà a la pantalla de la Micro:bit i anirà acompanyada d’una pulsació, la mateixa que es va fer al projecte El batec de la Micro:bit, per tenir una estimulació sonora a banda d’una visual.",
+      "Al projecte es veurà un nou tipus de bucle, un bucle for i es veurà com declarar una variable que utilitzarem per realitzar la conta enrere.",
+      "Comencem el conta enrere!"
+    ],
+    "MATERIAL_MICROBIT": "1 Micro:bit.",
+    "MATERIAL_ITEM_1": "Portàtil.",
+    "MATERIAL_ITEM_2": "Cable USB-A",
+    "MATERIAL_ITEM_3": "Editor de Python.",
     "STEPS_H2": "Passos",
-    "STEP_1_H3": "Pas 1: Lorem ipsum",
-    "STEP_1_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "STEP_1_H3": "Pas 1: Desenvolupant el Codi",
+    "STEP_1_H4": "Declarant una variable",
+    "STEP_1_P": [
+      "El codi de la conta enrera, és possiblement, més senzill que el codi del projecte anterior, encara que també té les seves peculiaritats. La primera és la declaració d’una variable.",
+      "Quan parlem de variables, hem de saber distingir entre una variable d’àmbit global i una d’àmbit local. De moment, l’únic que cal saber és que les variables d’àmbit global, com la que utilitzarem a aquest projecte, és declaren just desprès de la línia dels imports i es fa de la següent manera:"
+    ],
+    "STEP_1_P_2": "[nom variable] = [valor variable]",
+    "STEP_1_P_3": "Un exemple de declaració seria:",
+    "STEP_1_P_4": "Dit això, just a l’inici del nostre projecte escriurem:",
+    "STEP_1_P_5": "A la línia 6 realitzem la declaració de la variable i i el seu valor: 10.",
+    "STEP_1_H4_1": "Bucle for",
+    "STEP_1_P_6": "Desprès de la declaració de la variable iniciem el bucle for, que és el bucle principal del projecte.",
+    "STEP_1_H4_2": "Explicació del codi",
+    "STEP_1_P_7": [
+      "A aquest projecte hem d’explicar el bucle for. Un bucle for s’executa un determinat nombre de cops. Per decidir quants cops s’executa una bucle for es tendeix a incloure un algoritme que modifica el valor de la variable que controla el bucle cada cop que s’executa el bucle. En aquest cas es modifica el valor de la variable step.",
+      "A la línia 9 declarem el bucle for i establim que s’executarà 11 cops (index in range(11)). Expliquem una mica més aquesta darrera sentència:"
+    ],
+    "CODE_ITEM_1": "index: Es el valor que s’anirà modificant.",
+    "CODE_ITEM_2": "in; vincular index amb el seu rang de valors.",
+    "CODE_ITEM_3": "range(): Indica el rang de valors, o els passos a realitzar pel bucle.",
+    "CODE_ITEM_4": "11: És el nombre de cops (passos) que s’executarà el bucle for.",
+    "STEP_1_P_8": [
+      "Les línies 10 i 11 ja les coneixem del projecte anterior. A la línia 12 el que estem fent és reduir en un valor la variable i cada cop que s’executa el bucle for.",
+      "Per últim, a la línia 13 fem que el codi s’aturi 1 segon abans de tornar-se a executar el bucle for."
+    ],
+    "STEP_1_H4_3": "Concepte",
+    "STEP_1_P_9": [
+      "No ha cridat l’atenció alguna cosa del codi? Us heu fixat que el valor de la variable i és de 10 i executem el bucle for 11 cops? Aquesta “incoherència” es deu a que el 0 és un nombre i per tant s’ha de tenir en compte alhora de programar. Si fem que el bucle for s’executi només 10 cops el darrer nombre que assolirà la variable i serà 1 i no 0.",
+      "Feu la prova!"
+    ],
     "STEP_2_H3": "Pas 2: El codi",
-    "STEP_2_P": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_3_H3": "Pas 3: Lorem ipsum",
-    "STEP_3_P": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "STEP_2_P": "Descàrrega del fitxer hex.",
+    "STEP_3_H3": "Pas 3: Evoluciona el codi",
+    "STEP_3_P": "Modifica el codi afegint una animació final, o emprant el compte enrere per iniciar algun procès a la Micro:bit. Aquest còmpte enrere pot ser la primera pedra d'un projecte més gran!'"
   },
   "SETTINGS": {
     "TITLE": "Configuració",

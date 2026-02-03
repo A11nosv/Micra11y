@@ -38,7 +38,7 @@ export class HeartPage implements OnInit {
     constructor(private http: HttpClient, private translate: TranslateService) { }
   
     ngOnInit() {
-      this.http.get('assets/Microbit/03_Advanced/02_Micros Heart/02_Micros Heart (with sound)-main.py', { responseType: 'text' })
+      this.http.get('assets/Microbit/03_Advanced/02_Micros_Heart/Micros_Heart.py', { responseType: 'text' })
         .subscribe(data => {
           this.pythonCode = data;
         });
@@ -47,17 +47,17 @@ export class HeartPage implements OnInit {
       this.pythonCode_2_1 = "import music";
       this.pythonCode_2_2 = "\tmusic.play(‘a’)";
       this.pythonCode_2_3 = "# Imports go at the top \nfrom microbit import * \nimport music \n\n# Code in a 'while True:' loop repeats forever \nwhile True: \n\tdisplay.show(Image.HEART) \n\tmusic.play(‘a’) \n\tsleep(500) \n\tdisplay.show(Image.HEART_SMALL) \n\tsleep(500)";
-      this.pythonCode_3_1 = "# Variables \ntime = 500";
-      this.pythonCode_3_2 = "\tmusic.play(‘c’) \n\tsleep(time)";
-      this.pythonCode_4_1 = "\t\tif.button_a.is_pressed(): \n\t\t\ttime = time + 50";
-      this.pythonCode_5_1 = "\twhile time < 50:";
+      this.pythonCode_3_1 = "# Variables \nbeats = 500";
+      this.pythonCode_3_2 = "\tmusic.play(‘c’) \n\tsleep(beats)";
+      this.pythonCode_4_1 = "\t\tif.button_a.is_pressed(): \n\t\t\tbeats = beats + 50";
+      this.pythonCode_5_1 = "\twhile beats < 50:";
       this.pythonCode_6_1 = "\tmusic.play(‘c’) \n\tdisplay.show(Image.SKULL)";
-      this.pythonCode_7_1 = "time = 769.23 \nfreq=75";
-      this.pythonCode_8_1 = "\tif button_b.is_pressed(): \n\t\ttime = time + 50"; 
+      this.pythonCode_7_1 = "beats = 769.23 \nfreq=75";
+      this.pythonCode_8_1 = "\tif button_b.is_pressed(): \n\t\tbeats = beats+ 50"; 
       this.pythonCode_9_1 = "lives = True";
       this.pythonCode_10_1 = "\twhile lives:"; 
       this.pythonCode_10_2 = "while lives:";
-      this.pythonCode_10_3 = "\tif time < 598.80 or time > 1000: \n\t\tlives = false";
+      this.pythonCode_10_3 = "\tif beats < 598.80 or beats > 1000: \n\t\tlives = false";
       this.pythonCode_11_1 = "\tif button_a.is_pressed() or accelerometer.was_gesture(‘shake’):";
       this.pythonCode_11_2 = "\tif button_b.is_pressed() or pin_logo.is_touched():";
 

@@ -25,7 +25,7 @@
     </video>
 
     <h2>{{ 'COUNTDOWN_PAGE.INTRODUCTION_H2' | translate }}</h2>
-    <p>{{ 'COUNTDOWN_PAGE.INTRODUCTION_P' | translate }}</p>
+    <p *ngFor="let item of ('COUNTDOWN_PAGE.INTRODUCTION_P' | translate)">{{ item }}</p>
 
     <h2>{{ 'COUNTDOWN_PAGE.MATERIALS_H2' | translate }}</h2>
     <ul>
@@ -36,10 +36,38 @@
 
     <h2>{{ 'COUNTDOWN_PAGE.STEPS_H2' | translate }}</h2>
     <h3>{{ 'COUNTDOWN_PAGE.STEP_1_H3' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_1_P' | translate }}</p>
+    <h4>{{ 'COUNTDOWN_PAGE.STEP_1_H4' | translate }}</h4>
+    <p *ngFor="let item of ('COUNTDOWN_PAGE.STEP_1_P' | translate)">{{ item }}</p>
+    <p style="text-align: center;">{{ 'COUNTDOWN_PAGE.STEP_1_P_2' | translate }}</p>
+    <p>{{ 'COUNTDOWN_PAGE.STEP_1_P_3' | translate }}</p>
+    <pre><code [highlight]="pythonCode_1_1" [language]="'python'"></code></pre>
+
+    <p>{{ 'COUNTDOWN_PAGE.STEP_1_P_4' | translate }}</p>
+    <pre><code [highlight]="pythonCode_1_2" [language]="'python'"></code></pre>
+
+    <p>{{ 'COUNTDOWN_PAGE.STEP_1_P_5' | translate }}</p>
+
+    <h4>{{ 'COUNTDOWN_PAGE.STEP_1_H4_1' | translate }}</h4>
+    <p>{{ 'COUNTDOWN_PAGE.STEP_1_P_6' | translate }}</p>
+    <pre><code [highlight]="pythonCode_2_1" [language]="'python'"></code></pre>
+
+    <h4>{{ 'COUNTDOWN_PAGE.STEP_1_H4_2' | translate }}</h4>
+    <p *ngFor="let item of ('COUNTDOWN_PAGE.STEP_1_P_7' | translate)">{{ item }}</p>
+
+    <ul>
+      <li>{{ 'COUNTDOWN_PAGE.CODE_ITEM_1' | translate }}</li>
+      <li>{{ 'COUNTDOWN_PAGE.CODE_ITEM_2' | translate }}</li>
+      <li>{{ 'COUNTDOWN_PAGE.CODE_ITEM_3' | translate }}</li>
+      <li>{{ 'COUNTDOWN_PAGE.CODE_ITEM_4' | translate }}</li>
+    </ul>
+
+    <p *ngFor="let item of ('COUNTDOWN_PAGE.STEP_1_P_8' | translate)">{{ item }}</p>
+
+    <h4>{{ 'COUNTDOWN_PAGE.STEP_1_H4_3' | translate }}</h4>
+    <p *ngFor="let item of ('COUNTDOWN_PAGE.STEP_1_P_9' | translate)">{{ item }}</p>
 
     <h3>{{ 'COUNTDOWN_PAGE.STEP_2_H3' | translate }}</h3>
-    <p>{{ 'COUNTDOWN_PAGE.STEP_2_P' | translate }}</p>
+    <a href="../../../assets/Microbit/03_ConteEnrere/Countdown.hex" target="_blank">{{ 'COUNTDOWN_PAGE.STEP_2_P' | translate }}</a>
     <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
 
     <h3>{{ 'COUNTDOWN_PAGE.STEP_3_H3' | translate }}</h3>
