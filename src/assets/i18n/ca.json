@@ -306,6 +306,46 @@
       "Al codi no podem dir que aparegui 1.3 cops cada 1000 mil·lisegons. Per tant, hem de realitzar una conversió. Podem fer que aquesta conversió la realitzi la Micro:bit si la codifiquem al nostre codi. Però per fer-ho, abans hem de pensar en l’algoritme (funció) necessari. Pensem!",
       "Tenim 1.3 batecs cada 1000 mil·lisegons i volem saber cada quants mil·lisegons es realitza 1 batec. Per tant:"
     ],
+    "FORMULA_ALT_TEXT": "Fórmula per calcular la freqüència de batec del cor: 1,33 batexs entre 1000 mil·lisegons és igual a 1 batec entre X mil·lisegons.",
+    "FORMULA_ALT_TEXT_2": "X mil·lisegons és igual a 1000 mil·lisegons entre 1,33 batecs.",
+    "FORMULA_ALT_TEXT_3": "Feqüència de batecs.",
+    "STEP_1_TEXT_17": "És a dir, la Micro:bit farà 1 batec cada 769.23 mil·lisegons.",
+    "STEP_1_TITLE_9": "Modificant el codi",
+    "STEP_1_TEXT_18": [
+      "El primer pas serà la modificació del valor de les variables per simular el batec d’un cor a la Micro:bit segons el batec d’un cor humà.",
+      "Tal i com hem vist al punt anterior, el nou valor de la variable a ha d’ésser 769.23 i b 75, que és la freqüència corresponent a 80 batecs/minut. D’aquesta forma hem replicat el batec d’un cor humà a la nostre Micro:bit.",
+      "Així doncs, les línies 6 i 7 quedaran de la forma:"
+    ],
+    "STEP_1_TEXT_19": "El següent pas serà crear un nou bucle per reduir el batec del cor si l’usuari pitja el botó B de la Micro:bit.",
+    "STEP_1_TITLE_10": "Reduint el batec",
+    "STEP_1_TEXT_20": "Per reduir el batec del cor crearem un bucle if molt similar al que es va crear per botó A de la Micro:bit (línia 17). A la línia 21 escriurem:",
+    "STEP_1_TEXT_21": [
+      "Aquest bucle if s’ha d’escriure dins el buecle while, i el que fa es augmentar el valor de la variable a i per tant s’ampliarà el temps entre batecs, reduint-se la freqüència.",
+      "Si testem ara el projecte veurem que podem incrementar la velocitat de batec fins a un màxim però que per contre, no hi ha un límit per reduir la velocitat de batec."
+    ],
+    "STEP_1_TITLE_11": "Modificant la condició del bucle while",
+    "STEP_1_TEXT_22": "Per introduir una nova condició per que s’executi el bucle while, crearem una nova variable anomenada lives. Aquesta variable la crearem de tipus booleà.",
+    "STEP_1_TEXT_23": [
+      "Les variable de tipus booleà són unes variables que només poden agafar dos valors: cert (True) o fals (False).",
+      "Amb aquesta nova variable definida, fem la següent modificació al bucle while:"
+    ],
+    "STEP_1_TEXT_24": [
+      "Aquest bucle if és una mica diferent als que hem utilitzat amb anterioritat. En ell s’està dient que si el valor de la variable a és inferior (<) a 598.80 o (or) és superior a 1000 el valor de la variable lives serà False.",
+      "Si ara testem el codi del projecte, veurem que el cor de la Micro:bit deixa de bategar si accelerem molt el seu batec o si el disminuïm. Ja podem dir que hem simulat el batec de un cor humà a una Micro:bit, però anem a fer una darrera millora al codi del nostre projecte."
+    ],
+    "STEP_1_TEXT_25": [
+      "Aquest bucle if és una mica diferent als que hem utilitzat amb anterioritat. En ell s’està dient que si el valor de la variable a és inferior (<) a 598.80 o (or) és superior a 1000 el valor de la variable lives serà False.",
+      "Si ara testem el codi del projecte, veurem que el cor de la Micro:bit deixa de bategar si accelerem molt el seu batec o si el disminuïm. Ja podem dir que hem simulat el batec de un cor humà a una Micro:bit, però anem a fer una darrera millora al codi del nostre projecte."
+    ],
+    "STEP_1_TITLE_12": "Darreres modificacions",
+    "STEP_1_TEXT_26": [
+      "Emprant la mateixa lògica que hem utilitzat al darrer bucle if que hem vist, anem a modificar els bucles if que controlen la modificació de la variable a, de manera que es pugui incrementar o disminuir el seu valor prement els botons de la Micro:bit o realitzant un altre gest. En aquest cas s’ha triat que al sacsejar la Micro:bit s’incrementarà la velocitat de batec i al acaronar el logotip de la Micro:bit es redueix la velocitat de batec.",
+      "Per tant, la línia 18 quedarà de la següent forma:"
+    ],
+    "STEP_1_TEXT_27": "i la línia 21:",
+    "STEP_1_TEXT_28": "Ara, podem comprovar que al realitzar qualsevol dels 4 gestos descrits es modifica la velocitat de batec del cor de la Micro:bit.",
+    "STEP_1_TITLE_13": "Comentaris",
+    "STEP_1_TEXT_29": "Com s’ha vist, un atac al cor no implica que un cor acceleri molt el seu batec o el disminueixi. L’atac no implica que la freqüència cardíaca augmenti o disminueixi de forma considerable, o perceptible. Així que si es vol fer el joc més divertit, es poden modificar els límits de la variable a i establir-ho a 100 i 1500 per veure com estem augmentant i disminuint el batec al realitzar els diferents gestos.",
     "STEP_2_TITLE": "Pas 2: El codi",
     "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "STEP_3_TITLE": "Pas 3: Lorem ipsum",
