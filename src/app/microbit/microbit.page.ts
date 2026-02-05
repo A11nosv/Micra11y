@@ -11,6 +11,7 @@ interface Project {
   DESCRIPTION: string;
   img: string;
   route: string; // Add route property
+  alt: string; // Add alt property
 }
 
 @Component({
@@ -32,7 +33,7 @@ export class MicrobitPage {
           if (projects.hasOwnProperty(key)) {
             transformedProjects[key] = {
               ...projects[key],
-              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}` // Dynamically create the route
+              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}`, // Dynamically create the route
             };
           }
         }

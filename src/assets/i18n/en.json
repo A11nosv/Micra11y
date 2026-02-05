@@ -9,10 +9,11 @@
     "TITLE": "Micro:bit Projects",
     "OPEN_PROJECT_PREFIX": "Open project ",
     "PROJECTS": {
-      "IMAGE_ALT": "Image for the project {projectTitle}",
+      "ACCESSIBLE_PROGRAMMING_IMAGE_ALT": "Accessible Micro:bit, people collaborating with microbits",
       "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Accessible Programming",
-        "DESCRIPTION": "Explore Micro:bit programming in an accessible way."
+        "DESCRIPTION": "Explore Micro:bit programming in an accessible way.",
+        "img": "assets/img/microbit-a11y.png"
       },
       "COUNTDOWN": {
         "TITLE": "The Final Countdown",
@@ -90,7 +91,7 @@
     "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "STEP_2_TITLE": "Step 2: The code",
     "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_3_TITLE": "Step 3: Lorem ipsum",
+    "STEP_3_TITLE": "Paso 3: Lorem ipsum",
     "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "FORMULA_ALT_TEXT": "Formula to calculate the heart's beat frequency."
   },
@@ -110,7 +111,7 @@
     "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "STEP_2_TITLE": "Step 2: The code",
     "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_3_TITLE": "Step 3: Lorem ipsum",
+    "STEP_3_TITLE": "Paso 3: Lorem ipsum",
     "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "COUNTDOWN_PAGE": {
@@ -129,7 +130,7 @@
     "STEP_1_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "STEP_2_TITLE": "Step 2: The code",
     "STEP_2_TEXT": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    "STEP_3_TITLE": "Step 3: Lorem ipsum",
+    "STEP_3_TITLE": "Paso 3: Lorem ipsum",
     "STEP_3_TEXT": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "SETTINGS": {

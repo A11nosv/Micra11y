@@ -12,11 +12,13 @@
       "IMAGE_ALT": "Imagen para el proyecto {projectTitle}",
       "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Programación Accesible",
-        "DESCRIPTION": "Explora la programación de Micro:bit de forma accesible."
+        "DESCRIPTION": "Explora la programación de Micro:bit de forma accesible.",
+        "img": "assets/img/microbit-a11y.png"
       },
       "COUNTDOWN": {
         "TITLE": "La Cuenta Atrás Final",
-        "DESCRIPTION": "Una cuenta atrás personalizable."
+        "DESCRIPTION": "Una cuenta atrás personalizable.",
+        "img": "assets/img/final-countdown.png"
       },
       "DUEL": {
         "TITLE": "Duelo al Sol",
@@ -156,12 +158,11 @@
     "CREATION_LI2_TITLE": "Entradas Alternativas:",
     "CREATION_LI2_TEXT": "Considerar opciones más allá de los botones A y B. Los pines de la Micro:bit pueden conectarse a sensores externos o pulsadores adaptados, facilitando la interacción para personas con movilidad reducida. Otra opción es utilizar el acelerómetro de la Micro:bit.",
     "CREATION_LI3_TITLE": "Claridad y Simplicidad:",
-    "CREATION_LI3_TEXT": "Mantener los programas tan simples y claros como sea posible. Evitar secuencias de acciones complejas que puedan confundir a usuarios con dificultades cognitivas o de memoria.",
+    "CREATION_LI3_TEXT": "Mantener los programas tan simples y claros como sea posible. Evitar secuencias de acciones complejas que poidan confundir a usuarios con dificultades cognitivas o de memoria.",
     "CREATION_LI4_TITLE": "Documentación Clara:",
-    "CREATION_LI4_TEXT": "Proporcionar instrucciones detalladas y fáciles de entender, idealmente en múltiples formatos (text, audio, pictogramas).",
+    "CREATION_LI4_TEXT": "Proporcionar instrucións detalladas e fáciles de entender, idealmente en múltiples formatos (text, audio, pictogramas).",
     "BLOCKLY_TITLE": "Programación por Bloques (Blockly) y Discapacidad",
     "BLOCKLY_P1": "Las interfaces de programación por bloques, como la que utiliza MakeCode para Micro:bit, son una herramienta potente para la accesibilidad. Su naturaleza visual e intuitiva reduce barreras importantes:",
-    "BLOCKLY_OVERCOME_TITLE": "Barreras que Supera:",
     "BLOCKLY_OVERCOME_LI1_TITLE": "Discapacidad visual (baja visión):",
     "BLOCKLY_OVERCOME_LI1_TEXT": "Aunque las interfaces visuales pueden ser un reto, el uso de bloques con códigos de color permite que los usuarios con baja visión reconozcan el tipo de bloque que se está utilizando de manera más rápida y sencilla.",
     "BLOCKLY_OVERCOME_LI2_TITLE": "Discapacidad motriz:",
@@ -174,9 +175,9 @@
     "BLOCKLY_CHALLENGES_LI2_TITLE": "Navegación por Teclado:",
     "BLOCKLY_CHALLENGES_LI2_TEXT": "La navegación completa y eficiente solo con teclado no siempre está implementada a la perfección en todas las plataformas de programación por bloques.",
     "BLOCKLY_CHALLENGES_LI3_TITLE": "Personalización:",
-    "BLOCKLY_CHALLENGES_LI3_TEXT": "La falta de opciones de personalización (tamaño de fuente, contraste de color, eliminación de animaciones) puede afectar a usuarios con diversas necesidades visuales o cognitivas.",
+    "BLOCKLY_CHALLENGES_LI3_TEXT": "La falta de opcións de personalización (tamaño de fonte, contraste de color, eliminación de animacións) pode afectar a usuarios con diversas necesidades visuales o cognitivas.",
     "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentación y Ejemplos:",
-    "BLOCKLY_CHALLENGES_LI4_TEXT": "No siempre se dispone de documentación y ejemplos de proyectos diseñados específicamente con la accesibilidad en mente.",
+    "BLOCKLY_CHALLENGES_LI4_TEXT": "No siempre se dispón de documentación y ejemplos de proyectos diseñados específicamente con la accesibilidad en mente.",
     "PYTHON_TITLE": "Programación por Código (Editor Micro:bit Python)",
     "PYTHON_P1": "Como alternativa a la programación por bloques se puede utilizar la programación por código (microPython o JavaScript). Este tipo de programación, al ser texto plano, es altamente accesible para los lectores de pantalla.",
     "PYTHON_P2": "El problema de este tipo de programación es que los usuarios deben tener un conocimiento mínimo del lenguaje de programación, por lo que se les tiene que enseñar el lenguaje y los conceptos al mismo tiempo. Esto no sucede con la programación por bloques, ya que el conocimiento del lenguaje no es necesario y los conceptos principales que se trabajan son los conceptos de programación como variables, constantes, bucles, etc.",
