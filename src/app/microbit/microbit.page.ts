@@ -28,15 +28,25 @@ export class MicrobitPage {
   constructor(private translate: TranslateService) {
     this.projects$ = this.translate.get('MICROBIT_PAGE.PROJECTS').pipe(
       map(projects => {
+        const projectOrder: string[] = [
+          "ACCESSIBLE_PROGRAMMING",
+          "COUNTDOWN",
+          "HEARTBEAT",
+          "DUEL",
+          "STONE_PAPER_SCISSORS",
+          "SECRET_MESSAGE"
+          // Add other project keys in their desired order
+        ];
+
         const transformedProjects: { [key: string]: Project } = {};
-        for (const key in projects) {
+        projectOrder.forEach(key => {
           if (projects.hasOwnProperty(key)) {
             transformedProjects[key] = {
               ...projects[key],
-              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}`, // Dynamically create the route
+              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}`,
             };
           }
-        }
+        });
         return transformedProjects;
       })
     );

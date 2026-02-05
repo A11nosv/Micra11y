@@ -49,7 +49,7 @@ body.dark-theme {
   --ion-color-secondary-rgb: 169,173,180;
   --ion-color-secondary-contrast: #000000;
   --ion-color-secondary-contrast-rgb: 0,0,0;
-  --ion-color-secondary-shade: #94979e;
+  --ion-color-secondary-shade: #94979d;
   --ion-color-secondary-tint: #b1b5bd;
 
   --ion-color-tertiary: #f0c242;
@@ -209,7 +209,7 @@ ion-toolbar.aligned-with-content {
   }
 }
 
-/* Enhanced visibility for input elements */
+  /* Enhanced visibility for input elements */
 /* Light Mode */
 :root:not(.dark-theme) {
   ion-textarea,
@@ -232,4 +232,24 @@ body.dark-theme {
     --border-width: 2px;
     --border-style: solid;
   }
+
+  /* Ensure tab text and icon are black when focused in dark mode */
+  ion-tab-button:focus,
+  ion-tab-button.ion-focused {
+    --color: #000000 !important;
+    --color-selected: #000000 !important; /* Also make selected focused black */
+  }
+
+  body.dark-theme ion-tab-button:focus ion-icon,
+  body.dark-theme ion-tab-button.ion-focused ion-icon,
+  body.dark-theme ion-tab-button:focus ion-label,
+  body.dark-theme ion-tab-button.ion-focused ion-label {
+    color: #000000 !important;
+    font-weight: bold !important; /* Increment font-weight */
+  }
+}
+
+/* Ensure text is black in light mode */
+body:not(.dark-theme) {
+  color: #000000;
 }

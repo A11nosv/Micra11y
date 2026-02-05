@@ -2,15 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\microbit",
-    "\\src\\app\\microbit\\heart",
+    "\\src\\app\\microbit\\countdown",
     "\\src\\assets",
     "\\src\\assets\\i18n",
     "\\src\\assets\\Microbit",
-    "\\src\\assets\\Microbit\\03_Advanced",
-    "\\src\\assets\\Microbit\\03_Advanced\\01_MissatgeSecret"
+    "\\src\\assets\\Microbit\\01_Beginner",
+    "\\src\\assets\\Microbit\\01_Beginner\\03_ConteEnrere",
+    "\\src\\assets\\Microbit\\03_Advanced"
   ],
-  "SelectedNode": "\\src\\app\\microbit\\heart\\heart.page.html",
+  "SelectedNode": "\\src\\assets\\i18n\\ca.json",
   "PreviewInSolutionExplorer": false
 }

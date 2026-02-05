@@ -30,12 +30,13 @@
   </ion-header>
 
   <div class="projects-grid">
-    <ion-card *ngFor="let projectEntry of (projects$ | async | keyvalue)" [routerLink]="projectEntry.value.route" button="true" class="project-card"
-      [attr.aria-label]="('MICROBIT_PAGE.OPEN_PROJECT_PREFIX' | translate) + projectEntry.value.TITLE">
-      <img [src]="projectEntry.value.img" [alt]="projectEntry.value.alt" />
-      <ion-card-header>
-        <ion-card-title>{{ projectEntry.value.TITLE }}</ion-card-title>
-      </ion-card-header>
+    <ion-card *ngFor="let projectEntry of (projects$ | async | keyvalue)" class="project-card">
+      <a [routerLink]="projectEntry.value.route" button="true" [attr.aria-label]="('MICROBIT_PAGE.OPEN_PROJECT_PREFIX' | translate) + projectEntry.value.TITLE">
+        <img [src]="projectEntry.value.img" [alt]="projectEntry.value.alt" />
+        <ion-card-header>
+          <ion-card-title>{{ projectEntry.value.TITLE }}</ion-card-title>
+        </ion-card-header>
+      </a>
       <ion-card-content>
         {{ projectEntry.value.DESCRIPTION }}
       </ion-card-content>
