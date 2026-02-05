@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router'; // Import Router
 import { FormsModule } from '@angular/forms';
@@ -33,7 +33,7 @@ export class SettingsPage implements OnInit {
   darkMode: boolean;
   selectedLanguage: string;
 
-  constructor(private translate: TranslateService, private router: Router) { // Inject Router
+  constructor(private translate: TranslateService, private router: Router, private renderer: Renderer2) { // Inject Router and Renderer2
     // Initialize darkMode based on system preference or saved preference
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     this.darkMode = localStorage.getItem('darkMode') === 'true' || (localStorage.getItem('darkMode') === null && prefersDark.matches);
@@ -54,6 +54,7 @@ export class SettingsPage implements OnInit {
   onLanguageChange() {
     this.translate.use(this.selectedLanguage).subscribe(() => {
       localStorage.setItem('language', this.selectedLanguage);
+      this.renderer.setAttribute(document.documentElement, 'lang', this.selectedLanguage); // Update lang attribute
       // Navigate to the root to force a full re-initialization of the main tab view
       this.router.navigate(['/']);
     });
