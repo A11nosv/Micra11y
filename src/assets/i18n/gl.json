@@ -174,7 +174,9 @@
     "MODAL_ACCESSIBLE_TITLE": "Exemplo Accesible",
     "MODAL_ACCESSIBLE_H2": "Videoclip (Accesible)",
     "MODAL_ACCESSIBLE_P": "O videoclip do exemplo accesible iría aquí.",
-    "MODAL_CODE_TITLE": "Código"
+    "MODAL_CODE_TITLE": "Código",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Exemplo non accesible",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Exemplo accesible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Avaliador de accesibilidade",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidade",

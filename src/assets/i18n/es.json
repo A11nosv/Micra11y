@@ -191,8 +191,10 @@
     "MODAL_VIEW_CODE": "Ver Código",
     "MODAL_ACCESSIBLE_TITLE": "Ejemplo Accesible",
     "MODAL_ACCESSIBLE_H2": "Videoclip (Accesible)",
-    "MODAL_ACCESSIBLE_P": "El videoclip del ejemplo accesible iría aquí.",
-    "MODAL_CODE_TITLE": "Código"
+    "MODAL_ACCESSIBLE_P": "Placa Micro:bit con un corazón latiendo y emitiendo un sonido (pip) con cada latido del corazón.",
+    "MODAL_CODE_TITLE": "Código",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo no accesible",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo accesible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad",

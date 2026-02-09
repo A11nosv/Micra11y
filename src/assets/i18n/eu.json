@@ -193,7 +193,9 @@
     "MODAL_ACCESSIBLE_TITLE": "Adibide Irisgarria",
     "MODAL_ACCESSIBLE_H2": "Bideoklipa (Irisgarria)",
     "MODAL_ACCESSIBLE_P": "Adibide irisgarriaren bideoklipa hemen egongo litzateke.",
-    "MODAL_CODE_TITLE": "Kodea"
+    "MODAL_CODE_TITLE": "Kodea",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Adibide ez-irisgarria",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Adibide irisgarria"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Irisgarritasun Ebaluatzailea",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Irisgarritasuna Egiaztatu",

@@ -253,3 +253,37 @@ body.dark-theme {
 body:not(.dark-theme) {
   color: #000000;
 }
+
+
+/* Global button styling */
+ion-button {
+  --border-radius: 50px; /* Oval shape */
+  --background: var(--ion-color-primary); /* Blue background */
+  --color: white; /* White text */
+  text-transform: capitalize; /* First letter of each word capitalized */
+  font-weight: normal; /* Override default bold */
+  padding: 5px 20px; /* Reduced vertical padding */
+}
+
+/* Override for buttons within ion-buttons in ion-toolbar to revert to icon button styling */
+ion-toolbar ion-buttons ion-button {
+  --background: transparent; /* No background */
+  --color: var(--ion-toolbar-color, #fff); /* Inherit toolbar color, default white */
+  --border-radius: 0; /* No special border-radius */
+  text-transform: none; /* No text transformation */
+  padding: 0; /* No extra padding */
+  font-weight: normal; /* Normal font weight */
+}
+
+ion-button.button-clear {
+  --background: transparent;
+  --color: var(--ion-color-primary);
+}
+
+/* Override for buttons with fill="outline" if they exist and need specific styling */
+ion-button[fill="outline"] {
+  --background: transparent;
+  --border-color: var(--ion-color-primary);
+  --color: var(--ion-color-primary);
+  --border-width: 2px;
+}
