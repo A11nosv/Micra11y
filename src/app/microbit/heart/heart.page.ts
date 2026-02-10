@@ -46,7 +46,7 @@ export class HeartPage implements OnInit {
       this.pythonCode_1_1 = "# Imports go at the top \nfrom microbit import * \n\n# Code in a 'while True:' loop repeats forever\nwhile True: \n\tdisplay.show(Image.HEART) \n\tsleep(500) \n\tdisplay.show(Image.HEART_SMALL) \n\tsleep(500)";
       this.pythonCode_2_1 = "import music";
       this.pythonCode_2_2 = "\tmusic.play(‘a’)";
-      this.pythonCode_2_3 = "# Imports go at the top \nfrom microbit import * \nimport music \n\n# Code in a 'while True:' loop repeats forever \nwhile True: \n\tdisplay.show(Image.HEART) \n\tmusic.play(‘a’) \n\tsleep(500) \n\tdisplay.show(Image.HEART_SMALL) \n\tsleep(500)";
+      this.pythonCode_2_3 = "# Imports go at the top \nfrom microbit import * \nimport music \n\n# Code in a 'while True:' loop repeats forever \nwhile True: \n\t\music.off() # Speakers off \n\tdisplay.show(Image.HEART) \n\tmusic.on() \n\t#Speakers on to play a sound \n\tmusic.play(‘a’) \n\tsleep(500) \n\tdisplay.show(Image.HEART_SMALL) \n\tmusic.off() \n\tsleep(500)";
       this.pythonCode_3_1 = "# Variables \nbeats = 500";
       this.pythonCode_3_2 = "\tmusic.play(‘c’) \n\tsleep(beats)";
       this.pythonCode_4_1 = "\t\tif.button_a.is_pressed(): \n\t\t\tbeats = beats + 50";

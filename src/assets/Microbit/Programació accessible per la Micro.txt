@@ -1,117 +1,117 @@
-Índex
-Introducció	3
-Introducció	3
+ï¿½ndex
+Introducciï¿½	3
+Introducciï¿½	3
 Parlant de codi accessible	3
-Com està organitzat el quadern?	3
-Programació Bàsica	4
-El més ràpid	5
+Com estï¿½ organitzat el quadern?	3
+Programaciï¿½ Bï¿½sica	4
+El mï¿½s rï¿½pid	5
 Pedra, paper, tisora	7
 Codi Morse	10
 El batec de la Micro:bit	15
 Conta enrere	17
-Programació Intermèdia	19
-El foraster més ràpid	20
-Un contra l’altre	27
+Programaciï¿½ Intermï¿½dia	19
+El foraster mï¿½s rï¿½pid	20
+Un contra lï¿½altre	27
 Missatge secret	33
 Atac de cor a la Micro:bit	36
-Programació Avançada	38
-El pistoler més ràpid	39
+Programaciï¿½ Avanï¿½ada	38
+El pistoler mï¿½s rï¿½pid	39
 Tria tu	43
 Enviant un missatge	46
 El cor de la Micro:bit	47
-El més ràpid	51
+El mï¿½s rï¿½pid	51
 Pedra, Paper, Tisora	52
 Codi Morse	53
 El batec de la Micro:bit	54
 Conta enrere	55
-El foraster més ràpid	56
-Un contra l’altre	58
+El foraster mï¿½s rï¿½pid	56
+Un contra lï¿½altre	58
 Missatge Secret	61
 Atac de cor a la Micro:bit	63
-El pistoler més ràpid	64
+El pistoler mï¿½s rï¿½pid	64
 Tria tu	67
 Enviant un missatge	71
 El cor de la Micro:bit	73
 
 
 
-Introducció
-Introducció
+Introducciï¿½
+Introducciï¿½
 Moltes de les aplicacions que hi ha per fer amb Micro:bit tenen dos greus problemes per usuaris amb discapacitat visual.
 1. El codi tendeix a estar en format HEX (blocs).
-2. La Micro:bit no sol realitzar cap no emet cap estímul sonor.
-A aquest petit quadern es vol mostrar com realitzar programes accessibles per la Micro:bit i com programar de forma accessible per que tots els usuaris puguin crear les modificacions necessàries o personalitzar el codi ja creat.
+2. La Micro:bit no sol realitzar cap no emet cap estï¿½mul sonor.
+A aquest petit quadern es vol mostrar com realitzar programes accessibles per la Micro:bit i com programar de forma accessible per que tots els usuaris puguin crear les modificacions necessï¿½ries o personalitzar el codi ja creat.
 Parlant de codi accessible
-Si es vol crear un codi accessible, és a dir, que tots els usuaris puguin consultar i modificar, a dia d’avui no podem utilitzar la programació per blocs. Per tant la pàgina de MakeCode amb els blocs queda descartada.
-A banda dels blocs de programació es poden utilitzar dos llenguatges de programació:
+Si es vol crear un codi accessible, ï¿½s a dir, que tots els usuaris puguin consultar i modificar, a dia dï¿½avui no podem utilitzar la programaciï¿½ per blocs. Per tant la pï¿½gina de MakeCode amb els blocs queda descartada.
+A banda dels blocs de programaciï¿½ es poden utilitzar dos llenguatges de programaciï¿½:
 > JavaScript.
 > Python.
-A aquest manual s’utilitzarà Python per la realització dels programes. Tots els programes es compartiran a MakeCode, i per tant es podrà veure i descarregar el codi en JavaScript i en- Blocs (en alguns cassos).
-Per realitzar la programació, en lloc de MakeCode s’utilitzarà l’editor de Python, que permet utilitzar més característiques del llenguatge de programació, algunes de les quals no es poden reproduir a la programació per blocs.
-Aquest editor té un problema en front de MakeCode i és que no es pot emmagatzemar a un repositori que s’obri amb la pàgina web. Per tant, tot s’emmagatzemarà a un repositori propi, i també a MakeCode.
-Aquest editor és accessible amb els lectors de pantalla, tot i que presenta alguns problemes en el seu ús.
-Com està organitzat el quadern?
-El quadren està organitzat en tres seccions bàsiques:
-1. Programació Bàsica.
-2. Programació Intermèdia.
-3. Programació Avançada.
-Al nivell principiant s’explicarà línia a línia el que fa el codi, al menys als primers exemples. Aquesta explicació serà menor al nivell interni, on només s’explicaran el per que d’algunes línies. A mesura del possible, els projectes Intermedis seran ampliacions del codi d’un projecte que s’ha iniciat a la Programació Bàsica.
-A l’annex del document s’inclou una petita fitxa de cada projecte on hi ha un petit resum sobre les característiques i les funcions que s’utilitzen pel seu desenvolupament.
-Programació Bàsica
+A aquest manual sï¿½utilitzarï¿½ Python per la realitzaciï¿½ dels programes. Tots els programes es compartiran a MakeCode, i per tant es podrï¿½ veure i descarregar el codi en JavaScript i en- Blocs (en alguns cassos).
+Per realitzar la programaciï¿½, en lloc de MakeCode sï¿½utilitzarï¿½ lï¿½editor de Python, que permet utilitzar mï¿½s caracterï¿½stiques del llenguatge de programaciï¿½, algunes de les quals no es poden reproduir a la programaciï¿½ per blocs.
+Aquest editor tï¿½ un problema en front de MakeCode i ï¿½s que no es pot emmagatzemar a un repositori que sï¿½obri amb la pï¿½gina web. Per tant, tot sï¿½emmagatzemarï¿½ a un repositori propi, i tambï¿½ a MakeCode.
+Aquest editor ï¿½s accessible amb els lectors de pantalla, tot i que presenta alguns problemes en el seu ï¿½s.
+Com estï¿½ organitzat el quadern?
+El quadren estï¿½ organitzat en tres seccions bï¿½siques:
+1. Programaciï¿½ Bï¿½sica.
+2. Programaciï¿½ Intermï¿½dia.
+3. Programaciï¿½ Avanï¿½ada.
+Al nivell principiant sï¿½explicarï¿½ lï¿½nia a lï¿½nia el que fa el codi, al menys als primers exemples. Aquesta explicaciï¿½ serï¿½ menor al nivell interni, on nomï¿½s sï¿½explicaran el per que dï¿½algunes lï¿½nies. A mesura del possible, els projectes Intermedis seran ampliacions del codi dï¿½un projecte que sï¿½ha iniciat a la Programaciï¿½ Bï¿½sica.
+A lï¿½annex del document sï¿½inclou una petita fitxa de cada projecte on hi ha un petit resum sobre les caracterï¿½stiques i les funcions que sï¿½utilitzen pel seu desenvolupament.
+Programaciï¿½ Bï¿½sica
 
 
-El més ràpid
-Introducció
-Ets el més ràpid a aquesta banda del Llobregat? Anem a veure-ho! Prepara els teus dits per veure qui desenfunda més ràpid
+El mï¿½s rï¿½pid
+Introducciï¿½
+Ets el mï¿½s rï¿½pid a aquesta banda del Llobregat? Anem a veure-ho! Prepara els teus dits per veure qui desenfunda mï¿½s rï¿½pid
 Objectiu
-Aquest primer projecte amb Python per Micro:bit és un senzill codi que ens permetrà crear un joc per a dos jugador amb una única Micro:bit. El joc consisteix en veure qui pitja de forma més ràpida el botó de la Micro:bit. Un temporitzador valorarà si el jugador A ha pitjar el botó A abans que el jugador B pitgi el botó B de la Micro:bit.
+Aquest primer projecte amb Python per Micro:bit ï¿½s un senzill codi que ens permetrï¿½ crear un joc per a dos jugador amb una ï¿½Micro:bito:bit. El joc consisteix en veure qui pitja de forma mï¿½s rï¿½pida el boMicro:bitMicro:bit. Un temporitzador valorarï¿½ si el jugador A ha pitjar el botï¿½ A abans que el jugador B pitgi el Micro:bit la Micro:bit.
 Llestos. A les seves marques. Ja!
 Primers passos
-Per crear el nostre projecte començarem, com sempre, important els mòduls necessaris, que en aquest cas serà només el de Micro:bit.
+Per crear el nostre projecte comenï¿½arem, com sempre, important els mï¿½duls necessaris, que en aquest cas serï¿½ nomï¿½Micro:biticro:bit.
 1	from microbit import *
-Un cop importat el mòdul començarem el bucle de l’aplicació amb un bucle while de la següent manera:
+Un cop importat el mï¿½dul comenï¿½arem el bucle de lï¿½aplicaciï¿½ amb un bucle while de la segï¿½ent manera:
 5	while True
-Els bucles while s’executen sempre que la condició sigui certa. D’aquest forma, si creem un bucle while True, estem creant un bucle infinit ja que la condició d’inicialització del bucle sempre serà certa.
-Un cop creat el bucle que controlarà l’execució del projecte, hem de crear dos bucles if. Un pel botó A i un altre pel botó B. El bucle pel botó serà:
+Els bucles while sï¿½executen sempre que la condiciï¿½ sigui certa. Dï¿½aquest forma, si creem un bucle while True, estem creant un bucle infinit ja que la condiciï¿½ dï¿½inicialitzaciï¿½ del bucle sempre serï¿½ certa.
+Un cop creat el bucle que controlarï¿½ lï¿½execuciï¿½ del projecte, hem de crear dos bucles if. Un pel botï¿½ A i un altre pel botï¿½ B. El bucle pel botï¿½ serï¿½:
 6		if button_a_is.pressed():
 7			display.show(Image.ARROW.W)
-Segons aquest bucle, quan es pitgi el botó A apareixerà en pantalla un fletxa indicant que el botó A ha sigut el primer en ser pitjat.
-Pel botó B farem el mateix bucle modificant que el botó a pitjat és el B i el sentit de la fletxa. El bucle serà de la forma:
+Segons aquest bucle, quan es pitgi el botï¿½ A apareixerï¿½ en pantalla un fletxa indicant que el botï¿½ A ha sigut el primer en ser pitjat.
+Pel botï¿½ B farem el mateix bucle modificant que el botï¿½ a pitjat ï¿½s el B i el sentit de la fletxa. El bucle serï¿½ de la forma:
 9		if button_b_is.pressed():
 10			display.show(Image.ARROW.E)
-Si executem ara el codi del projecte veurem que apareix una fletxa indicant quin botó ha sigut el que s’ha pitjat abans, i per tant, al guanyador. Però aquest codi té una gran mancança ara mateix, i és que la indicació és només visual. Anem a incorporar una senyal sonora de forma que emeti un so diferent quan es pitja el botó A o el botó B.
+Si executem ara el codi del projecte veurem que apareix una fletxa indicant quin botï¿½ ha sigut el que sï¿½ha pitjat abans, i per tant, al guanyador. Perï¿½ aquest codi tï¿½ una gran mancanï¿½a ara mateix, i ï¿½s que la indicaciï¿½ ï¿½s nomï¿½s visual. Anem a incorporar una senyal sonora de forma que emeti un so diferent quan es pitja el botï¿½ A o el botï¿½ B.
 Incorporant sons
-Per incorporar un so primer haurem d’importar un nou mòdul, D’aquesta manera, a sota de l’import del mòdul de Micro:bit escriurem:
+Per incorporar un so primer haurem dï¿½importar un nou mï¿½dul, Dï¿½aquesta manera, a sota de lï¿½import del mMicro:biticro:bit escriurem:
 3	 import music
-Al importar aquest mòdul, ara podrem fer que la Micro:bit emeto diferents sons. Per que emeti un so al pitjar el botó A, escriurem, dins del bucle del botó A la següent línia:
-9	music.play(‘a’)
-A dins del bucle pel botó B escriurem el mateix però en lloc d’a escriurem b de la següent manera:
-13	music.play(‘b’)
-Ara de forma sonora s’està indicant qui ha sigut el primer en pitjar un botó.
-El joc ha millorat força. Tot i això continua havent-hi un petit problema. Quin?
-Que un dels jugadors, o els dos jugadors, ha de realitzar una conta enrere per que comenci el joc. Però podem fer que això ho faci la Micro:bit per nosaltres, com veurem més endavant a El foraster més ràpid.
+Al importar aquest mï¿½dul, ara podrem fer que lMicro:bitit emeto diferents sons. Per que emeti un so al pitjar el botï¿½ A, escriurem, dins del bucle del botï¿½ A la segï¿½ent lï¿½nia:
+9	music.play(ï¿½aï¿½)
+A dins del bucle pel botï¿½ B escriurem el mateix perï¿½ en lloc dï¿½a escriurem b de la segï¿½ent manera:
+13	music.play(ï¿½bï¿½)
+Ara de forma sonora sï¿½estï¿½ indicant qui ha sigut el primer en pitjar un botï¿½.
+El joc ha millorat forï¿½a. Tot i aixï¿½ continua havent-hi un petit problema. Quin?
+Que un dels jugadors, o els dos jugadors, ha de realitzar una conta enrere per que comenci el joc. Perï¿½ podem fer que aixï¿½ ho faciMicro:bit:bit per nosaltres, com veurem mï¿½s endavant a El foraster mï¿½s rï¿½pid.
 Codi
-El codi sencer d’aquest projecte es pot consultar a la secció El més ràpid de l’Apèndix.
+El codi sencer dï¿½aquest projecte es pot consultar a la secciï¿½ El mï¿½s rï¿½pid de lï¿½Apï¿½ndix.
 
 
 Pedra, paper, tisora
-Introducció
-Qui més qui menys al llarg de la seva infantesa ha jugat al joc de pedra, paper, tisora. A aquest projecte volem anar una mica més enllà i jugar al joc amb dues Micro:bit.
-Per realitzar aquest projecte haurem d’utilitzar els mòduls speech i random de la Micro:bit. La designació del que traurà la Micro:bit per pantalla es farà de forma aleatòria al sacsejar la Micro:bit.
-Se que tens moltes ganes de començar a jugar. Així doncs: COMENCEM!
-Important els mòduls
-Com sempre, el primer que farem serà importar els mòduls necessaris per la realització del projecte. Per aquest projecte necessitarem els següents mòduls;
+Introducciï¿½
+Qui mï¿½s qui menys al llarg de la seva infantesa ha jugat al joc de pedra, paper, tisora. A aquest projecte volem anar una mica mï¿½s enllï¿½ i jugar al joc ambMicro:bitro:bit.
+Per realitzar aquest projecte haurem dï¿½utilitzar els mï¿½duls speech i random deMicro:bit:bit. La designaciï¿½ del que trauMicro:bitro:bit per pantalla es farï¿½ de forma aleatï¿½ria al saMicro:bit Micro:bit.
+Se que tens moltes ganes de comenï¿½ar a jugar. Aixï¿½ doncs: COMENCEM!
+Important els mï¿½duls
+Com sempre, el primer que farem serï¿½ importar els mï¿½duls necessaris per la realitzaciï¿½ del projecte. Per aquest projecte necessitarem els segï¿½ents mï¿½duls;
 * microbit.
 * random.
 * speech.
-Així doncs, el nostre programa en Python ha de començar de la següent manera:
+Aixï¿½ doncs, el nostre programa en Python ha de comenï¿½ar de la segï¿½ent manera:
 1 # Imports
 2 from microbit import *
 3 import random
 4 import speech
 Bucle principal
-Un cop tenim els imports declarats, crearem el bucle inicial, que com sempre, a aquesta secció de Programació Bàsica és un del tipus while True. Recordem que aquest és un bucle infinit i que per tant, sempre s’està executant a la Micro:bit.
-El bucle tindrà la següent forma:
+Un cop tenim els imports declarats, crearem el bucle inicial, que com sempre, a aquesta secciï¿½ de Programaciï¿½ Bï¿½sica ï¿½s un del tipus while True. Recordem que aquest ï¿½s un bucle infinit i que per tant, sempre sï¿½estï¿½ eMicro:bita la Micro:bit.
+El bucle tindrï¿½ la segï¿½ent forma:
 6 # Main Loop
 7 while True:
 8		if accelerometer.was_gesture('shake'):
@@ -122,60 +122,60 @@ El bucle tindrà la següent forma:
 13			display.show(Image.SQUARE)
 14		else:
 15			display.show(Image.SCISSORS);
-Explicació del codi
-El codi es compon bàsicament d’una sèrie de bucles if niats entre ells que realitzen una acció una altre depenen del valor de la variable tool. La variable tool és una variable de tipus integer (enter) que agafa nombres aleatoris entre 0 i 2 quan es sacseja la Micro:bit. Per obtenir aquesta variable s’utilitza el mètode randint(a,b) del mòdul random de la següent manera:
+Explicaciï¿½ del codi
+El codi es compon bï¿½sicament dï¿½una sï¿½rie de bucles if niats entre ells que realitzen una acciï¿½ una altre depenen del valor de la variable tool. La variable tool ï¿½s una variable de tipus integer (enter) que agafa nombres aleatoris entre 0 i 2 quan es sMicro:bit Micro:bit. Per obtenir aquesta variable sï¿½utilitza el mï¿½tode randint(a,b) del mï¿½dul random de la segï¿½ent manera:
 tool = random.randint(a,b)
 on:
-* a: és el valor mínim que pot agafar la variable tool.
-* B: és el valor màxim que pot agafar la variable tool.
-Un cop s’ha calculat el valor de la variable simplement fem que es mostri una figura o una altre a pantalla depenent del seu valor mitjançant un bucle if.
-Fent el joc més accessible
-Si executem el codi, veurem que es por jugar sense cap tipus de problema, aparentment. El joc té un problema i és que tal i com està creat només poden jugar aquelles persones que no tenen una discapacitat visual, i que per tant poden veure el gràfic de la pantalla de la Micro:bit.
-La forma de fer que aquest projecte sigui accessible a les persones a discapacitat visual és afegint-hi un so. En aquest cas afegirem una veu, la veu de la Micro:bit dirà que hem tret a la nostra tirada.
-Com ja tenim el mòdul speech importat, només ens calen afegir tres línies, una a cada bucle if. Aquestes línies són:
+* a: ï¿½s el valor mï¿½nim que pot agafar la variable tool.
+* B: ï¿½s el valor mï¿½xim que pot agafar la variable tool.
+Un cop sï¿½ha calculat el valor de la variable simplement fem que es mostri una figura o una altre a pantalla depenent del seu valor mitjanï¿½ant un bucle if.
+Fent el joc mï¿½s accessible
+Si executem el codi, veurem que es por jugar sense cap tipus de problema, aparentment. El joc tï¿½ un problema i ï¿½s que tal i com estï¿½ creat nomï¿½s poden jugar aquelles persones que no tenen una discapacitat visual, i que per tant poden veure el grï¿½fic de la pantaMicro:bit Micro:bit.
+La forma de fer que aquest projecte sigui accessible a les persones a discapacitat visual ï¿½s afegint-hi un so. En aquest cas afegirem una veu, la veu de lMicro:bitit dirï¿½ que hem tret a la nostra tirada.
+Com ja tenim el mï¿½dul speech importat, nomï¿½s ens calen afegir tres lï¿½nies, una a cada bucle if. Aquestes lï¿½nies sï¿½n:
 12 speech.say('Pedra')
 15 speech.say('Paper')
 18 speech.say('Tisora')
-Al afegir aquestes línies, fem que la Micro:bit informe el valor de la tirada de cada jugador. Si executem el codi veurem que la veu de la Micro:bit no és molt agradable i que és angles. Això pot dificultar una mica la comprensió del resultat de cada jugador. Per aquest motiu podríem incloure un so diferent per cada resultat.
+Al afegir aquestes lï¿½nies, fem que lMicro:bitit informe el valor de la tirada de cada jugador. Si executem el codi veurem que la veu de lMicro:bitit no ï¿½s molt agradable i que ï¿½s angles. Aixï¿½ pot dificultar una mica la comprensiï¿½ del resultat de cada jugador. Per aquest motiu podrï¿½em incloure un so diferent per cada resultat.
 Afegint un so
-Per afegir un so hem d’importar el mòdul de música. Al bloc dels imports afegirem la següent línia:
+Per afegir un so hem dï¿½importar el mï¿½dul de mï¿½sica. Al bloc dels imports afegirem la segï¿½ent lï¿½nia:
 5 import music
-Ara ja podem reproduir un so diferent per cada tirada. El so el reproduirem desprès de que parli la Micro:bit. Per fer-ho afegirem les següents línies:
+Ara ja podem reproduir un so diferent per cada tirada. El so el reproduirem desprï¿½s de que parli lMicro:bitit. Per fer-ho afegirem les segï¿½ents lï¿½nies:
 14 music.play(music.RINGTONE)
 18 music.play(music.JUMP_DOWN)
 22 music.play(music.JUMP_UP)
-Ara desprès de dir el que s’ha tret a la tirada s’emetrà un so diferent.
+Ara desprï¿½s de dir el que sï¿½ha tret a la tirada sï¿½emetrï¿½ un so diferent.
 El codi
-El codi sencer del projecte es pot consultar a la secció XXX de l’apèndix.
+El codi sencer del projecte es pot consultar a la secciï¿½ XXX de lï¿½apï¿½ndix.
 
 
 Codi Morse
-Introducció
-El codi o alfabet Morse va ser creat per Samuel Morse i es basa en la representació de lletres i números mitjançant senyals emeses de forma intermitent.
-D’aquesta forma, la lletra A es pot transmetre mitjançant un punt i un guió, tal i com es pot veure a la Imatge 1.
+Introducciï¿½
+El codi o alfabet Morse va ser creat per Samuel Morse i es basa en la representaciï¿½ de lletres i nï¿½meros mitjanï¿½ant senyals emeses de forma intermitent.
+Dï¿½aquesta forma, la lletra A es pot transmetre mitjanï¿½ant un punt i un guiï¿½, tal i com es pot veure a la Imatge 1.
 
 Imatge 1 Alfabet Morse.
 Objectiu
-A aquest projecte farem que la Micro:bit escrigui a pantalla el codi Morse i emeti un so diferent quan pitgem el botó A (punt) o el botó B (guió).
+A aquest projecte farem que la Micro:bit escrigui a pantalla el codi Morse i emeti un so diferent quan pitgem el botï¿½ A (punt) o el botï¿½ B (guiï¿½).
 Primers passos
-Per crear el nostre projecte començarem, com sempre, important els mòduls necessaris, que de moment serà el de Micro:bit. Per tant a la primera línia escriurem:
+Per crear el nostre projecte comenï¿½arem, com sempre, important els mï¿½duls necessaris, que de moment serï¿½ Micro:bitro:bit. Per tant a la primera lï¿½nia escriurem:
 1	from microbit import *
-Un cop escrita aquesta línia. Començarem amb el bucle principal del projecte. Aquest bucle serà un bucle de tipus while. Els bucle de tipus while s’executen sempre, de manera contínua quan la condició sigui certa, Per fer que un bucle com aquest s’executi indefinidament hem d’assignar-li una condició True (cert).
-La segona línia de codi serà de la forma:
+Un cop escrita aquesta lï¿½nia. Comenï¿½arem amb el bucle principal del projecte. Aquest bucle serï¿½ un bucle de tipus while. Els bucle de tipus while sï¿½executen sempre, de manera contï¿½nua quan la condiciï¿½ sigui certa, Per fer que un bucle com aquest sï¿½executi indefinidament hem dï¿½assignar-li una condiciï¿½ True (cert).
+La segona lï¿½nia de codi serï¿½ de la forma:
 5	while True:
-El següent pas serà assignar una acció als botons A i B de la Micro:bit. Per això utilitzarem un altre tipus de bucle, el bucle if. Es podria dir que els bucles if són bucles de preses de decisions, una cruïlla a un camí. Aquest bucle, com el while, només s’executa si la condició és certa; en cas que la condició no sigui certa, llavors s’agafa l’altre camí, i a diferència dels bucles while, els bucles if només s’executen un vegada, si la condició és certa, o cap, en cas de que la condició sigui falsa.
-Així doncs, la següent línia del nostre codi serà:
+El segï¿½ent pas serï¿½ assignar una acciï¿½ als botons A i B Micro:bitro:bit. Per aixï¿½ utilitzarem un altre tipus de bucle, el bucle if. Es podria dir que els bucles if sï¿½n bucles de preses de decisions, una cruï¿½lla a un camï¿½. Aquest bucle, com el while, nomï¿½s sï¿½executa si la condiciï¿½ ï¿½s certa; en cas que la condiciï¿½ no sigui certa, llavors sï¿½agafa lï¿½altre camï¿½, i a diferï¿½ncia dels bucles while, els bucles if nomï¿½s sï¿½executen un vegada, si la condiciï¿½ ï¿½s certa, o cap, en cas de que la condiciï¿½ sigui falsa.
+Aixï¿½ doncs, la segï¿½ent lï¿½nia del nostre codi serï¿½:
 6		if button_a.is_pressed():
-El següent pas es escriure el codi que s’executarà en cas de que pitgem el botó A. Si pitgem el botó A de la Micro:bit, volem que es mostri a la pantalla un punt. Per fer-ho escriurem:
-7			display.show(Image(‘00000:’
-8						‘00000:’
-9						‘00900:’
-10					‘00000:’
-11					‘00000’))
-El valor 0 indica que el led de la Micro:bit situat a la posició tindrà una intensitat 0, o el que és el mateix, no s’il·luminarà. Per contra, el valor 9 indica que el led situat a aquella posició tindrà una intensitat màxima.
+El segï¿½ent pas es escriure el codi que sï¿½executarï¿½ en cas de que pitgem el botï¿½ A. Si pitgem el botï¿½Micro:bitMicro:bit, volem que es mostri a la pantalla un punt. Per fer-ho escriurem:
+7			display.show(Image(ï¿½00000:ï¿½
+8						ï¿½00000:ï¿½
+9						ï¿½00900:ï¿½
+10					ï¿½00000:ï¿½
+11					ï¿½00000ï¿½))
+El valor 0 indica que el led de la Micro:bit situat a la posiciï¿½ tindrï¿½ una intensitat 0, o el que ï¿½s el mateix, no sï¿½ilï¿½luminarï¿½. Per contra, el valor 9 indica que el led situat a aquella posiciï¿½ tindrï¿½ una intensitat mï¿½xima.
 Al poder assignar diferents intensitats les leds de la pantalla de la Micro:bit, podem realitzar animacions millors i jugar a fer ombres o animacions millors.
-Per últim, copiarem el bucle if que acabem de crear i substituirem la lletra a per la lletra b a la condició del codi i a la files on hem escrit ‘00900:’ escriurem ‘09990:’ per dibuixar una línia a la pantalla.
-El codi hauria de ser una cosa semblant al següent:
+Per ï¿½ltim, copiarem el bucle if que acabem de crear i substituirem la lletra a per la lletra b a la condiciï¿½ del codi i a la files on hem escrit ï¿½00900:ï¿½ escriurem ï¿½09990:ï¿½ per dibuixar una lï¿½nia a la pantalla.
+El codi hauria de ser una cosa semblant al segï¿½ent:
 1	# Imports
 2	from microbit import *
 3	import music
@@ -197,15 +197,15 @@ El codi hauria de ser una cosa semblant al següent:
 19					'00000:'
 20					'00000'
 21		))
-Si ara executem el codi al simulador de la Micro:bit, veurem que quan es pitjar el bitó A apareix un punt al centre de la pantalla, i quan pitgem el B apareix una línia de 3 punts. Hem aconseguit escriure els dos signes generadors del codi mors!
-Afegint estímuls
-Anem pel bon camí, però al primer capítol hem dit que es busquen projectes que estimulin més d’un sentit, i ara mateix només estem estimulant el sentit de la vista. Anem a estimular el sentit de l’oïda.
-Per fer-ho, farem que la Micro:bit emeti un so durant un instant quan pitgem el botó A i el mateix s, el doble de temps, quan pitgem el botó B. El primer de tot, serà importar el mòdul music. Per fer-ho escriurem a sota de l’altre import:
+Si ara executem el codi al simulador de la Micro:bit, veurem que quan es pitjar el bitï¿½ A apareix un punt al centre de la pantalla, i quan pitgem el B apareix una lï¿½nia de 3 punts. Hem aconseguit escriure els dos signes generadors del codi mors!
+Afegint estï¿½muls
+Anem pel bon camï¿½, perï¿½ al primer capï¿½tol hem dit que es busquen projectes que estimulin mï¿½s dï¿½un sentit, i ara mateix nomï¿½s estem estimulant el sentit de la vista. Anem a estimular el sentit de lï¿½oï¿½da.
+Per fer-ho, farem que la Micro:bit emeti un so durant un instant quan pitgem el botï¿½ A i el mateix s, el doble de temps, quan pitgem el botï¿½ B. El primer de tot, serï¿½ importar el mï¿½dul music. Per fer-ho escriurem a sota de lï¿½altre import:
 3	import music
-Ara que hem importat el mòdul, podem començar a utilitzar els seus mètodes. Per emetre una nota escriurem, dins del primer bucle if:
-15		music.play(‘a’)
-El següent pas serà copiar la línia anterior dins l’altre bucle if modificant a per b per produir una nota diferent i permetre a l’oïda diferenciar entre un punt i un guió.
-El codi, amb les modificacions hauria de tenir una forma similar al següent:
+Ara que hem importat el mï¿½dul, podem comenï¿½ar a utilitzar els seus mï¿½todes. Per emetre una nota escriurem, dins del primer bucle if:
+15		music.play(ï¿½aï¿½)
+El segï¿½ent pas serï¿½ copiar la lï¿½nia anterior dins lï¿½altre bucle if modificant a per b per produir una nota diferent i permetre a lï¿½oï¿½da diferenciar entre un punt i un guiï¿½.
+El codi, amb les modificacions hauria de tenir una forma similar al segï¿½ent:
 1	# Imports
 2	from microbit import *
 3	import music
@@ -231,24 +231,24 @@ El codi, amb les modificacions hauria de tenir una forma similar al següent:
 23						))
 24
 25			music.play('b')
-Si executem el codi al simulador, veurem que al pitjar el botons es mostra a pantalla un dels símbols generadors i s’emet un so diferent. Pràcticament ho tenim enllestit. Hi ha un petit però.
-El però és que el punt i el guio resten a pantalla tota l’estona fins que es pitja un altre cop un dels botons, quan hauria d’estar només un temps limitat.
+Si executem el codi al simulador, veurem que al pitjar el botons es mostra a pantalla un dels sï¿½mbols generadors i sï¿½emet un so diferent. Prï¿½cticament ho tenim enllestit. Hi ha un petit perï¿½.
+El perï¿½ ï¿½s que el punt i el guio resten a pantalla tota lï¿½estona fins que es pitja un altre cop un dels botons, quan hauria dï¿½estar nomï¿½s un temps limitat.
 Netejant la pantalla.
-Per netejar la pantalla hem d’incloure, just al final dels dos bucles if, o al final del bucle while, les següents línies:
+Per netejar la pantalla hem dï¿½incloure, just al final dels dos bucles if, o al final del bucle while, les segï¿½ents lï¿½nies:
 26		sleep(500)
 27		display.clear()
 En el meu cas les he afegit al final del bucle while.
-A l’apartat Enviant missatges desenvoluparem aquest codi per enviar un missatge als nostres amics.
+A lï¿½apartat Enviant missatges desenvoluparem aquest codi per enviar un missatge als nostres amics.
 Codi
-El codi sencer d’aquest projecte es pot consultar a la secció Codi Morse de l’Apèndix.
+El codi sencer dï¿½aquest projecte es pot consultar a la secciï¿½ Codi Morse de lï¿½Apï¿½ndix.
 
 
 El batec de la Micro:bit
-A molts quaderns de programació de Micro:bit el primer programa a realitzar és la animació del bateig d’un cor. Aquesta activitat té un problema des del punt de vista de l’accessibilitat. El problema és que només hi ha un estímul visual, i per tant, les persones amb una discapacitat visual no poden gaudir plenament l’experiència.
-A aquesta activitat, a banda de mostrar un cor bategant a la pantalla de la Micro:bit, s’emetrà un so de bateig, creant d’aquesta forma un estímul sonor que permetrà als discapacitats visuals gaudir més de l’experiència.
+A molts quaderns de programaciï¿½ dMicro:bitit el primer programa a realitzar ï¿½s la animaciï¿½ del bateig dï¿½un cor. Aquesta activitat tï¿½ un problema des del punt de vista de lï¿½accessibilitat. El problema ï¿½s que nomï¿½s hi ha un estï¿½mul visual, i per tant, les persones amb una discapacitat visual no poden gaudir plenament lï¿½experiï¿½ncia.
+A aquesta activitat, a banda de mostrar un cor bategant a la pantalla de la Micro:bit, sï¿½emetrï¿½ un so de bateig, creant dï¿½aquesta forma un estï¿½mul sonor que permetrï¿½ als discapacitats visuals gaudir mï¿½s de lï¿½experiï¿½ncia.
 Comencem a programar!
 El Codi
-El codi bàsic d’aquest projecte és el següent:
+El codi bï¿½sic dï¿½aquest projecte ï¿½s el segï¿½ent:
 1	# Imports go at the top
 2	from microbit import *
 3
@@ -259,12 +259,12 @@ El codi bàsic d’aquest projecte és el següent:
 8		display.show(Image.HEART_SMALL)
 9		sleep(500)
 Emetent batecs
-Modificarem aquest codi per que la Micro:bit també emeti un so amb les animacions del cor bategant. Per això escriurem la següent línia:
+Modificarem aquest codi per que la Micro:bit tambï¿½ emeti un so amb les animacions del cor bategant. Per aixï¿½ escriurem la segï¿½ent lï¿½nia:
 3	import music
-Aquesta línia la inserirem a sota de la línia de la importació inicial, és a dir, serà la línia 3 del nostre codi.
-Ara només hem d’afegir una línia a sota de la línia de codi on es mostra el cor gran. La línia que hem d’afegir és:
-music.play(‘a’)
-La línia s’inserirà a la posició 8 del codi. Amb tot el codi del projecte quedarà de la següent forma:
+Aquesta lï¿½nia la inserirem a sota de la lï¿½nia de la importaciï¿½ inicial, ï¿½s a dir, serï¿½ la lï¿½nia 3 del nostre codi.
+Ara nomï¿½s hem dï¿½afegir una lï¿½nia a sota de la lï¿½nia de codi on es mostra el cor gran. La lï¿½nia que hem dï¿½afegir ï¿½s:
+music.play(ï¿½aï¿½)
+La lï¿½nia sï¿½inserirï¿½ a la posiciï¿½ 8 del codi. Amb tot el codi del projecte quedarï¿½ de la segï¿½ent forma:
 1	# Imports go at the top
 2	from microbit import *
 3	import music
@@ -272,107 +272,107 @@ La línia s’inserirà a la posició 8 del codi. Amb tot el codi del projecte quedar
 5	# Code in a 'while True:' loop repeats forever
 6	while True:
 7		display.show(Image.HEART)
-8		music.play(‘a’)
+8		music.play(ï¿½aï¿½)
 9		sleep(500)
 10		display.show(Image.HEART_SMALL)
 11		sleep(500)
-Explicació del codi
-Ara que hem vist quina pinta té el codi, anem a explicar que fa cada línia:
-1. A les línies 1 i 5 introduïm comentaris per explicar que estem fent a les línies següents. A Python els comentaris van precedit del símbol #. Tot el que hi hagi escrit a una línia darrere d’aquest símbol no serà compilat i es considerarà un comentari.
-      Nota: Els comentaris en programació es realitzen en anglès.
-2. A les línies 2 i 3 importem les llibreries necessàries per que es pugui compilar el codi que estem escrivint. En aquest cas hem importat dues llibreries:
-a. Micro:bit. Per poder utilitzar les llibreries pròpies de Micro:bit.
-b. Music. Per poder emetre sons mitjançant la Micro:bit.
-3. A la línia 6 s’inicia un bucle while. Aquest bucle finalitza a la línia 11. Els bucles while serveix per executar de forma contínua una part de codi sempre que la condició que els executa sigui certa. En aquest cas hem dit while True. Aquesta condició serà sempre certa i per tant, hem creat un bucle infinit que s’executarà de forma contínua.
-4. A les línies 7 i 10 es crida al classe display que conté el mètode show(). A aquest mètode serveix per mostrar una imatge a la pantalla de la Micro:bit, En aquest exemple es passa la imatge d’un cor gran (a la línia 7) i un cor petit a la línia 10.
-5. A la línia 8 es crida a la classe music per utilitzar el mètode play(). A aquest mètode se li ha de passar un nombre sencer. En aquest cas li passem el valor 100. Això fa que la Micro:bit emeti una nota a una freqüència de 100Hz.
-6. A les línia 9 i 11 s’imposa un temps d’espera de 500 mil·lisegons. Aquest temps d’espera entre imatge i imatge és el que crea l’animació de batec, al passar contínuament d’un cor gran a un petit i d’un cor petit a un gran.
+Explicaciï¿½ del codi
+Ara que hem vist quina pinta tï¿½ el codi, anem a explicar que fa cada lï¿½nia:
+1. A les lï¿½nies 1 i 5 introduï¿½m comentaris per explicar que estem fent a les lï¿½nies segï¿½ents. A Python els comentaris van precedit del sï¿½mbol #. Tot el que hi hagi escrit a una lï¿½nia darrere dï¿½aquest sï¿½mbol no serï¿½ compilat i es considerarï¿½ un comentari.
+      Nota: Els comentaris en programaciï¿½ es realitzen en anglï¿½s.
+2. A les lï¿½nies 2 i 3 importem les llibreries necessï¿½ries per que es pugui compilar el codi que estem escrivint. En aquest cas hem importat dues llibreries:
+a. Micro:bit. Per poder utilitzar les llibreries prï¿½pies dMicro:bitit.
+b. Music. Per poder emetre sons mitjanï¿½ant lMicro:bitit.
+3. A la lï¿½nia 6 sï¿½inicia un bucle while. Aquest bucle finalitza a la lï¿½nia 11. Els bucles while serveix per executar de forma contï¿½nua una part de codi sempre que la condiciï¿½ que els executa sigui certa. En aquest cas hem dit while True. Aquesta condiciï¿½ serï¿½ sempre certa i per tant, hem creat un bucle infinit que sï¿½executarï¿½ de forma contï¿½nua.
+4. A les lï¿½nies 7 i 10 es crida al classe display que contï¿½ el mï¿½tode show(). A aquest mï¿½tode serveix per mostrar una imatge a la pantallMicro:biticro:bit, En aquest exemple es passa la imatge dï¿½un cor gran (a la lï¿½nia 7) i un cor petit a la lï¿½nia 10.
+5. A la lï¿½nia 8 es crida a la classe music per utilitzar el mï¿½tode play(). A aquest mï¿½tode se li ha de passar un nombre sencer. En aquest cas li passem el valor 100. Aixï¿½ faMicro:biticro:bit emeti una nota a una freqï¿½ï¿½ncia de 100Hz.
+6. A les lï¿½nia 9 i 11 sï¿½imposa un temps dï¿½espera de 500 milï¿½lisegons. Aquest temps dï¿½espera entre imatge i imatge ï¿½s el que crea lï¿½animaciï¿½ de batec, al passar contï¿½nuament dï¿½un cor gran a un petit i dï¿½un cor petit a un gran.
 Codi
-El codi sencer es pot consultar a la secció El batec de la Micro:bit de l’apèndix.
+El codi sencer es pot consultar a la secciï¿½ El batec de lMicro:bitit de lï¿½apï¿½ndix.
 
 
 Conta enrere
-Aquest projecte és la programació d’una conta enrere des de 10 fins a 0. La conta enrere es mostrarà a la pantalla de la Micro:bit i anirà acompanyada d’una pulsació, la mateixa que es va fer al projecte El batec de la Micro:bit, per tenir una estimulació sonora a banda d’una visual.
-Al projecte es veurà un nou tipus de bucle, un bucle for i es veurà com declarar una variable que utilitzarem per realitzar la conta enrere.
+Aquest projecte ï¿½s la programaciï¿½ dï¿½una conta enrere des de 10 fins a 0. La conta enrere es mostrarï¿½ a la pantallMicro:biticro:bit i anirï¿½ acompanyada dï¿½una pulsaciï¿½, la mateixa que es va fer al projecte EMicro:bite la Micro:bit, per tenir una estimulaciï¿½ sonora a banda dï¿½una visual.
+Al projecte es veurï¿½ un nou tipus de bucle, un bucle for i es veurï¿½ com declarar una variable que utilitzarem per realitzar la conta enrere.
 Comencem el conta enrere!
 Declarant una variable
-El codi de la conta enrera, és possiblement, més senzill que el codi del projecte anterior, encara que també té les seves peculiaritats. La primera és la declaració d’una variable.
-Quan parlem de variables, hem de saber distingir entre una variable d’àmbit global i una d’àmbit local. De moment, l’únic que cal saber és que les variables d’àmbit global, com la que utilitzarem a aquest projecte, és declaren just desprès de la línia dels imports i es fa de la següent manera:
+El codi de la conta enrera, ï¿½s possiblement, mï¿½s senzill que el codi del projecte anterior, encara que tambï¿½ tï¿½ les seves peculiaritats. La primera ï¿½s la declaraciï¿½ dï¿½una variable.
+Quan parlem de variables, hem de saber distingir entre una variable dï¿½ï¿½mbit global i una dï¿½ï¿½mbit local. De moment, lï¿½ï¿½nic que cal saber ï¿½s que les variables dï¿½ï¿½mbit global, com la que utilitzarem a aquest projecte, ï¿½s declaren just desprï¿½s de la lï¿½nia dels imports i es fa de la segï¿½ent manera:
 [nom variable] = [valor variable]
-Un exemple de declaració seria:
+Un exemple de declaraciï¿½ seria:
 i = 10
-Dit això, just a l’inici del nostre projecte escriurem:
+Dit aixï¿½, just a lï¿½inici del nostre projecte escriurem:
 1	# Imports go at the top
 2	from microbit import *
 3	import music
 4
 5	# Variables
 6	i = 10
-A la línia 6 realitzem la declaració de la variable i i el seu valor: 10.
+A la lï¿½nia 6 realitzem la declaraciï¿½ de la variable i i el seu valor: 10.
 Bucle for
-Desprès de la declaració de la variable iniciem el bucle for, que és el bucle principal del projecte.
+Desprï¿½s de la declaraciï¿½ de la variable iniciem el bucle for, que ï¿½s el bucle principal del projecte.
 8	# Main loop
 9	for index in range(11):
 10	display.show(i)
-11	music.play(‘a’)
+11	music.play(ï¿½aï¿½)
 12	i = i - 1
 13	sleep(1000)
-Explicació del codi
-A aquest projecte hem d’explicar el bucle for. Un bucle for s’executa un determinat nombre de cops. Per decidir quants cops s’executa una bucle for es tendeix a incloure un algoritme que modifica el valor de la variable que controla el bucle cada cop que s’executa el bucle. En aquest cas es modifica el valor de la variable i.
-A la línia 9 declarem el bucle for i establim que s’executarà 11 cops (index in range(11)). Expliquem una mica més aquesta darrera sentència:
-* index: Es el valor que s’anirà modificant.
+Explicaciï¿½ del codi
+A aquest projecte hem dï¿½explicar el bucle for. Un bucle for sï¿½executa un determinat nombre de cops. Per decidir quants cops sï¿½executa una bucle for es tendeix a incloure un algoritme que modifica el valor de la variable que controla el bucle cada cop que sï¿½executa el bucle. En aquest cas es modifica el valor de la variable i.
+A la lï¿½nia 9 declarem el bucle for i establim que sï¿½executarï¿½ 11 cops (index in range(11)). Expliquem una mica mï¿½s aquesta darrera sentï¿½ncia:
+* index: Es el valor que sï¿½anirï¿½ modificant.
 * in; vincular index amb el seu rang de valors.
 * range(): Indica el rang de valors, o els passos a realitzar pel bucle.
-* 11: És el nombre de cops (passos) que s’executarà el bucle for.
-Les línies 10 i 11 ja les coneixem del projecte anterior. A la línia 12 el que estem fent és reduir en un valor la variable i cada cop que s’executa el bucle for.
-Per últim, a la línia 13 fem que el codi s’aturi 1 segon abans de tornar-se a executar el bucle for.
+* 11: ï¿½s el nombre de cops (passos) que sï¿½executarï¿½ el bucle for.
+Les lï¿½nies 10 i 11 ja les coneixem del projecte anterior. A la lï¿½nia 12 el que estem fent ï¿½s reduir en un valor la variable i cada cop que sï¿½executa el bucle for.
+Per ï¿½ltim, a la lï¿½nia 13 fem que el codi sï¿½aturi 1 segon abans de tornar-se a executar el bucle for.
 Concepte
-No ha cridat l’atenció alguna cosa del codi? Us heu fixat que el valor de la variable i és de 10 i executem el bucle for 11 cops? Aquesta “incoherència” es deu a que el 0 és un nombre i per tant s’ha de tenir en compte alhora de programar. Si fem que el bucle for s’executi només 10 cops el darrer nombre que assolirà la variable i serà 1 i no 0.
+No ha cridat lï¿½atenciï¿½ alguna cosa del codi? Us heu fixat que el valor de la variable i ï¿½s de 10 i executem el bucle for 11 cops? Aquesta ï¿½incoherï¿½nciaï¿½ es deu a que el 0 ï¿½s un nombre i per tant sï¿½ha de tenir en compte alhora de programar. Si fem que el bucle for sï¿½executi nomï¿½s 10 cops el darrer nombre que assolirï¿½ la variable i serï¿½ 1 i no 0.
 Feu la prova!
 Codi
-El codi sencer d’aquest projecte es pot consultar a la secció  de l’Apèndix.
+El codi sencer dï¿½aquest projecte es pot consultar a la secciï¿½  de lï¿½Apï¿½ndix.
 
 
-Programació Intermèdia
+Programaciï¿½ Intermï¿½dia
 
 
-El foraster més ràpid
-Introducció
-A aquest projecte farem una combinació de dos projectes vists a la secció de programació inicial. Els projectes que combinarem són: El més ràpid i Conta enrere. Com veurem caldrà realitzar algunes modificacions al codi que ja vist.
+El foraster mï¿½s rï¿½pid
+Introducciï¿½
+A aquest projecte farem una combinaciï¿½ de dos projectes vists a la secciï¿½ de programaciï¿½ inicial. Els projectes que combinarem sï¿½n: El mï¿½s rï¿½pid i Conta enrere. Com veurem caldrï¿½ realitzar algunes modificacions al codi que ja vist.
 Objectiu
-L’objectiu d’aquest projecte és veure com utilitzar bucles dins de bucles (bucles niats). Per fer-ho es mostrarà un exemple amb dos bucles while.
-També es veurà el reaprofitament de blocs de codi mitjançant la definició de funcions.
+Lï¿½objectiu dï¿½aquest projecte ï¿½s veure com utilitzar bucles dins de bucles (bucles niats). Per fer-ho es mostrarï¿½ un exemple amb dos bucles while.
+Tambï¿½ es veurï¿½ el reaprofitament de blocs de codi mitjanï¿½ant la definiciï¿½ de funcions.
 Afegint un compte enrere
-El primer que hem de fer és afegir la declaració d’una variable a sota del bloc dels imports, però iniciant la variable a 3. D’aquesta forma escriurem:
+El primer que hem de fer ï¿½s afegir la declaraciï¿½ dï¿½una variable a sota del bloc dels imports, perï¿½ iniciant la variable a 3. Dï¿½aquesta forma escriurem:
 5	 # Variables
 4	i = 3
-El següent pas serà escriure el bucle for dins del bucle while de la següent forma:
+El segï¿½ent pas serï¿½ escriure el bucle for dins del bucle while de la segï¿½ent forma:
 7
 8	 while True:
 9		for index in range(4):
 10			display.show(i)
-11				music.play(‘a’)
+11				music.play(ï¿½aï¿½)
 12				i = i - 1
 13				sleep(1000)
-Si executem el codi del projecte veurem que el compte enrere és infinit, i un cop s’arriba al zero es continua comptant en nombre negatius.
-Per que això no succeeixi s’ha de fer segon bucle while niat, és a dir, un bucle while dins un altre bucle while. El codi anterior quedarà de la següent forma:
+Si executem el codi del projecte veurem que el compte enrere ï¿½s infinit, i un cop sï¿½arriba al zero es continua comptant en nombre negatius.
+Per que aixï¿½ no succeeixi sï¿½ha de fer segon bucle while niat, ï¿½s a dir, un bucle while dins un altre bucle while. El codi anterior quedarï¿½ de la segï¿½ent forma:
 7
 8 while True:
 9		while i > 0:
 9			for index in range(3):
 10				display.show(i)
-11				music.play(‘a’)
+11				music.play(ï¿½aï¿½)
 12				i = i - 1
 13				sleep(1000)
 14		
 15				If i == 0:
 16					display.show(0):
 17					music.play(music.JUMP_UP)
-Al niar un bucle while, estem fent que el bucle for s’executi dins el segon bucle while. Aquest segon bucle while només s’executarà quan el valor d’i sigui superior a menys 1 (–1). En el moment en que el valor de la variable sigui zero (0), es mostrarà el valor en pantalla, s’emetrà un so i es sortirà d’aquest bucle while; continuant-se l’execució del bucle while inicial.
-Una cosa que ens em de fixar és que ara el rang de i és tres (3) i no quatre (4) com abans. El rang s’ha disminuït en un valor per evitar una superposició de dos sons al arribar al valor de zero (0). Amb aquesta modificació s’evita que el zero faci el so de a conta enrere.
-Si es vol que el zero (0) formi part de la conta enrere, llavors al bucle if, en lloc de mostrar-se el valor de zero (0) es podria mostrar un text que digués JA quan s’emeti el so d’inici del joc.
-Ja tenim creada la conta enrere. Si enganxem el codi del projecte a fora del segon bucle while però a dins del primer, ja tindrem el nostre projecte executant-se de forma adient.
-El bucle principal del projecte hauria de tenir la següent forma:
+Al niar un bucle while, estem fent que el bucle for sï¿½executi dins el segon bucle while. Aquest segon bucle while nomï¿½s sï¿½executarï¿½ quan el valor dï¿½i sigui superior a menys 1 (ï¿½1). En el moment en que el valor de la variable sigui zero (0), es mostrarï¿½ el valor en pantalla, sï¿½emetrï¿½ un so i es sortirï¿½ dï¿½aquest bucle while; continuant-se lï¿½execuciï¿½ del bucle while inicial.
+Una cosa que ens em de fixar ï¿½s que ara el rang de i ï¿½s tres (3) i no quatre (4) com abans. El rang sï¿½ha disminuï¿½t en un valor per evitar una superposiciï¿½ de dos sons al arribar al valor de zero (0). Amb aquesta modificaciï¿½ sï¿½evita que el zero faci el so de a conta enrere.
+Si es vol que el zero (0) formi part de la conta enrere, llavors al bucle if, en lloc de mostrar-se el valor de zero (0) es podria mostrar un text que diguï¿½s JA quan sï¿½emeti el so dï¿½inici del joc.
+Ja tenim creada la conta enrere. Si enganxem el codi del projecte a fora del segon bucle while perï¿½ a dins del primer, ja tindrem el nostre projecte executant-se de forma adient.
+El bucle principal del projecte hauria de tenir la segï¿½ent forma:
 9 while True:
 10	while i > 0:
 11		for n in range(3): 
@@ -394,31 +394,31 @@ El bucle principal del projecte hauria de tenir la següent forma:
 27			display.show(Image.ARROW_E)
 28			music.play('b')
 29			sleep(500)
-Si executem ara el codi del nostre projecte ens cridarà l’atenció que al pitjar el botó A o B de la Micro:bit la fletxa es mostra tota l’estona i si es torna a pitjar una altre cop, la fletxa modifica el seu sentit depenent del botó pitjar, és a dir, no es torna a realitzar una conta enrere.
-El que es vol és que es torni a iniciar el conta enrere per tornar a jugar. Anem a veure com ho podem fer.
+Si executem ara el codi del nostre projecte ens cridarï¿½ lï¿½atenciï¿½ que al pitjar el botï¿½ A o Micro:biticro:bit la fletxa es mostra tota lï¿½estona i si es torna a pitjar una altre cop, la fletxa modifica el seu sentit depenent del botï¿½ pitjar, ï¿½s a dir, no es torna a realitzar una conta enrere.
+El que es vol ï¿½s que es torni a iniciar el conta enrere per tornar a jugar. Anem a veure com ho podem fer.
 Reiniciant el compte enrere
-El primer que hem de fer és redefinir el bucle while intern i convertir-lo en una funció. Les funcions són blocs de codi que es poden utilitzar i que s’han de declarar abans de la seva utilització. Si es declara desprès de la seva utilització el programa ens retornarà un error.
-Dit això, declararem la funció abans del primer bucle while de la següent forma:
+El primer que hem de fer ï¿½s redefinir el bucle while intern i convertir-lo en una funciï¿½. Les funcions sï¿½n blocs de codi que es poden utilitzar i que sï¿½han de declarar abans de la seva utilitzaciï¿½. Si es declara desprï¿½s de la seva utilitzaciï¿½ el programa ens retornarï¿½ un error.
+Dit aixï¿½, declararem la funciï¿½ abans del primer bucle while de la segï¿½ent forma:
 8 def countdown(i):
 9 
 10	while i > 0:
 11		for n in range(3): 
 12			display.show(i)
-13			music.play(‘a’)
+13			music.play(ï¿½aï¿½)
 14			sleep(500)
 15			i = i - 1
 16
 17			if i == 0:
 18			display.show(0)
-Ara que tenim la funció definida, expliquem-la. Per definir una funció sempre s’utilitzarà la paraula reservada def seguida del nom de la funció. En el cas anterior seria def countdown( ). Desprès dels parèntesis s’han d’escriure dos punts ( : ) que indiquen l’inici de la definició de la funció, de igual manera que es fa amb un bucle while, per exemple.
-A dins d’aquesta funció s’ha inserit tot el bucle while que estava niat. Per fer que s’executi la funció la hem de cridar al bucle principal. Per fer-ho escriurem el nom de la funció just a sota de l’inic del bucle while i dins d’un bucle if de la següent manera:
+Ara que tenim la funciï¿½ definida, expliquem-la. Per definir una funciï¿½ sempre sï¿½utilitzarï¿½ la paraula reservada def seguida del nom de la funciï¿½. En el cas anterior seria def countdown( ). Desprï¿½s dels parï¿½ntesis sï¿½han dï¿½escriure dos punts ( : ) que indiquen lï¿½inici de la definiciï¿½ de la funciï¿½, de igual manera que es fa amb un bucle while, per exemple.
+A dins dï¿½aquesta funciï¿½ sï¿½ha inserit tot el bucle while que estava niat. Per fer que sï¿½executi la funciï¿½ la hem de cridar al bucle principal. Per fer-ho escriurem el nom de la funciï¿½ just a sota de lï¿½inic del bucle while i dins dï¿½un bucle if de la segï¿½ent manera:
 23	if i > 0:
 24		countdown(i)
 25		music.play(music.JUMP_UP)
 26		i = 0
-El bucle if és necessari per evitar que la funció countdown( ) sigui cridada infinitament. El mateix passa amb la igualtat i = 0. Sense aquestes dues línies la funció seria cridada una vegada i un altre fent-se un conte enrere des de 3 fins a 0 de forma infinita.
-Ara, per saber si s’ha pitjar el botó A o B de la Micro:bit definirem una funció a la que se li passarà un valor de 0, si s’ha pitjat el botó A o un valor 1 si s’ha pitjat el botó B. Degut que a aquesta funció se li passa un paràmetre, entre els parèntesis s’ha d’escriure una variable que agafarà el valor que se li passa a la funció.
-La definició de la funció serà de la següent manera:
+El bucle if ï¿½s necessari per evitar que la funciï¿½ countdown( ) sigui cridada infinitament. El mateix passa amb la igualtat i = 0. Sense aquestes dues lï¿½nies la funciï¿½ seria cridada una vegada i un altre fent-se un conte enrere des de 3 fins a 0 de forma infinita.
+Ara, per saber si sï¿½ha pitjar el botï¿½ A o B deMicro:bit:bit definirem una funciï¿½ a la que se li passarï¿½ un valor de 0, si sï¿½ha pitjat el botï¿½ A o un valor 1 si sï¿½ha pitjat el botï¿½ B. Degut que a aquesta funciï¿½ se li passa un parï¿½metre, entre els parï¿½ntesis sï¿½ha dï¿½escriure una variable que agafarï¿½ el valor que se li passa a la funciï¿½.
+La definiciï¿½ de la funciï¿½ serï¿½ de la segï¿½ent manera:
 21	def btn_presed(btn):
 22		if btn == 0:
 23			display.show(Image.ARROW_W)
@@ -429,26 +429,26 @@ La definició de la funció serà de la següent manera:
 28			music.play('b')
 29
 30		sleep(1000)
-A la variable l’hem anomenat btn, i depenent del valor de btn s’executarà un o altre bloc del bucle if. Ara només ens cal cridar a la funció a dins del bucle while principal. Al cridar la funció haurem de passar el valor que es vol que adquireixi la variable btn. La crida la farem dins d’un bucle if contingut al bucle principal while de la següent manera:
+A la variable lï¿½hem anomenat btn, i depenent del valor de btn sï¿½executarï¿½ un o altre bloc del bucle if. Ara nomï¿½s ens cal cridar a la funciï¿½ a dins del bucle while principal. Al cridar la funciï¿½ haurem de passar el valor que es vol que adquireixi la variable btn. La crida la farem dins dï¿½un bucle if contingut al bucle principal while de la segï¿½ent manera:
 39	if button_a.is_pressed():
 40		btn_presed(0)
 41	elif button_b.is_pressed():
 42		btn_presed(1)
-Si estudiem aquest bloc de codi, veiem que quan es pitja el botó A la funció btn_pressed( ) se li passa el valor 0, i si es pitja el botó B se li passa el valor 1. D’aquesta forma, la variable btn agafa un valor o un altre depenent del botó que es pitgi.
-Encara hem de realitzar una modificació. Si intentem cridar a les funcions ja creades de forma reiterativa es veurà com el bucle principal s’executa de forma indefinidament. Per evitar això hem de crear una nova funció que s’activi quan els jugadors realitzin una acció sobre la Micro:bit. En aquest cas s’ha triat un sacseig de la mateixa.
-La definició de la funció seria:
+Si estudiem aquest bloc de codi, veiem que quan es pitja el botï¿½ A la funciï¿½ btn_pressed( ) se li passa el valor 0, i si es pitja el botï¿½ B se li passa el valor 1. Dï¿½aquesta forma, la variable btn agafa un valor o un altre depenent del botï¿½ que es pitgi.
+Encara hem de realitzar una modificaciï¿½. Si intentem cridar a les funcions ja creades de forma reiterativa es veurï¿½ com el bucle principal sï¿½executa de forma indefinidament. Per evitar aixï¿½ hem de crear una nova funciï¿½ que sï¿½activi quan els jugadors realitzin una accMicro:bitla Micro:bit. En aquest cas sï¿½ha triat un sacseig de la mateixa.
+La definiciï¿½ de la funciï¿½ seria:
 32	def on_shake(i):
 33		if accelerometer.is_gesture('shake'):
 34			if i > 0:
 35				countdown(i)
 36				music.play(music.JUMP_UP)
 37				i = 0
-A aquesta funció se li passa un valor que és agafat per la variable i. A la funció es crida a la funció countdown( ). Aquesta crida es realitzarà si el valor de la variable i és superior a 0. Un cop la variable assoleix el valor de 0 es produeix el so i es surt de la funció.
-Al haver-se creat aquesta nova funció, ara hem de cridar-la des de l’interior del bucle while principal de la següent manera:
+A aquesta funciï¿½ se li passa un valor que ï¿½s agafat per la variable i. A la funciï¿½ es crida a la funciï¿½ countdown( ). Aquesta crida es realitzarï¿½ si el valor de la variable i ï¿½s superior a 0. Un cop la variable assoleix el valor de 0 es produeix el so i es surt de la funciï¿½.
+Al haver-se creat aquesta nova funciï¿½, ara hem de cridar-la des de lï¿½interior del bucle while principal de la segï¿½ent manera:
 40 while True:
 41	on_shake(3)
 Bucle while principal
-Amb totes aquestes modificacions el bucle while principal he de tenir la següent forma:
+Amb totes aquestes modificacions el bucle while principal he de tenir la segï¿½ent forma:
 40	while True:
 41		on_shake(3)
 42
@@ -456,63 +456,63 @@ Amb totes aquestes modificacions el bucle while principal he de tenir la següent
 44			btn_presed(0)
 45		elif button_b.is_pressed():
 46			btn_presed(1)
-Tal i com està ara mateix el bucle principal del nostre projecte estem fent que el joc sigui infinit. Per modificar aquest comportament hem de crear una variable nova que anirà sumant o restant valors cada cop que s’executi el bucle. D’aquesta forma podrem fer que el bucle s’executi un nombre determinar de vegades.
-Així doncs, definim una variable global:
+Tal i com estï¿½ ara mateix el bucle principal del nostre projecte estem fent que el joc sigui infinit. Per modificar aquest comportament hem de crear una variable nova que anirï¿½ sumant o restant valors cada cop que sï¿½executi el bucle. Dï¿½aquesta forma podrem fer que el bucle sï¿½executi un nombre determinar de vegades.
+Aixï¿½ doncs, definim una variable global:
 5 # Variables 
 6 game = True
 7 turns = 5
-I modificar la condició d’execució del bucle while segons el valor de la nova variable:
+I modificar la condiciï¿½ dï¿½execuciï¿½ del bucle while segons el valor de la nova variable:
 43	while game:
-Ara, per fer que el bucle finalitzi hem de sumar un valor cada cop que executem el bucle sencer. Ara, dins de cada bucle if, al final, escrivim la sentència: turns = turns -1. D’aquesta forma, cada cop que pitgem un dels botons de la Micro:bit es reduirà en 1 el valor de la variable turns.
-Això ho farem mitjançant un bucle if.
+Ara, per fer que el bucle finalitzi hem de sumar un valor cada cop que executem el bucle sencer. Ara, dins de cada bucle if, al final, escrivim la sentï¿½ncia: turns = turns -1. Dï¿½aquesta forma, cada cop que pitgem un dels botons deMicro:bit:bit es reduirï¿½ en 1 el valor de la variable turns.
+Aixï¿½ ho farem mitjanï¿½ant un bucle if.
 61	if turns == 0:
 62		game == False
 Dient el guanyador
-El joc ja és funcional i es poden jugar 5 torns, però no hi ha un marcador ni un guanyador. Anem a afegir-ho.
-El primer que farem serà importar el mòdul speech per fer que la Micro:bit digui qui ha guanyat. Al bloc dels imports afegirem:
+El joc ja ï¿½s funcional i es poden jugar 5 torns, perï¿½ no hi ha un marcador ni un guanyador. Anem a afegir-ho.
+El primer que farem serï¿½ importar el mï¿½dul speech per fer queMicro:bit:bit digui qui ha guanyat. Al bloc dels imports afegirem:
 4 import speech
-També hem d’afegir dues variables al bloc de les variables.
+Tambï¿½ hem dï¿½afegir dues variables al bloc de les variables.
 9 player_a = 0
 10 player_b = 0
 A aquestes dues variables guardarem el marcador del jugador a (player_a) i el del jugador b (player_b).
-Ara, només ens manca incrementar el marcador del jugador més ràpid en cada torn. Per fer-lo a l’interior del bucle if del botó A afegirem:
+Ara, nomï¿½s ens manca incrementar el marcador del jugador mï¿½s rï¿½pid en cada torn. Per fer-lo a lï¿½interior del bucle if del botï¿½ A afegirem:
 52		player_a = player_a + 1
-I a dins del bucle if del botó B:
+I a dins del bucle if del botï¿½ B:
 58		player_b = player_b + 1
-Amb això ja hem aconseguit el nostre marcador. Ara només manca que es mostri al finalitzar la partida.
-Per fer-ho modificarem el darrer bucle, on es finalitza la partida, afegint les següents línies:
+Amb aixï¿½ ja hem aconseguit el nostre marcador. Ara nomï¿½s manca que es mostri al finalitzar la partida.
+Per fer-ho modificarem el darrer bucle, on es finalitza la partida, afegint les segï¿½ents lï¿½nies:
 65	if player_a > player_b:
-66		display.show(‘A’)
-67		speech.say(‘jugador A gana’)
+66		display.show(ï¿½Aï¿½)
+67		speech.say(ï¿½jugador A ganaï¿½)
 68	elif player_b > player_a:
-69		display.show(‘B’)
-70		speech.say(‘jugador B gana’)
-D’aquest forma hem finalitzat el joc del pistoler més ràpid. Les partides han estat programades per 5 torn. Si volem jugar més torns només hem d’incrementar el valor de la variable turns.
+69		display.show(ï¿½Bï¿½)
+70		speech.say(ï¿½jugador B ganaï¿½)
+Dï¿½aquest forma hem finalitzat el joc del pistoler mï¿½s rï¿½pid. Les partides han estat programades per 5 torn. Si volem jugar mï¿½s torns nomï¿½s hem dï¿½incrementar el valor de la variable turns.
 Codi
-El codi sencer del projecte es pot consultar a l’apartat El foraster més ràpid de l’apèndix.
+El codi sencer del projecte es pot consultar a lï¿½apartat El foraster mï¿½s rï¿½pid de lï¿½apï¿½ndix.
 
-Un contra l’altre
+Un contra lï¿½altre
 Objectiu
-A aquest projecte reprendrem el projecte Pedra, paper, tisora i el retocarem per enviar el resultat d’una Micro:bit a una altre i així saber qui és el guanyador mitjançant un missatge verbal i una música.
-Per connectar les dues Micro:bit, com veurem, ens caldrà importar el mòdul de ràdio i fer alguns configuracions, però no ens avancem i anem a a millorar el joc!
-Important el mòdul radio
-Com sempre que volem utilitzar un mòdul de la Micro:bit que encara no hem utilitzar, hem d’importar-ho al bloc dels import. A aquest bloc afegirem la següent línia:
+A aquest projecte reprendrem el projecte Pedra, paper, tisora i el retocarem per enviar el resultat dï¿½unMicro:bitit a una altre i aixï¿½ saber qui ï¿½s el guanyador mitjanï¿½ant un missatge verbal i una mï¿½sica.
+Per connectar les dues Micro:bit, com veurem, ens caldrï¿½ importar el mï¿½dul de rï¿½dio i fer alguns configuracions, perï¿½ no ens avancem i anem a a millorar el joc!
+Important el mï¿½dul radio
+Com sempre que volem utilitzar un mï¿½dul de lMicro:bitit que encara no hem utilitzar, hem dï¿½importar-ho al bloc dels import. A aquest bloc afegirem la segï¿½ent lï¿½nia:
 6 import radio
-Un cop importat aquest mòdul, ja el podem utilitzar per connectar les dues Micro:bit.
+Un cop importat aquest mï¿½dul, ja el podem utilitzar per connectar les dueMicro:bitit.
 Creant un grup
-Per poder connectar dues o més Micro:bit hem de crear un grup de connexió. La creació d’un grup fa que només les Micro:bit que pertanyin al grup es connectin entre elles, deixant a la resta fora del grup i evitant interferències. D’aquesta forma es poden realitzar partides simultànies si modifiquem el nom del grup.
-Els grups s’anomenen amb un número; per tant, utilitzant un símil a radiofònic, es podria dir que modifiquem la freqüència d’emissió i recepció utilitzant diferents canals. Per crear un grup escriurem, just a sota de l’inicia del bucle principal while el següent:
+Per poder connectar dues o mï¿½Micro:bitit hem de crear un grup de connexiï¿½. La creaciï¿½ dï¿½un grup fa que noMicro:biticro:bit que pertanyin al grup es connectin entre elles, deixant a la resta fora del grup i evitant interferï¿½ncies. Dï¿½aquesta forma es poden realitzar partides simultï¿½nies si modifiquem el nom del grup.
+Els grups sï¿½anomenen amb un nï¿½mero; per tant, utilitzant un sï¿½mil a radiofï¿½nic, es podria dir que modifiquem la freqï¿½ï¿½ncia dï¿½emissiï¿½ i recepciï¿½ utilitzant diferents canals. Per crear un grup escriurem, just a sota de lï¿½inicia del bucle principal while el segï¿½ent:
 11	radio.config(group=12)
-En aquest cas hem assignat el número 12, però es pot assignar qualsevol altre número entre 0 i 255.
-Enviant i rebent informació
-Ara que hem establint un grup, podem connectar les Micro:bit. Per fer-ho, just desprès del darrer bucle if escriurem:
+En aquest cas hem assignat el nï¿½mero 12, perï¿½ es pot assignar qualsevol altre nï¿½mero entre 0 i 255.
+Enviant i rebent informaciï¿½
+Ara que hem establint un grup, podem connectar les Micro:bit. Per fer-ho, just desprï¿½s del darrer bucle if escriurem:
 30	radio.send(str(tool))
 31	recieved=radio.receive()
 32	result = ''
-A la línia 30 estem enviant la variable tool a l’altre Micro:bit; a la 31 estem rebent l’enviament de l’altre Micro:bit i assignant el valor a una nova variable anomenada recieved. A la darrera línia creem una nova variable buida anomenada result que utilitzarem més endavant. Recordem que aquestes noves variables son locals.
-El següent pas és la creació de bucles if niats per la pressa de decisions depenent dels valors de les variables tool i recieved.
+A la lï¿½nia 30 estem enviant la variable tool a lï¿½alMicro:bit:bit; a la 31 estem rebent lï¿½enviament de lï¿½Micro:bitro:bit i assignant el valor a una nova variable anomenada recieved. A la darrera lï¿½nia creem una nova variable buida anomenada result que utilitzarem mï¿½s endavant. Recordem que aquestes noves variables son locals.
+El segï¿½ent pas ï¿½s la creaciï¿½ de bucles if niats per la pressa de decisions depenent dels valors de les variables tool i recieved.
 Pressa de decisions
-Per la pressa de decisions niarem diferents bucles if. Al bucle if més extern valorarem la variable tool i a l’interna la variable recieved de la següent manera:
+Per la pressa de decisions niarem diferents bucles if. Al bucle if mï¿½s extern valorarem la variable tool i a lï¿½interna la variable recieved de la segï¿½ent manera:
 35	if tool == 0:
 36		if recieved == "1":
 37			result = 'Perds'
@@ -528,10 +528,10 @@ Per la pressa de decisions niarem diferents bucles if. Al bucle if més extern va
 47			result = 'Perds'
 48		elif recieved == "1":
 49			result = 'Guanyes'
-En aquest cas no podem utilitzar l’operador lògic & per resoldre la presa de decisions degut a que la variable tool és un integer (enter) i la variable recieved és un string (cadena). Per aquest motiu no es pot realitzar una comparació de variables.
-Com veiem al codi anterior, la nova variable result està prenent el valor del resultat de la comparació entre les variables tool i recieved.
+En aquest cas no podem utilitzar lï¿½operador lï¿½gic & per resoldre la presa de decisions degut a que la variable tool ï¿½s un integer (enter) i la variable recieved ï¿½s un string (cadena). Per aquest motiu no es pot realitzar una comparaciï¿½ de variables.
+Com veiem al codi anterior, la nova variable result estï¿½ prenent el valor del resultat de la comparaciï¿½ entre les variables tool i recieved.
 Tria del guanyador
-Ara amb el valor de la variable result mostrarem a pantalla i amb so qui dels dos jugadors ha guanyat. Per realitzar això utilitzarem un bucle if de la següent manera:
+Ara amb el valor de la variable result mostrarem a pantalla i amb so qui dels dos jugadors ha guanyat. Per realitzar aixï¿½ utilitzarem un bucle if de la segï¿½ent manera:
 51	if result == 'Guanyes':
 52		display.show(Image.SMILE)
 53		music.play(music.PYTHON)
@@ -544,11 +544,11 @@ Ara amb el valor de la variable result mostrarem a pantalla i amb so qui dels do
 60		display.show(Image.ASLEEP)
 61		music.play(music.WAWAWAWAA)
 62		speech.say('Empat')
-Amb aquest darrer bucle tindríem un projecte operatiu. Si veiem el codi, aquest és ara mateix una mica confús i brut. Així que anem a netejar-ho.
+Amb aquest darrer bucle tindrï¿½em un projecte operatiu. Si veiem el codi, aquest ï¿½s ara mateix una mica confï¿½s i brut. Aixï¿½ que anem a netejar-ho.
 Netejant el codi
-El primer que farem serà esborrar les línies on reproduïm un so quan apareix el resultat a pantalla, és a dir, les línies 18, 22 i 26. Ara ja no cal que s’emeti un so diferent depenent del valor de la tirada. Realment també podríem treure les línies 17, 21 i 25; però les deixarem per que el jugador sàpiga quin és el valor de la seva tirada.
-Una altre cosa que es pot realitzar per netejar el codi i fer-ho més entenedor és crear funcions per agrupa diferents blocs de codi. D’aquesta forma crearem una funció anomenada Trie( ) a la que se li passarà la variable tool.
-La definició de la funció es realitzarà abans del bucle while de la següent manera:
+El primer que farem serï¿½ esborrar les lï¿½nies on reproduï¿½m un so quan apareix el resultat a pantalla, ï¿½s a dir, les lï¿½nies 18, 22 i 26. Ara ja no cal que sï¿½emeti un so diferent depenent del valor de la tirada. Realment tambï¿½ podrï¿½em treure les lï¿½nies 17, 21 i 25; perï¿½ les deixarem per que el jugador sï¿½piga quin ï¿½s el valor de la seva tirada.
+Una altre cosa que es pot realitzar per netejar el codi i fer-ho mï¿½s entenedor ï¿½s crear funcions per agrupa diferents blocs de codi. Dï¿½aquesta forma crearem una funciï¿½ anomenada Trie( ) a la que se li passarï¿½ la variable tool.
+La definiciï¿½ de la funciï¿½ es realitzarï¿½ abans del bucle while de la segï¿½ent manera:
 8 # Functions
 9 def Trie(tool):
 10	if tool == 0:
@@ -560,10 +560,10 @@ La definició de la funció es realitzarà abans del bucle while de la següent mane
 16	else:
 17		display.show(Image.SCISSORS);
 18		speech.say('Tisores')
-Al lloc on estava aquest bloc de codi cridarem a la funció:
+Al lloc on estava aquest bloc de codi cridarem a la funciï¿½:
 28	Tries(tool)
-Podem fer el mateix amb els altres dos bucles i crear dues noves funcions, que anomenarem Comparison( ) i Winner( ). A la primera funció realitzarem la comparació de les variable i retornarem el valor de la variable result.
-Aquesta primera funció l’escriurem just a sota de la funció Tries(tool) i serà:
+Podem fer el mateix amb els altres dos bucles i crear dues noves funcions, que anomenarem Comparison( ) i Winner( ). A la primera funciï¿½ realitzarem la comparaciï¿½ de les variable i retornarem el valor de la variable result.
+Aquesta primera funciï¿½ lï¿½escriurem just a sota de la funciï¿½ Tries(tool) i serï¿½:
 20 def Comparison(tool, recieved):
 21	result = ''
 22
@@ -584,13 +584,13 @@ Aquesta primera funció l’escriurem just a sota de la funció Tries(tool) i serà:
 37			result = 'Guanyes'
 38
 29	return result
-Com podem veure a la definició de la funció, se li passen dues variables: tool i recieved. El més important d’aquest funció és retorn de la variable result. Aquesta variable es retorna al final de la funció.
-Com que la funció Comparison(tool, recieved) retorna un valor, al cridar a la funció des del bucle principal while, s’ha d’assignar aquest valor a una variable a l’hora de realitzar la crida. Per aquest motiu, la funció es cridarà de la següent forma:
+Com podem veure a la definiciï¿½ de la funciï¿½, se li passen dues variables: tool i recieved. El mï¿½s important dï¿½aquest funciï¿½ ï¿½s retorn de la variable result. Aquesta variable es retorna al final de la funciï¿½.
+Com que la funciï¿½ Comparison(tool, recieved) retorna un valor, al cridar a la funciï¿½ des del bucle principal while, sï¿½ha dï¿½assignar aquest valor a una variable a lï¿½hora de realitzar la crida. Per aquest motiu, la funciï¿½ es cridarï¿½ de la segï¿½ent forma:
 72	result = Comparison(tool, recieved)
-Al cridar-se d’aquesta forma, el valor de la variable retornada s’assigna a la variable de nova definició result. En aquest punt s’ha de fer un incís, encara que les variables es diuen igual: result, són dues variables diferents. La variable result que es defineix a dins de la funció Comparison(tool, recieved) només existeix dins de la funció, no fora de la mateixa. Per contra, la variable result que es defineix a l’interior del bucle while, només existeix a l’interior d’aquest bucle, i a cap lloc més. És el cicle de vida de les variable el que ens permet fer aquesta acció. Per aquest motiu s’ha de tenir sempre molt ben establert i definit quan una variable és global i quan local i quan utilitzar una variable local o una global.
+Al cridar-se dï¿½aquesta forma, el valor de la variable retornada sï¿½assigna a la variable de nova definiciï¿½ result. En aquest punt sï¿½ha de fer un incï¿½s, encara que les variables es diuen igual: result, sï¿½n dues variables diferents. La variable result que es defineix a dins de la funciï¿½ Comparison(tool, recieved) nomï¿½s existeix dins de la funciï¿½, no fora de la mateixa. Per contra, la variable result que es defineix a lï¿½interior del bucle while, nomï¿½s existeix a lï¿½interior dï¿½aquest bucle, i a cap lloc mï¿½s. ï¿½s el cicle de vida de les variable el que ens permet fer aquesta acciï¿½. Per aquest motiu sï¿½ha de tenir sempre molt ben establert i definit quan una variable ï¿½s global i quan local i quan utilitzar una variable local o una global.
 Enviant la resposta
-Tal i com està definit el codi, la resposta s’envia automàticament desprès de fer la tirada, i a vegades, si no s’ha fet alhora o ha passat molt de temps entre una i una altre es poden produir errors. Per aquest motiu, modificarem el codi per enviar el resultat de la tirada amb un gest. En aquesta ocasió s’ha triat el gest de tocar el logo de Micro:bit.
-Per poder fer això la variació que hem de fer al codi, es la crida a les funció d’enviament mitjançant un bucle if:
+Tal i com estï¿½ definit el codi, la resposta sï¿½envia automï¿½ticament desprï¿½s de fer la tirada, i a vegades, si no sï¿½ha fet alhora o ha passat molt de temps entre una i una altre es poden produir errors. Per aquest motiu, modificarem el codi per enviar el resultat de la tirada amb un gest. En aquesta ocasiï¿½ sï¿½ha triat el gest de tocMicro:bito de Micro:bit.
+Per poder fer aixï¿½ la variaciï¿½ que hem de fer al codi, es la crida a les funciï¿½ dï¿½enviament mitjanï¿½ant un bucle if:
 69	if pin_logo.is_touched():
 70		radio.send(str(tool))
 71		recieved=radio.receive()
@@ -598,144 +598,144 @@ Per poder fer això la variació que hem de fer al codi, es la crida a les funció 
 73		result = Comparison(tool, recieved)
 74
 75		Winner(result)
-Amb aquestes modificacions ja tenim el codi més polit i entenedor, però tenim un gran problema: podem fer trampes!
+Amb aquestes modificacions ja tenim el codi mï¿½s polit i entenedor, perï¿½ tenim un gran problema: podem fer trampes!
 Evitant les trampes
-Tal i com tenim definit el codi del projecte hi ha la possibilitat de realitzar trampes i enviar una tirada que sabem que guanyarà. Per evitar això podem utilitzar un bucle if. El que farem serà crear una nova variable global anomenada turns que definirem just abans que el bloc de funcions.
+Tal i com tenim definit el codi del projecte hi ha la possibilitat de realitzar trampes i enviar una tirada que sabem que guanyarï¿½. Per evitar aixï¿½ podem utilitzar un bucle if. El que farem serï¿½ crear una nova variable global anomenada turns que definirem just abans que el bloc de funcions.
 8 # Variables
 9 turn = True
-El següent pas es modificar el bucle if on es realitza la tirada de la següent manera:
+El segï¿½ent pas es modificar el bucle if on es realitza la tirada de la segï¿½ent manera:
 65	if accelerometer.was_gesture('shake') & turn:
-D’aquesta manera el bucle if només s’executarà si les dues condicions són certes. Ara, per molt que es realitzi el moviment per una nova tirada, la Micro:bit no donarà cap nou resultat.
-El següent pas es treure tot el bucle if on es mira la condició de si s’ha tocat el logo de Micro:bit fora del bucle de la tirada. Al fer-ho sens marcarà que no existeix la variable tool. Això es deu a que aquesta variable és una variable local. La solució és fer que la variable passi a ser global definint-la just a sota de la variable turn.
+Dï¿½aquesta manera el bucle if nomï¿½s sï¿½executarï¿½ si les dues condicions sï¿½n certes. Ara, per molt que es realitzi el moviment per una nova tMicro:bit Micro:bit no donarï¿½ cap nou resultat.
+El segï¿½ent pas es treure tot el bucle if on es mira la condiciï¿½ de si sï¿½ha tocat el loMicro:bitro:bit fora del bucle de la tirada. Al fer-ho sens marcarï¿½ que no existeix la variable tool. Aixï¿½ es deu a que aquesta variable ï¿½s una variable local. La soluciï¿½ ï¿½s fer que la variable passi a ser global definint-la just a sota de la variable turn.
 10 tool = 10
-Amb aquestes modificacions el nostre joc ja funciona de forma correcta, però hi ha un petit inconvenient, només podem jugar una partida. Si es vol fer una segona partida s’ha de reiniciar la Micro:bit. Anem a solucionar-ho!
-Més d’una partida
-Per solucionar aquest fet, el més senzill és crear una nova funció que anomenarem Clean( ) on reiniciarem totes les variables.
-A sota la darrera funció definida escriurem:
+Amb aquestes modificacions el nostre joc ja funciona de forma correcta, perï¿½ hi ha un petit inconvenient, nomï¿½s podem jugar una partida. Si es vol fer una segona partida sï¿½ha de reiniciMicro:bitro:bit. Anem a solucionar-ho!
+Mï¿½s dï¿½una partida
+Per solucionar aquest fet, el mï¿½s senzill ï¿½s crear una nova funciï¿½ que anomenarem Clean( ) on reiniciarem totes les variables.
+A sota la darrera funciï¿½ definida escriurem:
 60 def Clean(tool, turn, result):
 61	tool = 10
 62	turn = True
 63	result = ''
-Com es veu, ja aprofitem la nova funció per reiniciar totes les variables al seu valor inicial.
-Ara només manca cridar a aquesta funció al final del tot el bucle on enviem la tirada al nostre oponent. Abans de la crida farem que hi hagi una pausa d’uns 2 segons per que els jugadors puguin discutir el resultat de la tirada.
+Com es veu, ja aprofitem la nova funciï¿½ per reiniciar totes les variables al seu valor inicial.
+Ara nomï¿½s manca cridar a aquesta funciï¿½ al final del tot el bucle on enviem la tirada al nostre oponent. Abans de la crida farem que hi hagi una pausa dï¿½uns 2 segons per que els jugadors puguin discutir el resultat de la tirada.
 86		sleep(2000)
 87
 88		Clean(tool, turn, result)
 Codi
-El codi sencer del projecte es pot veure a la secció XXX de l’apèndix.
+El codi sencer del projecte es pot veure a la secciï¿½ XXX de lï¿½apï¿½ndix.
 
 
 Missatge secret
 Objectiu
-A aquest projecte una continuació el projecte de Codi Morse i el modificarem per que aparegui a la pantalla el text escrit quan sacsegem la Micro:bit. Per fer això ens caldrà declarar una constant on hi ha la conversió de l’alfabet braille a l’alfabet occidental i crear dues variables de tipus array (llista) on anar emmagatzemant els punts i les ratlles i a una altre les lletres introduïdes per formar la paraula.
+A aquest projecte una continuaciï¿½ el projecte de Codi Morse i el modificarem per que aparegui a la pantalla el text escrit quan sacsegem lMicro:bitit. Per fer aixï¿½ ens caldrï¿½ declarar una constant on hi ha la conversiï¿½ de lï¿½alfabet braille a lï¿½alfabet occidental i crear dues variables de tipus array (llista) on anar emmagatzemant els punts i les ratlles i a una altre les lletres introduï¿½des per formar la paraula.
 Comencem!
 Creant una constant
-Les constants són valors que no es modifiquen al llarg d’un codi i es solen escriure en lletres majúscules per diferenciar+-les de les variables. Al igual que les variables, hi ha diferents tipus de constants.
-En el nostre cas utilitzarem un diccionari. Els diccionaris permeten el retorn d’un valor segons els valor que introdueixis, és a dir, hem d’introduir una clau i un valor.
+Les constants sï¿½n valors que no es modifiquen al llarg dï¿½un codi i es solen escriure en lletres majï¿½scules per diferenciar+-les de les variables. Al igual que les variables, hi ha diferents tipus de constants.
+En el nostre cas utilitzarem un diccionari. Els diccionaris permeten el retorn dï¿½un valor segons els valor que introdueixis, ï¿½s a dir, hem dï¿½introduir una clau i un valor.
 Per exemple:
-“.-”: “A“
-En aquest cas, quan la Micro:bit detecti a que la variable letter te al seu interior el valor .- (punt i guió) ens retornarà la lletra A.
-El diccionari que necessitarem és el següent:
+ï¿½.-ï¿½: ï¿½Aï¿½
+En aquest cas, quan la Micro:bit detecti a que la variable letter te al seu interior el valor .- (punt i guiï¿½) ens retornarï¿½ la lletra A.
+El diccionari que necessitarem ï¿½s el segï¿½ent:
 6	# Constant
 7	ALPHABET = {
-8	 ".-":“A", "-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H", "..":"I", ".---":"J", "-.-":"K”,".-..": "L", "--":"M", "-.":"N", "--.--":"Ñ", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z",
+8	 ".-":ï¿½A", "-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H", "..":"I", ".---":"J", "-.-":"Kï¿½,".-..": "L", "--":"M", "-.":"N", "--.--":"ï¿½", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z",
 9	 }
 Creant les variables
-Sobre les variables s’ha de tenir n conte que hi ha variables globals i variables locals. La diferència entre unes i altre és el seu àmbit, el que vindria a ser una espècie de zona d’influència. Les variables globals les declararem sempre a sota de les importacions, i es poden utilitzar a tot el codi del projecte.
-Una variable local seria aquella que hem declarat a dins d’un bucle, per exemple. Aquest variable només es pot utilitzar a dins d’aquest bucle, ja que fora del mateix la variable delcara no existeix.
+Sobre les variables sï¿½ha de tenir n conte que hi ha variables globals i variables locals. La diferï¿½ncia entre unes i altre ï¿½s el seu ï¿½mbit, el que vindria a ser una espï¿½cie de zona dï¿½influï¿½ncia. Les variables globals les declararem sempre a sota de les importacions, i es poden utilitzar a tot el codi del projecte.
+Una variable local seria aquella que hem declarat a dins dï¿½un bucle, per exemple. Aquest variable nomï¿½s es pot utilitzar a dins dï¿½aquest bucle, ja que fora del mateix la variable delcara no existeix.
 A sota dels imports escriurem:
 13	# Variables
-14	letter = ‘’
-15	word = ‘’
-Les variables que hem creat són del tipus string (cadena),. Als projectes de Micro:bit no cal declarar quin tipus de variable estem utilitzant. Per aquest motiu cal inicialitzar-les. És a dir, donar un valor per defecte a les variables. Al fer-ho s’està indicant, de forma indirecta, quin tipus de variable volem utilitzar.
-Ara que tenim declarades les variables, anem a utilitzar-les. El primer que farem serà emmagatzemar el valor de · (punt) si pitgem el botó A, o de - (guió) si pitgem el botó B. Per fer-ho, a dins del bucle if del botó A escriurem:
-20			letter = letter + '.’)
-I a dins del bucle if del botó b escriurem:
+14	letter = ï¿½ï¿½
+15	word = ï¿½ï¿½
+Les variables que hem creat sï¿½n del tipus string (cadena),. Als projectes dMicro:bitit no cal declarar quin tipus de variable estem utilitzant. Per aquest motiu cal inicialitzar-les. ï¿½s a dir, donar un valor per defecte a les variables. Al fer-ho sï¿½estï¿½ indicant, de forma indirecta, quin tipus de variable volem utilitzar.
+Ara que tenim declarades les variables, anem a utilitzar-les. El primer que farem serï¿½ emmagatzemar el valor de ï¿½ (punt) si pitgem el botï¿½ A, o de - (guiï¿½) si pitgem el botï¿½ B. Per fer-ho, a dins del bucle if del botï¿½ A escriurem:
+20			letter = letter + '.ï¿½)
+I a dins del bucle if del botï¿½ b escriurem:
 39			letter. = letter + ('-')
-Amb això estem emmagatzemant el codi que crearà la lletra a la variable letter. Però no estem convertint els punts i guions en lletres. Per fer-ho primer hem d’indicar a la Micro:bit que ja em introduït el codi d’una lletra.
+Amb aixï¿½ estem emmagatzemant el codi que crearï¿½ la lletra a la variable letter. Perï¿½ no estem convertint els punts i guions en lletres. Per fer-ho primer hem dï¿½indicMicro:biticro:bit que ja em introduï¿½t el codi dï¿½una lletra.
 Transformant lletres
-Per indicar que ja hem codificat una lletra en codi Morse utilitzarem un gest. En aquest cas s’ha decidit utilitzar un d’aquest dos gestos:
+Per indicar que ja hem codificat una lletra en codi Morse utilitzarem un gest. En aquest cas sï¿½ha decidit utilitzar un dï¿½aquest dos gestos:
 * Inclinar la Micro:bit cap a la dreta.
-* Inclinar la Micro:bit cap a l’esquerra.
-Aquest bucle if l’escriurem just a sota del bucle del botó B un bucle al que s’accedirà tant si girem la Micro:bit cap a la dreta com si la girem cap a l’esquerra. El bucle tindrà la següent forma:
+* Inclinar la Micro:bit cap a lï¿½esquerra.
+Aquest bucle if lï¿½escriurem just a sota del bucle del botï¿½ B un bucle al que sï¿½accedirï¿½ tant si gMicro:biticro:bit cap a la dreta com si la girem cap a lï¿½esquerra. El bucle tindrï¿½ la segï¿½ent forma:
 42	if accelerometer.was_gesture('left') | accelerometer.was_gesture('right'):
-Per indicar que el bucle s’executi quan la Micro:bit s’inclini cap a la dreta o cap a l’esquerra hem d’utilitzar l’operador lògic | (o). A l’interior d’aquest bucle declararem un altre bucle if on es comprovarà si existeix el codi Morse a la constant ALPHABET. I en cas de que existeixi afegirem la lletra a la variable word.
+Per indicar que el bucle sï¿½executi quan lMicro:bitit sï¿½inclini cap a la dreta o cap a lï¿½esquerra hem dï¿½utilitzar lï¿½operador lï¿½gic | (o). A lï¿½interior dï¿½aquest bucle declararem un altre bucle if on es comprovarï¿½ si existeix el codi Morse a la constant ALPHABET. I en cas de que existeixi afegirem la lletra a la variable word.
 Per fer-ho escriure:
 44			word = word + ALPHABET[letter]
-A aquest línia estem indicant que s’afegeixi a la variable word la transcripció del codi Morse a lletra definida a la constant ALPHABET segons la codificació Morse de la variable Letter.
-Per poder anar introduint lletres a la variable letter, hem de reinicialitzar. Això ho farem assignant-li un valor buit un cop hem afegit la lletra a la variable word de la següent manera:
-45				letter = ‘’
-El següent pas serà afegir una indicació sonora en cas de que s’hagi realitzat la transcripció de forma correcte. Per això afegirem un estímul sonor. A sota de la línia anterior afegirem:
+A aquest lï¿½nia estem indicant que sï¿½afegeixi a la variable word la transcripciï¿½ del codi Morse a lletra definida a la constant ALPHABET segons la codificaciï¿½ Morse de la variable Letter.
+Per poder anar introduint lletres a la variable letter, hem de reinicialitzar. Aixï¿½ ho farem assignant-li un valor buit un cop hem afegit la lletra a la variable word de la segï¿½ent manera:
+45				letter = ï¿½ï¿½
+El segï¿½ent pas serï¿½ afegir una indicaciï¿½ sonora en cas de que sï¿½hagi realitzat la transcripciï¿½ de forma correcte. Per aixï¿½ afegirem un estï¿½mul sonor. A sota de la lï¿½nia anterior afegirem:
 46				music.play(music.POWER_UP)
-Ara només ens manca afegir la part del bucle if per si el valor de la variable letter no està continguda al la constant ALPHABET. Per això escriurem:
+Ara nomï¿½s ens manca afegir la part del bucle if per si el valor de la variable letter no estï¿½ continguda al la constant ALPHABET. Per aixï¿½ escriurem:
 47		else:
 48			music.play(music.POWER_DOWN)
-D’aquest forma indicarem que el codi Morse que s’ha introduït no correspon a cap lletra.
+Dï¿½aquest forma indicarem que el codi Morse que sï¿½ha introduï¿½t no correspon a cap lletra.
 Mostrar el missatge amagat
-Ara només ens manca que algú pugui veure si escoltar el missatge amagat que ens han deixat escrit a la Micro:bit. Per mostrar el missatge s’ha triat el gest de sacsejar la Micro:bit. Al fer el gest la Micro:bit ens mostrarà per pantalla el missatge i també en dirà.
-Per que la Micro:bit parli, al bloc dels imports hem d’importar el mòdul speech.
+Ara nomï¿½s ens manca que algï¿½ pugui veure si escoltar el missatge amagat que ens han deixat escrit aMicro:bit:bit. Per mostrar el missatge sï¿½ha triat el gest de sacsejMicro:bitro:bit. Al fer el geMicro:bitro:bit ens mostrarï¿½ per pantalla el missatge i tambï¿½ en dirï¿½.
+Per que la Micro:bit parli, al bloc dels imports hem dï¿½importar el mï¿½dul speech.
 4	 import speech
-El bucle tindrà la següent forma:
-54	if accelerometer.was_gesture(‘shake’):
+El bucle tindrï¿½ la segï¿½ent forma:
+54	if accelerometer.was_gesture(ï¿½shakeï¿½):
 55	display.show(word)
 56	speech.say(word)
-57	word = ‘’
+57	word = ï¿½ï¿½
 Com sempre, al final del bucle netegem la variable word per poder deixar una resposta a la Micro:bit.
 Codi
-El codi sencer del projecte es pot veure a la secció Missatge Secret de l’apèndix.
+El codi sencer del projecte es pot veure a la secciï¿½ Missatge Secret de lï¿½apï¿½ndix.
 
       Atac de cor a la Micro:bit
-Introducció
-A aquest projecte modificarem el projecte El batec de la Micro:bit. Aquesta primera pràctica es divideix en dues parts, una primera on es veurà com treballar amb variables i una segona on es veure com utilitzar bucles una mica més complicats al no ser sempre cert (True). També s’incorporen dos nous bucles a la lògica del projecte.
-Modificació del Codi
-La primera modificació que realitzarem serà la definició de dues variables: a i b. La definició de les variables sempre la farem a la part superior del codi, just a sota de les importacions de les diferents llibreries.
-Així dos afegirem les següents línies:
+Introducciï¿½
+A aquest projecte modificarem el projecte El batec de la Micro:bit. Aquesta primera prï¿½ctica es divideix en dues parts, una primera on es veurï¿½ com treballar amb variables i una segona on es veure com utilitzar bucles una mica mï¿½s complicats al no ser sempre cert (True). Tambï¿½ sï¿½incorporen dos nous bucles a la lï¿½gica del projecte.
+Modificaciï¿½ del Codi
+La primera modificaciï¿½ que realitzarem serï¿½ la definiciï¿½ de dues variables: a i b. La definiciï¿½ de les variables sempre la farem a la part superior del codi, just a sota de les importacions de les diferents llibreries.
+Aixï¿½ dos afegirem les segï¿½ents lï¿½nies:
 5 # Variables
 6	 a = 500
-Si mirem el codi antic, ens adonarem que a pren el mateix valor que el valor que es va introduir al mètode sleep( ) i que b pren el valor que es passa al mètode play( ). Així doncs hem de substituir el valor de 500 per a i el de 100 per b dins del mètodes, quedant de la següent forma les línies:
-12	music.play(‘c’)
+Si mirem el codi antic, ens adonarem que a pren el mateix valor que el valor que es va introduir al mï¿½tode sleep( ) i que b pren el valor que es passa al mï¿½tode play( ). Aixï¿½ doncs hem de substituir el valor de 500 per a i el de 100 per b dins del mï¿½todes, quedant de la segï¿½ent forma les lï¿½nies:
+12	music.play(ï¿½cï¿½)
 13	sleep(a)
-Si ara testem el codi a l’emulador, veurem que no hi ha cap modificació en el comportament. El cor continua bategant i el so es continua produint. El següent pas és modificar el valor de a quan l’usuari realitza alguna acció concreta.
+Si ara testem el codi a lï¿½emulador, veurem que no hi ha cap modificaciï¿½ en el comportament. El cor continua bategant i el so es continua produint. El segï¿½ent pas ï¿½s modificar el valor de a quan lï¿½usuari realitza alguna acciï¿½ concreta.
 Pitjant botons
-L’acció triada per modificar els valors de a, en aquest cas, ha sigut la de pitjar el botó A de la Micro:bit. Per això utilitzarem un bucle if.
-A la línia 17 introduirem el següent codi, dins del bucle while:
+Lï¿½acciï¿½ triada per modificar els valors de a, en aquest cas, ha sigut la de pitjar el botï¿½ A Micro:bitro:bit. Per aixï¿½ utilitzarem un bucle if.
+A la lï¿½nia 17 introduirem el segï¿½ent codi, dins del bucle while:
 17		if.button_a.is_pressed():
 18			a = a + 50
-Mitjançant aquest bucle estem indicant a la Micro:bit que cada cop que l’usuari pitgi el botó A de la Micro:bit el valor d’a s’incrementarà en 50. Si ara testem el codi veurem que al anar pitjant el botó A el batec del cor es va accelerant de forma uniforme.
-Ja estem més a prop d’aconseguir un atac al cor. El següent pas serà la modificació del bucle while.
-Modificant la condició de while
-Ara hem de modificar la condició del bucle while de tal forma que quan a arribi a un valor donat es surti del bucle. En aquest cas hem triat quan a sigui inferior a 50.
-Ho farem de la següent forma:
+Mitjanï¿½ant aquest bucle estem indicant a lMicro:bitit que cada cop que lï¿½usuari pitgi el botï¿½ A Micro:bitro:bit el valor dï¿½a sï¿½incrementarï¿½ en 50. Si ara testem el codi veurem que al anar pitjant el botï¿½ A el batec del cor es va accelerant de forma uniforme.
+Ja estem mï¿½s a prop dï¿½aconseguir un atac al cor. El segï¿½ent pas serï¿½ la modificaciï¿½ del bucle while.
+Modificant la condiciï¿½ de while
+Ara hem de modificar la condiciï¿½ del bucle while de tal forma que quan a arribi a un valor donat es surti del bucle. En aquest cas hem triat quan a sigui inferior a 50.
+Ho farem de la segï¿½ent forma:
 10	while a < 50:
-D’aquesta manera s’està indicant que quan el valor d’a sigui superior a 50 s’executi el codi a l’interior del bucle while, però que quan sigui inferior es surti del bucle.
-Si ara testem el codi, veurem que quan a assoleix el valor de 50 s’atura l’execució del codi. Ara només ens manca introduir un codi que digui que la Micro:bit ha mort. Per fer això introduirem codi fora del bucle while, que s’executarà quan el valor d’a sigui inferior a 50.
+Dï¿½aquesta manera sï¿½estï¿½ indicant que quan el valor dï¿½a sigui superior a 50 sï¿½executi el codi a lï¿½interior del bucle while, perï¿½ que quan sigui inferior es surti del bucle.
+Si ara testem el codi, veurem que quan a assoleix el valor de 50 sï¿½atura lï¿½execuciï¿½ del codi. Ara nomï¿½s ens manca introduir un codi que diguiMicro:biticro:bit ha mort. Per fer aixï¿½ introduirem codi fora del bucle while, que sï¿½executarï¿½ quan el valor dï¿½a sigui inferior a 50.
 Codi de mort
-Fora del bucle while només ens manca incorporar 3 línies de codi per indicar que la Micro:bit ha mort. A partir de la línia 20 escriurem:
-20	music.play(‘c’)
+Fora del bucle while nomï¿½s ens manca incorporar 3 lï¿½nies de codi per indicar queMicro:bit:bit ha mort. A partir de la lï¿½nia 20 escriurem:
+20	music.play(ï¿½cï¿½)
 22	display.show(Image.SKULL)
-Al codi modifiquem el cor que aparegui a la Micro:bit, per una calavera per indicar que la Micro:bit ha mort d’un atac al cor.
+Al codi modifiquem el cor que aparegui a la Micro:bit, per una calavera per indicar que la Micro:bit ha mort dï¿½un atac al cor.
 Codi
-El codi es pot consultar a la secció Atac de cor a la Micro:bit de l’apèndix.
+El codi es pot consultar a la secciï¿½ Atac de cor a lMicro:bitit de lï¿½apï¿½ndix.
 
 
-Programació Avançada
+Programaciï¿½ Avanï¿½ada
 
 
-El pistoler més ràpid
-Introducció
-Tenir dos jugadors amb una única Micro:bit pot ser angoixant i poc pràctic. Per aquest motiu, a aquest projecte es modificarà el codi vist a El foraster més ràpid i permetre realitzar una partida amb dos Micro:bits.
-En aquest cas donarà igual el botó que es pitgi i les Micro:bits es connectaran per ràdio per saber qui ha guanyat.
-Connexió per ràdio
-Per poder connectar dues Micro:bits per ràdio el primer que s’ha de fer és importar el mòdul de ràdio. Per aquest motiu, al bloc dels imports escriurem:
+El pistoler mï¿½s rï¿½pid
+Introducciï¿½
+Tenir dos jugadors amb una ï¿½nicMicro:bitit pot ser angoixant i poc prï¿½ctic. Per aquest motiu, a aquest projecte es modificarï¿½ el codi vist a El foraster mï¿½s rï¿½pid i permetre realitzar una partidMicro:bit Micro:bits.
+En aquest cas donarï¿½ igual el botï¿½ que es pitgi i Micro:bit:bits es connectaran per rï¿½dio per saber qui ha guanyat.
+Connexiï¿½ per rï¿½dio
+Per poder connectar dues Micro:bits per rï¿½dio el primer que sï¿½ha de fer ï¿½s importar el mï¿½dul de rï¿½dio. Per aquest motiu, al bloc dels imports escriurem:
 5 import radio
-Ara ja podem utilitzar el mòdul per connectar les Micro:bits. Per fer-ho definirem una nova funció a sota de la darrera funció i just abans del bucle principal.
+Ara ja podem utilitzar el mï¿½dul per connectar leMicro:bitits. Per fer-ho definirem una nova funciï¿½ a sota de la darrera funciï¿½ i just abans del bucle principal.
 Connectant les Micro:bits
-La funció per connectar les Micro:bits estarà composta de dues línies i serà de la forma:
+La funciï¿½ per connectar leMicro:bitits estarï¿½ composta de dues lï¿½nies i serï¿½ de la forma:
 38 def players_paring():
 39	radio.on()
 40	radio.config(group=4)
-A aquest funció estem encenent la ràdio i creant un grup de connexió. En aquest cas al grup li hem donat l’identificador de 4, però no vol dir que s’hagin de vincular 4 Micro:bits al grup. El nombre vindria a ser el canal de connexió del grup de Micro:bits.
-Ara ja tenim les Micro:bits aparellades. A aquesta funció no la cridarem des de el bucle while principal, la cridarem des de la funció on_shake( ). Que ara serà de la forma:
+A aquest funciï¿½ estem encenent la rï¿½dio i creant un grup de connexiï¿½. En aquest cas al grup li hem donat lï¿½identificador de 4, perï¿½ no vol dir que sï¿½hagin deMicro:bit 4 Micro:bits al grup. El nombre vindria a ser el canal de connexiï¿½Micro:bit de Micro:bits.
+Ara ja tenim les Micro:bits aparellades. A aquesta funciï¿½ no la cridarem des de el bucle while principal, la cridarem des de la funciï¿½ on_shake( ). Que ara serï¿½ de la forma:
 26 def on_shake(i, press):
 27	if accelerometer.is_gesture('shake'):
 28		players_pairing()
@@ -747,13 +747,13 @@ Ara ja tenim les Micro:bits aparellades. A aquesta funció no la cridarem des de 
 34			press = True
 35
 36	return press
-Com podem veure, hi ha una nova variable anomenada press i s’han eliminat les variables: game, turns player_a i player_b. També s’ha eliminat la funció btn_pressed(btn, result).
-Al haver modificat la funció on_shake(3, press) i retornar una variable, es cridarà a la funció assignant-li el valor de la variable retornada segons:
+Com podem veure, hi ha una nova variable anomenada press i sï¿½han eliminat les variables: game, turns player_a i player_b. Tambï¿½ sï¿½ha eliminat la funciï¿½ btn_pressed(btn, result).
+Al haver modificat la funciï¿½ on_shake(3, press) i retornar una variable, es cridarï¿½ a la funciï¿½ assignant-li el valor de la variable retornada segons:
 44	press = on_shake(3, result)
-També modificarem els bucles if quan es pitja un dels botons. Esborrarem els dos bucles anteriors i definirem un únic que s’activarà es cas de pitjar un o un altre botó.
+Tambï¿½ modificarem els bucles if quan es pitja un dels botons. Esborrarem els dos bucles anteriors i definirem un ï¿½nic que sï¿½activarï¿½ es cas de pitjar un o un altre botï¿½.
 46	if (button_a.is_pressed() | button_b.is_pressed()) & press:
-Aquest bucle s’executarà si es pitjar el botó A o B i sempre i quan s’hagi sacsejat la Micro:bit un cop. Aquesta acció es controla mitjançant el valor de la variable press. Quan aquesta és certa (True) es pot executar el bucle; si no ho és, no es podrà executar el bucle.
-A dins del bucle escriurem el següent bloc de codi:
+Aquest bucle sï¿½executarï¿½ si es pitjar el botï¿½ A o B i sempre i quan sï¿½hagi sacsMicro:biticro:bit un cop. Aquesta acciï¿½ es controla mitjanï¿½ant el valor de la variable press. Quan aquesta ï¿½s certa (True) es pot executar el bucle; si no ho ï¿½s, no es podrï¿½ executar el bucle.
+A dins del bucle escriurem el segï¿½ent bloc de codi:
 47		radio.send('0')
 48		press = False
 49		msg = False
@@ -761,11 +761,11 @@ A dins del bucle escriurem el següent bloc de codi:
 51		music.play('b')
 Com es pot observar al bloc de codi superior, hi ha noves variables. Anem a veure les seves funcions.
 Les noves variables
-La variable press ja l’hem explicat. Aquesta variable ens permet bloquejar la funció de pitjar els botons A i B.
-La variable msg és una nova variable, que hem de declarar just a sota de la variable press i que se li assignarà un valor de True. Aquesta variable fa que no es pugui tornar a sacsejar la Micro:bit per realitzar una altre tirada fins que no s’hagi finalitzat la tirada actual.
-Per últim, la variable winner, que es defineix amb un valor inicial de False, la definició es realitza sota de la variable msg. Aquesta variable serveix per enviar un missatge de Micro:bit a Micro:bit i bloquejar l’enviament en cas de rebre un missatge. Això ho veurem al següent bloc.
+La variable press ja lï¿½hem explicat. Aquesta variable ens permet bloquejar la funciï¿½ de pitjar els botons A i B.
+La variable msg ï¿½s una nova variable, que hem de declarar just a sota de la variable press i que se li assignarï¿½ un valor de True. Aquesta variable fa que no es pugui tornar a sacsejarMicro:bit:bit per realitzar una altre tirada fins que no sï¿½hagi finalitzat la tirada actual.
+Per ï¿½ltim, la variable winner, que es defineix amb un valor inicial de False, la definiciï¿½ es realitza sota de la variable msg. Aquesta variable serveix per enviar un missatgeMicro:bit:biMicro:bit:bit i bloquejar lï¿½enviament en cas de rebre un missatge. Aixï¿½ ho veurem al segï¿½ent bloc.
 Rebent un missatge
-El següent bloc de codi el que fa es veure si hem rebut un missatge. En cas de rebre el missatge, el primer que es fa és bloquejar el codi per evitar que l’altre jugador pugui enviar un missatge. Això es farà modificant el valor de la variable msg. El següent pas es mirar el valor de la variable press i depenent del mateix mostrarà una cara i emetrà un so o un altre.
+El segï¿½ent bloc de codi el que fa es veure si hem rebut un missatge. En cas de rebre el missatge, el primer que es fa ï¿½s bloquejar el codi per evitar que lï¿½altre jugador pugui enviar un missatge. Aixï¿½ es farï¿½ modificant el valor de la variable msg. El segï¿½ent pas es mirar el valor de la variable press i depenent del mateix mostrarï¿½ una cara i emetrï¿½ un so o un altre.
 53	if radio.receive():
 52		msg = False
 53
@@ -773,14 +773,14 @@ El següent bloc de codi el que fa es veure si hem rebut un missatge. En cas de r
 55			display.show(Image.ANGRY)
 56			music.play(music.POWER_DOWN)
 Guanyador de la tirada
-Al bloc on es mostra que s’ha guanyat la partida s’accedeix depenent del valor de la variable winner. El que farà aquest bloc és mostrar una cara somrient y una música alegra.
+Al bloc on es mostra que sï¿½ha guanyat la partida sï¿½accedeix depenent del valor de la variable winner. El que farï¿½ aquest bloc ï¿½s mostrar una cara somrient y una mï¿½sica alegra.
 60	if winner:
 61		score = score + 1
 62		display.show(Image.HAPPY)
 63		music.play(music.POWER_UP)
 Reiniciant el joc
-Ara ja tenim el joc funcionant i es pot decidir qui ha guanyat la tirada, però hauríem de fer un joc més llarg, on hi hagin al mínim cinc (5) tirades i dir qui és el guanyador la partida. EL guanyador, serà el primer que arribi a tres (3) tirades guanyadores.
-Per tant, el que hem de fer es emmagatzemar alguns valors i reiniciar algunes variables per poder tornar a executar el joc. La reinicialització es realitzarà si es porten menys de cinc (5) tirades.
+Ara ja tenim el joc funcionant i es pot decidir qui ha guanyat la tirada, perï¿½ haurï¿½em de fer un joc mï¿½s llarg, on hi hagin al mï¿½nim cinc (5) tirades i dir qui ï¿½s el guanyador la partida. EL guanyador, serï¿½ el primer que arribi a tres (3) tirades guanyadores.
+Per tant, el que hem de fer es emmagatzemar alguns valors i reiniciar algunes variables per poder tornar a executar el joc. La reinicialitzaciï¿½ es realitzarï¿½ si es porten menys de cinc (5) tirades.
 65	if pin_logo.is_touched():
 66		rounds = rounds + 1
 67
@@ -795,20 +795,20 @@ Per tant, el que hem de fer es emmagatzemar alguns valors i reiniciar algunes va
 76				speech.say('Perds')
 77				display.show(Image.SKULL)
 78				music.play(music.FUNERAL)
-Ara ja només ens queda gravar el codi a dues Micro:bits i iniciar una partida!
+Ara ja nomï¿½s ens queda gravar el codi a dueMicro:bitits i iniciar una partida!
 El codi
-El codi d’aquest projecte es pot veure tot sencer a la secció El pistoler més ràpid de l’apèndix.
+El codi dï¿½aquest projecte es pot veure tot sencer a la secciï¿½ El pistoler mï¿½s rï¿½pid de lï¿½apï¿½ndix.
 
 Tria tu
-Introducció
-   Aquest projecte és un pas més del projecte anomenat Un contra l’altre. A l’anterior projecte era l’atzar qui triava entre pedra, paper i tisora. A aquest és el jugador el que triarà la seva tirada mitjançant alguna d’aquestes accions:
-* Pitjar el botó A.
-* Pitjar el botó B.
+Introducciï¿½
+   Aquest projecte ï¿½s un pas mï¿½s del projecte anomenat Un contra lï¿½altre. A lï¿½anterior projecte era lï¿½atzar qui triava entre pedra, paper i tisora. A aquest ï¿½s el jugador el que triarï¿½ la seva tirada mitjanï¿½ant alguna dï¿½aquestes accions:
+* Pitjar el botï¿½ A.
+* Pitjar el botï¿½ B.
 * Pitjar el logo de Micro:bit.
-Així que... anem a modificar el codi!
+Aixï¿½ que... anem a modificar el codi!
 Substituint el bucle if accelerometer.was_gesture('shake') & turn
-El primer que hem de fer és agafar tot el que hi ha dins el bucle on iniciem la tirada i crear tres (3) bucle nous.
-Els bucles nous miraran si s’ha pitjat el botó A, el B o el logo de la Micro:bit per veure quina tirada ha decidit efectuar el jugador. Els bucles tindran la següent forma:
+El primer que hem de fer ï¿½s agafar tot el que hi ha dins el bucle on iniciem la tirada i crear tres (3) bucle nous.
+Els bucles nous miraran si sï¿½ha pitjat el botï¿½ A, el B o el logo deMicro:bit:bit per veure quina tirada ha decidit efectuar el jugador. Els bucles tindran la segï¿½ent forma:
 69	if button_a.was_pressed() & turn:
 70		turn = False
 71		tool = 0
@@ -828,26 +828,26 @@ Els bucles nous miraran si s’ha pitjat el botó A, el B o el logo de la Micro:bit
 85		Trie(tool)
 86
 87	sleep(500)
-Amb aquesta modificació estem fent que el jugador trii la seva jugada i que no sigui l’atzar qui la trii per ell.
-Modificant la condició d’enviament
-La següent modificació a realitzar serà el gest d’enviament. Al projecte anterior utilitzàvem el gest de tocar el logo de la Micro:bit; ara aquest gest és triar les tisores com tirada. Al tenir disponible el gest de sacsejar la Micro:bit, utilitzarem aquest gest per enviar la nostra tirada al contrincant. Per tant la condició del bucle quedarà de la següent manera:
+Amb aquesta modificaciï¿½ estem fent que el jugador trii la seva jugada i que no sigui lï¿½atzar qui la trii per ell.
+Modificant la condiciï¿½ dï¿½enviament
+La segï¿½ent modificaciï¿½ a realitzar serï¿½ el gest dï¿½enviament. Al projecte anterior utilitzï¿½vem el gest de tocar el lMicro:bit Micro:bit; ara aquest gest ï¿½s triar les tisores com tirada. Al tenir disponible el gest de Micro:bitla Micro:bit, utilitzarem aquest gest per enviar la nostra tirada al contrincant. Per tant la condiciï¿½ del bucle quedarï¿½ de la segï¿½ent manera:
 92	if accelerometer.was_gesture('shake'):
-Amb això ja tindríem finalitzat el nostre projecte. Però realitzar una única partida és una mica trist, així que anem a desenvolupar una mica més el codi per que guanyi el millor a 5 tirades.
+Amb aixï¿½ ja tindrï¿½em finalitzat el nostre projecte. Perï¿½ realitzar una ï¿½nica partida ï¿½s una mica trist, aixï¿½ que anem a desenvolupar una mica mï¿½s el codi per que guanyi el millor a 5 tirades.
 Afegint un comptador
-El que farem per afegir dos comptadors. Per això crearem dues noves variables: count i points. A la primera variable es contaran les tirades que no són empats i a la segona les tirades que em guanyat.
+El que farem per afegir dos comptadors. Per aixï¿½ crearem dues noves variables: count i points. A la primera variable es contaran les tirades que no sï¿½n empats i a la segona les tirades que em guanyat.
 11 count = 0
 12 points = 0
-Un cop creades les variables, a dins del bucle on enviem la tirada i abans d’esborrar totes les variables, funció Clean( ), escriurem:
+Un cop creades les variables, a dins del bucle on enviem la tirada i abans dï¿½esborrar totes les variables, funciï¿½ Clean( ), escriurem:
 103		if result != 'Empatas':
 104			count = count + 1
 Amb aquest bucle estem incrementant el valor de la variable count quan no es produeix un empatat.
 Contant tirades guanyades
-Les tirades guanyadores, les anirem sumant a la variable points. Per fer-ho crearem un bucle a dins del bucle on s’envia la tirada a l’oponent.
+Les tirades guanyadores, les anirem sumant a la variable points. Per fer-ho crearem un bucle a dins del bucle on sï¿½envia la tirada a lï¿½oponent.
 98		if result == 'Guanyes':
 99			points = points + 1
 Ara, si guanyem sumarem un punt al nostre marcador.
 Proclamant un guanyador
-El següent pas serà anunciar el guanyador de la partida. Per fer-ho es mirarà qui té més de 3 victòries un cop s’han realitzat les 5 tirades. Això es farà mitjançant un bucle if dins del bucle on es valora que la variable count ha arribat a 5, de la següent manera:
+El segï¿½ent pas serï¿½ anunciar el guanyador de la partida. Per fer-ho es mirarï¿½ qui tï¿½ mï¿½s de 3 victï¿½ries un cop sï¿½han realitzat les 5 tirades. Aixï¿½ es farï¿½ mitjanï¿½ant un bucle if dins del bucle on es valora que la variable count ha arribat a 5, de la segï¿½ent manera:
 113		if points > 2:
 114			display.show(Image.HAPPY)
 115			speech.say('Guanyes')
@@ -856,20 +856,20 @@ El següent pas serà anunciar el guanyador de la partida. Per fer-ho es mirarà qu
 118			display.show(Image.SKULL)
 119			speech.say('Perds')
 120			music.play(music.FUNERAL)
-Com podem observar, estem utilitzant imatges i sons que hem utilitzat dins la funció Winner( ). Aquest fet és contraproduent pels usuaris, ja que al rebre una informació diferent amb el mateix so i la mateixa imatge que una victòria parcial, pot pensar que simplement ha guanyat la tirada i no la partida. Per aquest fet, s’han de modificar els sons i les imatges dins la funció Winner( ).
+Com podem observar, estem utilitzant imatges i sons que hem utilitzat dins la funciï¿½ Winner( ). Aquest fet ï¿½s contraproduent pels usuaris, ja que al rebre una informaciï¿½ diferent amb el mateix so i la mateixa imatge que una victï¿½ria parcial, pot pensar que simplement ha guanyat la tirada i no la partida. Per aquest fet, sï¿½han de modificar els sons i les imatges dins la funciï¿½ Winner( ).
 El codi
-El codi complet del projecte es pot veure a la secció Tria tu de l’apèndix.
+El codi complet del projecte es pot veure a la secciï¿½ Tria tu de lï¿½apï¿½ndix.
 
 
 Enviant un missatge
 Objectiu
 A aquest projecte tornarem a modificar el codi del projecte Missatge secret per enviar un missatge entre dues Micro:bit i que una altre persona el pugui llegir.
-Per això, ens caldrà realitzar una connexió entre les dues Micro:bits.
+Per aixï¿½, ens caldrï¿½ realitzar una connexiï¿½ entre lesMicro:bitro:bits.
 Enviem missatges!
 Imports
-Als imports que ja teníem afegirem el que permet connectar dues Micro:bit. Així, a sota de la darrera línia del bloc d’imports afegirem:
+Als imports que ja tenï¿½em afegirem el que permet connectar dueMicro:bitit. Aixï¿½, a sota de la darrera lï¿½nia del bloc dï¿½imports afegirem:
 5 import radio
-El següent pas serà crear un gest per enviar el missatge escrit. Per fer-ho utilitzarem el gest de sacsejar la Micro:bit.
+El segï¿½ent pas serï¿½ crear un gest per enviar el missatge escrit. Per fer-ho utilitzarem el gest de sacsejarMicro:bit:bit.
 Enviant el missatge
 Per enviar el missatge esborrarem el codi escrit a dins del bucle per mostrar el missatge i el substituirem per:
 56		radio.send(word)
@@ -880,64 +880,76 @@ Per enviar el missatge esborrarem el codi escrit a dins del bucle per mostrar el
 61			if msg:
 62				display.scroll(msg)
 63				speech.say((msg))
-Amb aquest codi estem enviant el missatge escrit per un usuari i rebent-lo a l’altre Micro:bit. Un cop es rep el missatge la Micro:bit el mostra en pantalla i el llegeix.
+Amb aquest codi estem enviant el missatge escrit per un usuari i rebent-lo a lï¿½altrMicro:bitit. Un cop es rep el missatge lMicro:bitit el mostra en pantalla i el llegeix.
 El codi
-El codi complert del projecte es pot veure a la secció Enviant un missatge de l’apèndix.
+El codi complert del projecte es pot veure a la secciï¿½ Enviant un missatge de lï¿½apï¿½ndix.
 
 
 El cor de la Micro:bit
-Introducció
-A aquest projecte reprendrem el projecte Atac de cor a la Micro:bit que vam veure a Programació Intermèdia. Ara complicarem una mica més el codi al imposar condicions variables mitjançant l’ús de lògic i utilitzarem el botó B de la Micro:bit per alentir el batec del cor i fer que la Micro:bit pugui morir per un atac de cor o per una aturada cardíaca.
+Introducciï¿½
+A aquest projecte reprendrem el projecte Atac de cor a la Micro:bit que vam veure a Programaciï¿½ Intermï¿½dia. Ara complicarem una mica mï¿½s el codi al imposar condicions variables mitjanï¿½ant lï¿½ï¿½s de lï¿½gic i utilitzarem elMicro:bite la Micro:bit per alentir el batec del corMicro:bite la Micro:bit pugui morir per un atac de cor o per una aturada cardï¿½aca.
 El cor
-El cor humà fa, de mitja, entre 60 i 100 batecs per minut. Per tant, el primer que farem és modificar el ritme cardiaqui del nostre projecte. Al projecte estàvem fent que el cor bateguès cada 500 mil·lisegons, això és 2 batecs cada segon. Volem que el cor ara bategui 80 cops per minut, és a dir, 1.3 cops per segon o 1.3 cada 1000 mil·lisegons.
-Batecs/MinutBatecs/SegonsFreqüència6011801.330.751001.670.6Taula 1Batecs de cor per minut, segon i freqüència.
-Al codi no podem dir que aparegui 1.3 cops cada 1000 mil·lisegons. Per tant, hem de realitzar una conversió. Podem fer que aquesta conversió la realitzi la Micro:bit si la codifiquem al nostre codi. Però per fer-ho, abans hem de pensar en l’algoritme (funció) necessari. Pensem!
-Tenim 1.3 batecs cada 1000 mil·lisegons i volem saber cada quants mil·lisegons es realitza 1 batec. Per tant:
-1.33batecs/(1000 Mil·lisegons)=1batec/(X Mil·lisegons)
+El cor humï¿½ fa, de mitja, entre 60 i 100 batecs per minut. Per tant, el primer que farem ï¿½s modificar el ritme cardiaqui del nostre projecte. Al projecte estï¿½vem fent que el cor bateguï¿½s cada 500 milï¿½lisegons, aixï¿½ ï¿½s 2 batecs cada segon. Volem que el cor ara bategui 80 cops per minut, ï¿½s a dir, 1.3 cops per segon o 1.3 cada 1000 milï¿½lisegons.
+Batecs/Minut
+Batecs/SegonsMicro:bit
+Freqï¿½ï¿½ncia
+60
+1
+1
+80Micro:bit
+1.33
+0.75Micro:bit
+100Micro:bit
+1.67
+0.6
+Taula 1Batecs de cor per minut, segon i freqï¿½ï¿½ncia.
+Al codi no podem dir que aparegui 1.3 cops cada 1000 milï¿½lisegons. Per tant, hem de realitzarMicro:bitersiï¿½. Podem fer que aquesta conversiï¿½ la realitzi la Micro:bit si la codifiquem al nostre codi. Perï¿½ per fer-ho, abans hem de pensar en lï¿½algoritme (funciï¿½) necessari. Pensem!
+Tenim 1.3 batecs cada 1000 milï¿½lisegons i volem saber cada quants milï¿½lisegons es realitza 1 batec. Per tant:
+1.33batecs/(1000 Milï¿½lisegons)=1batec/(X Milï¿½lisegons)Micro:bit
 X=1000/1.3
 X=769.23
-És a dir, la Micro:bit farà 1 batec cada 769.23 mil·lisegons.
+ï¿½s a dir, la Micro:bit farï¿½ 1 batec cada 769.23 milï¿½lisegons.
 Modificant el codi
-El primer pas serà la modificació del valor de les variables per simular el batec d’un cor a la Micro:bit segons el batec d’un cor humà.
-Tal i com hem vist al punt anterior, el nou valor de la variable a ha d’ésser 769.23 i b 75, que és la freqüència corresponent a 80 batecs/minut. D’aquesta forma hem replicat el batec d’un cor humà a la nostre Micro:bit.
-Així doncs, les línies 6 i 7 quedaran de la forma:
+El primer pas serï¿½ la modificaciï¿½ del valor de les variables per simular el batec dï¿½un cor a la Micro:bit segons el batec dï¿½un cor humï¿½.
+Tal i com hem vist al punt anterior, el nou valor de la variable a ha dï¿½ï¿½sser 769.23 i b 75, que ï¿½s la freqï¿½ï¿½ncia corresponent a 80 batecs/minut. Dï¿½aquesta forma hem replicat el batec dï¿½un cor humï¿½ a la nostre Micro:bit.
+Aixï¿½ doncs, les lï¿½nies 6 i 7 quedaran de la forma:
 6	a = 769.23
 7	b = 75
-El següent pas serà crear un nou bucle per reduir el batec del cor si l’usuari pitja el botó B de la Micro:bit.
+El segï¿½ent pas serï¿½ crear un nou bucle per reduir el batec del cor si lï¿½usuari pitja el botï¿½ B de la Micro:bit.
 Reduint el batec
-Per reduir el batec del cor crearem un bucle if molt similar al que es va crear per botó A de la Micro:bit (línia 17). A la línia 21 escriurem:
+Per reduir el batec del cor crearem un bucle if molt similar al que es va crear per botï¿½ A de la Micro:bit (lï¿½nia 17). A la lï¿½nia 21 escriurem:
 17		If button_b.is_pressed():
 18			a = a + 50
-Aquest bucle if s’ha d’escriure dins el buecle while, i el que fa es augmentar el valor de la variable a i per tant s’ampliarà el temps entre batecs, reduint-se la freqüència.
-Si testem ara el projecte veurem que podem incrementar la velocitat de batec fins a un màxim però que per contre, no hi ha un límit per reduir la velocitat de batec.
-Modificant la condició del bucle while
-Per introduir una nova condició per que s’executi el bucle while, crearem una nova variable anomenada lives. Aquesta variable la crearem de tipus booleà.
+Aquest bucle if sï¿½ha dï¿½escriure dins el buecle while, i el que fa es augmentar el valor de la variable a i per tant sï¿½ampliarï¿½ el temps entre batecs, reduint-se la freqï¿½ï¿½ncia.
+Si testem ara el projecte veurem que podem incrementar la veMicro:bite batec fins a un mï¿½xim perï¿½ que per contre, no hi ha un lï¿½mit per reduir la velocitat de batec.Micro:bit
+Modificant la condiciï¿½ del bucle while
+Per introduir una nova condiciï¿½ per que sï¿½executi el bucle while, crearem una nova variable anomenada lives. Aquesta variable la crearem de tipus booleï¿½.Micro:bitMicro:bitMicro:bit
 8	lives = True
-Les variable de tipus booleà són unes variables que només poden agafar dos valors: cert (True) o fals (False).
-Amb aquesta nova variable definida, fem la següent modificació al bucle while:
+Les variable de tipus booleï¿½ sï¿½n unes variables que nomï¿½s poden agafar dos valors: cert (True) o fals (False).
+Amb aquesta nova variable definida, fem la segï¿½ent modificaciï¿½ al bucle while:
 11	while lives:
-Si testem ara el codi veuríem que el cor bategaria constantment. Això es deu a que no em vinculat el valor de la variable a al valor de la variable lives, i per tant la condició és certa sempre.
-Per vincular aquestes variables introduirem un nou bucle if a dins del bucle while. A la línia 24 escriurem:
+Si testem ara el codi veurï¿½em que el cor bategaria constantment. Aixï¿½ es deu a que no em vinculat el valor de la variabMicro:bitalor de la variable lives, i per tant la condiciï¿½ ï¿½s certa sempre.
+Per vincular aquestes variables introduirem un nou bucle if a dins del bucle while. A la lï¿½nia 24 escriurem:
 24		If a < 598.80 or a > 1000:
 25			lives = false
-Aquest bucle if és una mica diferent als que hem utilitzat amb anterioritat. En ell s’està dient que si el valor de la variable a és inferior (<) a 598.80 o (or) és superior a 1000 el valor de la variable lives serà False.
-Si ara testem el codi del projecte, veurem que el cor de la Micro:bit deixa de bategar si accelerem molt el seu batec o si el disminuïm. Ja podem dir que hem simulat el batec de un cor humà a una Micro:bit, però anem a fer una darrera millora al codi del nostre projecte.
+Aquest bucle if ï¿½s una mica diferent als que hem utilitMicro:bitnterioritat. En ell sï¿½estï¿½ dient que si el valor de la variable a ï¿½s inferior (<) a 598.80 o (or) ï¿½s superior a 1000 el valor de la variable lives serï¿½ False.
+Si ara testem el codi del projecte, veurem que el cor de la Micro:bit deixa de bategar si accelerem molt el seu batec o si el disminuï¿½m. Ja podem dir que hem simulat el batec de un cor humï¿½ a una Micro:bit, perï¿½ anem a fer una darrera millora al codi del nostre projecte.
 Darreres modificacions
-Emprant la mateixa lògica que hem utilitzat al darrer bucle if que hem vist, anem a modificar els bucles if que controlen la modificació de la variable a, de manera que es pugui incrementar o disminuir el seu valor prement els botons de la Micro:bit o realitzant un altre gest. En aquest cas s’ha triat que al sacsejar la Micro:bit s’incrementarà la velocitat de batec i al acaronar el logotip de la Micro:bit es redueix la velocitat de batec.
-Per tant, la línia 18 quedarà de la següent forma:
-18		if button_a.is_pressed() or accelerometer.was_gesture(‘shake’):
-i la línia 21:
+Emprant la mateixa lï¿½gica que hem utilitzat al darrer bucle if que hem vist, anem a modificar els bucles if que controlen la modificaciï¿½ de la variable a, de manera que es pugui incrementar o disminuir el seu valor prement els botons de la Micro:bit o realitzant un altre gest. En aquest cas sï¿½ha triat que al sacsejar la Micro:bit sï¿½incrementarï¿½ la velocitat de batec i al acaronar el logotip de la Micro:bit es redueix la velocitat de batec.
+Per tant, la lï¿½nia 18 quedarï¿½ de la segï¿½ent forma:
+18		if button_a.is_pressed() or accelerometer.was_gesture(ï¿½shakeï¿½):
+i la lï¿½nia 21:
 21		if button_b.is_pressed() or pin_logo.is_touched():
 Ara, podem comprovar que al realitzar qualsevol dels 4 gestos descrits es modifica la velocitat de batec del cor de la Micro:bit.
 Comentaris
-Com s’ha vist, un atac al cor no implica que un cor acceleri molt el seu batec o el disminueixi. L’atac no implica que la freqüència cardíaca augmenti o disminueixi de forma considerable, o perceptible. Així que si es vol fer el joc més divertit, es poden modificar els límits de la variable a i establir-ho a 100 i 1500 per veure com estem augmentant i disminuint el batec al realitzar els diferents gestos.
+Com sï¿½ha vist, un atac al cor no implica que un cor acceleri molt el seu batec o el disminueixi. Lï¿½atac no implica que la freqï¿½ï¿½ncia cardï¿½aca augmenti o disminueixi de forma considerable, o perceptible. Aixï¿½ que si es vol fer el joc mï¿½s divertit, es poden modificar els lï¿½mits de la variable a i establir-ho a 100 i 1500 per veure com estem augmentant i disminuint el batec al realitzar els diferents gestos.
 El codi
-Es pot consultar el codi sencer a l’apartat El cor de la Micro:bit de l’apèndix.
-Apèndix
+Es pot consultar el codi sencer a lï¿½apartat El cor de la Micro:bit de lï¿½apï¿½ndix.
+Apï¿½ndix
 
-Apèndix
+Apï¿½ndix
 
-El més ràpid
+El mï¿½s rï¿½pid
 1 # Imports
 2 from microbit import *
 3 import music
@@ -946,10 +958,10 @@ El més ràpid
 6 while True:
 7	if button_a.is_pressed():
 8		display.shoe(Image.ARROW_W))
-9		music.play(‘a’)
+9		music.play(ï¿½aï¿½)
 10	if button_b.is_pressed():
 11		display.shoe(Image.ARROW_E))
-12		music.play(‘b’)
+12		music.play(ï¿½bï¿½)
 
 Pedra, Paper, Tisora
 1 # Imports
@@ -983,21 +995,21 @@ Codi Morse
 5 # Main loop
 6 while True:
 7	if button_a.is_pressed():
-8		display.show(Image(‘00000:’
-9					‘00000:’
-10					‘00900:’
-11					‘00000:’
-12					‘00000:’
+8		display.show(Image(ï¿½00000:ï¿½
+9					ï¿½00000:ï¿½
+10					ï¿½00900:ï¿½
+11					ï¿½00000:ï¿½
+12					ï¿½00000:ï¿½
 13					))
-14		music.play(‘a’)
-15	if button_b.is_pressed():
-16		display.show(Image(‘00000:’
-17					‘00000:’
-18					‘09990:’
-19					‘00000:’
-20					‘00000:’
+14		music.play(ï¿½aï¿½)
+15	if button_b.Micro:bitd():
+16		display.show(Image(ï¿½00000:ï¿½
+17					ï¿½00000:ï¿½
+18					ï¿½09990:ï¿½
+19					ï¿½00000:ï¿½
+20					ï¿½00000:ï¿½
 21					))
-22		music.play(‘b’)
+22		music.play(ï¿½bï¿½)
 23	sleep(1000)
 24	display.clear()
 
@@ -1010,7 +1022,7 @@ El batec de la Micro:bit
 5 # Main loop
 6 while True:
 7	display.show(Image.HEART)
-8	music.play(‘a’)
+8	music.play(ï¿½aï¿½)
 9	sleep(500)
 10	display.show(Image.HEART_SMALL)
 11	sleep(500)
@@ -1027,12 +1039,12 @@ Conta enrere
 8 # Main loop
 9 for index in range(11):
 10	display.show(j)
-11	music.play(‘a’)
-12	i = i – 1
+11	music.play(ï¿½aï¿½)
+12	i = i ï¿½ 1
 13	sleep(1000)
 
 
-El foraster més ràpid
+El foraster mï¿½s rï¿½pid
 1 # Imports
 2 from microbit import *
 3 import music
@@ -1103,7 +1115,7 @@ El foraster més ràpid
 68			speech.say('Jugador B gana')
 
 
-Un contra l’altre
+Un contra lï¿½altre
 1 # Imports
 2 from microbit import *
 3 import random
@@ -1200,7 +1212,7 @@ Missatge Secret
 5
 6 # Constants
 7 ALPHABET = {
-    ".-":"A", "-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H", "..":"I", ".---":"J", "-.-":"K", ".-..":"L", "--":"M", "-.":"N", "--.--":"Ñ", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z",
+    ".-":"A", "-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H", "..":"I", ".---":"J", "-.-":"K", ".-..":"L", "--":"M", "-.":"N", "--.--":"ï¿½", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z",
 9 }
 10
 11 # More conversions (not used in the project)
@@ -1238,7 +1250,7 @@ Missatge Secret
 43		if letter in ALPHABET:
 44			word = word + ALPHABET[letter]
 45			music.play(music.POWER_UP)
-46			letter = ''
+46			letter = ''Micro:bit
 47		else:
 48			music.play(music.POWER_DOWN)
 49
@@ -1275,7 +1287,7 @@ Atac de cor a la Micro:bit
 22 display.show(Image.SKULL)
 
 
-El pistoler més ràpid
+El pistoler mï¿½s rï¿½pid
 1 # Imports
 2 from microbit import *
 3 import music
@@ -1484,7 +1496,7 @@ Enviant un missatge
 6
 7 # Constants
 8 ALPHABET = {
-9 ".-":"A", "-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H", "..":"I", ".---":"J", "-.-":"K", ".-..":"L", "--":"M", "-.":"N", "--.--":"Ñ", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z",
+9 ".-":"A", "-...":"B", "-.-.":"C", "-..":"D", ".":"E", "..-.":"F", "--.":"G", "....":"H", "..":"I", ".---":"J", "-.-":"K", ".-..":"L", "--":"M", "-.":"N", "--.--":"ï¿½", "---":"O", ".--.":"P", "--.-":"Q", ".-.":"R", "...":"S", "-":"T", "..-":"U", "...-":"V", ".--":"W", "-..-":"X", "-.--":"Y", "--..":"Z",
 }
 10
 11 # More conversions (not used in the project)
@@ -1527,7 +1539,7 @@ Enviant un missatge
 48			music.play(music.POWER_DOWN)
 49
 50	sleep(1000)
-51	display.clear()
+51	display.clMicro:bit
 52
 53	if accelerometer.was_gesture('shake'):
 54		radio.send(word)

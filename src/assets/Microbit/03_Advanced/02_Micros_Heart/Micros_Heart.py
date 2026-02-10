@@ -9,10 +9,13 @@ lives = True
 
 # Code in a while executes if the value of lives is true
 while lives:
+    music.off()
     display.show(Image.HEART)
+    music.on()
     music.pitch(freq)
     sleep(beats)
     display.show(Image.HEART_SMALL)
+    music.off()
     sleep(beats)
 
     if button_a.is_pressed() or accelerometer.was_gesture('shake'):
@@ -24,7 +27,8 @@ while lives:
     #if beats < 598.80 or beats > 1000:
     if beats < 100 or beats > 1500:
         lives = False
-        
+
+music.on()      
 freq = 200
 music.pitch(freq)
 display.show(Image.SKULL)

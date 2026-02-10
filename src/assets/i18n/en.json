@@ -1,41 +1,57 @@
 {
   "TABS": {
     "MICROPYTHON": "MicroPython",
-    "MICROBIT": "Micro:bit",
-    "MICROIA": "MicroIA",
+    "MICROBIT": "The BBC micro:bit",
+    "MICROIA": "The micro:IA",
     "REPOSITORIO": "Repository"
   },
   "MICROBIT_PAGE": {
-    "TITLE": "Micro:bit Projects",
+    "TITLE": "The BBC micro:bit Projects",
     "OPEN_PROJECT_PREFIX": "Open project ",
-    "PROJECTS": {
-      "ACCESSIBLE_PROGRAMMING_IMAGE_ALT": "Accessible Micro:bit, people collaborating with microbits",
-      "ACCESSIBLE_PROGRAMMING": {
+    "PROJECTS": [
+      {
+        "id": "ACCESSIBLE_PROGRAMMING",
         "TITLE": "Accessible Programming",
-        "DESCRIPTION": "Explore Micro:bit programming in an accessible way.",
-        "img": "assets/img/microbit-a11y.png"
+        "DESCRIPTION": "Explore the micro:bit programming in an accessible way.",
+        "img": "assets/img/microbit-a11y.png",
+        "alt": "Representative image of accessible programming with the micro:bit"
       },
-      "COUNTDOWN": {
+      {
+        "id": "COUNTDOWN",
         "TITLE": "The Final Countdown",
-        "DESCRIPTION": "A customizable countdown."
+        "DESCRIPTION": "A customizable countdown.",
+        "img": "assets/img/final-countdown.png",
+        "alt": "Image of a countdown"
       },
-      "DUEL": {
+      {
+        "id": "DUEL",
         "TITLE": "Duel in the Sun",
-        "DESCRIPTION": "A reflex game for two players."
+        "DESCRIPTION": "A reflex game for two players.",
+        "img": "assets/img/duel.png",
+        "alt": "Image of a duel with Micro:bit"
       },
-      "STONE_PAPER_SCISSORS": {
+      {
+        "id": "STONE_PAPER_SCISSORS",
         "TITLE": "Rock, Paper, Scissors",
-        "DESCRIPTION": "The classic game, now on your Micro:bit."
+        "DESCRIPTION": "The classic game, now on your micro:bit.",
+        "img": "assets/img/rps.png",
+        "alt": "Image of the game Rock, Paper, Scissors with Micro:bit"
       },
-      "SECRET_MESSAGE": {
+      {
+        "id": "SECRET_MESSAGE",
         "TITLE": "Secret Message",
-        "DESCRIPTION": "Send and receive secret messages."
+        "DESCRIPTION": "Send and receive secret messages.",
+        "img": "assets/img/secret.png",
+        "alt": "Image of a secret message with Micro:bit"
       },
-      "HEARTBEAT": {
-        "TITLE": "The Micro:bit's Heartbeat",
-        "DESCRIPTION": "Visualize your board's heartbeat."
+      {
+        "id": "HEARTBEAT",
+        "TITLE": "The micro:bit's Heartbeat",
+        "DESCRIPTION": "Visualize your board's heartbeat.",
+        "img": "assets/img/heart.png",
+        "alt": "Image of the heartbeat with Micro:bit"
       }
-    }
+    ]
   },
   "SECRET_MESSAGE_PAGE": {
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",

@@ -54,8 +54,8 @@ export class SettingsPage implements OnInit {
   onLanguageChange() {
     this.translate.use(this.selectedLanguage).subscribe(() => {
       localStorage.setItem('language', this.selectedLanguage);
-      // Navigate to the root to force a full re-initialization of the main tab view
-      this.router.navigate(['/']);
+      // Force a full page reload to ensure all components re-initialize with the new language
+      window.location.reload();
     });
   }
 

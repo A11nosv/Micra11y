@@ -8,36 +8,50 @@
   "MICROBIT_PAGE": {
     "TITLE": "Proxectos Micro:bit",
     "OPEN_PROJECT_PREFIX": "Abrir o proxecto ",
-    "PROJECTS": {
-      "IMAGE_ALT": "Imaxe para o proxecto {projectTitle}",
-      "ACCESSIBLE_PROGRAMMING_IMAGE_ALT": "Micro:bit accesible, persoas colaborando con microbits",
-      "COUNTDOWN_IMAGE_ALT": "Imaxe para o proxecto {projectTitle}",
-      "ACCESSIBLE_PROGRAMMING": {
+    "PROJECTS": [
+      {
+        "id": "ACCESSIBLE_PROGRAMMING",
         "TITLE": "Programación Accesible",
-        "DESCRIPTION": "Explora a programación de Micro:bit de forma accesible."
+        "DESCRIPTION": "Explora a programación de Micro:bit de forma accesible.",
+        "img": "assets/img/a11y_gl.png",
+        "alt": "Imaxe representativa da programación accesible con Micro:bit"
       },
-      "COUNTDOWN": {
+      {
+        "id": "COUNTDOWN",
         "TITLE": "A Conta Atrás Final",
         "DESCRIPTION": "Unha conta atrás personalizable.",
-        "img": "assets/img/final-countdown.png"
+        "img": "assets/img/final-countdown.png",
+        "alt": "Imaxe dunha conta atrás"
       },
-      "DUEL": {
+      {
+        "id": "DUEL",
         "TITLE": "Duelo ao Sol",
-        "DESCRIPTION": "Un xogo de reflexos para dous xogadores."
+        "DESCRIPTION": "Un xogo de reflexos para dous xogadores.",
+        "img": "assets/img/duel.png",
+        "alt": "Imaxe dun duelo con Micro:bit"
       },
-      "STONE_PAPER_SCISSORS": {
+      {
+        "id": "STONE_PAPER_SCISSORS",
         "TITLE": "Pedra, Papel, Tesoura",
-        "DESCRIPTION": "O clásico xogo, agora no teu Micro:bit."
+        "DESCRIPTION": "O clásico xogo, agora no teu Micro:bit.",
+        "img": "assets/img/rps.png",
+        "alt": "Imaxe do xogo Pedra, Papel, Tesoura con Micro:bit"
       },
-      "SECRET_MESSAGE": {
+      {
+        "id": "SECRET_MESSAGE",
         "TITLE": "Mensaxe Secreta",
-        "DESCRIPTION": "Envía e recibe mensaxes secretas."
+        "DESCRIPTION": "Envía e recibe mensaxes secretas.",
+        "img": "assets/img/morse_code.png",
+        "alt": "Imaxe dunha mensaxe secreta con Micro:bit"
       },
-      "HEARTBEAT": {
+      {
+        "id": "HEARTBEAT",
         "TITLE": "O Latexado da Micro:bit",
-        "DESCRIPTION": "Visualiza o latexado da túa placa."
+        "DESCRIPTION": "Visualiza o latexado da túa placa.",
+        "img": "assets/img/heart.png",
+        "alt": "Imaxe do latexado do corazón con Micro:bit"
       }
-    }
+    ]
   },
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mensaxe Secreta",

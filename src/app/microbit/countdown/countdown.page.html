@@ -19,10 +19,15 @@
   <div class="content-wrapper">
     <h1>{{ title }}</h1>
 
-    <video controls width="100%" height="auto">
-      <source src="assets/videos/accessible_clip.mp4" type="video/mp4">
-      {{ 'COUNTDOWN_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
-    </video>
+    <iframe
+      src="assets/html/countdown.html"
+      title="Micro:bit Countdown Simulation"
+      width="100%"
+      height="400px"
+      frameborder="0"
+      allowfullscreen
+      style="border: none; display: block; margin: 0 auto; max-width: 100%;"
+    ></iframe>
 
     <h2>{{ 'COUNTDOWN_PAGE.INTRODUCTION_H2' | translate }}</h2>
     <p *ngFor="let item of ('COUNTDOWN_PAGE.INTRODUCTION_P' | translate)">{{ item }}</p>

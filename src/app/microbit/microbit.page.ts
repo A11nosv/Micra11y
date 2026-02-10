@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 interface Project {
+  id: string; // Add id property
   TITLE: string;
   DESCRIPTION: string;
   img: string;
@@ -23,21 +24,15 @@ interface Project {
 })
 export class MicrobitPage {
 
-  public projects$: Observable<{ [key: string]: Project }>;
+  public projects$: Observable<Project[]>; // Changed to array of Project
 
   constructor(private translate: TranslateService) {
     this.projects$ = this.translate.get('MICROBIT_PAGE.PROJECTS').pipe(
-      map(projects => {
-        const transformedProjects: { [key: string]: Project } = {};
-        for (const key in projects) {
-          if (projects.hasOwnProperty(key)) {
-            transformedProjects[key] = {
-              ...projects[key],
-              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}`, // Dynamically create the route
-            };
-          }
-        }
-        return transformedProjects;
+      map((projects: any[]) => { // projects is now an array
+        return projects.map(project => ({
+          ...project,
+          route: `/tabs/microbit/${project.id.toLowerCase().replace(/_/g, '-')}` // Dynamically create the route using project.id
+        }));
       })
     );
   }

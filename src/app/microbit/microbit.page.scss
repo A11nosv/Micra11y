@@ -16,15 +16,15 @@
   
   /* --- Mobile First (1 column) --- */
   flex-basis: 100%;
-  max-width: 400px; /* Max width for single column on large phones */
+  max-width: 500px; /* Max width for single column on large phones */
 
   img {
     border-radius: 12px 12px 0 0;
     width: 100%;
-    height: 150px;
-    object-fit: cover;
+    height: 187.5px; /* Consistent height for all image containers */
+    object-fit: contain; /* Ensure image is fully visible, may introduce letterboxing */
+    object-position: center;
   }
-
   ion-card-header {
     padding: 16px;
   }
@@ -46,7 +46,7 @@
 @media (min-width: 600px) {
   .project-card {
     /* (100% - gap) / 2 */
-    flex-basis: calc(50% - 8px);
+    flex-basis: calc((100% - 16px) / 2);
   }
 }
 
@@ -54,7 +54,7 @@
 @media (min-width: 960px) {
   .project-card {
     /* (100% - 2*gap) / 3 */
-    flex-basis: calc(33.333% - 11px);
+    flex-basis: calc((100% - 32px) / 3);
   }
 }
 

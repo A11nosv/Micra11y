@@ -8,35 +8,50 @@
   "MICROBIT_PAGE": {
     "TITLE": "Proyectos Micro:bit",
     "OPEN_PROJECT_PREFIX": "Abrir el proyecto ",
-    "PROJECTS": {
-      "IMAGE_ALT": "Imagen para el proyecto {projectTitle}",
-      "ACCESSIBLE_PROGRAMMING": {
+    "PROJECTS": [
+      {
+        "id": "ACCESSIBLE_PROGRAMMING",
         "TITLE": "Programación Accesible",
         "DESCRIPTION": "Explora la programación de Micro:bit de forma accesible.",
-        "img": "assets/img/microbit-a11y.png"
+        "img": "assets/img/a11y_es.png",
+        "alt": "Imagen representativa de la programación accesible con Micro:bit"
       },
-      "COUNTDOWN": {
+      {
+        "id": "COUNTDOWN",
         "TITLE": "La Cuenta Atrás Final",
         "DESCRIPTION": "Una cuenta atrás personalizable.",
-        "img": "assets/img/final-countdown.png"
+        "img": "assets/img/final-countdown.png",
+        "alt": "Imagen de una cuenta atrás"
       },
-      "DUEL": {
+      {
+        "id": "DUEL",
         "TITLE": "Duelo al Sol",
-        "DESCRIPTION": "Un juego de reflejos para dos jugadores."
+        "DESCRIPTION": "Un juego de reflejos para dos jugadores.",
+        "img": "assets/img/duel.png",
+        "alt": "Imagen de un duelo con Micro:bit"
       },
-      "STONE_PAPER_SCISSORS": {
+      {
+        "id": "STONE_PAPER_SCISSORS",
         "TITLE": "Piedra, Papel, Tijera",
-        "DESCRIPTION": "El clásico juego, ahora en tu Micro:bit."
+        "DESCRIPTION": "El clásico juego, ahora en tu Micro:bit.",
+        "img": "assets/img/rps.png",
+        "alt": "Imagen del juego Piedra, Papel, Tijera con Micro:bit"
       },
-      "SECRET_MESSAGE": {
+      {
+        "id": "SECRET_MESSAGE",
         "TITLE": "Mensaje Secreto",
-        "DESCRIPTION": "Envía y recibe mensajes secretos."
+        "DESCRIPTION": "Envía y recibe mensajes secretos.",
+        "img": "assets/img/morse_code.png",
+        "alt": "Imagen de un mensaje secreto con Micro:bit"
       },
-      "HEARTBEAT": {
+      {
+        "id": "HEARTBEAT",
         "TITLE": "El Latido de la Micro:bit",
-        "DESCRIPTION": "Visualiza el latido de tu placa."
+        "DESCRIPTION": "Visualiza el latido de tu placa.",
+        "img": "assets/img/heart.png",
+        "alt": "Imagen del latido del corazón con Micro:bit"
       }
-    }
+    ]
   },
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mensaje Secreto",

@@ -8,35 +8,50 @@
   "MICROBIT_PAGE": {
     "TITLE": "Micro:bit Proiektuak",
     "OPEN_PROJECT_PREFIX": "Ireki proiektua ",
-    "PROJECTS": {
-      "IMAGE_ALT": "Proiektuaren irudia {projectTitle}",
-      "ACCESSIBLE_PROGRAMMING_IMAGE_ALT": "Micro:bit irisgarria, pertsonak microbitekin elkarlanean",
-      "ACCESSIBLE_PROGRAMMING": {
+    "PROJECTS": [
+      {
+        "id": "ACCESSIBLE_PROGRAMMING",
         "TITLE": "Programazio Irisgarria",
         "DESCRIPTION": "Arakatu Micro:bit programazioa modu irisgarrian.",
-        "img": "assets/img/microbit-a11y.png"
+        "img": "assets/img/a11y_eu.png",
+        "alt": "Irudi adierazgarria Micro:bit-ekin programazio irisgarriari buruz"
       },
-      "COUNTDOWN": {
+      {
+        "id": "COUNTDOWN",
         "TITLE": "Azken Atzerako Kontaketa",
-        "DESCRIPTION": "Atzerako kontaketa pertsonalizagarria."
+        "DESCRIPTION": "Atzerako kontaketa pertsonalizagarria.",
+        "img": "assets/img/final-countdown.png",
+        "alt": "Atzerako kontaketaren irudia"
       },
-      "DUEL": {
+      {
+        "id": "DUEL",
         "TITLE": "Duelua Eguzkitan",
-        "DESCRIPTION": "Bi jokalarirentzako erreflexu jokoa."
+        "DESCRIPTION": "Bi jokalarirentzako erreflexu jokoa.",
+        "img": "assets/img/duel.png",
+        "alt": "Micro:bit-ekin duelu baten irudia"
       },
-      "STONE_PAPER_SCISSORS": {
+      {
+        "id": "STONE_PAPER_SCISSORS",
         "TITLE": "Harri, Orri, Ar",
-        "DESCRIPTION": "Joko klasikoa, orain zure Micro:bit-ean."
+        "DESCRIPTION": "Joko klasikoa, orain zure Micro:bit-ean.",
+        "img": "assets/img/rps.png",
+        "alt": "Harri, Orri, Ar jokoaren irudia Micro:bit-ekin"
       },
-      "SECRET_MESSAGE": {
+      {
+        "id": "SECRET_MESSAGE",
         "TITLE": "Mezu Sekretua",
-        "DESCRIPTION": "Mezu sekretuak bidali eta jaso."
+        "DESCRIPTION": "Mezu sekretuak bidali eta jaso.",
+        "img": "assets/img/morse_code.png",
+        "alt": "Mezu sekretu baten irudia Micro:bit-ekin"
       },
-      "HEARTBEAT": {
+      {
+        "id": "HEARTBEAT",
         "TITLE": "Micro:bit-aren Taupada",
-        "DESCRIPTION": "Ikusi zure plakaren taupadak."
+        "DESCRIPTION": "Ikusi zure plakaren taupadak.",
+        "img": "assets/img/heart.png",
+        "alt": "Bihotz taupadaren irudia Micro:bit-ekin"
       }
-    }
+    ]
   },
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mezu Sekretua",
