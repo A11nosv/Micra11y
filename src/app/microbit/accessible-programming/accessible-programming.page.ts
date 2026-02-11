@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonContent, IonHeader, IonTitle, IonToolbar, IonButtons, IonBackButton, IonModal, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs'; // Import Observable
+import { map } from 'rxjs/operators'; // Import map operator
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
+import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
 
 @Component({
   selector: 'app-accessible-programming',
@@ -25,14 +27,26 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
   public currentImageSrc: string;
   public pythonCode: string = '';
 
-  constructor(private translate: TranslateService, private http: HttpClient) {
+  currentLanguageFlag$: Observable<string>; // New property
+  accessibleLabel: string = ''; // New property
+
+  constructor(
+    private translate: TranslateService,
+    private http: HttpClient,
+    private languageService: LanguageService // Inject LanguageService
+  ) {
     this.currentImageSrc = this.getImageSrc();
+    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
+      map(() => this.languageService.getCurrentLanguageFlag())
+    );
   }
 
   ngOnInit() {
     this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
       this.currentImageSrc = this.getImageSrc();
+      this.updateAccessibleLabel(); // Update accessible label on language change
     });
+    this.updateAccessibleLabel(); // Initialize accessible label
     console.log('Current Language:', this.translate.currentLang);
     console.log('Generated Image Source:', this.currentImageSrc);
     console.log('Translation test:', this.translate.instant('ACCESSIBLE_PROGRAMMING.TITLE'));
@@ -77,4 +91,8 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
     }
   }
 
+  // New method to update accessible label
+  private updateAccessibleLabel() {
+    this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
 }

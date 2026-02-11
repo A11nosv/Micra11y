@@ -1,0 +1,14 @@
+ion-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  min-width: unset; // Allow button to shrink to content size
+  height: 32px; // Fixed height for the button
+  img {
+    height: 16px;
+    width: 24px;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+}

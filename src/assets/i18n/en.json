@@ -1,4 +1,7 @@
 {
+  "ACCESSIBILITY": {
+    "LANGUAGE_BUTTON_LABEL": "Current language {{language}} press to change language"
+  },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",

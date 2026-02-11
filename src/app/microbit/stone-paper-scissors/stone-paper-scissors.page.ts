@@ -5,6 +5,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
+import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscription
+import { map } from 'rxjs/operators'; // Import map operator
+import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
 
 @Component({
   selector: 'app-stone-paper-scissors',
@@ -45,7 +48,20 @@ export class StonePaperScissorsPage implements OnInit {
   pythonCode_19_1: string = '';
   title: string = '';
 
-  constructor(private http: HttpClient, private translate: TranslateService) { }
+  currentLanguageFlag$: Observable<string>; // New property
+  accessibleLabel: string = ''; // New property
+
+  private languageChangeSubscription: Subscription | undefined; // For title and accessible label updates
+
+  constructor(
+    private http: HttpClient,
+    private translate: TranslateService,
+    private languageService: LanguageService // Inject LanguageService
+  ) {
+    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
+      map(() => this.languageService.getCurrentLanguageFlag())
+    );
+  }
 
   ngOnInit() {
     this.http.get('assets/Microbit/03_Advanced/04_PedraPapaerTisora/PedraPaperTisora.py', { responseType: 'text' })
@@ -61,12 +77,12 @@ export class StonePaperScissorsPage implements OnInit {
     this.pythonCode_5_2 = "\tmusic.play(music.RINGTONE) \n\tmusic.play(music.JUMP_DOWN) \n\tmusic.play(music.JUMP_UP)";
     this.pythonCode_6_1 = "import radio";
     this.pythonCode_7_1 = "\tradio.config(group=12)";
-    this.pythonCode_8_1 = "\tradio.send(str(tool)) \n\trecieved=radio.receive() \n\tresult = ''";
+    this.pythonCode_8_1 = "\tradio.send(str(tool)) \n\trecieved=radio.receive() \n\tresult = '';";
     this.pythonCode_9_1 = "\tif tool == 0: \n\t\tif recieved == '1'': \n\t\t\tresult = 'Perds' \n\t\telif recieved == '2'': \n\t\t\tresult = 'Guanyes' \n\telif tool == 1: \n\t\tif recieved == '0': \n\t\t\tresult = 'Guanyes' \n\t\telif recieved == '2': \n\t\t\tresult = 'Perds' \n\telif tool == 2: \n\t\tif recieved == '0'': \n\t\t\tresult = 'Perds' \n\t\telif recieved == '1': \n\t\t\tresult = 'Guanyes'";
     this.pythonCode_10_1 = "\tif result == 'Guanyes': \n\t\tdisplay.show(Image.SMILE) \n\t\tmusic.play(music.PYTHON) \n\t\tspeech.say('Guanyes') \n\telif result == 'Perds': \n\t\tdisplay.show(Image.SAD) \n\t\tmusic.play(music.FUNERAL) \n\t\tspeech.say('Perds') \n\telif result == 'Empatas':  \n\t\tdisplay.show(Image.ASLEEP) \n\t\tmusic.play(music.WAWAWAWAA) \n\t\tspeech.say('Empat')";
     this.pythonCode_11_1 = "# Functions \ndef Trie(tool): \n\tif tool == 0: \n\t\tdisplay.show(Image.SQUARE_SMALL) \n\t\tspeech.say('Pedra') \n\telif tool == 1: \n\t\tdisplay.show(Image.SQUARE) \n\t\tspeech.say('Paper') \n\telse: \n\t\tdisplay.show(Image.SCISSORS); \n\t\tspeech.say('Tisores')";
     this.pythonCode_11_2 = "Tries(tool)";
-    this.pythonCode_11_3 = "def Comparison(tool, recieved): \n\tresult = '' \n\n\tif tool == 0: \n\t\tif recieved == '1'': \n\t\t\tresult = 'Perds' \n\t\telif recieved == '2': \n\t\t\tresult = 'Guanyes' \n\telif tool == 1: \n\t\tif recieved == '0': \n\t\t\tresult = 'Guanyes' \n\t\telif recieved == '2': \n\t\t\tresult = 'Perds' \n\telif tool == 2: \n\t\tif recieved == '0': \n\t\t\tresult = 'Perds' \n\t\telif recieved == '1': \n\t\t\tresult = 'Guanyes' \n\n\treturn result"; 
+    this.pythonCode_11_3 = "def Comparison(tool, recieved): \n\tresult = '' \n\n\tif tool == 0: \n\t\tif recieved == '1'': \n\t\t\tresult = 'Perds' \n\t\telif recieved == '2': \n\t\t\tresult = 'Guanyes' \n\telif tool == 1: \n\t\tif recieved == '0': \n\t\t\tresult = 'Guanyes' \n\t\telif recieved == '2': \n\t\t\tresult = 'Perds' \n\telif tool == 2: \n\t\tif recieved == '0': \n\t\t\tresult = 'Perds' \n\t\telif recieved == '1': \n\t\t\tresult = 'Guanyes' \n\n\treturn result";
     this.pythonCode_11_4 = "result = Comparison(tool, recieved)";
     this.pythonCode_12_1 = "\tif pin_logo.is_touched(): \n\t\tradio.send(str(tool)) \n\t\trecieved = radio.receive() \n\n\t\tresult = Comparison(tool, recieved) \n\n\t\tWinner(result)";
     this.pythonCode_13_1 = "# Variables \nturn = True";
@@ -79,11 +95,25 @@ export class StonePaperScissorsPage implements OnInit {
     this.pythonCode_17_1 = "count = 0 \npoints = 0";
     this.pythonCode_17_2 = "\tif result != 'Empatas': \n\t\tcount = count + 1";
     this.pythonCode_18_1 = "\t\tif result == 'Guanyes': \n\t\t\tpoints = points + 1";
-    this.pythonCode_19_1 = "\t\tif points > 2: \n\t\t\tdisplay.show(Image.HAPPY) \n\t\t\tspeech.say('Guanyes') \n\t\t\tmusic.play(music.PYTHON)\n\t\telif points < 3: \n\t\t\tdisplay.show(Image.SKULL) \n\t\t\tspeech.say('Perds') \n\t\t\tmusic.play(music.FUNERAL)";
+    this.pythonCode_19_1 = "\t\tif points > 2: \n\t\t\tdisplay.show(Image.SMILE) \n\t\t\tspeech.say('Guanyes') \n\t\t\tmusic.play(music.PYTHON)\n\t\telif points < 3: \n\t\t\tdisplay.show(Image.SAD) \n\t\t\tspeech.say('Perds') \n\t\t\tmusic.play(music.FUNERAL)";
 
     this.translate.get('RPS_PAGE.TITLE').subscribe((res: string) => {
       this.title = res;
     });
+
+    this.updateAccessibleLabel(); // Call to initialize accessibleLabel
+
+    // Subscribe to language changes for title and accessible label
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.translate.get('RPS_PAGE.TITLE').subscribe((res: string) => {
+        this.title = res;
+      });
+      this.updateAccessibleLabel(); // Also update accessibleLabel on language change
+    });
   }
 
+  // New method to update accessible label
+  private updateAccessibleLabel() {
+    this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
 }

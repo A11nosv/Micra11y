@@ -5,18 +5,21 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, Ion
 import { TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
+// Removed LanguageService, Observable, map operator imports
+
+import { LanguageChooserComponent } from '../components/language-chooser/language-chooser.component'; // Import LanguageChooserComponent
 
 @Component({
   selector: 'app-micropython',
   templateUrl: 'micropython.page.html',
   styleUrls: ['micropython.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, RouterModule, TranslateModule, CommonModule, HttpClientModule, Highlight],
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, RouterModule, TranslateModule, CommonModule, HttpClientModule, Highlight, LanguageChooserComponent], // Added LanguageChooserComponent
 })
 export class MicropythonPage implements OnInit {
   pythonCode: string = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
     this.http.get('assets/microbit_code/beatingHeart/beatingHeart.py', { responseType: 'text' })
@@ -24,4 +27,6 @@ export class MicropythonPage implements OnInit {
         this.pythonCode = data;
       });
   }
+
+  // Removed updateAccessibleLabel()
 }

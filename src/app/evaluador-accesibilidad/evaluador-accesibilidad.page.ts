@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core'; // Added OnDestroy
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
@@ -6,6 +6,10 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, Ion
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Highlight } from 'ngx-highlightjs'; // Import Highlight
 import { MicrobitValidatorPro } from '../../../testacce'; // Import the validator
+import { LanguageService } from '../services/language.service'; // Import LanguageService
+import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscription
+import { map } from 'rxjs/operators'; // Import map operator
+
 
 @Component({
   selector: 'app-evaluador-accesibilidad',
@@ -29,7 +33,7 @@ import { MicrobitValidatorPro } from '../../../testacce'; // Import the validato
     Highlight // Add Highlight
   ],
 })
-export class EvaluadorAccesibilidadPage {
+export class EvaluadorAccesibilidadPage implements OnInit, OnDestroy { // Implement OnInit and OnDestroy
   userCode: string = `
 from microbit import *
 
@@ -49,12 +53,37 @@ while True:
   errorCount: number = 0; // New property for error count
   warningCount: number = 0; // New property for warning count
 
-  private validator: MicrobitValidatorPro; // Declare the validator instance
+  currentLanguageFlag$: Observable<string>; // New property
+  accessibleLabel: string = ''; // New property
 
-  constructor(private translate: TranslateService) {
+  private validator: MicrobitValidatorPro; // Declare the validator instance
+  private languageChangeSubscription: Subscription | undefined; // For accessible label updates
+
+  constructor(
+    private translate: TranslateService,
+    private languageService: LanguageService // Inject LanguageService
+  ) {
     this.highlightedCode = this.userCode; // Initialize highlighted code with user's input
-    this.correctedCode = this.userCode; // Initialize corrected code
+    this.correctedCode = this.userCode; // Reset corrected code
     this.validator = new MicrobitValidatorPro(); // Instantiate the validator
+
+    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
+      map(() => this.languageService.getCurrentLanguageFlag())
+    );
+
+    this.updateAccessibleLabel(); // Initialize accessible label
+  }
+
+  ngOnInit() {
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.updateAccessibleLabel(); // Update accessible label on language change
+    });
+  }
+
+  ngOnDestroy() { // Add ngOnDestroy to unsubscribe
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
   }
 
   onCodeChange() {
@@ -199,5 +228,10 @@ while True:
     let formatted = suggestion.replace(/;/g, ';<br>');
     formatted = formatted.replace(/,/g, ',<br>');
     return formatted;
+  }
+
+  // New method to update accessible label
+  private updateAccessibleLabel() {
+    this.accessibleLabel = this.languageService.getAccessibleLabel();
   }
 }

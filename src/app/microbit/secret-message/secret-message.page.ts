@@ -5,6 +5,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
+import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscription
+import { map } from 'rxjs/operators'; // Import map operator
+import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
 
 @Component({
   selector: 'app-secret-message',
@@ -41,7 +44,20 @@ export class SecretMessagePage implements OnInit {
   pythonCode_9_1: string = '';
   title: string = '';
 
-  constructor(private http: HttpClient, private translate: TranslateService) { }
+  currentLanguageFlag$: Observable<string>; // New property
+  accessibleLabel: string = ''; // New property
+
+  private languageChangeSubscription: Subscription | undefined; // For title and accessible label updates
+
+  constructor(
+    private http: HttpClient,
+    private translate: TranslateService,
+    private languageService: LanguageService // Inject LanguageService
+  ) {
+    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
+      map(() => this.languageService.getCurrentLanguageFlag())
+    );
+  }
 
   ngOnInit() {
     this.http.get('assets/Microbit/03_Advanced/01_MissatgeSecret/Secret Message-main.py', { responseType: 'text' })
@@ -53,10 +69,10 @@ export class SecretMessagePage implements OnInit {
     this.pythonCode_1_2 = "while True:";
     this.pythonCode_1_3 = "\tif button_a.is_pressed():";
     this.pythonCode_1_4 = "\t\tdisplay.show(Image(‘00000:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00900:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00000’))";
-    this.pythonCode_1_5 = "from microbit import * \n\n#Main loop \nwhile True: \n\tif button_a.is_pressed(): \n\t\tdisplay.show(Image(‘00000:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00900:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00000’)) \n\tif button_b.is_pressed(): \n\t\tdisplay.show(Image(‘00000:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘09990:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00000’))"; 
+    this.pythonCode_1_5 = "from microbit import * \n\n#Main loop \nwhile True: \n\tif button_a.is_pressed(): \n\t\tdisplay.show(Image(‘00000:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00900:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00000’)) \n\tif button_b.is_pressed(): \n\t\tdisplay.show(Image(‘00000:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘09990:’ \n\t\t\t\t‘00000:’ \n\t\t\t\t‘00000’))";
     this.pythonCode_2_1 = "import music";
     this.pythonCode_2_2 = "\t\tmusic.play(‘a’)";
-    this.pythonCode_2_3 = "# Imports \nfrom microbit import * \nimport music \n\n# Main loop \nwhile True: \n\tif button_a.is_pressed(): \n\t\tdisplay.show(Image('00000:' \n\t\t\t\t'00000' \n\t\t\t\t'00900:' \n\t\t\t\t'00000:' \n\t\t\t \t'00000' \n\t\t\t\t))\n\n\t\t\tmusic.play('a') \n\n\tif button_b.is_pressed(): \nt\t\tdisplay.show(Image('00000:' \n\t\t\t\t'00000:' \n\t\t\t\t'09990:' \n\t\t\t\t'00000:' \n\t\t\t\t'00000' \n\t\t\t\t\t)) \n\n\t\t\tmusic.play('b')"; 
+    this.pythonCode_2_3 = "# Imports \nfrom microbit import * \nimport music \n\n# Main loop \nwhile True: \n\tif button_a.is_pressed(): \n\t\tdisplay.show(Image('00000:' \n\t\t\t\t'00000' \n\t\t\t\t'00900:' \n\t\t\t\t'00000:' \n\t\t\t \t'00000' \n\t\t\t\t))\n\n\t\t\tmusic.play('a') \n\n\tif button_b.is_pressed(): \nt\t\tdisplay.show(Image('00000:' \n\t\t\t\t'00000:' \n\t\t\t\t'09990:' \n\t\t\t\t'00000:' \n\t\t\t\t'00000' \n\t\t\t\t\t)) \n\n\t\t\tmusic.play('b')";
     this.pythonCode_3_1 = "\t\tsleep(500) \n\t\tdisplay.clear()";
     this.pythonCode_4_1 = "'.-': 'A'";
     this.pythonCode_4_2 = "# Constant \nALPHABET = { \n'.- ':'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G',\n '....': 'H'', '..': 'I', '.---': 'J', '-.-': 'K','.-..': 'L', '--':'M', ' -.':'N',\n '--.--':'Ñ', '-- - ':'O', '.--.':'P', '--.-':'Q', '.-.':'R', '...':'S', ' - ':'T',\n '..- ':'U', '...-':'V', '.--':'W', ' -..- ':'X', ' -.--':'Y', '--..':'Z'}";
@@ -71,11 +87,25 @@ export class SecretMessagePage implements OnInit {
     this.pythonCode_7_1 = "import speech";
     this.pythonCode_7_2 = "\tif accelerometer.was_gesture(‘shake’): \n\t\tdisplay.show(word) \n\t\tspeech.say(word) \n\t\tword = ‘’";
     this.pythonCode_8_1 = "import radio";
-    this.pythonCode_9_1 = "\t\t\tradio.send(word) \n\n\t\t\tif radio.receive(): \n\t\t\t\tmsg = radio.receive() \n\n\t\t\tif msg: \n\t\t\t\tdisplay.scroll(msg) \n\t\t\t\tspeech.say((msg))";
+    this.pythonCode_9_1 = "\t\t\tradio.send(word) \n\n\t\t\tif radio.receive(): \n\t\t\t\tmsg = radio.receive() \n\n\t\t\tif msg: \n\t\t\t\t\tdisplay.scroll(msg) \n\t\t\t\tspeech.say((msg))";
 
     this.translate.get('SECRET_MESSAGE_PAGE.TITLE').subscribe((res: string) => {
       this.title = res;
     });
+
+    this.updateAccessibleLabel(); // Call to initialize accessibleLabel
+
+    // Subscribe to language changes for title and accessible label
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.translate.get('SECRET_MESSAGE_PAGE.TITLE').subscribe((res: string) => {
+        this.title = res;
+      });
+      this.updateAccessibleLabel(); // Also update accessibleLabel on language change
+    });
   }
 
+  // New method to update accessible label
+  private updateAccessibleLabel() {
+    this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
 }

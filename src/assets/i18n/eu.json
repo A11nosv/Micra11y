@@ -1,4 +1,7 @@
 {
+  "ACCESSIBILITY": {
+    "LANGUAGE_BUTTON_LABEL": "Oraingo hizkuntza {{language}} sakatu hizkuntza aldatzeko"
+  },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",

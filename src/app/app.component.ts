@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { LanguageService } from './services/language.service';
 
 @Component({
   selector: 'app-root',
@@ -9,8 +10,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   imports: [IonApp, IonRouterOutlet, TranslateModule],
 })
 export class AppComponent implements OnInit {
-  constructor(private translate: TranslateService) {
-    this.initializeApp();
+  constructor(
+    private translate: TranslateService, // Keep TranslateService for now, as LanguageService uses it internally
+    private languageService: LanguageService, // Inject LanguageService
+    private renderer: Renderer2 // Inject Renderer2
+  ) {
+    // LanguageService's constructor already calls initLanguage(),
+    // so no need to call initializeApp() for language here.
+    // Dark mode initialization will remain for now.
+    this.initializeDarkMode();
   }
 
   ngOnInit(): void {
@@ -21,30 +29,14 @@ export class AppComponent implements OnInit {
         this.setDarkMode(e.matches);
       }
     });
+
+    // Subscribe to language changes from LanguageService to update the document's lang attribute
+    this.languageService.currentLanguage$.subscribe(lang => {
+      this.renderer.setAttribute(document.documentElement, 'lang', lang);
+    });
   }
 
-  initializeApp() {
-    this.translate.setDefaultLang('en');
-    const supportedLangs = ['ca', 'es', 'en', 'eu', 'gl'];
-
-    // Initialize language
-    const savedLang = localStorage.getItem('language');
-    let langToUse = 'en'; // Default fallback
-
-    if (savedLang && supportedLangs.includes(savedLang)) {
-      langToUse = savedLang;
-    } else {
-      const browserLang = this.translate.getBrowserLang();
-      if (browserLang) {
-        const foundLang = supportedLangs.find(lang => browserLang.startsWith(lang));
-        if (foundLang) {
-          langToUse = foundLang;
-        }
-      }
-    }
-    this.translate.use(langToUse);
-
-    // Initialize dark mode
+  initializeDarkMode() {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
     const savedDarkMode = localStorage.getItem('darkMode');
 

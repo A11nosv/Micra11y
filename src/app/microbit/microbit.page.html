@@ -7,8 +7,8 @@
       <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
         <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
       </ion-button>
-      <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
-        <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+      <ion-button routerLink="/settings" [attr.aria-label]="accessibleLabel">
+        <img [src]="currentLanguageFlag$ | async" alt="Current language flag" style="width: 24px; height: 16px;"/>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -22,8 +22,8 @@
         <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
           <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
         </ion-button>
-        <ion-button routerLink="/settings" [title]="'TABS.SETTINGS' | translate">
-          <ion-icon name="settings-outline" slot="icon-only"></ion-icon>
+        <ion-button routerLink="/settings" [attr.aria-label]="accessibleLabel">
+          <img [src]="currentLanguageFlag$ | async" alt="Current language flag" style="width: 24px; height: 16px;"/>
         </ion-button>
       </ion-buttons>
     </ion-toolbar>

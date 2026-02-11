@@ -1,0 +1,69 @@
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonButton, IonIcon, ActionSheetController } from '@ionic/angular/standalone';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from 'src/app/services/language.service';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-language-chooser',
+  templateUrl: './language-chooser.component.html',
+  styleUrls: ['./language-chooser.component.scss'],
+  standalone: true,
+  imports: [CommonModule, IonButton, IonIcon, TranslateModule]
+})
+export class LanguageChooserComponent implements OnInit, OnDestroy {
+  currentLanguageFlag$: Observable<string>;
+  accessibleLabel: string = '';
+
+  private languageChangeSubscription: Subscription | undefined;
+
+  constructor(
+    private languageService: LanguageService,
+    private actionSheetController: ActionSheetController,
+    private translate: TranslateService
+  ) {
+    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
+      map(() => this.languageService.getCurrentLanguageFlag())
+    );
+  }
+
+  ngOnInit() {
+    this.updateAccessibleLabel();
+    this.languageChangeSubscription = this.languageService.currentLanguage$.subscribe(() => {
+      this.updateAccessibleLabel();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
+  }
+
+  private updateAccessibleLabel() {
+    this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
+
+  async openLanguageChooser() {
+    const availableLanguages = this.languageService.getAvailableLanguages();
+    const buttons = availableLanguages.map(lang => ({
+      text: lang.name,
+      icon: '', // Optionally add icon here if needed
+      handler: () => {
+        this.languageService.setLanguage(lang.code);
+      }
+    }));
+
+    const actionSheet = await this.actionSheetController.create({
+      header: this.translate.instant('SETTINGS.LANGUAGE_SELECT'), // Re-using translation key
+      buttons: buttons.concat([{
+        text: this.translate.instant('MODAL_CLOSE'), // Re-using translation key
+        icon: 'close',
+        role: 'cancel'
+      }])
+    });
+    await actionSheet.present();
+  }
+}

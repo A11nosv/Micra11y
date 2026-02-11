@@ -1,0 +1,3 @@
+<ion-button (click)="openLanguageChooser()" [attr.aria-label]="accessibleLabel">
+  <img [src]="currentLanguageFlag$ | async" alt="Current language flag" style="width: 24px; height: 16px;"/>
+</ion-button>
