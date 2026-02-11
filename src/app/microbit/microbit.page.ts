@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
+import { Observable, map } from 'rxjs';
+import { LanguageChooserComponent } from '../components/language-chooser/language-chooser.component';
+
 
 interface Project {
   id: string; // Add id property
@@ -21,17 +21,15 @@ interface Project {
   templateUrl: 'microbit.page.html',
   styleUrls: ['microbit.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, RouterLink, TranslateModule, IonButtons, IonButton, IonIcon]
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, RouterLink, TranslateModule, IonButtons, IonButton, IonIcon, LanguageChooserComponent]
 })
-export class MicrobitPage implements OnInit { // Implemented OnInit
+export class MicrobitPage {
 
   public projects$: Observable<{[key: string]: Project}>;
-  currentLanguageFlag$: Observable<string>;
-  accessibleLabel: string = '';
+
 
   constructor(
-    private translate: TranslateService,
-    private languageService: LanguageService
+    private translate: TranslateService
   ) {
     this.projects$ = this.translate.get('MICROBIT_PAGE.PROJECTS').pipe(
       map(projects => {
@@ -58,19 +56,10 @@ export class MicrobitPage implements OnInit { // Implemented OnInit
       })
     );
 
-    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
-      map(() => this.languageService.getCurrentLanguageFlag())
-    );
+
   }
 
-  ngOnInit() {
-    this.updateAccessibleLabel();
-    this.languageService.currentLanguage$.subscribe(() => {
-      this.updateAccessibleLabel();
-    });
-  }
 
-  private updateAccessibleLabel() {
-    this.accessibleLabel = this.languageService.getAccessibleLabel();
-  }
+
+
 }
