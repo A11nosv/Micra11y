@@ -81,8 +81,12 @@
   </div>
 
   <div class="button-container">
-    <img src="assets/img/non_accessible_example.png" alt="Ejemplo no accesible" class="example-button" (click)="openModal('non-accessible')" />
-    <img src="assets/img/accessible_example.png" alt="Ejemplo accesible" class="example-button" (click)="openModal('accessible')" />
+      <a class="example-button" (click)="openModal('non-accessible')">
+        <img src="assets/img/non_accessible_example.png" alt="{{ 'ACCESSIBLE_PROGRAMMING.NON_ACCESSIBLE_EXAMPLE_BUTTON' | translate }}" />
+      </a>
+      <a class="example-button" (click)="openModal('accessible')">
+        <img src="../../../assets/img/accessible_example.png" alt="{{ 'ACCESSIBLE_PROGRAMMING.ACCESSIBLE_EXAMPLE_BUTTON' | translate }}" />
+    </a>
   </div>
 
   <ion-modal #nonAccessibleModal>
@@ -97,6 +101,10 @@
       <ion-content class="ion-padding">
         <h2>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_NON_ACCESSIBLE_H2' | translate }}</h2>
         <p>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_NON_ACCESSIBLE_P' | translate }}</p>
+        <video controls width="100%" height="auto">
+          <source src="assets/videos/heart.mp4" type="video/mp4">
+          Tu navegador no soporta el tag de video.
+        </video>
         <ion-button expand="block" color="primary" (click)="openCodeModal('non-accessible-code')">{{ 'ACCESSIBLE_PROGRAMMING.MODAL_VIEW_CODE' | translate }}</ion-button>
       </ion-content>
     </ng-template>
@@ -116,7 +124,7 @@
         <h2>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_H2' | translate }}</h2>
         <p>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_P' | translate }}</p>
         <video controls width="100%" height="auto">
-          <source src="assets/videos/accessible_clip.mp4" type="video/mp4">
+          <source src="assets/videos/heart_sound.mp4" type="video/mp4">
           Tu navegador no soporta el tag de video.
         </video>
         <ion-button expand="block" color="primary" (click)="openCodeModal('accessible-code')">{{ 'ACCESSIBLE_PROGRAMMING.MODAL_VIEW_CODE' | translate }}</ion-button>

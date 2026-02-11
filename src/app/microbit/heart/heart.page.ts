@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon } from '@ionic/angular/standalone';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs'; // Import Subscription
 
 @Component({
   selector: 'app-heart',
@@ -13,7 +14,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor]
 })
-export class HeartPage implements OnInit {
+export class HeartPage implements OnInit, OnDestroy {
 
   pythonCode: string = '';
   pythonCode_1_1: string = '';
@@ -34,10 +35,28 @@ export class HeartPage implements OnInit {
   pythonCode_11_1: string = '';
   pythonCode_11_2: string = '';
   title: string = '';
+  private languageChangeSubscription: Subscription | undefined; // Declare subscription and initialize to undefined
   
     constructor(private http: HttpClient, private translate: TranslateService) { }
   
     ngOnInit() {
+      this._loadPythonCode();
+      this._setTranslatedTitle();
+  
+      // Subscribe to language changes
+      this.languageChangeSubscription = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+        this._setTranslatedTitle();
+      });
+    }
+
+    ngOnDestroy() {
+      // Unsubscribe to prevent memory leaks
+      if (this.languageChangeSubscription) {
+        this.languageChangeSubscription.unsubscribe();
+      }
+    }
+
+    private _loadPythonCode() {
       this.http.get('assets/Microbit/03_Advanced/02_Micros_Heart/Micros_Heart.py', { responseType: 'text' })
         .subscribe(data => {
           this.pythonCode = data;
@@ -60,10 +79,12 @@ export class HeartPage implements OnInit {
       this.pythonCode_10_3 = "\tif beats < 598.80 or beats > 1000: \n\t\tlives = false";
       this.pythonCode_11_1 = "\tif button_a.is_pressed() or accelerometer.was_gesture(‘shake’):";
       this.pythonCode_11_2 = "\tif button_b.is_pressed() or pin_logo.is_touched():";
+    }
 
-      this.translate.get('HEART_PAGE.TITLE').subscribe((res: string) => {
-        this.title = res;
-      });
+    private _setTranslatedTitle() {
+        this.translate.get('HEART_PAGE.TITLE').subscribe((res: string) => {
+            this.title = res;
+        });
     }
   
     getImageSrc(): string {

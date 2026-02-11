@@ -8,50 +8,44 @@
   "MICROBIT_PAGE": {
     "TITLE": "Micro:bit Proiektuak",
     "OPEN_PROJECT_PREFIX": "Ireki proiektua ",
-    "PROJECTS": [
-      {
-        "id": "ACCESSIBLE_PROGRAMMING",
+    "PROJECTS": {
+      "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Programazio Irisgarria",
         "DESCRIPTION": "Arakatu Micro:bit programazioa modu irisgarrian.",
         "img": "assets/img/a11y_eu.png",
         "alt": "Irudi adierazgarria Micro:bit-ekin programazio irisgarriari buruz"
       },
-      {
-        "id": "COUNTDOWN",
+      "COUNTDOWN": {
         "TITLE": "Azken Atzerako Kontaketa",
         "DESCRIPTION": "Atzerako kontaketa pertsonalizagarria.",
         "img": "assets/img/final-countdown.png",
         "alt": "Atzerako kontaketaren irudia"
       },
-      {
-        "id": "DUEL",
+      "DUEL": {
         "TITLE": "Duelua Eguzkitan",
         "DESCRIPTION": "Bi jokalarirentzako erreflexu jokoa.",
         "img": "assets/img/duel.png",
         "alt": "Micro:bit-ekin duelu baten irudia"
       },
-      {
-        "id": "STONE_PAPER_SCISSORS",
+      "STONE_PAPER_SCISSORS": {
         "TITLE": "Harri, Orri, Ar",
         "DESCRIPTION": "Joko klasikoa, orain zure Micro:bit-ean.",
         "img": "assets/img/rps.png",
         "alt": "Harri, Orri, Ar jokoaren irudia Micro:bit-ekin"
       },
-      {
-        "id": "SECRET_MESSAGE",
+      "SECRET_MESSAGE": {
         "TITLE": "Mezu Sekretua",
         "DESCRIPTION": "Mezu sekretuak bidali eta jaso.",
         "img": "assets/img/morse_code.png",
         "alt": "Mezu sekretu baten irudia Micro:bit-ekin"
       },
-      {
-        "id": "HEARTBEAT",
+      "HEARTBEAT": {
         "TITLE": "Micro:bit-aren Taupada",
         "DESCRIPTION": "Ikusi zure plakaren taupadak.",
         "img": "assets/img/heart.png",
         "alt": "Bihotz taupadaren irudia Micro:bit-ekin"
       }
-    ]
+    }
   },
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mezu Sekretua",
@@ -208,7 +202,9 @@
     "MODAL_ACCESSIBLE_TITLE": "Adibide Irisgarria",
     "MODAL_ACCESSIBLE_H2": "Bideoklipa (Irisgarria)",
     "MODAL_ACCESSIBLE_P": "Adibide irisgarriaren bideoklipa hemen egongo litzateke.",
-    "MODAL_CODE_TITLE": "Kodea"
+    "MODAL_CODE_TITLE": "Kodea",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Adibide ez-irisgarria",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Adibide irisgarria"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Irisgarritasun Ebaluatzailea",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Irisgarritasuna Egiaztatu",

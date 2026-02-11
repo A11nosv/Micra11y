@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon } from '@ionic/angular/standalone';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core'; // LangChangeEvent is also used
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
+import { Subscription } from 'rxjs'; // Import Subscription
 
 @Component({
   selector: 'app-duel',
@@ -13,7 +14,7 @@ import { RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor]
 })
-export class DuelPage implements OnInit {
+export class DuelPage implements OnInit, OnDestroy {
 
   pythonCode: string = '';
   pythonCode_step_1: string = '';
@@ -52,10 +53,28 @@ export class DuelPage implements OnInit {
   pythonCode_step_9_1: string = '';
   pythonCode_step_10_1: string = '';
   title: string = '';
+  private languageChangeSubscription: Subscription | undefined; // Declare subscription and initialize to undefined
 
   constructor(private http: HttpClient, private translate: TranslateService) { }
 
   ngOnInit() {
+    this._loadPythonCode();
+    this._setTranslatedTitle();
+
+    // Subscribe to language changes
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
+      this._setTranslatedTitle();
+    });
+  }
+
+  ngOnDestroy() {
+    // Unsubscribe to prevent memory leaks
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
+  }
+
+  private _loadPythonCode() {
     this.http.get('assets/Microbit/03_Advanced/00_Shooter/Shooter.py', { responseType: 'text' })
       .subscribe(data => {
         this.pythonCode = data;
@@ -96,7 +115,9 @@ export class DuelPage implements OnInit {
     this.pythonCode_step_8_1 = "\tif radio.receive(): \n\t\tmsg = False \n\n\t\tif press: \n\t\t\tdisplay.show(Image.ANGRY) \n\t\t\tmusic.play(music.POWER_DOWN)";
     this.pythonCode_step_9_1 = "\tif winner: \n\t\tscore = score + 1 \n\t\tdisplay.show(Image.HAPPY) \n\t\tmusic.play(music.POWER_UP)"; 
     this.pythonCode_step_10_1 = "\tif pin_logo.is_touched(): \n\trounds = rounds + 1 \n\n\t\tif rounds < 5: \n\t\t\tmsg = True \n\t\telse: \n\t\t\tif score >= 3: \n\t\t\t\tspeech.say('Guanyes') \n\t\t\t\tdisplay.show(Image.FABULOUS) \n\t\t\t\tmusic.play(music.PYTHON) \n\t\t\telse: \n\t\t\t\tspeech.say('Perds') \n\t\t\t\tdisplay.show(Image.SKULL) \n\t\t\tmusic.play(music.FUNERAL)";
+  }
 
+  private _setTranslatedTitle() {
     this.translate.get('DUEL_PAGE.TITLE').subscribe((res: string) => {
       this.title = res;
     });

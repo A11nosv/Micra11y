@@ -8,50 +8,44 @@
   "MICROBIT_PAGE": {
     "TITLE": "The BBC micro:bit Projects",
     "OPEN_PROJECT_PREFIX": "Open project ",
-    "PROJECTS": [
-      {
-        "id": "ACCESSIBLE_PROGRAMMING",
+    "PROJECTS": {
+      "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Accessible Programming",
         "DESCRIPTION": "Explore the micro:bit programming in an accessible way.",
         "img": "assets/img/microbit-a11y.png",
         "alt": "Representative image of accessible programming with the micro:bit"
       },
-      {
-        "id": "COUNTDOWN",
+      "COUNTDOWN": {
         "TITLE": "The Final Countdown",
         "DESCRIPTION": "A customizable countdown.",
         "img": "assets/img/final-countdown.png",
         "alt": "Image of a countdown"
       },
-      {
-        "id": "DUEL",
+      "DUEL": {
         "TITLE": "Duel in the Sun",
         "DESCRIPTION": "A reflex game for two players.",
         "img": "assets/img/duel.png",
         "alt": "Image of a duel with Micro:bit"
       },
-      {
-        "id": "STONE_PAPER_SCISSORS",
+      "STONE_PAPER_SCISSORS": {
         "TITLE": "Rock, Paper, Scissors",
         "DESCRIPTION": "The classic game, now on your micro:bit.",
         "img": "assets/img/rps.png",
         "alt": "Image of the game Rock, Paper, Scissors with Micro:bit"
       },
-      {
-        "id": "SECRET_MESSAGE",
+      "SECRET_MESSAGE": {
         "TITLE": "Secret Message",
         "DESCRIPTION": "Send and receive secret messages.",
         "img": "assets/img/secret.png",
         "alt": "Image of a secret message with Micro:bit"
       },
-      {
-        "id": "HEARTBEAT",
+      "HEARTBEAT": {
         "TITLE": "The micro:bit's Heartbeat",
         "DESCRIPTION": "Visualize your board's heartbeat.",
         "img": "assets/img/heart.png",
         "alt": "Image of the heartbeat with Micro:bit"
       }
-    ]
+    }
   },
   "SECRET_MESSAGE_PAGE": {
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
@@ -207,7 +201,9 @@
     "MODAL_ACCESSIBLE_TITLE": "Accessible Example",
     "MODAL_ACCESSIBLE_H2": "Video Clip (Accessible)",
     "MODAL_ACCESSIBLE_P": "The video clip of the accessible example would go here.",
-    "MODAL_CODE_TITLE": "Code"
+    "MODAL_CODE_TITLE": "Code",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Non-accessible example",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Accessible example"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Accessibility Evaluator",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Check Accessibility",

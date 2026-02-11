@@ -8,50 +8,44 @@
   "MICROBIT_PAGE": {
     "TITLE": "Proyectos Micro:bit",
     "OPEN_PROJECT_PREFIX": "Abrir el proyecto ",
-    "PROJECTS": [
-      {
-        "id": "ACCESSIBLE_PROGRAMMING",
+    "PROJECTS": {
+      "ACCESSIBLE_PROGRAMMING": {
         "TITLE": "Programación Accesible",
         "DESCRIPTION": "Explora la programación de Micro:bit de forma accesible.",
         "img": "assets/img/a11y_es.png",
         "alt": "Imagen representativa de la programación accesible con Micro:bit"
       },
-      {
-        "id": "COUNTDOWN",
+      "COUNTDOWN": {
         "TITLE": "La Cuenta Atrás Final",
         "DESCRIPTION": "Una cuenta atrás personalizable.",
         "img": "assets/img/final-countdown.png",
         "alt": "Imagen de una cuenta atrás"
       },
-      {
-        "id": "DUEL",
+      "DUEL": {
         "TITLE": "Duelo al Sol",
         "DESCRIPTION": "Un juego de reflejos para dos jugadores.",
         "img": "assets/img/duel.png",
         "alt": "Imagen de un duelo con Micro:bit"
       },
-      {
-        "id": "STONE_PAPER_SCISSORS",
+      "STONE_PAPER_SCISSORS": {
         "TITLE": "Piedra, Papel, Tijera",
         "DESCRIPTION": "El clásico juego, ahora en tu Micro:bit.",
         "img": "assets/img/rps.png",
         "alt": "Imagen del juego Piedra, Papel, Tijera con Micro:bit"
       },
-      {
-        "id": "SECRET_MESSAGE",
+      "SECRET_MESSAGE": {
         "TITLE": "Mensaje Secreto",
         "DESCRIPTION": "Envía y recibe mensajes secretos.",
         "img": "assets/img/morse_code.png",
         "alt": "Imagen de un mensaje secreto con Micro:bit"
       },
-      {
-        "id": "HEARTBEAT",
+      "HEARTBEAT": {
         "TITLE": "El Latido de la Micro:bit",
         "DESCRIPTION": "Visualiza el latido de tu placa.",
         "img": "assets/img/heart.png",
         "alt": "Imagen del latido del corazón con Micro:bit"
       }
-    ]
+    }
   },
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mensaje Secreto",
@@ -206,8 +200,10 @@
     "MODAL_VIEW_CODE": "Ver Código",
     "MODAL_ACCESSIBLE_TITLE": "Ejemplo Accesible",
     "MODAL_ACCESSIBLE_H2": "Videoclip (Accesible)",
-    "MODAL_ACCESSIBLE_P": "El videoclip del ejemplo accesible iría aquí.",
-    "MODAL_CODE_TITLE": "Código"
+    "MODAL_ACCESSIBLE_P": "Placa Micro:bit con un corazón latiendo y emitiendo un sonido (pip) con cada latido del corazón.",
+    "MODAL_CODE_TITLE": "Código",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo no accesible",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo accesible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad",

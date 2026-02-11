@@ -24,15 +24,31 @@ interface Project {
 })
 export class MicrobitPage {
 
-  public projects$: Observable<Project[]>; // Changed to array of Project
+  public projects$: Observable<{[key: string]: Project}>;
 
   constructor(private translate: TranslateService) {
     this.projects$ = this.translate.get('MICROBIT_PAGE.PROJECTS').pipe(
-      map((projects: any[]) => { // projects is now an array
-        return projects.map(project => ({
-          ...project,
-          route: `/tabs/microbit/${project.id.toLowerCase().replace(/_/g, '-')}` // Dynamically create the route using project.id
-        }));
+      map(projects => {
+        const projectOrder: string[] = [
+          "ACCESSIBLE_PROGRAMMING",
+          "COUNTDOWN",
+          "HEARTBEAT",
+          "DUEL",
+          "STONE_PAPER_SCISSORS",
+          "SECRET_MESSAGE"
+          // Add other project keys in their desired order
+        ];
+
+        const transformedProjects: { [key: string]: Project } = {};
+        projectOrder.forEach(key => {
+          if (projects.hasOwnProperty(key)) {
+            transformedProjects[key] = {
+              ...projects[key],
+              route: `/tabs/microbit/${key.toLowerCase().replace(/_/g, '-')}`,
+            };
+          }
+        });
+        return transformedProjects;
       })
     );
   }
