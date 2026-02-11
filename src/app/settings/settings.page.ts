@@ -56,7 +56,9 @@ export class SettingsPage implements OnInit {
       localStorage.setItem('language', this.selectedLanguage);
       this.renderer.setAttribute(document.documentElement, 'lang', this.selectedLanguage); // Update lang attribute
       // Navigate to the root to force a full re-initialization of the main tab view
-      this.router.navigate(['/tabs/microbit'], { onSameUrlNavigation: 'reload' });
+      this.router.navigate(['/tabs/microbit'], { onSameUrlNavigation: 'reload' }).then(() => {
+        window.location.reload(); // Re-introducing full refresh per user request
+      });
     });
   }
 
