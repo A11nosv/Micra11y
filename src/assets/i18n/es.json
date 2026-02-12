@@ -363,7 +363,7 @@
     "STEP_1_TEXT_21": "Utilizaremos el módulo 'music' para reproducir melodías sencillas.",
     "STEP_1_TEXT_22": "Esto permitirá que los usuarios con discapacidad visual puedan disfrutar plenamente del juego.",
     "STEP_1_TITLE_10": "Implementación del sonido",
-    "STEP_1_TEXT_23": "Integraremos las funciones de sonido en la lógica del juego. Por ejemplo, cuando el jugador gane, se reproducirá la melodía de victoria, y así sucesivamente.",
+    "STEP_1_TEXT_23": "Integraremos las funciones de sonido en la lógica del juego. Por ejemplo, cuando el jugador gane, la melodía de victoria se reproducirá, y así sucesivamente.",
     "STEP_1_TEXT_24": "Es importante que los sonidos sean distintivos y fáciles de reconocer.",
     "STEP_1_TEXT_25": "Esta adición aumentará significativamente la inmersión y la accesibilidad del juego.",
     "STEP_1_TITLE_11": "Detección de gestos (Opcional)",
@@ -532,14 +532,15 @@
     "ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo accesible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
-  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad (Automática)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprobar Accesibilidad (Manual)",
   "MICROPYTHON_PAGE": {
     "H1": "Curso de Programación en MicroPython para Micro:bit (Énfasis en Accesibilidad)",
     "H2_INTRO": "Introducción a MicroPython y Micro:bit",
     "P_INTRO": "Este curso te introducirá al emocionante mundo de la programación con MicroPython en la placa Micro:bit. Aprenderás a crear proyectos interactivos, con un enfoque especial en cómo hacerlos accesibles para todos los usuarios, independientemente de sus capacidades. La Micro:bit es una pequeña computadora programable diseñada para hacer que el aprendizaje de la programación sea divertido y accesible. Con MicroPython, un dialecto optimizado de Python para microcontroladores, podrás escribir código de manera sencilla y eficiente.",
     "H2_MODULE1": "Módulo 1: Primeros Pasos y Salidas Accesibles",
     "H3_MODULE1_BASIC": "Conceptos Básicos de MicroPython",
-    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore y dolore magna aliqua. Ut enim ad minim veniam, quis nostrud ejercicio ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "H3_MODULE1_LED": "Mostrando Texto en la Pantalla LED (con consideraciones de Accesibilidad)",
     "P_MODULE1_LED": "Aprenderemos a usar la matriz de LEDs de la Micro:bit para mostrar mensajes. Es crucial considerar que los usuarios con discapacidad visual podrían no percibir esta salida. Más adelante, exploraremos métodos alternativos para comunicar la información.",
     "H2_MODULE2": "Módulo 2: Entradas Interactivas y Retroalimentación Multisensorial",
@@ -569,10 +570,10 @@
     "REDUNDANCY_DETECTED": "Redundancia de entrada detectada",
     "YES": "Sí",
     "NO": "No",
+    "NO_BUTTONS_USED": "No se utilizan los botones",
     "ERRORS": "Errores",
     "WARNINGS": "Advertencias",
-    "CODE_PREVIEW_H3": "Previsualización del Código",
-    "NO_BUTTONS_USED": "No se utilizan los botones"
+    "CODE_PREVIEW_H3": "Sugerencia de corrección del Código"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {
@@ -603,5 +604,34 @@
       "WARNING_MESSAGE": "Nombres de variables genéricos.",
       "WARNING_SUGGESTION": "Usa nombres como 'estado_alarma' en lugar de 'a' para facilitar la lectura con lectores de pantalla."
     }
-  }
+  },
+  "MANUAL_CHECK_MODAL_TITLE": "Verificación Manual de Accesibilidad",
+  "MANUAL_CHECK_MODAL_QUESTION_1": "Los textos o iconos en pantalla LED son claros y legibles",
+  "MANUAL_CHECK_MODAL_QUESTION_2": "No depende únicamente de luces o colores para transmitir información",
+  "MANUAL_CHECK_MODAL_QUESTION_3": "El brillo de la pantalla LED es adecuado",
+  "MANUAL_CHECK_MODAL_QUESTION_4": "Se ofrecen alternativas al uso exclusivo de la pantalla",
+  "MANUAL_CHECK_MODAL_QUESTION_5": "Las señales sonoras tienen alternativa visual",
+  "MANUAL_CHECK_MODAL_QUESTION_6": "El volumen es suficiente",
+  "MANUAL_CHECK_MODAL_QUESTION_7": "No requiere movimientos finos",
+  "MANUAL_CHECK_MODAL_QUESTION_8": "Los botones A y B no son la única forma de interacción",
+  "MANUAL_CHECK_MODAL_QUESTION_9": "Se puede usar con adaptaciones (pulsadores externos, pinzas cocodrilo, etc.)",
+  "MANUAL_CHECK_MODAL_QUESTION_10": "No requiere agitar con fuerza si usa sensor de movimiento",
+  "MANUAL_CHECK_MODAL_QUESTION_11": "Las instrucciones son claras y simples",
+  "MANUAL_CHECK_MODAL_QUESTION_12": "El proyecto tiene retroalimentación inmediata",
+  "MANUAL_CHECK_MODAL_QUESTION_13": "No sobrecarga con demasiadas señales simultáneas",
+  "MANUAL_CHECK_MODAL_QUESTION_14": "El comportamiento del programa es predecible",
+  "MANUAL_CHECK_MODAL_QUESTION_15": "Puede usarse sentado/a o con soporte fijo",
+  "MANUAL_CHECK_MODAL_QUESTION_16": "La documentación explica cómo adaptarlo",
+  "MANUAL_CHECK_MODAL_QUESTION_17": "Ha sido probado por usuarios con diferentes necesidades",
+  "MANUAL_CHECK_MODAL_OPTION_YES": "Sí",
+  "MANUAL_CHECK_MODAL_OPTION_PARTIAL": "Parcial",
+  "MANUAL_CHECK_MODAL_OPTION_NO": "No",
+  "MANUAL_CHECK_MODAL_SUBMIT": "Enviar",
+  "MANUAL_CHECK_MODAL_CANCEL": "Cancelar",
+  "RESULTS_MODAL_TITLE": "Resultados de la Evaluación de Accesibilidad",
+  "RESULTS_MODAL_SCORE": "Puntuación Total",
+  "RESULTS_MODAL_FEEDBACK_0_17": "Necesita mejoras importantes",
+  "RESULTS_MODAL_FEEDBACK_18_27": "Accesibilidad media (mejorable)",
+  "RESULTS_MODAL_FEEDBACK_28_36": "Proyecto altamente accesible",
+  "RESULTS_MODAL_ACCEPT": "Aceptar"
 }

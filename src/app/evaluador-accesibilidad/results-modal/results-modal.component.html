@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'RESULTS_MODAL_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">{{ 'RESULTS_MODAL_ACCEPT' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-text-center">
+    <h2>{{ 'RESULTS_MODAL_SCORE' | translate }}: {{ score }}</h2>
+    <p>{{ feedbackMessage | translate }}</p>
+    <ion-button expand="block" (click)="closeModal()">{{ 'RESULTS_MODAL_ACCEPT' | translate }}</ion-button>
+  </div>
+</ion-content>

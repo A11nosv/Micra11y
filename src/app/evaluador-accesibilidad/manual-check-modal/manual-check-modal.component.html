@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'MANUAL_CHECK_MODAL_TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">{{ 'MANUAL_CHECK_MODAL_CANCEL' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="submitForm()">
+    <ion-list>
+      <ion-item *ngFor="let q of questions">
+        <ion-label>{{ q.textKey | translate }}</ion-label>
+        <ion-radio-group [(ngModel)]="q.answer" [name]="q.id" class="radio-options">
+          <ion-radio value="yes">{{ 'MANUAL_CHECK_MODAL_OPTION_YES' | translate }}</ion-radio>
+          <ion-radio value="partial">{{ 'MANUAL_CHECK_MODAL_OPTION_PARTIAL' | translate }}</ion-radio>
+          <ion-radio value="no">{{ 'MANUAL_CHECK_MODAL_OPTION_NO' | translate }}</ion-radio>
+        </ion-radio-group>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="block" type="submit" class="ion-margin-top">{{ 'MANUAL_CHECK_MODAL_SUBMIT' | translate }}</ion-button>
+  </form>
+</ion-content>

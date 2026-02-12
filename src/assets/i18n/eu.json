@@ -137,7 +137,7 @@
     "STEP_8_TEXT_6": "Proiektu hau adibide bikaina da Micro:bit-aren gaitasunak eta diseinu irisgarriaren printzipioak nola konbinatu daitezkeen erakusteko.",
     "STEP_8_TEXT_7": "Egin ezazu zurea eta arakatu eskaintzen dituen aukera guztiak!",
     "STEP_9_TITLE": "9. Pausoa: .hex fitxategia Deskargatu",
-    "STEP_9_TEXT": "Zuk zeuk programatu nahi ez baduzu, konpilatutako .hex fitxategia deskarga dezakezu zuzenean zure Micro:bit-ean kargatzeko.",
+    "STEP_9_TEXT": "Zuk zeuk programatu nahi ez baduzu, konpilatutako .hex fitxategia deskarga dezakezu zuzenean zure Micro:bit-era kargatzeko.",
     "STEP_9_TEXT_1": "Fitxategi honek 'Duelua Eguzkitan' jokoaren kodea erabiltzeko prest dauka.",
     "STEP_9_TEXT_2": "Micro:bit-a ordenagailura konektatu eta .hex fitxategia agertzen den unitatera arrastatu besterik ez duzu egin behar.",
     "STEP_10_TITLE": "10. Pausoa: Duelua Jolasten!",
@@ -273,7 +273,7 @@
     "MORSE_CODE_CAPTION": "Morse Alfabetoa",
     "INTRODUCTION_TITLE": "Sarrera",
     "INTRODUCTION_TEXT": "Proiektu honek Micro:bit-a erabiltzen irakasten dizu mezu sekretuak Morse kode bidez bidaltzeko eta jasotzeko.",
-    "INTRODUCTION_TEXT_1": "Testua argi eta soinu sekuentzietara nola bihurtu eta berriro nola deszifratu ikasiko duzu. Prest espioitza digitalerako?",
+    "INTRODUCTION_TEXT_1": "Testua argi eta soinu sekuentzietaara nola bihurtu eta berriro nola deszifratu ikasiko duzu. Prest espioitza digitalerako?",
     "TARGET_TITLE": "Helburua",
     "TARGET_TEXT": "Morse kode bidezko komunikatzaile funtzional eta irisgarri bat sortu Micro:bit-a erabiliz, mezuak modu irisgarrian bidali eta jasotzeko gai dena.",
     "MATERIALS_TITLE": "Materialak",
@@ -331,7 +331,7 @@
     "STEP_1_TEXT_39": "Morse komunikatzailea are irisgarriagoa egiteko, honako hauek gehitu genitzake:",
     "TRANSFORMANT_LIST": [
       "Bibrazioa: Entzumen-urritasuna duten erabiltzaileentzat, Micro:bit-ak bibra dezake soinu bat igorri beharrean.",
-      "Pantaila handitua: Deskodetutako mezua kanpoko pantaila handiago batean erakutsi.",
+      "Pantaila handitua: Deskodetutako mezua kanpoko pantaila handiagoan erakutsi.",
       "Sarrera alternatiboa: Mugimendu-sentsoreak (azelerometroa) erabili puntu eta marrak simulatzeko, mugikortasun arazoak dituzten pertsonei erabilera erraztuz."
     ],
     "STEP_1_TEXT_40": "Hobekuntza hauek proiektua erabiltzaile-sorta zabalago baterako erabilgarria izango dela bermatuko lukete.",
@@ -342,9 +342,9 @@
     "STEP_1_TEXT_44": "Doitu denborak eta etenaldiak behar den moduan seinaleen argitasuna optimizatzeko.",
     "STEP_1_TEXT_45": "Arazketa prozesu iteratibo bat da, zure Morse komunikatzailearen kalitatea bermatzen duena.",
     "STEP_1_TITLE_8": "8. Pausoa: Kode Osoa",
-    "STEP_1_TEXT_46": "Hona hemen 'Mezu Sekretua' proiektuaren kode osoa Micro:bit-erako.",
-    "STEP_1_TEXT_47": "Kode honek aurreko pausoetan deskribatutako funtzionalitate guztiak integratzen ditu, Morse alfabetoaren definiziotik hasi eta mezuak bidali eta jasotzera arte.",
-    "STEP_1_TEXT_48": "Etorkizuneko esperimentu eta pertsonalizazioetarako abiapuntu izateko diseinatuta dago.",
+    "STEP_1_TEXT": "Hona hemen 'Mezu Sekretua' proiektuaren kode osoa Micro:bit-erako.",
+    "STEP_1_TEXT_46": "Kode honek aurreko pausoetan deskribatutako funtzionalitate guztiak integratzen ditu, Morse alfabetoaren definiziotik hasi eta mezuak bidali eta jasotzera arte.",
+    "STEP_1_TEXT_47": "Etorkizuneko esperimentu eta pertsonalizazioetarako abiapuntu izateko diseinatuta dago.",
     "STEP_1_TITLE_9": "9. Pausoa: .hex fitxategia Deskargatu",
     "STEP_1_TEXT_49": "Zuk zeuk programatu nahi ez baduzu, konpilatutako .hex fitxategia deskarga dezakezu zuzenean zure Micro:bit-era kargatzeko.",
     "STEP_1_TEXT_50": "Fitxategi honek 'Mezu Sekretua' jokoaren kodea erabiltzeko prest dauka. Micro:bit-a ordenagailura konektatu eta .hex fitxategia agertzen den unitatera arrastatu besterik ez duzu egin behar.",
@@ -582,7 +582,8 @@
     "ACCESSIBLE_EXAMPLE_BUTTON": "Adibide irisgarria"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Irisgarritasun Ebaluatzailea",
-  "COMPROBAR_ACCESIBILIDAD_TITLE": "Irisgarritasuna Egiaztatu",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Irisgarritasuna Egiaztatu (Automatikoa)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Irisgarritasuna Egiaztatu (Eskuzkoa)",
   "SETTINGS_TITLE": "Ezarpenak",
   "ACCESSIBILITY_EVALUATOR_PAGE": {
     "H2": "MicroPython Kode Editorea Irisgarritasunean Azpimarra Jarriz",
@@ -595,10 +596,10 @@
     "REDUNDANCY_DETECTED": "Sarrera erredundantzia detektatua",
     "YES": "Bai",
     "NO": "Ez",
+    "NO_BUTTONS_USED": "Ez dira botoiak erabiltzen",
     "ERRORS": "Erroreak",
     "WARNINGS": "Abisuak",
-    "CODE_PREVIEW_H3": "Kodearen Aurrebista",
-    "NO_BUTTONS_USED": "Ez dira botoiak erabiltzen"
+    "CODE_PREVIEW_H3": "Kodea zuzentzeko iradokizuna"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {
@@ -629,5 +630,34 @@
       "WARNING_MESSAGE": "Aldagai izen generikoak.",
       "WARNING_SUGGESTION": "Erabili 'alarm_status' bezalako izenak 'a' ordez, pantaila-irakurgailuek irakurtzea errazteko."
     }
-  }
+  },
+  "MANUAL_CHECK_MODAL_TITLE": "Irisgarritasun Ebaluazio Eskuzkoa",
+  "MANUAL_CHECK_MODAL_QUESTION_1": "LED pantailako testuak edo ikonoak argiak eta irakurgarriak dira",
+  "MANUAL_CHECK_MODAL_QUESTION_2": "Ez da soilik argien edo koloreen menpe informazioa transmititzeko",
+  "MANUAL_CHECK_MODAL_QUESTION_3": "LED pantailaren distira egokia da",
+  "MANUAL_CHECK_MODAL_QUESTION_4": "Pantaila bakarrik ez erabiltzeko alternatibak eskaintzen dira",
+  "MANUAL_CHECK_MODAL_QUESTION_5": "Soinu seinaleek alternatiba bisuala dute",
+  "MANUAL_CHECK_MODAL_QUESTION_6": "Bolumena nahikoa da",
+  "MANUAL_CHECK_MODAL_QUESTION_7": "Ez du mugimendu finik eskatzen",
+  "MANUAL_CHECK_MODAL_QUESTION_8": "A eta B botoiak ez dira interakzio modu bakarra",
+  "MANUAL_CHECK_MODAL_QUESTION_9": "Egokitzapenekin erabili daiteke (kanpoko pultsadoreak, krokodilo pintzak, etab.)",
+  "MANUAL_CHECK_MODAL_QUESTION_10": "Ez du astindu bortitzik eskatzen mugimendu-sentsorea erabiltzen badu",
+  "MANUAL_CHECK_MODAL_QUESTION_11": "Argibideak argiak eta sinpleak dira",
+  "MANUAL_CHECK_MODAL_QUESTION_12": "Proiektuak berehalako feedback-a du",
+  "MANUAL_CHECK_MODAL_QUESTION_13": "Ez du aldi bereko seinale gehiegizkoekin gainkargatzen",
+  "MANUAL_CHECK_MODAL_QUESTION_14": "Programaren portaera aurreikustekoa da",
+  "MANUAL_CHECK_MODAL_QUESTION_15": "Eserita edo euskarri finko batekin erabil daiteke",
+  "MANUAL_CHECK_MODAL_QUESTION_16": "Dokumentazioak nola egokitu azaltzen du",
+  "MANUAL_CHECK_MODAL_QUESTION_17": "Behar ezberdinak dituzten erabiltzaileek probatu dute",
+  "MANUAL_CHECK_MODAL_OPTION_YES": "Bai",
+  "MANUAL_CHECK_MODAL_OPTION_PARTIAL": "Partziala",
+  "MANUAL_CHECK_MODAL_OPTION_NO": "Ez",
+  "MANUAL_CHECK_MODAL_SUBMIT": "Bidali",
+  "MANUAL_CHECK_MODAL_CANCEL": "Utzi",
+  "RESULTS_MODAL_TITLE": "Irisgarritasun Ebaluazioaren Emaitzak",
+  "RESULTS_MODAL_SCORE": "Puntuazio Osoa",
+  "RESULTS_MODAL_FEEDBACK_0_17": "Hobekuntza garrantzitsuak behar ditu",
+  "RESULTS_MODAL_FEEDBACK_18_27": "Irisgarritasun ertaina (hobetu daiteke)",
+  "RESULTS_MODAL_FEEDBACK_28_36": "Oso irisgarria den proiektua",
+  "RESULTS_MODAL_ACCEPT": "Onartu"
 }

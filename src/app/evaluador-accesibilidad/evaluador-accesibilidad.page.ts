@@ -1,15 +1,17 @@
-import { Component, OnInit, OnDestroy } from '@angular/core'; // Added OnDestroy
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonTextarea } from '@ionic/angular/standalone'; // Import IonTextarea
+import { FormsModule } from '@angular/forms';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonTextarea, ModalController } from '@ionic/angular/standalone'; // Import ModalController
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Highlight } from 'ngx-highlightjs'; // Import Highlight
-import { MicrobitValidatorPro } from '../../../testacce'; // Import the validator
-import { LanguageService } from '../services/language.service'; // Import LanguageService
-import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscription
-import { map } from 'rxjs/operators'; // Import map operator
-import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component'; // Import LanguageChooserComponent
+import { Highlight } from 'ngx-highlightjs';
+import { MicrobitValidatorPro } from '../../../testacce';
+import { LanguageService } from '../services/language.service';
+import { Observable, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component';
+import { ManualCheckModalComponent } from './manual-check-modal/manual-check-modal.component'; // Import ManualCheckModalComponent
+import { ResultsModalComponent } from './results-modal/results-modal.component'; // Import ResultsModalComponent
 
 
 @Component({
@@ -20,7 +22,7 @@ import { LanguageChooserComponent } from 'src/app/components/language-chooser/la
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule, // Add FormsModule
+    FormsModule,
     IonHeader,
     IonToolbar,
     IonTitle,
@@ -30,12 +32,12 @@ import { LanguageChooserComponent } from 'src/app/components/language-chooser/la
     IonButton,
     IonIcon,
     IonBackButton,
-    IonTextarea, // Add IonTextarea
-    Highlight, // Add Highlight
-    LanguageChooserComponent // Add LanguageChooserComponent
+    IonTextarea,
+    Highlight,
+    LanguageChooserComponent
   ],
 })
-export class EvaluadorAccesibilidadPage implements OnInit, OnDestroy { // Implement OnInit and OnDestroy
+export class EvaluadorAccesibilidadPage implements OnInit, OnDestroy {
   userCode: string = `
 from microbit import *
 
@@ -45,25 +47,26 @@ while True:
     sleep(500)
     display.clear()
     sleep(500)
-`; // Initial code for the textarea
+`;
   highlightedCode: string = '';
-  correctedCode: string = ''; // New property for corrected code with annotations
-  score: number = 0; // Initialize score to 0
-  improvementMessage: string = ''; // Initialize message to empty
-  improvementSuggestions: string[] = []; // New property for the suggestions list
-  redundancyStatus: string = 'ACCESSIBILITY_EVALUATOR_PAGE.NO'; // New property for redundancy status
-  errorCount: number = 0; // New property for error count
-  warningCount: number = 0; // New property for warning count
+  correctedCode: string = '';
+  score: number = 0;
+  improvementMessage: string = '';
+  improvementSuggestions: string[] = [];
+  redundancyStatus: string = 'ACCESSIBILITY_EVALUATOR_PAGE.NO';
+  errorCount: number = 0;
+  warningCount: number = 0;
 
-  private validator: MicrobitValidatorPro; // Declare the validator instance
+  private validator: MicrobitValidatorPro;
 
   constructor(
     private translate: TranslateService,
-    private languageService: LanguageService // Inject LanguageService
+    private languageService: LanguageService,
+    private modalController: ModalController // Inject ModalController
   ) {
-    this.highlightedCode = this.userCode; // Initialize highlighted code with user's input
-    this.correctedCode = this.userCode; // Reset corrected code
-    this.validator = new MicrobitValidatorPro(); // Instantiate the validator
+    this.highlightedCode = this.userCode;
+    this.correctedCode = this.userCode;
+    this.validator = new MicrobitValidatorPro();
   }
 
   ngOnInit() {
@@ -73,9 +76,8 @@ while True:
   }
 
   onCodeChange() {
-    // This method will be called when the textarea content changes
-    this.highlightedCode = this.userCode; // Always show user's raw code initially
-    this.correctedCode = this.userCode; // Reset corrected code
+    this.highlightedCode = this.userCode;
+    this.correctedCode = this.userCode;
   }
 
   checkAccessibility() {
@@ -96,9 +98,8 @@ while True:
       this.improvementSuggestions = Object.values(
         suggestionKeys.map(key => translations[key as string])
       );
-      this.improvementMessage = this.improvementSuggestions.join(';\\n'); // Set for *ngIf
+      this.improvementMessage = this.improvementSuggestions.join(';\\n');
 
-      // New logic for three-state redundancy status
       const noButtonsIssue = result.issues.find(
         issue => issue.message === 'VALIDATOR.INPUT_REDUNDANCY.NO_BUTTONS_USED'
       );
@@ -115,7 +116,6 @@ while True:
       }
 
       let lines = this.userCode.split('\n');
-      // Filter out success messages for annotations, sort by line number in reverse for safe insertion
       const issuesToProcess = result.issues
         .filter(issue => issue.type === 'error' || issue.type === 'warning')
         .sort((a, b) => (b.line || 0) - (a.line || 0)); 
@@ -125,7 +125,6 @@ while True:
       let hasSpeechImport = false;
       let hasMusicImport = false;
 
-      // Pre-scan for existing imports to avoid duplication
       lines.forEach((line, index) => {
         const trimmedLine = line.trim();
         if (trimmedLine.startsWith("from microbit import *") || trimmedLine.startsWith("import microbit")) {
@@ -140,13 +139,19 @@ while True:
         }
       });
 
+      if (!hasSpeechImport && !hasMusicImport) {
+        if (microbitImportLine !== -1) {
+            lines.splice(microbitImportLine + 1, 0, '# Import media', 'import music');
+            hasMusicImport = true;
+        }
+      }
+
       for (const issue of issuesToProcess) {
         const translatedMessage = translations[issue.message as string];
         const translatedSuggestion = issue.suggestion ? translations[issue.suggestion as string] : '';
 
-        // Specific correction for VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE (Missing audio import)
         if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE" && issue.suggestion === "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2") {
-          if (!hasSpeechImport && !hasMusicImport) { // Only add if neither speech nor music is imported
+          if (!hasSpeechImport && !hasMusicImport) {
             const snippetToAdd = [
               '#Import auditory content for visual impaired users',
               'import music #You can also: import speech'
@@ -155,47 +160,41 @@ while True:
             if (microbitImportLine !== -1) {
                 lines.splice(microbitImportLine + 1, 0, ...snippetToAdd);
             } else {
-                // If microbit import is missing, add it before our snippet
                 lines.unshift(...['from microbit import *', ...snippetToAdd]);
             }
-            hasSpeechImport = true; // Mark as added
-            hasMusicImport = true; // Mark as added
+            hasSpeechImport = true;
+            hasMusicImport = true;
           }
         } 
-        // Specific correction for VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW
         else if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW" && issue.line !== undefined) {
-          const lineNumber = issue.line - 1; // Convert to 0-based index
+          const lineNumber = issue.line - 1;
           if (lineNumber >= 0 && lineNumber < lines.length) {
-            // Get the original line to find its indentation
             const originalLine = lines[lineNumber];
-            const indentationMatch = originalLine.match(/^\s*/); // Regex to get leading whitespace
-            const indentation = indentationMatch ? indentationMatch[0] : ''; // Fallback to no indentation
+            const indentationMatch = originalLine.match(/^\s*/);
+            const indentation = indentationMatch ? indentationMatch[0] : '';
 
             const snippetToAdd = [
               '#Auditory feedback for visual impaired users',
-              'music.play(music.BA_DING) #You can also: speech.say("Displayed")' // Using a default sound/text
-            ].map(line => indentation + line); // Prepend indentation to each new line
+              'music.play(music.BA_DING) #You can also: speech.say("Displayed")'
+            ].map(line => indentation + line);
 
             lines.splice(lineNumber + 1, 0, ...snippetToAdd);
           }
         }
-        // General line-specific annotation
         else if (issue.line !== undefined) {
-          const lineNumber = issue.line - 1; // Convert to 0-based index
+          const lineNumber = issue.line - 1;
           if (lineNumber >= 0 && lineNumber < lines.length) {
-            // Get the original line to find its indentation
             const originalLine = lines[lineNumber];
-            const indentationMatch = originalLine.match(/^\s*/); // Regex to get leading whitespace
-            const indentation = indentationMatch ? indentationMatch[0] : ''; // Fallback to no indentation
+            const indentationMatch = originalLine.match(/^\s*/);
+            const indentation = indentationMatch ? indentationMatch[0] : '';
 
             let annotation = `# ${issue.type.toUpperCase()}: ${translatedMessage}`;
             if (translatedSuggestion) {
               annotation += ` # SUGERENCIA: ${translatedSuggestion}`;
             }
-            lines.splice(lineNumber + 1, 0, indentation + annotation); // Prepend indentation
+            lines.splice(lineNumber + 1, 0, indentation + annotation);
           }
         }
-        // General file-level annotation
         else {
           let annotation = `# ${issue.type.toUpperCase()}: ${translatedMessage}`;
           if (translatedSuggestion) {
@@ -216,5 +215,38 @@ while True:
     return formatted;
   }
 
+  async openManualCheckModal() {
+    const modal = await this.modalController.create({
+      component: ManualCheckModalComponent,
+    });
+    modal.present();
 
+    const { data, role } = await modal.onDidDismiss();
+
+    if (data !== undefined && data !== null) {
+      this.openResultsModal(data);
+    }
+  }
+
+  async openResultsModal(score: number) {
+    let feedbackMessageKey: string;
+    if (score >= 0 && score <= 17) {
+      feedbackMessageKey = 'RESULTS_MODAL_FEEDBACK_0_17';
+    } else if (score >= 18 && score <= 27) {
+      feedbackMessageKey = 'RESULTS_MODAL_FEEDBACK_18_27';
+    } else { // score >= 28 && score <= 34 (max score)
+      feedbackMessageKey = 'RESULTS_MODAL_FEEDBACK_28_36';
+    }
+
+    const feedbackMessage = await this.translate.get(feedbackMessageKey).toPromise();
+
+    const resultsModal = await this.modalController.create({
+      component: ResultsModalComponent,
+      componentProps: {
+        score: score,
+        feedbackMessage: feedbackMessage
+      }
+    });
+    resultsModal.present();
+  }
 }

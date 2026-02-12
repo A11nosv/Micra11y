@@ -46,6 +46,10 @@
           <ion-icon slot="start" name="search-outline"></ion-icon>
           {{ 'COMPROBAR_ACCESIBILIDAD_TITLE' | translate }}
         </ion-button>
+        <ion-button (click)="openManualCheckModal()" [title]="'COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE' | translate">
+          <ion-icon slot="start" name="pencil-outline"></ion-icon>
+          {{ 'COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE' | translate }}
+        </ion-button>
 
         <div class="evaluation-results">
           <h3>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.EVALUATION_RESULTS_H3' | translate }}</h3>

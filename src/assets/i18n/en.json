@@ -577,7 +577,8 @@
     "ACCESSIBLE_EXAMPLE_BUTTON": "Accessible example"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Accessibility Evaluator",
-  "COMPROBAR_ACCESIBILIDAD_TITLE": "Check Accessibility",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Check Accessibility (Automatic)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Check Accessibility (Manual)",
   "MICROPYTHON_PAGE": {
     "H1": "MicroPython Programming Course for Micro:bit (Emphasis on Accessibility)",
     "H2_INTRO": "Introduction to MicroPython and Micro:bit",
@@ -614,10 +615,10 @@
     "REDUNDANCY_DETECTED": "Input Redundancy Detected",
     "YES": "Yes",
     "NO": "No",
+    "NO_BUTTONS_USED": "Buttons are not used",
     "ERRORS": "Errors",
     "WARNINGS": "Warnings",
-    "CODE_PREVIEW_H3": "Code Preview",
-    "NO_BUTTONS_USED": "Buttons are not used"
+    "CODE_PREVIEW_H3": "Code Suggested"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {
@@ -648,5 +649,34 @@
       "WARNING_MESSAGE": "Generic variable names.",
       "WARNING_SUGGESTION": "Use names like 'alarm_status' instead of 'a' to make it easier for screen readers to read."
     }
-  }
+  },
+  "MANUAL_CHECK_MODAL_TITLE": "Manual Accessibility Check",
+  "MANUAL_CHECK_MODAL_QUESTION_1": "LED display texts or icons are clear and legible",
+  "MANUAL_CHECK_MODAL_QUESTION_2": "Does not rely solely on lights or colors to convey information",
+  "MANUAL_CHECK_MODAL_QUESTION_3": "LED display brightness is adequate",
+  "MANUAL_CHECK_MODAL_QUESTION_4": "Alternatives to exclusive use of the screen are offered",
+  "MANUAL_CHECK_MODAL_QUESTION_5": "Sound signals have a visual alternative",
+  "MANUAL_CHECK_MODAL_QUESTION_6": "Volume is sufficient",
+  "MANUAL_CHECK_MODAL_QUESTION_7": "Does not require fine movements",
+  "MANUAL_CHECK_MODAL_QUESTION_8": "Buttons A and B are not the only form of interaction",
+  "MANUAL_CHECK_MODAL_QUESTION_9": "Can be used with adaptations (external buttons, alligator clips, etc.)",
+  "MANUAL_CHECK_MODAL_QUESTION_10": "Does not require vigorous shaking if using a motion sensor",
+  "MANUAL_CHECK_MODAL_QUESTION_11": "Instructions are clear and simple",
+  "MANUAL_CHECK_MODAL_QUESTION_12": "The project has immediate feedback",
+  "MANUAL_CHECK_MODAL_QUESTION_13": "Does not overload with too many simultaneous signals",
+  "MANUAL_CHECK_MODAL_QUESTION_14": "Program behavior is predictable",
+  "MANUAL_CHECK_MODAL_QUESTION_15": "Can be used seated or with fixed support",
+  "MANUAL_CHECK_MODAL_QUESTION_16": "Documentation explains how to adapt it",
+  "MANUAL_CHECK_MODAL_QUESTION_17": "Has been tested by users with different needs",
+  "MANUAL_CHECK_MODAL_OPTION_YES": "Yes",
+  "MANUAL_CHECK_MODAL_OPTION_PARTIAL": "Partial",
+  "MANUAL_CHECK_MODAL_OPTION_NO": "No",
+  "MANUAL_CHECK_MODAL_SUBMIT": "Submit",
+  "MANUAL_CHECK_MODAL_CANCEL": "Cancel",
+  "RESULTS_MODAL_TITLE": "Accessibility Evaluation Results",
+  "RESULTS_MODAL_SCORE": "Total Score",
+  "RESULTS_MODAL_FEEDBACK_0_17": "Requires significant improvements",
+  "RESULTS_MODAL_FEEDBACK_18_27": "Medium accessibility (improvable)",
+  "RESULTS_MODAL_FEEDBACK_28_36": "Highly accessible project",
+  "RESULTS_MODAL_ACCEPT": "Accept"
 }

@@ -8,13 +8,14 @@ import { RouterModule } from '@angular/router';
 import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscription
 import { map } from 'rxjs/operators'; // Import map operator
 import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
+import { LanguageChooserComponent } from '../../components/language-chooser/language-chooser.component'; // Add this import
 
 @Component({
   selector: 'app-stone-paper-scissors',
   templateUrl: './stone-paper-scissors.page.html',
   styleUrls: ['./stone-paper-scissors.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor]
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor, LanguageChooserComponent]
 })
 export class StonePaperScissorsPage implements OnInit {
 
@@ -115,5 +116,11 @@ export class StonePaperScissorsPage implements OnInit {
   // New method to update accessible label
   private updateAccessibleLabel() {
     this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
+
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
   }
 }

@@ -233,7 +233,7 @@
     "TARGET_TEXT": "Crear un comunicador de código Morse funcional utilizando a Micro:bit, capaz de enviar e recibir mensaxes dun xeito accesible.",
     "MATERIALS_TITLE": "Materiais",
     "MATERIALS_LIST": [
-      "2 Micro:bits (para comunicación entre elas)",
+      "2 Micro:bit (para comunicación entre elas)",
       "Ordenador con conexión USB",
       "Cable USB de datos",
       "Editor de Python"
@@ -499,7 +499,7 @@
     "CREATION_LI3_TITLE": "Claridade e Simplicidade:",
     "CREATION_LI3_TEXT": "Manter os programas tan simples e claros como sexa posible. Evitar secuencias de accións complexas que poidan confundir a usuarios con dificultades cognitivas ou de memoria.",
     "CREATION_LI4_TITLE": "Documentación Clara:",
-    "CREATION_LI4_TEXT": "Proporcionar instrucións detalladas e fáciles de entender, idealmente en múltiples formatos (texto, audio, pictogramas).",
+    "CREATION_LI4_TEXT": "Proporcionar instrucións detalladas e fáciles de entender, idealmente en múltiples formatos (text, audio, pictogramas).",
     "BLOCKLY_TITLE": "Programación por Bloques (Blockly) e Discapacidade",
     "BLOCKLY_P1": "As interfaces de programación por bloques, como a que utiliza MakeCode para Micro:bit, son unha ferramenta potente para a accesibilidade. A súa natureza visual e intuitiva reduce barreiras importantes:",
     "BLOCKLY_OVERCOME_TITLE": "Barreiras que Supera:",
@@ -522,7 +522,7 @@
     "PYTHON_P1": "Como alternativa á programación por bloques pódese utilizar a programación por código (microPython ou JavaScript). Este tipo de programación, ao ser texto plano, é altamente accesible para os lectores de pantalla.",
     "PYTHON_P2": "O problema deste tipo de programación é que os usuarios deben ter un coñecemento mínimo da linguaxe de programación, polo que se lles ten que ensinar a linguaxe e os conceptos ao mesmo tempo. Isto non sucede coa programación por bloques, xa que o coñecemento da linguaxe non é necesario e os conceptos principais que se traballan son os conceptos de programación como variables, constantes, bucles, etc.",
     "PYTHON_P3": "O único procedemento que existe actualmente para minimizar esta barreira (coñecemento da linguaxe) é a creación de bloques de programación onde o alumno só debe substituír ou completar unha parte do código. A creación do esqueleto dos bloques de programación en código sería a única opción actual para garantir un acceso do 100% mediante un lector de pantalla.",
-    "PYTHON_P4": "Fomentar a programación accesible non só beneficia ás persoas con discapacidade, sen dúbida, mellora a experiencia para todos os usuarios, promovendo unha cultura de deseño inclusivo no ámbito da tecnoloxía.",
+    "PYTHON_P4": "Fomentar a programación accesible non só beneficia ás persoas con discapacidade, senón que tamén mellora a experiencia para todos os usuarios, promovendo unha cultura de deseño inclusivo no ámbito da tecnoloxía.",
     "PYTHON_P5": "A continuación móstranse dous exemplos, un exemplo onde a resposta da Micro:bit só se realiza a través da pantalla e outro, máis accesible, onde a saída de información se realiza a través da pantalla e se reforza cunha saída de son.",
     "MODAL_NON_ACCESSIBLE_TITLE": "Exemplo non Accesible",
     "MODAL_CLOSE": "Pechar",
@@ -537,14 +537,15 @@
     "ACCESSIBLE_EXAMPLE_BUTTON": "Exemplo accesible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Avaliador de accesibilidade",
-  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidade",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidade (Automática)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprobar Accesibilidade (Manual)",
   "MICROPYTHON_PAGE": {
     "H1": "Curso de Programación en MicroPython para Micro:bit (Énfase en Accesibilidade)",
     "H2_INTRO": "Introdución a MicroPython e Micro:bit",
     "P_INTRO": "Este curso introducirache no emocionante mundo da programación con MicroPython na placa Micro:bit. Aprenderás a crear proxectos interactivos, cun enfoque especial en como facelos accesibles para todos os usuarios, independentemente das súas capacidades. A Micro:bit é unha pequena computadora programable deseñada para facer que a aprendizaxe da programación sexa divertida e accesible. Con MicroPython, un dialecto optimizado de Python para microcontroladores, poderás escribir código de xeito sinxelo e eficiente.",
     "H2_MODULE1": "Módulo 1: Primeiros Pasos e Saídas Accesibles",
     "H3_MODULE1_BASIC": "Conceptos Básicos de MicroPython",
-    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercicio ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "H3_MODULE1_LED": "Mostrando Texto na Pantalla LED (con consideracións de Accesibilidade)",
     "P_MODULE1_LED": "Aprenderemos a usar a matriz de LEDs da Micro:bit para mostrar mensaxes. É crucial considerar que os usuarios con discapacidade visual poderían non percibir esta saída. Máis adiante, exploraremos métodos alternativos para comunicar a información.",
     "H2_MODULE2": "Módulo 2: Entradas Interactivas e Retroalimentación Multisensorial",
@@ -574,10 +575,10 @@
     "REDUNDANCY_DETECTED": "Redundancia de entrada detectada",
     "YES": "Si",
     "NO": "Non",
+    "NO_BUTTONS_USED": "Non se utilizan os botóns",
     "ERRORS": "Erros",
     "WARNINGS": "Advertencias",
-    "CODE_PREVIEW_H3": "Previsualización do Código",
-    "NO_BUTTONS_USED": "Non se utilizan os botóns"
+    "CODE_PREVIEW_H3": "Suxestión de corrección de código"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {
@@ -608,5 +609,34 @@
       "WARNING_MESSAGE": "Nomes de variables xenéricos.",
       "WARNING_SUGGESTION": "Usa nomes como 'estado_alarma' en lugar de 'a' para facilitar a lectura con lectores de pantalla."
     }
-  }
+  },
+  "MANUAL_CHECK_MODAL_TITLE": "Verificación Manual de Accesibilidade",
+  "MANUAL_CHECK_MODAL_QUESTION_1": "Os textos ou iconas en pantalla LED son claros e lexibles",
+  "MANUAL_CHECK_MODAL_QUESTION_2": "Non depende unicamente de luces ou cores para transmitir información",
+  "MANUAL_CHECK_MODAL_QUESTION_3": "O brillo da pantalla LED é adecuado",
+  "MANUAL_CHECK_MODAL_QUESTION_4": "Ofrécense alternativas ao uso exclusivo da pantalla",
+  "MANUAL_CHECK_MODAL_QUESTION_5": "Os sinais sonoros teñen alternativa visual",
+  "MANUAL_CHECK_MODAL_QUESTION_6": "O volume é suficiente",
+  "MANUAL_CHECK_MODAL_QUESTION_7": "Non require movementos finos",
+  "MANUAL_CHECK_MODAL_QUESTION_8": "Os botóns A e B non son a única forma de interacción",
+  "MANUAL_CHECK_MODAL_QUESTION_9": "Pódese usar con adaptacións (pulsadores externos, pinzas de crocodilo, etc.)",
+  "MANUAL_CHECK_MODAL_QUESTION_10": "Non require axitar con forza se usa sensor de movemento",
+  "MANUAL_CHECK_MODAL_QUESTION_11": "As instrucións son claras e simples",
+  "MANUAL_CHECK_MODAL_QUESTION_12": "O proxecto ten retroalimentación inmediata",
+  "MANUAL_CHECK_MODAL_QUESTION_13": "Non sobrecarga con demasiados sinais simultáneos",
+  "MANUAL_CHECK_MODAL_QUESTION_14": "O comportamento do programa é predicible",
+  "MANUAL_CHECK_MODAL_QUESTION_15": "Pódese usar sentado/a ou con soporte fixo",
+  "MANUAL_CHECK_MODAL_QUESTION_16": "A documentación explica como adaptalo",
+  "MANUAL_CHECK_MODAL_QUESTION_17": "Foi probado por usuarios con diferentes necesidades",
+  "MANUAL_CHECK_MODAL_OPTION_YES": "Si",
+  "MANUAL_CHECK_MODAL_OPTION_PARTIAL": "Parcial",
+  "MANUAL_CHECK_MODAL_OPTION_NO": "Non",
+  "MANUAL_CHECK_MODAL_SUBMIT": "Enviar",
+  "MANUAL_CHECK_MODAL_CANCEL": "Cancelar",
+  "RESULTS_MODAL_TITLE": "Resultados da Avaliación de Accesibilidade",
+  "RESULTS_MODAL_SCORE": "Puntuación Total",
+  "RESULTS_MODAL_FEEDBACK_0_17": "Necesita melloras importantes",
+  "RESULTS_MODAL_FEEDBACK_18_27": "Accesibilidade media (mellorable)",
+  "RESULTS_MODAL_FEEDBACK_28_36": "Proxecto altamente accesible",
+  "RESULTS_MODAL_ACCEPT": "Aceptar"
 }

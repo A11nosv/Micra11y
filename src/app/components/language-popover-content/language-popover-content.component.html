@@ -1,0 +1,6 @@
+<ion-list>
+  <ion-item *ngFor="let lang of languageService.getAvailableLanguages()" (click)="changeLanguage(lang.code)" button>
+    <div slot="start" class="language-flag-icon" [style.background-image]="'url(' + lang.flag + ')'"></div>
+    <ion-label>{{ lang.name }}</ion-label>
+  </ion-item>
+</ion-list>

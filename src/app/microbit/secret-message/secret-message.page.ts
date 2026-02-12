@@ -9,12 +9,14 @@ import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscr
 import { map } from 'rxjs/operators'; // Import map operator
 import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
 
+import { LanguageChooserComponent } from '../../components/language-chooser/language-chooser.component'; // Add this import
+
 @Component({
   selector: 'app-secret-message',
   templateUrl: './secret-message.page.html',
   styleUrls: ['./secret-message.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor]
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor, LanguageChooserComponent]
 })
 export class SecretMessagePage implements OnInit {
 
