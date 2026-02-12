@@ -9,6 +9,7 @@ import { MicrobitValidatorPro } from '../../../testacce'; // Import the validato
 import { LanguageService } from '../services/language.service'; // Import LanguageService
 import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscription
 import { map } from 'rxjs/operators'; // Import map operator
+import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component'; // Import LanguageChooserComponent
 
 
 @Component({
@@ -30,7 +31,8 @@ import { map } from 'rxjs/operators'; // Import map operator
     IonIcon,
     IonBackButton,
     IonTextarea, // Add IonTextarea
-    Highlight // Add Highlight
+    Highlight, // Add Highlight
+    LanguageChooserComponent // Add LanguageChooserComponent
   ],
 })
 export class EvaluadorAccesibilidadPage implements OnInit, OnDestroy { // Implement OnInit and OnDestroy
@@ -53,11 +55,7 @@ while True:
   errorCount: number = 0; // New property for error count
   warningCount: number = 0; // New property for warning count
 
-  currentLanguageFlag$: Observable<string>; // New property
-  accessibleLabel: string = ''; // New property
-
   private validator: MicrobitValidatorPro; // Declare the validator instance
-  private languageChangeSubscription: Subscription | undefined; // For accessible label updates
 
   constructor(
     private translate: TranslateService,
@@ -66,24 +64,12 @@ while True:
     this.highlightedCode = this.userCode; // Initialize highlighted code with user's input
     this.correctedCode = this.userCode; // Reset corrected code
     this.validator = new MicrobitValidatorPro(); // Instantiate the validator
-
-    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
-      map(() => this.languageService.getCurrentLanguageFlag())
-    );
-
-    this.updateAccessibleLabel(); // Initialize accessible label
   }
 
   ngOnInit() {
-    this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.updateAccessibleLabel(); // Update accessible label on language change
-    });
   }
 
-  ngOnDestroy() { // Add ngOnDestroy to unsubscribe
-    if (this.languageChangeSubscription) {
-      this.languageChangeSubscription.unsubscribe();
-    }
+  ngOnDestroy() {
   }
 
   onCodeChange() {
@@ -230,8 +216,5 @@ while True:
     return formatted;
   }
 
-  // New method to update accessible label
-  private updateAccessibleLabel() {
-    this.accessibleLabel = this.languageService.getAccessibleLabel();
-  }
+
 }

@@ -5,10 +5,13 @@ ion-button {
   --padding-bottom: 0;
   min-width: unset; // Allow button to shrink to content size
   height: 32px; // Fixed height for the button
-  img {
-    height: 16px;
-    width: 24px;
-    object-fit: contain;
+  .language-flag-icon {
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 2px;
+    background-color: var(--ion-color-primary);
   }
 }

@@ -10,11 +10,11 @@ export class LanguageService {
   public currentLanguage$: Observable<string> = this._currentLanguage.asObservable();
 
   private languageMap: { [key: string]: { name: string, flag: string } } = {
-    'ca': { name: 'Català', flag: 'assets/img/flags/ca.svg' },
-    'en': { name: 'English', flag: 'assets/img/flags/en.svg' },
-    'es': { name: 'Español', flag: 'assets/img/flags/es.svg' },
-    'gl': { name: 'Galego', flag: 'assets/img/flags/gl.svg' },
-    'eu': { name: 'Euskera', flag: 'assets/img/flags/eu.svg' }
+    'ca': { name: 'Català', flag: 'assets/img/flags/ca.png' },
+    'en': { name: 'English', flag: 'assets/img/flags/en.png' },
+    'es': { name: 'Español', flag: 'assets/img/flags/es.png' },
+    'gl': { name: 'Galego', flag: 'assets/img/flags/gl.png' },
+    'eu': { name: 'Euskera', flag: 'assets/img/flags/eu.png' }
   };
 
   constructor(private translate: TranslateService) {
@@ -46,6 +46,7 @@ export class LanguageService {
       this.translate.use(lang);
       this._currentLanguage.next(lang);
       localStorage.setItem('language', lang);
+      window.location.reload();
     } else {
       console.warn(`Language '${lang}' not supported.`);
     }

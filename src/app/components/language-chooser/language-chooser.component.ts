@@ -25,8 +25,9 @@ export class LanguageChooserComponent implements OnInit, OnDestroy {
     private translate: TranslateService
   ) {
     this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
-      map(language => {
-        const flagPath = this.languageService.getCurrentLanguageFlag();
+      map(languageCode => {
+        const lang = this.languageService.getAvailableLanguages().find(l => l.code === languageCode);
+        const flagPath = lang ? lang.flag : '';
         console.log('Current language flag path:', flagPath); // Debug log
         return flagPath;
       })

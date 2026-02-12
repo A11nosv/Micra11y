@@ -8,13 +8,14 @@ import { RouterModule } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { LanguageService } from 'src/app/services/language.service';
+import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component';
 
 @Component({
   selector: 'app-heart',
   templateUrl: './heart.page.html',
   styleUrls: ['./heart.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor]
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor, LanguageChooserComponent]
 })
 export class HeartPage implements OnInit, OnDestroy {
 
@@ -38,9 +39,6 @@ export class HeartPage implements OnInit, OnDestroy {
   pythonCode_11_2: string = '';
   title: string = '';
 
-  currentLanguageFlag$: Observable<string>;
-  accessibleLabel: string = '';
-
   private languageChangeSubscription: Subscription | undefined;
 
   constructor(
@@ -48,20 +46,15 @@ export class HeartPage implements OnInit, OnDestroy {
     private translate: TranslateService,
     private languageService: LanguageService
   ) {
-    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
-      map(() => this.languageService.getCurrentLanguageFlag())
-    );
   }
 
   ngOnInit() {
     this._loadPythonCode();
     this._setTranslatedTitle();
-    this.updateAccessibleLabel(); // Call to initialize accessibleLabel
 
     // Subscribe to language changes for title
     this.languageChangeSubscription = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this._setTranslatedTitle();
-      this.updateAccessibleLabel(); // Also update accessibleLabel on language change
     });
   }
 
@@ -120,8 +113,5 @@ export class HeartPage implements OnInit, OnDestroy {
     }
   }
 
-  // New method to update accessible label
-  private updateAccessibleLabel() {
-    this.accessibleLabel = this.languageService.getAccessibleLabel();
-  }
+
 }

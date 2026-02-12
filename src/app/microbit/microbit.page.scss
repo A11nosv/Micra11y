@@ -1,3 +1,12 @@
+ion-toolbar {
+  ion-buttons[slot="end"] {
+    ion-button[routerLink="/evaluador-accesibilidad"] {
+      --background: transparent;
+      background: transparent;
+    }
+  }
+}
+
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
