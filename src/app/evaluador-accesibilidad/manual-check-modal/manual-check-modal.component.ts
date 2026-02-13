@@ -35,12 +35,14 @@ interface Question {
 })
 export class ManualCheckModalComponent {
   questions: Question[] = [];
+  totalScore: number = 0; // Initialize total score
 
   constructor(
     private modalController: ModalController,
     private translate: TranslateService
   ) {
     this.initializeQuestions();
+    this.calculateScore(); // Calculate initial score
   }
 
   private initializeQuestions() {
@@ -53,20 +55,29 @@ export class ManualCheckModalComponent {
     }
   }
 
+  onAnswerChange(question: Question, answer: 'yes' | 'partial' | 'no') {
+    question.answer = answer;
+    this.calculateScore(); // Recalculate score every time an answer changes
+  }
+
+  private calculateScore() {
+    let newScore = 0;
+    this.questions.forEach(q => {
+      if (q.answer === 'yes') {
+        newScore += 2;
+      } else if (q.answer === 'partial') {
+        newScore += 1;
+      }
+      // 'no' adds 0, so no action needed
+    });
+    this.totalScore = newScore;
+  }
+
   cancel() {
     this.modalController.dismiss(null); // Dismiss without a score
   }
 
   submitForm() {
-    let score = 0;
-    this.questions.forEach(q => {
-      if (q.answer === 'yes') {
-        score += 2;
-      } else if (q.answer === 'partial') {
-        score += 1;
-      }
-      // 'no' adds 0, so no action needed
-    });
-    this.modalController.dismiss(score); // Dismiss with the calculated score
+    this.modalController.dismiss(this.totalScore); // Dismiss with the calculated totalScore
   }
 }

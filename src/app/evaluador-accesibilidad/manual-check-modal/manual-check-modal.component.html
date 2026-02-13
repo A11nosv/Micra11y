@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ 'MANUAL_CHECK_MODAL_TITLE' | translate }}</ion-title>
+    <ion-title>{{ 'MANUAL_CHECK_MODAL_TITLE' | translate }} (Score: {{ totalScore }})</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="cancel()">{{ 'MANUAL_CHECK_MODAL_CANCEL' | translate }}</ion-button>
     </ion-buttons>
@@ -30,9 +30,9 @@
     <ion-item *ngFor="let q of questions">
       <ion-label>{{ q.textKey | translate }}</ion-label>
         <div class="radio-group-container">
-          <input type="radio" name="opcion_{{q.id}}" value="yes"> 
-          <input type="radio" name="opcion_{{q.id}}" value="partial"> 
-          <input type="radio" name="opcion_{{q.id}}" value="no"> 
+          <input type="radio" [name]="'opcion_' + q.id" value="yes" [checked]="q.answer === 'yes'" (change)="onAnswerChange(q, 'yes')"> 
+          <input type="radio" [name]="'opcion_' + q.id" value="partial" [checked]="q.answer === 'partial'" (change)="onAnswerChange(q, 'partial')"> 
+          <input type="radio" [name]="'opcion_' + q.id" value="no" [checked]="q.answer === 'no'" (change)="onAnswerChange(q, 'no')"> 
         </div>      </ion-item>
   </div>
 
