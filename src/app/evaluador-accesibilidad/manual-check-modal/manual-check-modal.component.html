@@ -9,13 +9,19 @@
 
 <ion-content class="ion-padding">
   <form (ngSubmit)="submitForm()">
+    <div class="table-header">
+      <div class="header-col question-col">{{ 'MANUAL_CHECK_MODAL_HEADER_QUESTION' | translate }}</div>
+      <div class="header-col option-col">{{ 'MANUAL_CHECK_MODAL_OPTION_YES' | translate }}</div>
+      <div class="header-col option-col">{{ 'MANUAL_CHECK_MODAL_OPTION_PARTIAL' | translate }}</div>
+      <div class="header-col option-col">{{ 'MANUAL_CHECK_MODAL_OPTION_NO' | translate }}</div>
+    </div>
     <ion-list>
       <ion-item *ngFor="let q of questions">
         <ion-label>{{ q.textKey | translate }}</ion-label>
         <ion-radio-group [(ngModel)]="q.answer" [name]="q.id" class="radio-options">
-          <ion-radio value="yes">{{ 'MANUAL_CHECK_MODAL_OPTION_YES' | translate }}</ion-radio>
-          <ion-radio value="partial">{{ 'MANUAL_CHECK_MODAL_OPTION_PARTIAL' | translate }}</ion-radio>
-          <ion-radio value="no">{{ 'MANUAL_CHECK_MODAL_OPTION_NO' | translate }}</ion-radio>
+          <ion-radio value="yes"></ion-radio>
+          <ion-radio value="partial"></ion-radio>
+          <ion-radio value="no"></ion-radio>
         </ion-radio-group>
       </ion-item>
     </ion-list>

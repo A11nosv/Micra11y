@@ -633,5 +633,6 @@
   "RESULTS_MODAL_FEEDBACK_0_17": "Necesita mejoras importantes",
   "RESULTS_MODAL_FEEDBACK_18_27": "Accesibilidad media (mejorable)",
   "RESULTS_MODAL_FEEDBACK_28_36": "Proyecto altamente accesible",
-  "RESULTS_MODAL_ACCEPT": "Aceptar"
+  "RESULTS_MODAL_ACCEPT": "Aceptar",
+  "MANUAL_CHECK_MODAL_HEADER_QUESTION": "Pregunta"
 }

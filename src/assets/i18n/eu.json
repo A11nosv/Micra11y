@@ -659,5 +659,6 @@
   "RESULTS_MODAL_FEEDBACK_0_17": "Hobekuntza garrantzitsuak behar ditu",
   "RESULTS_MODAL_FEEDBACK_18_27": "Irisgarritasun ertaina (hobetu daiteke)",
   "RESULTS_MODAL_FEEDBACK_28_36": "Oso irisgarria den proiektua",
-  "RESULTS_MODAL_ACCEPT": "Onartu"
+  "RESULTS_MODAL_ACCEPT": "Onartu",
+  "MANUAL_CHECK_MODAL_HEADER_QUESTION": "Galdera"
 }

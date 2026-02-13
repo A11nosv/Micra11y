@@ -2,58 +2,65 @@ ion-list {
   padding-bottom: 20px;
 }
 
+// Header for the table-like layout
+.table-header {
+  display: flex;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: 2px solid var(--ion-color-primary, #3880ff);
+
+  .header-col {
+    text-align: center;
+  }
+
+  .question-col {
+    flex: 0 0 55%; // 55% width for the question column
+    text-align: left;
+  }
+
+  .option-col {
+    flex: 1; // The other 3 columns will share the remaining space
+  }
+}
+
 ion-item {
   --padding-start: 0;
   --inner-padding-end: 0;
   --min-height: 48px;
   display: flex;
-  flex-wrap: wrap; // Allow wrapping on smaller screens
   align-items: center;
-  margin-bottom: 10px; // Spacing between questions
-  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da); // Separator between questions
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
   padding-bottom: 10px;
 
   ion-label {
-    flex: 1 1 100%; // Take full width on top, then wrap
+    flex: 0 0 55%; // 55% width for the question column
     font-weight: bold;
-    margin-bottom: 8px;
-    white-space: normal; // Allow text to wrap
-    color: var(--ion-color-primary, #3880ff); // Example: Primary color for questions
+    white-space: normal;
+    color: var(--ion-color-primary, #3880ff);
   }
 
   .radio-options {
-    flex: 1 1 auto; // Allow radio group to take available space
+    flex: 1; // Take the remaining space
     display: flex;
-    justify-content: space-around; // Distribute radios horizontally
+    justify-content: space-around; /* Re-added to distribute radio buttons */
     align-items: center;
-    gap: 15px; // Space between radio buttons
-    padding-left: 10px; // Indent radio options slightly
+    /* Removed gap: 5px; */ /* Keeping this removed for now */
 
     ion-radio {
-      margin-inline-end: 0; // Remove default margin from ion-radio
-      // If you want the label text of the radio to be next to the radio circle
-      --border-radius: 50%; // Make the radio circle
-      --color-checked: var(--ion-color-primary, #3880ff); // Color when checked
-      // You might need to adjust based on Ionic version and desired look
+      width: 33.33%; /* Assign a third of the space to each radio button */
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      justify-content: flex-start;
+      align-items: center;
+      //justify-content: center; // Center the radio button within its allocated space
+      margin-inline-end: 0;
+      --border-radius: 50%;
+      --color-checked: var(--ion-color-primary, #3880ff);
     }
   }
 }
 
-// Adjust layout for smaller screens if needed
-@media (max-width: 768px) {
-  ion-item {
-    flex-direction: column; // Stack label and radios vertically on small screens
-    align-items: flex-start;
-
-    ion-label {
-      margin-bottom: 10px;
-    }
-
-    .radio-options {
-      width: 100%; // Take full width
-      justify-content: flex-start; // Align radios to the start
-      padding-left: 0; // Remove indentation
-      gap: 20px;
-    }
-  }
-}
+// Remove the media query that stacks the layout on small screens
+// This will keep the table-like layout on all screen sizes.
