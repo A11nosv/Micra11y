@@ -30,9 +30,9 @@
     <ion-item *ngFor="let q of questions">
       <ion-label>{{ q.textKey | translate }}</ion-label>
         <div class="radio-group-container">
-          <input type="radio" name="opcion" value="yes"> 
-          <input type="radio" name="opcion" value="partial"> 
-          <input type="radio" name="opcion" value="no"> 
+          <input type="radio" name="opcion_{{q.id}}" value="yes"> 
+          <input type="radio" name="opcion_{{q.id}}" value="partial"> 
+          <input type="radio" name="opcion_{{q.id}}" value="no"> 
         </div>      </ion-item>
   </div>
 
