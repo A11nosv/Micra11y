@@ -15,16 +15,27 @@
       <div class="header-col option-col">{{ 'MANUAL_CHECK_MODAL_OPTION_PARTIAL' | translate }}</div>
       <div class="header-col option-col">{{ 'MANUAL_CHECK_MODAL_OPTION_NO' | translate }}</div>
     </div>
-    <ion-list>
-      <ion-item *ngFor="let q of questions">
-        <ion-label>{{ q.textKey | translate }}</ion-label>
-        <ion-radio-group [(ngModel)]="q.answer" [name]="q.id" class="radio-options">
-          <ion-radio value="yes"></ion-radio>
-          <ion-radio value="partial"></ion-radio>
-          <ion-radio value="no"></ion-radio>
-        </ion-radio-group>
-      </ion-item>
-    </ion-list>
+    <!--<ion-list>
+    <ion-item *ngFor="let q of questions">
+      <ion-label>{{ q.textKey | translate }}</ion-label>
+      <ion-radio-group [(ngModel)]="q.answer" [name]="q.id" class="radio-options">
+        <ion-radio value="yes"></ion-radio>
+        <ion-radio value="partial"></ion-radio>
+        <ion-radio value="no"></ion-radio>
+      </ion-radio-group>
+    </ion-item>
+  </ion-list>-->
+
+  <div class="radio-container">
+    <ion-item *ngFor="let q of questions">
+      <ion-label>{{ q.textKey | translate }}</ion-label>
+        <div class="radio-group-container">
+          <input type="radio" name="opcion" value="yes"> 
+          <input type="radio" name="opcion" value="partial"> 
+          <input type="radio" name="opcion" value="no"> 
+        </div>      </ion-item>
+  </div>
+
     <ion-button expand="block" type="submit" class="ion-margin-top">{{ 'MANUAL_CHECK_MODAL_SUBMIT' | translate }}</ion-button>
   </form>
 </ion-content>

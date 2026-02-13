@@ -33,8 +33,14 @@ ion-item {
   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
   padding-bottom: 10px;
 
-  input[type="radio"] {
-    margin-right: 15px; // Add space to the right of each radio button
+  .radio-group-container {
+    flex: 1; // Take the remaining space
+    display: flex;
+    justify-content: space-around; // Distribute radio buttons evenly
+
+    input[type="radio"] {
+      margin-right: 15px; // Add space to the right of each radio button
+    }
   }
 
   ion-label {
