@@ -1,7 +1,12 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\evaluador-accesibilidad",
+    "\\src\\assets",
+    "\\src\\assets\\i18n"
   ],
-  "SelectedNode": "\\D:\\App\\Apps\\Ionic\\Micra11y",
+  "SelectedNode": "\\src\\app\\evaluador-accesibilidad\\evaluador-accesibilidad.page.html",
   "PreviewInSolutionExplorer": false
 }
