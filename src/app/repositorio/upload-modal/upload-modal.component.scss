@@ -1,99 +1,47 @@
-.modal-body {
-  padding: 20px;
+.available-tags-container {
+  margin-top: 15px;
+  border-top: 1px solid var(--ion-color-light-shade);
+  padding-top: 15px;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: var(--ion-color-dark);
-}
-
-.form-input, .form-select {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid var(--ion-color-medium);
-  border-radius: 5px;
-  box-sizing: border-box;
-  background-color: var(--ion-color-light);
-  color: var(--ion-color-dark);
-}
-
-.tag-input-container {
-  border: 1px solid var(--ion-color-medium);
-  border-radius: 5px;
-  padding: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  background-color: var(--ion-color-light);
-}
-
-.tag-item {
-  display: flex;
-  align-items: center;
-  background-color: var(--ion-color-primary);
-  color: var(--ion-color-primary-contrast);
-  border-radius: 3px;
-  padding: 3px 8px;
-  margin: 3px;
-  font-size: 0.9em;
-}
-
-.tag-remove {
-  background: none;
-  border: none;
-  color: var(--ion-color-primary-contrast);
-  margin-left: 5px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.tag-input-field {
-  flex-grow: 1;
-  border: none;
-  outline: none;
-  padding: 5px;
-  background-color: transparent;
-  color: var(--ion-color-dark);
-}
-
-.file-upload-area {
-  border: 2px dashed var(--ion-color-medium);
-  border-radius: 5px;
-  padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  color: var(--ion-color-dark);
-  background-color: var(--ion-color-light);
-}
-
-.file-upload-icon {
-  font-size: 3em;
+.tag-category {
   margin-bottom: 10px;
 }
 
-.code-preview {
-  background-color: #f4f4f4;
-  border: 1px solid #ddd;
-  padding: 10px;
-  margin-top: 10px;
-  border-radius: 5px;
-  max-height: 200px;
-  overflow-y: auto;
+.category-title {
+  display: block;
+  font-weight: bold;
+  color: var(--ion-color-dark);
+  margin-bottom: 8px;
+  font-size: 0.9em;
+  text-transform: uppercase;
 }
 
-.code-preview pre {
-  white-space: pre-wrap;
-  word-break: break-all;
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.btn-submit {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-  margin-top: 20px;
+.tag-item-selectable {
+  background-color: var(--ion-color-medium-tint);
+  color: var(--ion-color-medium-contrast);
+  padding: 6px 12px;
+  border-radius: 15px;
+  font-size: 0.8em;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+
+.tag-item-selectable:hover {
+  background-color: var(--ion-color-medium-shade);
+  transform: translateY(-2px);
+}
+
+.tag-item-selectable.selected {
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  border-color: var(--ion-color-primary);
+  font-weight: bold;
 }

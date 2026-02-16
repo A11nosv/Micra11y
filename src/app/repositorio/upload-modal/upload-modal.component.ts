@@ -91,15 +91,36 @@ export class UploadModalComponent implements OnInit {
       event.preventDefault();
       const inputElement = event.target as HTMLInputElement;
       const tag = inputElement.value.trim();
-      if (tag && !this.uploadedTags.includes(tag)) {
-        this.uploadedTags.push(tag);
-        inputElement.value = '';
+      if (tag) {
+        this.toggleTagSelection(tag);
+        inputElement.value = ''; // Clear input only if tag was added/removed
       }
     }
   }
 
   removeTag(tag: string): void {
     this.uploadedTags = this.uploadedTags.filter(t => t !== tag);
+  }
+
+  availableTags: { category: string; tags: string[] }[] = [
+    { category: 'General', tags: ['educación', 'juego', 'herramienta', 'ciencia', 'arte', 'música', 'deporte'] },
+    { category: 'Micro:bit', tags: ['LED', 'radio', 'pines', 'sensores', 'botones', 'acelerómetro', 'brújula'] },
+    { category: 'Accesibilidad', tags: ['visual', 'auditiva', 'motriz', 'cognitiva', 'lectura fácil', 'CAA'] },
+    { category: 'Lenguajes', tags: ['MicroPython', 'MakeCode', 'Scratch'] },
+    { category: 'Conectividad', tags: ['Bluetooth', 'IoT', 'redes'] },
+  ];
+
+  toggleTagSelection(tag: string): void {
+    const index = this.uploadedTags.indexOf(tag);
+    if (index > -1) {
+      this.uploadedTags.splice(index, 1); // Tag exists, remove it
+    } else {
+      this.uploadedTags.push(tag); // Tag doesn't exist, add it
+    }
+  }
+
+  isTagSelected(tag: string): boolean {
+    return this.uploadedTags.includes(tag);
   }
 
   handleDragOver(event: DragEvent): void {

@@ -49,6 +49,19 @@
           </div>
           <input type="text" class="tag-input-field" (keypress)="addTag($event)" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TAGS_PLACEHOLDER' | translate }}">
         </div>
+        <div class="available-tags-container ion-margin-top">
+          <div *ngFor="let category of availableTags" class="tag-category">
+            <span class="category-title">{{ category.category | translate }}</span>
+            <div class="category-tags">
+              <span *ngFor="let tag of category.tags"
+                    class="tag-item-selectable"
+                    [class.selected]="isTagSelected(tag)"
+                    (click)="toggleTagSelection(tag)">
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="form-group">
