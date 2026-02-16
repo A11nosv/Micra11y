@@ -3,19 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  author: string;
-  tags: string[];
-  downloads: number;
-  likes: number;
-  date: string;
-  code: string;
-}
+import { RepositoryItem } from '../../interfaces/repository'; // Import RepositoryItem
 
 @Component({
   selector: 'app-upload-modal',
@@ -36,13 +24,12 @@ interface Project {
   ],
 })
 export class UploadModalComponent implements OnInit {
-  @Input() newProjectInput: Project | undefined;
-  @Output() projectSubmitted = new EventEmitter<Project>();
+  @Input() newProjectInput: RepositoryItem | undefined;
+  @Output() projectSubmitted = new EventEmitter<RepositoryItem>();
 
   @ViewChild('fileInput') fileInput!: ElementRef;
 
-  newProject: Project = {
-    id: 0,
+  newProject: Omit<RepositoryItem, 'id'> = {
     title: '',
     category: '',
     description: '',
@@ -76,7 +63,6 @@ export class UploadModalComponent implements OnInit {
 
   resetUploadForm(): void {
     this.newProject = {
-      id: 0,
       title: '',
       category: '',
       description: '',

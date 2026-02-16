@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, ToastController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -9,19 +9,9 @@ import { LanguageChooserComponent } from '../components/language-chooser/languag
 import { UploadModalComponent } from './upload-modal/upload-modal.component';
 import { ProjectDetailModalComponent } from './project-detail-modal/project-detail-modal.component';
 
-// Define the Project interface
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  author: string;
-  tags: string[];
-  downloads: number;
-  likes: number;
-  date: string;
-  code: string;
-}
+import { RepositoryService } from '../services/repository.service';
+import { RepositoryItem } from '../interfaces/repository';
+
 
 @Component({
   selector: 'app-repositorio',
@@ -30,7 +20,7 @@ interface Project {
   standalone: true,
   imports: [
     CommonModule,
-    FormsModule, // Add FormsModule
+    FormsModule,
     RouterModule,
     IonHeader,
     IonToolbar,
@@ -40,65 +30,16 @@ interface Project {
     IonButton,
     IonIcon,
     TranslateModule,
-    LanguageChooserComponent,
-    UploadModalComponent,
-    ProjectDetailModalComponent
+    LanguageChooserComponent
   ],
 })
-export class RepositorioPage implements OnInit { // Implement OnInit
+export class RepositorioPage implements OnInit {
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   // --- Component Properties ---
-  projects: Project[] = [
-    {
-      id: 1,
-      title: "Bastón Inteligente",
-      category: "accesibilidad",
-      description: "Detector de obstáculos con retroalimentación vibratoria y sonora para asistencia en la movilidad.",
-      author: "Equipo Micra11y",
-      tags: ["sensores", "vibración", "sonido", "movilidad"],
-      downloads: 45,
-      likes: 12,
-      date: "2026-02-10",
-      code: `# Código del Bastón Inteligente
-from microbit import *
-
-# Ver código completo en baston_inteligente.py`
-    },
-    {
-      id: 2,
-      title: "Semáforo Sonoro",
-      category: "accesibilidad",
-      description: "Sistema de señalización accesible que combina luces LED con señales auditivas para personas con discapacidad visual.",
-      author: "Equipo Micra11y",
-      tags: ["LED", "audio", "educación", "señales"],
-      downloads: 67,
-      likes: 18,
-      date: "2026-02-11",
-      code: `# Código del Semáforo Sonoro
-from microbit import *
-
-# Ver código completo en semaforo_sonoro.py`
-    },
-    {
-      id: 3,
-      title: "Comunicador Adaptativo",
-      category: "comunicacion",
-      description: "Sistema de comunicación por botones personalizables con salida de voz para personas con dificultades del habla.",
-      author: "Equipo Micra11y",
-      tags: ["voz", "CAA", "botones", "comunicación"],
-      downloads: 89,
-      likes: 25,
-      date: "2026-02-12",
-      code: `# Código del Comunicador Adaptativo
-from microbit import *
-import speech
-
-# Ver código completo en comunicador_adaptativo.py`
-    }
-  ];
-  filteredProjects: Project[] = [];
-  currentFilter: string = 'todos';
+  projects: RepositoryItem[] = []; // Projects now fetched from Firebase
+  filteredProjects: RepositoryItem[] = [];
+  selectedCategories: string[] = ['todos']; // Now an array for multiple selections
   searchTerm: string = '';
 
   totalProjects: number = 0;
@@ -106,8 +47,7 @@ import speech
   totalContributors: number = 0;
   totalCategories: number = 0;
   
-  newProject: Project = {
-    id: 0, // Will be assigned dynamically
+  newProject: Omit<RepositoryItem, 'id'> = { // Omit 'id' as it's assigned by Firestore
     title: '',
     category: '',
     description: '',
@@ -115,21 +55,34 @@ import speech
     tags: [],
     downloads: 0,
     likes: 0,
-    date: '', // Will be assigned dynamically
+    date: '',
     code: ''
   };
   uploadedTags: string[] = [];
   uploadedFile: File | null = null;
 
-  selectedProject: Project | null = null;
+  selectedProject: RepositoryItem | null = null;
   copied: boolean = false;
 
-  constructor(private translate: TranslateService, private modalController: ModalController, private toastController: ToastController) {}
+  constructor(
+    private translate: TranslateService,
+    private modalController: ModalController,
+    private toastController: ToastController,
+    private repositoryService: RepositoryService // Inject RepositoryService
+  ) {}
 
   ngOnInit() {
-    this.filteredProjects = [...this.projects];
-    this.updateStats();
-    this.renderProjects(); // Initial render
+    this.loadProjects(); // Load projects from Firebase
+    this.selectedCategories = ['todos']; // Initialize selectedCategories
+  }
+
+  loadProjects() {
+    this.repositoryService.getProjects().subscribe(data => {
+      this.projects = data;
+      this.filteredProjects = [...this.projects];
+      this.updateStats();
+      this.renderProjects();
+    });
   }
 
   // --- Stat & Project Rendering Methods ---
@@ -144,7 +97,7 @@ import speech
 
   renderProjects(): void {
     this.filteredProjects = this.projects.filter(project => {
-      const matchesFilter = this.currentFilter === 'todos' || project.category === this.currentFilter;
+      const matchesFilter = this.selectedCategories.includes('todos') || this.selectedCategories.includes(project.category);
       const matchesSearch = project.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
                             project.description.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
                             project.tags.some(tag => tag.toLowerCase().includes(this.searchTerm.toLowerCase()));
@@ -153,7 +106,26 @@ import speech
   }
 
   filterProjects(category: string): void {
-    this.currentFilter = category;
+    if (category === 'todos') {
+      this.selectedCategories = ['todos'];
+    } else {
+      // If 'todos' is currently selected, deselect it
+      if (this.selectedCategories.includes('todos')) {
+        this.selectedCategories = [];
+      }
+
+      const index = this.selectedCategories.indexOf(category);
+      if (index > -1) {
+        this.selectedCategories.splice(index, 1); // Deselect if already selected
+      } else {
+        this.selectedCategories.push(category); // Select if not selected
+      }
+
+      // If no other categories are selected, default back to 'todos'
+      if (this.selectedCategories.length === 0) {
+        this.selectedCategories = ['todos'];
+      }
+    }
     this.renderProjects();
   }
 
@@ -182,44 +154,67 @@ import speech
     const modal = await this.modalController.create({
       component: UploadModalComponent,
       componentProps: {
-        newProjectInput: this.newProject,
+        newProjectInput: this.newProject, // This will be an empty RepositoryItem structure
       },
     });
 
-    modal.onWillDismiss().then((result) => {
+    modal.onWillDismiss().then(async (result) => { // Added async here
       if (result.role === 'submit' && result.data) {
-        const submittedProject: Project = result.data;
-        submittedProject.id = this.projects.length + 1;
+        const submittedProject: RepositoryItem = result.data; // Now RepositoryItem
+
+        let codeUrl: string = ''; // Explicitly type as string
+        if (this.uploadedFile) {
+          try {
+            const uploadedResult = await this.repositoryService.uploadCodeFile(this.uploadedFile, submittedProject.title).toPromise();
+            codeUrl = uploadedResult || ''; // Assign uploadedResult or empty string if undefined
+            submittedProject.code = codeUrl; // Store the download URL
+          } catch (error) {
+            console.error('Error uploading file:', error);
+            this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.FILE_UPLOAD_ERROR'), 'danger');
+            return;
+          }
+        }
+
+        // Assign current date
         submittedProject.date = new Date().toISOString().split('T')[0];
-        this.projects.push(submittedProject);
-        this.updateStats();
-        this.renderProjects();
-        this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.PROJECT_PUBLISHED_SUCCESS'), 'success');
+
+        // Add to Firestore
+        this.repositoryService.addProject(submittedProject).subscribe(() => {
+          this.loadProjects(); // Reload projects from Firebase
+          this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.PROJECT_PUBLISHED_SUCCESS'), 'success');
+        }, error => {
+          console.error('Error adding project:', error);
+          this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.PROJECT_PUBLISH_ERROR'), 'danger');
+        });
       }
-      this.resetUploadForm(); // Reset the form after modal dismisses
+      this.resetUploadForm();
     });
 
     await modal.present();
   }
 
-  async openProjectDetail(id: number): Promise<void> {
-    this.selectedProject = this.projects.find(p => p.id === id) || null;
-    if (!this.selectedProject) {
-      return;
-    }
+  async openProjectDetail(id: string): Promise<void> { // id is now string
+    this.repositoryService.getProjectById(id).subscribe(async project => { // Added async for inner await
+      this.selectedProject = project;
+      if (!this.selectedProject) {
+        // Handle case where project is not found, e.g., show a toast or navigate back
+        this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.PROJECT_NOT_FOUND'), 'danger');
+        return;
+      }
 
-    const modal = await this.modalController.create({
-      component: ProjectDetailModalComponent,
-      componentProps: {
-        selectedProject: this.selectedProject,
-      },
+      const modal = await this.modalController.create({
+        component: ProjectDetailModalComponent,
+        componentProps: {
+          selectedProject: this.selectedProject,
+        },
+      });
+
+      modal.onWillDismiss().then((result) => {
+        // Handle any dismissal logic if needed
+      });
+
+      await modal.present(); // Added await here
     });
-
-    modal.onWillDismiss().then((result) => {
-      // Handle any dismissal logic if needed
-    });
-
-    await modal.present();
   }
 
   async presentToast(message: string, color: string = 'primary') {
@@ -234,7 +229,7 @@ import speech
   // --- Upload Form Methods ---
   resetUploadForm(): void {
     this.newProject = {
-      id: 0,
+  
       title: '',
       category: '',
       description: '',
@@ -302,24 +297,42 @@ import speech
   // handleFormSubmit is now in the modal component
 
   // --- Project Actions ---
-  downloadProject(id: number, event?: Event): void {
+  downloadProject(id: string, event?: Event): void { // id is now string
     if (event) event.stopPropagation();
-    const project = this.projects.find(p => p.id === id);
-    if (project) {
-      const blob = new Blob([project.code], { type: 'text/plain' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${project.title.toLowerCase().replace(/\s+/g, '_')}.py`;
-      a.click();
-      URL.revokeObjectURL(url);
+    const project = this.projects.find(p => p.id === id); // Still finding from local array after loading from Firebase
+    if (project && project.code) {
+      // Assuming project.code is now the download URL
+      fetch(project.code)
+        .then(response => response.text())
+        .then(codeContent => {
+          const blob = new Blob([codeContent], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `${project.title.toLowerCase().replace(/\s+/g, '_')}.py`;
+          a.click();
+          URL.revokeObjectURL(url);
 
-      project.downloads++;
-      this.renderProjects();
+          // Update downloads count in Firebase
+          if (project.id) {
+            const updatedProject = { ...project, downloads: project.downloads + 1 };
+            this.repositoryService.updateProject(updatedProject).subscribe(() => {
+              this.loadProjects(); // Reload to reflect updated download count
+            }, error => {
+              console.error('Error updating project download count:', error);
+            });
+          }
+        })
+        .catch(error => {
+          console.error('Error downloading project code:', error);
+          this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.CODE_DOWNLOAD_ERROR'), 'danger');
+        });
+    } else {
+      this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.PROJECT_NOT_FOUND'), 'danger');
     }
   }
 
-  viewProject(id: number, event: Event): void {
+  viewProject(id: string, event: Event): void {
     event.stopPropagation();
     this.openProjectDetail(id);
   }

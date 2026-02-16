@@ -199,6 +199,19 @@ body:not(.dark-theme) {
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lexend', sans-serif;
+  background: var(--bg-primary); /* Assuming --bg-primary will be defined globally */
+  color: var(--text-primary); /* Assuming --text-primary will be defined globally */
+  line-height: 1.6;
+}
+
 ion-toolbar.aligned-with-content {
   --padding-start: 5vw;
   --padding-end: 5vw;

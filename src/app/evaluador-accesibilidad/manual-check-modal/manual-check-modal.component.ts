@@ -25,10 +25,6 @@ interface Question {
     IonContent,
     IonButtons,
     IonButton,
-    IonIcon,
-    IonSelect,
-    IonSelectOption,
-    IonList,
     IonItem,
     TranslateModule
   ],

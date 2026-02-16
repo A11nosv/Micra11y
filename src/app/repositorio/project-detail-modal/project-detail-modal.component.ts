@@ -3,19 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-
-interface Project {
-  id: number;
-  title: string;
-  category: string;
-  description: string;
-  author: string;
-  tags: string[];
-  downloads: number;
-  likes: number;
-  date: string;
-  code: string;
-}
+import { RepositoryItem } from '../../interfaces/repository'; // Import RepositoryItem
 
 @Component({
   selector: 'app-project-detail-modal',
@@ -36,8 +24,8 @@ interface Project {
   ],
 })
 export class ProjectDetailModalComponent implements OnInit {
-  @Input() selectedProject: Project | null = null;
-  @Output() projectDownloaded = new EventEmitter<number>();
+  @Input() selectedProject: RepositoryItem | null = null;
+  @Output() projectDownloaded = new EventEmitter<string>(); // Changed to string
 
   copied: boolean = false;
 
@@ -60,7 +48,7 @@ export class ProjectDetailModalComponent implements OnInit {
     return categoryMap[category] || category;
   }
 
-  downloadProject(id: number): void {
+  downloadProject(id: string): void { // Changed to string
     this.projectDownloaded.emit(id);
     // The actual download logic will remain in the parent component for now
     // as it interacts with the `projects` array and global `URL` object.

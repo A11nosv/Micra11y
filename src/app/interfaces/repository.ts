@@ -1,11 +1,12 @@
-export interface Repository {
-    title: string;
-    theme: string;
-    videoUrl: string;
-    code: string;
-    owner: string;
-    status: boolean;
-    rate: number;
-    accessibility: number;
-    comments: string
+export interface RepositoryItem {
+  id?: string; // Firestore document ID is a string, and it's optional for new items
+  title: string;
+  category: string;
+  description: string;
+  author: string;
+  tags: string[];
+  downloads: number;
+  likes: number;
+  date: string;
+  code: string; // URL to the code file in Firebase Storage
 }

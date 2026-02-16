@@ -460,7 +460,7 @@
     "STEP_2_TITLE": "Pas 2: El Codi Complet",
     "STEP_2_TEXT": "Si no vols programar-ho tu mateix, pots descarregar l'arxiu .hex ja compilat per carregar-lo directament a la teva Micro:bit.",
     "STEP_3_TITLE": "Pas 3: Evoluciona el Codi",
-    "STEP_3_TEXT": "Modifica el codi per crear noves opcions de joc, afegir un mode multijugador més avançat, o integrar-lo amb altres projectes de la Micro:bit."
+    "STEP_3_TEXT": "Modifica el codi per crear noves opcions de joc, afegir un mode multijugador més avançat, o integrar-lo amb altres projectes de comunicació."
   },
   "COUNTDOWN_PAGE": {
     "TITLE": "El Compte Enrere Final",
@@ -548,7 +548,7 @@
     "BLOCKLY_OVERCOME_LI1_TEXT": "Encara que les interfícies visuals poden ser un repte, l'ús de blocs amb codis de color permet que els usuaris amb baixa visió reconeguin el tipus de bloc que s'està utilitzant de manera més ràpida i senzilla.",
     "BLOCKLY_OVERCOME_LI2_TITLE": "Mugikortasun-desgaitasuna:",
     "BLOCKLY_OVERCOME_LI2_TEXT": "La manipulació de blocs sol ser més senzilla que l'escriptura de codi, especialment amb adaptacions de ratolí o teclat. La funció d'arrossegar i deixar anar pot ser reemplaçada per la navegació amb teclat per a aquells que no poden usar un ratolí.",
-    "BLOCKLY_OVERCOME_LI3_TITLE": "Desgaitasun kognitiboa eta ikaskuntzakoa:",
+    "BLOCKLY_OVERCOME_LI3_TITLE": "Desgaitasun kognitiboa i ikaskuntzakoa:",
     "BLOCKLY_OVERCOME_LI3_TEXT": "La representació visual del codi redueix la càrrega cognitiva, en no requerir la memorització de sintaxis complexes. Els blocs guien l'usuari en l'estructura lògica del programa.",
     "BLOCKLY_CHALLENGES_TITLE": "Egungo Erronkes:",
     "BLOCKLY_CHALLENGES_LI1_TITLE": "Pantalla-irakurgailuak:",
@@ -601,7 +601,67 @@
     "P_CONCLUSIONS": "Aquest curs ha cobert les bases de la programació en MicroPython amb un fort èmfasi en el disseny accessible. Recorda que l'accessibilitat no és una característica addicional, sinó un principi fonamental per crear tecnologia inclusiva. Anima't a explorar més projectes i a seguir aprenent com fer la tecnologia accessible per a tots!"
   },
   "REPOSITORIO_PAGE": {
-    "CONTENT": "Contingut de la pàgina Repositori."
+    "CONTENT": "Contingut de la ´`agina del repositori..",
+    "HERO": {
+      "TITLE": "Projectes de la micro:bit",
+      "SUBTITLE": "A uest repositori trobarà diferentes projectes aportats per la comunitat. També pot aportar projectes propis i compartir amb la resta pel seu estudi i evolució.",
+      "UPLOAD_PROJECT_BUTTON": "Puja el teu projecte"
+    },
+    "STATS": {
+      "PROJECTS_PUBLISHED": "Projectes publicats",
+      "TOTAL_DOWNLOADS": "Total de descàrregues",
+      "CONTRIBUTORS": "Contribuidors",
+      "CATEGORIES": "Categories"
+    },
+    "FILTERS": {
+      "LABEL": "Filtra per:",
+      "ALL": "Tot",
+      "SEARCH_PLACEHOLDER": "Cercar projectes..."
+    },
+    "CATEGORIES": {
+      "ACCESSIBILITY": "Accessibilitat",
+      "SENSORS": "Sensors",
+      "COMMUNICATION": "Communicació",
+      "EDUCATION": "Educació",
+      "ENTERTAINMENT": "Enterteniment"
+    },
+    "PROJECTS_GRID": {
+      "EMPTY_STATE_TITLE": "No s'ha trobat cap projecte'",
+      "EMPTY_STATE_SUBTITLE": "Intenta-ho amb altres filtres o sigues el primer en pujar-ne un"
+    },
+    "UPLOAD_MODAL": {
+      "TITLE": "Pujar un Nou Projecte",
+      "SUBTITLE": "Comparteix el teu projecte accessible amb la comunitat",
+      "PROJECT_TITLE_LABEL": "Nom del Projecte *",
+      "PROJECT_TITLE_PLACEHOLDER": "Ex: Joc de pedra, paper i tissota accessible",
+      "CATEGORY_LABEL": "Categoria *",
+      "SELECT_CATEGORY_PLACEHOLDER": "Selecciona una categoria",
+      "DESCRIPTION_LABEL": "Descripció *",
+      "DESCRIPTION_PLACEHOLDER": "Descriu el teu projecte, què fa i com ajuda a l'accessibilitat...",
+      "AUTHOR_NAME_LABEL": "Your name *",
+      "AUTHOR_NAME_PLACEHOLDER": "Ex: Jane Doe",
+      "TAGS_LABEL": "Etiqueta (`pitja Enter per afegir-ne)",
+      "TAGS_PLACEHOLDER": "Ex: sons, LED, vibració...",
+      "CODE_LABEL": "Codi del Projecte (.py) *",
+      "DRAG_FILE_TEXT_BOLD": "Arosega aquí el teu fitxer .py",
+      "CLICK_TO_SELECT_TEXT": "o pitja per selccionar",
+      "PUBLISH_BUTTON": "Publica el Projecte"
+    },
+    "DETAIL_MODAL": {
+      "DESCRIPTION_SECTION_TITLE": "Descripció",
+      "TAGS_SECTION_TITLE": "Etiuetes",
+      "CODE_SECTION_TITLE": "Code del Projecte",
+      "COPY_CODE_BUTTON": "Copiar",
+      "COPIED_CODE_BUTTON": "✓ Copiat",
+      "DOWNLOAD_FULL_PROJECT_BUTTON": "Desgarrega el projecte sencer"
+    },
+    "PROJECT_CARD": {
+      "DOWNLOAD_BUTTON": "Descaàrrega",
+      "VIEW_CODE_BUTTON": "Veure el codi"
+    },
+    "TOAST": {
+      "PROJECT_PUBLISHED_SUCCESS": "Projecte publicat satisfactoriament! 🎉"
+    }
   },
   "ACCESSIBILITY_EVALUATOR_PAGE": {
     "H2": "Comprovador d'Accesibilitat del codi",

@@ -216,7 +216,7 @@
     "STEP_1_TEXT_27": "Asegúrate de que a retroalimentación visual e sonora estea ben sincronizada.",
     "STEP_1_TEXT_28": "O teu 'Latexado da Micro:bit' está listo!",
     "STEP_1_TITLE_13": "Personalización Avanzada",
-    "STEP_1_TEXT_29": "Experimenta con diferentes animacións do corazón, sons personalizados ou engade máis sensores para unha experiencia aínda máis inmersiva.",
+    "STEP_1_TEXT_29": "Experimenta con diferentes animacións do corazón, sons personalizados ou engade máis sensors para unha experiencia aínda máis inmersiva.",
     "STEP_2_TITLE": "Paso 2: O Código",
     "STEP_2_TEXT": "Descarga o arquivo .hex xa compilado para cargalo directamente na túa Micro:bit.",
     "STEP_3_TITLE": "Paso 3: Evoluciona o Código",
@@ -248,7 +248,7 @@
     "STEP_1_TEXT_5": "Tamén engadiremos as definicións para os números e algúns signos de puntuación básicos para enriquecer as nosas comunicacións.",
     "STEP_1_TEXT_6": "Aquí o código completo do alfabeto Morse:",
     "STEP_1_TEXT_7": "Esta é a clave de todo o proxecto de mensaxería secreta. É importante que todos os caracteres que queiramos utilizar estean correctamente definidos.",
-    "STEP_1_TEXT_8": "Unha vez teñamos o dicionario completo, poderemos comezar a traballar nas funcións de codificación e decodificación.",
+    "STEP_1_TEXT_8": "Unha vez teñamos o dicionario completo, poderemos comezar a traballar en funxios de codificación e decodificación.",
     "STEP_1_TEXT_9": "Esta primeira parte é fundamental para a creación do tradutor Morse.",
     "STEP_1_TITLE_2": "Paso 2: Tradución de Texto a Código Morse",
     "STEP_1_TEXT_11": "Agora crearemos unha función que colla unha mensaxe de texto e a converta á súa representación en código Morse. A función deberá recorrer cada carácter da mensaxe, buscar a súa equivalente no dicionario Morse e concatenala a unha cadea resultante.",
@@ -298,7 +298,7 @@
     "STEP_1_TEXT_45": "A depuración é un proceso iterativo que asegura a calidade do teu comunicador Morse.",
     "STEP_1_TITLE_8": "Paso 8: Código Completo",
     "STEP_1_TEXT_46": "Aquí tes o código completo do proxecto 'Mensaxe Secreta' para a Micro:bit.",
-    "STEP_1_TEXT_47": "Este código integra todas as funcionalidades descritas nos pasos anteriores, desde a definición do alfabeto Morse ata o envío e a recepción de mensaxes.",
+    "STEP_1_TEXT_47": "Este código integra todas as funxios descritas en os pasos anteriores, desde a definición do alfabeto Morse hasta o envío e a recepción de mensaxes.",
     "STEP_1_TEXT_48": "Está deseñado para ser un punto de partida para experimentos e personalizacións futuras.",
     "STEP_1_TITLE_9": "Paso 9: Descargar o Arquivo .hex",
     "STEP_1_TEXT_49": "Se non queres programalo ti mesmo, podes descargar o arquivo .hex xa compilado para cargalo directamente na túa Micro:bit.",
@@ -362,9 +362,9 @@
     "STEP_1_TITLE_9": "Retroalimentación multisensorial",
     "STEP_1_TEXT_20": "Para mellorar a accesibilidade, engadiremos sons para cada acción e resultado. Por exemplo, un son curto ao elixir unha opción, un son de vitoria, un de derrota e un de empate.",
     "STEP_1_TEXT_21": "Utilizaremos o módulo 'music' para reproducir melodías sinxelas.",
-    "STEP_1_TEXT_22": "Isto permitirá que os usuarios con discapacidade visual poidan gozar plenamente do xogo.",
+    "STEP_1_TEXT_22": "Isto permitirá que os usarios con discapacidade visual poidan gozar plenamente do xogo.",
     "STEP_1_TITLE_10": "Implementación do son",
-    "STEP_1_TEXT_23": "Integraremos as funcións de son na lóxica do xogo. Por exemplo, cando o xogador gañe, reproducirase a melodía de vitoria, e así sucesivamente.",
+    "STEP_1_TEXT_23": "Integraremos as funcións de son na lóxica do xogo. Por exemplo, cando o xogador gañe, reproducirase a melodia de vitoria, e así sucesivamente.",
     "STEP_1_TEXT_24": "É importante que os sons sexan distintivos e fáciles de recoñecer.",
     "STEP_1_TEXT_25": "Esta adición aumentará significativamente a inmersión e a accesibilidade do xogo.",
     "STEP_1_TITLE_11": "Detección de xestos (Opcional)",
@@ -378,7 +378,7 @@
     "STEP_1_TEXT_32": "Así é como as adaptacións poden mellorar a experiencia de xogo para todos.",
     "STEP_1_TEXT_33": "Consideraremos a implementación dunha función 'on_shake' para detectar o movemento da Micro:bit.",
     "STEP_1_TEXT_34": "Esta función devolvería unha das tres opcións (Pedra, Papel ou Tesoura) de forma aleatoria ou baseada na intensidade da sacudida.",
-    "STEP_1_TEXT_35": "O uso do acelerómetro permite unha interacción máis dinámica e menos dependente dos controis físicos.",
+    "STEP_1_TEXT_35": "O uso do acelerómetro permite unha interación máis dinámica e menos dependente dos controis físicos.",
     "STEP_1_TEXT_36": "Esta é unha gran adición para a inclusión de todos os xogadores.",
     "STEP_1_TITLE_13": "Comunicación con outra Micro:bit (Multixogador)",
     "STEP_1_TEXT_37": "Para xogar contra un amigo, podemos facer que dúas Micro:bits se comuniquen por radio. Cada xogador faría a súa elección na súa Micro:bit, e esta enviaría a súa elección á outra Micro:bit.",
@@ -403,7 +403,7 @@
     "STEP_1_TEXT_52": "Aquí tes como poderiamos implementar a puntuación no noso xogo:",
     "STEP_1_TEXT_53": "As variables 'player_score' e 'microbit_score' poderíanse actualizar despois de cada rolda.",
     "STEP_1_TITLE_18": "Finalización do xogo",
-    "STEP_1_TEXT_54": "Unha vez xogadas un número determinado de roldas, o xogo debería anunciar un gañador final. Poderiamos facer que a Micro:bit mostre unha mensaxe de '¡GAÑACHES!' ou '¡PERDECHES!' cunha animación.",
+    "STEP_1_TEXT_54": "Unha vez xogadas un número determinado de roldas, o xogo debería anunciar un gañador final. Poderiamos facer que a Micro:bit mostre unha mensaxe de '¡GAÑACHES!' ou '¡PERDECHES!' cunha aniación.",
     "STEP_1_TEXT_55": "Tamén se podería reproducir unha melodía final diferente para cada resultado.",
     "STEP_1_TEXT_56": "Isto proporciona un final satisfactorio ao xogo.",
     "STEP_1_TITLE_19": "Código de finalización",
@@ -415,7 +415,7 @@
     "STEP_2_TITLE": "Paso 2: O Código Completo",
     "STEP_2_TEXT": "Se non queres programalo ti mesmo, podes descargar o arquivo .hex xa compilado para cargalo directamente na túa Micro:bit.",
     "STEP_3_TITLE": "Paso 3: Evoluciona o Código",
-    "STEP_3_TEXT": "Modifica o código para crear novas opcións de xogo, engadir un modo multixogador máis avanzado, ou integralo con outros proxectos da Micro:bit."
+    "STEP_3_TEXT": "Modifica o código para crear novas opçios de xogo, engadir un modo multixogador máis avanzado, ou integralo con outros proxectos da Micro:bit."
   },
   "COUNTDOWN_PAGE": {
     "TITLE": "A Conta Atrás Final",
@@ -515,12 +515,12 @@
     "BLOCKLY_CHALLENGES_LI2_TITLE": "Navegación por Teclado:",
     "BLOCKLY_CHALLENGES_LI2_TEXT": "A navegación completa e eficiente só con teclado non sempre está implementada á perfección en todas as plataformas de programación por bloques.",
     "BLOCKLY_CHALLENGES_LI3_TITLE": "Personalización:",
-    "BLOCKLY_CHALLENGES_LI3_TEXT": "A falta de opcións de personalización (tamaño de fonte, contraste de cor, eliminación de animacións) pode afectar a usuarios con diversas necesidades visuais ou cognitivas.",
+    "BLOCKLY_CHALLENGES_LI3_TEXT": "A falta de opcións de personalización (tamaño de fonte, contraste de color, eliminación de animacións) pode afectar a usuarios con diversas necesidades visuais ou cognitivas.",
     "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentación e Exemplos:",
-    "BLOCKLY_CHALLENGES_LI4_TEXT": "Non sempre se dispón de documentación e exemplos de proxectos deseñados especificamente coa accesibilidade en mente.",
+    "BLOCKLY_CHALLENGES_LI4_TEXT": "Non sempre se dispón de documentación e exemplos de proxectos deseñados especificamente con a accesibilidade en mente.",
     "PYTHON_TITLE": "Programación por Código (Editor Micro:bit Python)",
     "PYTHON_P1": "Como alternativa á programación por bloques pódese utilizar a programación por código (microPython ou JavaScript). Este tipo de programación, ao ser texto plano, é altamente accesible para os lectores de pantalla.",
-    "PYTHON_P2": "O problema deste tipo de programación é que os usuarios deben ter un coñecemento mínimo da linguaxe de programación, polo que se lles ten que ensinar a linguaxe e os conceptos ao mesmo tempo. Isto non sucede coa programación por bloques, xa que o coñecemento da linguaxe non é necesario e os conceptos principais que se traballan son os conceptos de programación como variables, constantes, bucles, etc.",
+    "PYTHON_P2": "O problema deste tipo de programación é que os usuarios deben ter un coñecemento mínimo da linguaxe de programación, polo que se lles ten que ensinar a linguaxe e os conceptos ao mesmo tempo. Isto non sucede con la programación por bloques, xa que o coñecemento da linguaxe non é necesario e os conceptos principais que se traballan son os conceptos de programación como variables, constantes, bucles, etc.",
     "PYTHON_P3": "O único procedemento que existe actualmente para minimizar esta barreira (coñecemento da linguaxe) é a creación de bloques de programación onde o alumno só debe substituír ou completar unha parte do código. A creación do esqueleto dos bloques de programación en código sería a única opción actual para garantir un acceso do 100% mediante un lector de pantalla.",
     "PYTHON_P4": "Fomentar a programación accesible non só beneficia ás persoas con discapacidade, senón que tamén mellora a experiencia para todos os usuarios, promovendo unha cultura de deseño inclusivo no ámbito da tecnoloxía.",
     "PYTHON_P5": "A continuación móstranse dous exemplos, un exemplo onde a resposta da Micro:bit só se realiza a través da pantalla e outro, máis accesible, onde a saída de información se realiza a través da pantalla e se reforza cunha saída de son.",
@@ -562,7 +562,192 @@
     "P_CONCLUSIONS": "Este curso cubriu as bases da programación en MicroPython cun forte énfase no deseño accesible. Lembra que a accesibilidade non é unha característica adicional, senón un principio fundamental para crear tecnoloxía inclusiva. Animámoste a explorar máis proxectos e a seguir aprendendo como facer a tecnoloxía accesible para todos!"
   },
   "REPOSITORIO_PAGE": {
-    "CONTENT": "Contido da páxina Repositorio."
+    "CONTENT": "Contido da páxina Repositorio.",
+    "HEADER": {
+      "HOME": "Inicio",
+      "REPOSITORY": "Repositorio",
+      "DOCUMENTATION": "Documentación",
+      "COMMUNITY": "Comunidade"
+    },
+    "HERO": {
+      "TITLE": "Repositorio de Proxectos Accesibles",
+      "SUBTITLE": "Explora, comparte e aprende con proxectos de Micro:bit deseñados con accesibilidade en mente",
+      "UPLOAD_PROJECT_BUTTON": "Subir o teu Proxecto"
+    },
+    "STATS": {
+      "PROJECTS_PUBLISHED": "Proxectos publicados",
+      "TOTAL_DOWNLOADS": "Descargas totais",
+      "CONTRIBUTORS": "Colaboradores",
+      "CATEGORIES": "Categorías"
+    },
+    "FILTERS": {
+      "LABEL": "Filtrar por:",
+      "ALL": "Todos",
+      "SEARCH_PLACEHOLDER": "Buscar proxectos..."
+    },
+    "CATEGORIES": {
+      "ACCESSIBILITY": "Accesibilidade",
+      "SENSORS": "Sensores",
+      "COMMUNICATION": "Comunicación",
+      "EDUCATION": "Educación",
+      "ENTERTAINMENT": "Entretenimiento"
+    },
+    "PROJECTS_GRID": {
+      "EMPTY_STATE_TITLE": "Non se atoparon proxectos",
+      "EMPTY_STATE_SUBTITLE": "Intenta con outros filtros ou sé o primeiro en subir un proxecto"
+    },
+    "UPLOAD_MODAL": {
+      "TITLE": "Subir Novo Proxecto",
+      "SUBTITLE": "Comparte o teu proxecto accesible coa comunidade",
+      "PROJECT_TITLE_LABEL": "Título do proxecto *",
+      "PROJECT_TITLE_PLACEHOLDER": "Ex: Semáforo sonoro accesible",
+      "CATEGORY_LABEL": "Categoría *",
+      "SELECT_CATEGORY_PLACEHOLDER": "Selecciona unha categoría",
+      "DESCRIPTION_LABEL": "Descrición *",
+      "DESCRIPTION_PLACEHOLDER": "Describe o teu proxecto, que fai e como axuda á accesibilidade...",
+      "AUTHOR_NAME_LABEL": "O teu nome *",
+      "AUTHOR_NAME_PLACEHOLDER": "Ex: María García",
+      "TAGS_LABEL": "Etiquetas (preme Enter para engadir)",
+      "TAGS_PLACEHOLDER": "Ex: son, LED, vibración...",
+      "CODE_LABEL": "Código do proxecto (.py) *",
+      "DRAG_FILE_TEXT_BOLD": "Arrastra o teu ficheiro .py aquí",
+      "CLICK_TO_SELECT_TEXT": "ou fai clic para seleccionar",
+      "PUBLISH_BUTTON": "Publicar Proxecto"
+    },
+    "DETAIL_MODAL": {
+      "DESCRIPTION_SECTION_TITLE": "Descrición",
+      "TAGS_SECTION_TITLE": "Etiquetas",
+      "CODE_SECTION_TITLE": "Código do proxecto",
+      "COPY_CODE_BUTTON": "Copiar",
+      "COPIED_CODE_BUTTON": "✓ Copiado",
+      "DOWNLOAD_FULL_PROJECT_BUTTON": "Descargar proxecto completo"
+    },
+    "PROJECT_CARD": {
+      "DOWNLOAD_BUTTON": "Descargar",
+      "VIEW_CODE_BUTTON": "Ver código"
+    },
+    "TOAST": {
+      "PROJECT_PUBLISHED_SUCCESS": "Proxecto publicado con éxito! 🎉"
+    }
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Avaliador de accesibilidade",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidade (Automática)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprobar Accesibilidade (Manual)",
+  "MICROPYTHON_PAGE": {
+    "H1": "Curso de Programación en MicroPython para Micro:bit (Énfase en Accesibilidade)",
+    "H2_INTRO": "Introdución a MicroPython e Micro:bit",
+    "P_INTRO": "Este curso introducirache no emocionante mundo da programación con MicroPython na placa Micro:bit. Aprenderás a crear proxectos interactivos, cun enfoque especial en como facelos accesibles para todos os usuarios, independentemente das súas capacidades. A Micro:bit é unha pequena computadora programable deseñada para facer que a aprendizaxe da programación sexa divertida e accesible. Con MicroPython, un dialecto optimizado de Python para microcontroladores, poderás escribir código de xeito sinxelo e eficiente.",
+    "H2_MODULE1": "Módulo 1: Primeiros Pasos e Saídas Accesibles",
+    "H3_MODULE1_BASIC": "Conceptos Básicos de MicroPython",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercicio ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "H3_MODULE1_LED": "Mostrando Texto na Pantalla LED (con consideracións de Accesibilidade)",
+    "P_MODULE1_LED": "Aprenderemos a usar a matriz de LEDs da Micro:bit para mostrar mensaxes. É crucial considerar que os usuarios con discapacidade visual poderían non percibir esta saída. Máis adiante, exploraremos métodos alternativos para comunicar a información.",
+    "H2_MODULE2": "Módulo 2: Entradas Interactivas e Retroalimentación Multisensorial",
+    "H3_MODULE2_INPUTS": "Uso de Botóns e Entradas Dixitais",
+    "P_MODULE2_INPUTS": "Exploraremos como os botóns A e B, así como as entradas dixitais, poden ser utilizados para interactuar cos nosos programas. Para a accesibilidade, consideraremos como estas entradas poden ser adaptadas ou complementadas.",
+    "H3_MODULE2_SOUND": "Integrando Son para Retroalimentación",
+    "P_MODULE2_SOUND": "A retroalimentación auditiva é fundamental para a accesibilidade. Aprenderemos a usar o zumbador (ou altofalante externo) para proporcionar sons que reforcen a información visual ou a substitúan completamente para usuarios con discapacidade visual. Por exemplo, se un xogo require que o usuario pulse un botón, unha combinación dunha frecha visual na pantalla LED e un son distintivo ao pulsar o botón pode mellorar significativamente a experiencia para todos.",
+    "H2_MODULE3": "Módulo 3: Sensores e Adaptacións para a Diversidade Funcional",
+    "H3_MODULE3_SENSORS": "Lectura de Sensores (Acelerómetro, Brúxula, Temperatura)",
+    "P_MODULE3_SENSORS": "A Micro:bit conta con varios sensores incorporados que nos permiten interactuar coa contorna. Aprenderemos a ler datos do acelerómetro (para detectar movemento), a brúxula (para a orientación) e o sensor de temperatura.",
+    "H3_MODULE3_ADAPTATIONS": "Adaptacións de Sensores para a Accesibilidade",
+    "P_MODULE3_ADAPTATIONS": "Analizaremos como os datos dos sensores poden ser utilizados para crear interaccións alternativas. Por exemplo, un programa que se activa ao inclinar a Micro:bit podería ser máis accesible para persoas con mobilidade reducida que un botón tradicional. Ademais, veremos como a información obtida dos sensores pode ser traducida a saídas multisensoriais (visual, auditiva, táctil).",
+    "H2_CONCLUSIONS": "Conclusións e Próximos Pasos",
+    "P_CONCLUSIONS": "Este curso cubriu as bases da programación en MicroPython cun forte énfase no deseño accesible. Lembra que a accesibilidade non é unha característica adicional, senón un principio fundamental para crear tecnoloxía inclusiva. Animámoste a explorar máis proxectos e a seguir aprendendo como facer a tecnoloxía accesible para todos!"
+  },
+  "REPOSITORIO_PAGE": {
+    "CONTENT": "Contido da páxina Repositorio.",
+    "HEADER": {
+      "HOME": "Inicio",
+      "REPOSITORY": "Repositorio",
+      "DOCUMENTATION": "Documentación",
+      "COMMUNITY": "Comunidade"
+    },
+    "HERO": {
+      "TITLE": "Repositorio de Proxectos Accesibles",
+      "SUBTITLE": "Explora, comparte e aprende con proxectos de Micro:bit deseñados con accesibilidade en mente",
+      "UPLOAD_PROJECT_BUTTON": "Subir o teu Proxecto"
+    },
+    "STATS": {
+      "PROJECTS_PUBLISHED": "Proxectos publicados",
+      "TOTAL_DOWNLOADS": "Descargas totais",
+      "CONTRIBUTORS": "Colaboradores",
+      "CATEGORIES": "Categorías"
+    },
+    "FILTERS": {
+      "LABEL": "Filtrar por:",
+      "ALL": "Todos",
+      "SEARCH_PLACEHOLDER": "Buscar proxectos..."
+    },
+    "CATEGORIES": {
+      "ACCESSIBILITY": "Accesibilidade",
+      "SENSORS": "Sensores",
+      "COMMUNICATION": "Comunicación",
+      "EDUCATION": "Educación",
+      "ENTERTAINMENT": "Entretenimiento"
+    },
+    "PROJECTS_GRID": {
+      "EMPTY_STATE_TITLE": "Non se atoparon proxectos",
+      "EMPTY_STATE_SUBTITLE": "Intenta con outros filtros ou sé o primeiro en subir un proxecto"
+    },
+    "UPLOAD_MODAL": {
+      "TITLE": "Subir Novo Proxecto",
+      "SUBTITLE": "Comparte o teu proxecto accesible coa comunidade",
+      "PROJECT_TITLE_LABEL": "Título do proxecto *",
+      "PROJECT_TITLE_PLACEHOLDER": "Ex: Semáforo sonoro accesible",
+      "CATEGORY_LABEL": "Categoría *",
+      "SELECT_CATEGORY_PLACEHOLDER": "Selecciona unha categoría",
+      "DESCRIPTION_LABEL": "Descrición *",
+      "DESCRIPTION_PLACEHOLDER": "Describe o teu proxecto, que fai e como axuda á accesibilidade...",
+      "AUTHOR_NAME_LABEL": "O teu nome *",
+      "AUTHOR_NAME_PLACEHOLDER": "Ex: María García",
+      "TAGS_LABEL": "Etiquetas (preme Enter para engadir)",
+      "TAGS_PLACEHOLDER": "Ex: son, LED, vibración...",
+      "CODE_LABEL": "Código do proxecto (.py) *",
+      "DRAG_FILE_TEXT_BOLD": "Arrastra o teu ficheiro .py aquí",
+      "CLICK_TO_SELECT_TEXT": "ou fai clic para seleccionar",
+      "PUBLISH_BUTTON": "Publicar Proxecto"
+    },
+    "DETAIL_MODAL": {
+      "DESCRIPTION_SECTION_TITLE": "Descrición",
+      "TAGS_SECTION_TITLE": "Etiquetas",
+      "CODE_SECTION_TITLE": "Código do proxecto",
+      "COPY_CODE_BUTTON": "Copiar",
+      "COPIED_CODE_BUTTON": "✓ Copiado",
+      "DOWNLOAD_FULL_PROJECT_BUTTON": "Descargar proxecto completo"
+    },
+    "PROJECT_CARD": {
+      "DOWNLOAD_BUTTON": "Descargar",
+      "VIEW_CODE_BUTTON": "Ver código"
+    },
+    "TOAST": {
+      "PROJECT_PUBLISHED_SUCCESS": "Proxecto publicado con éxito! 🎉"
+    }
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Avaliador de accesibilidade",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidade (Automática)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprobar Accesibilidade (Manual)",
+  "MICROPYTHON_PAGE": {
+    "H1": "Curso de Programación en MicroPython para Micro:bit (Énfase en Accesibilidade)",
+    "H2_INTRO": "Introdución a MicroPython e Micro:bit",
+    "P_INTRO": "Este curso introducirache no emocionante mundo da programación con MicroPython na placa Micro:bit. Aprenderás a crear proxectos interactivos, cun enfoque especial en como facelos accesibles para todos os usuarios, independentemente das súas capacidades. A Micro:bit é unha pequena computadora programable deseñada para facer que a aprendizaxe da programación sexa divertida e accesible. Con MicroPython, un dialecto optimizado de Python para microcontroladores, poderás escribir código de xeito sinxelo e eficiente.",
+    "H2_MODULE1": "Módulo 1: Primeiros Pasos e Saídas Accesibles",
+    "H3_MODULE1_BASIC": "Conceptos Básicos de MicroPython",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercicio ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "H3_MODULE1_LED": "Mostrando Texto na Pantalla LED (con consideracións de Accesibilidade)",
+    "P_MODULE1_LED": "Aprenderemos a usar a matriz de LEDs da Micro:bit para mostrar mensaxes. É crucial considerar que os usuarios con discapacidade visual poderían non percibir esta saída. Máis adiante, exploraremos métodos alternativos para comunicar a información.",
+    "H2_MODULE2": "Módulo 2: Entradas Interactivas e Retroalimentación Multisensorial",
+    "H3_MODULE2_INPUTS": "Uso de Botóns e Entradas Dixitais",
+    "P_MODULE2_INPUTS": "Exploraremos como os botóns A e B, así como as entradas dixitais, poden ser utilizados para interactuar cos nosos programas. Para a accesibilidade, consideraremos como estas entradas poden ser adaptadas ou complementadas.",
+    "H3_MODULE2_SOUND": "Integrando Son para Retroalimentación",
+    "P_MODULE2_SOUND": "A retroalimentación auditiva é fundamental para a accesibilidade. Aprenderemos a usar o zumbador (ou altofalante externo) para proporcionar sons que reforcen a información visual ou a substitúan completamente para usuarios con discapacidade visual. Por exemplo, se un xogo require que o usuario pulse un botón, unha combinación dunha frecha visual na pantalla LED e un son distintivo ao pulsar o botón pode mellorar significativamente a experiencia para todos.",
+    "H2_MODULE3": "Módulo 3: Sensores e Adaptacións para a Diversidade Funcional",
+    "H3_MODULE3_SENSORS": "Lectura de Sensores (Acelerómetro, Brúxula, Temperatura)",
+    "P_MODULE3_SENSORS": "A Micro:bit conta con varios sensores incorporados que nos permiten interactuar coa contorna. Aprenderemos a ler datos do acelerómetro (para detectar movemento), a brúxula (para a orientación) e o sensor de temperatura.",
+    "H3_MODULE3_ADAPTATIONS": "Adaptacións de Sensores para a Accesibilidade",
+    "P_MODULE3_ADAPTATIONS": "Analizaremos como os datos dos sensores poden ser utilizados para crear interaccións alternativas. Por exemplo, un programa que se activa ao inclinar a Micro:bit podería ser máis accesible para persoas con mobilidade reducida que un botón tradicional. Ademais, veremos como a información obtida dos sensores pode ser traducida a saídas multisensoriais (visual, auditiva, táctil).",
+    "H2_CONCLUSIONS": "Conclusións e Próximos Pasos",
+    "P_CONCLUSIONS": "Este curso cubriu as bases da programación en MicroPython cun forte énfase no deseño accesible. Lembra que a accesibilidade non é unha característica adicional, senón un principio fundamental para crear tecnoloxía inclusiva. Animámoste a explorar máis proxectos e a seguir aprendendo como facer a tecnoloxía accesible para todos!"
   },
   "ACCESSIBILITY_EVALUATOR_PAGE": {
     "H2": "Comprobador de Accesibilidade do código",

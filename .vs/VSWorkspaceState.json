@@ -3,10 +3,10 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\evaluador-accesibilidad",
+    "\\src\\app\\interfaces",
     "\\src\\assets",
     "\\src\\assets\\i18n"
   ],
-  "SelectedNode": "\\src\\app\\evaluador-accesibilidad\\evaluador-accesibilidad.page.html",
+  "SelectedNode": "\\src\\app\\interfaces\\repository.ts",
   "PreviewInSolutionExplorer": false
 }

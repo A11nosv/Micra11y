@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositorio de Proyectos - Micra11y</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563EB;
+            --secondary: #3B82F6;
+            --accent: #60A5FA;
+            --dark: #1E293B;
+            --light: #F1F5F9;
+            --white: #FFFFFF;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --gradient-1: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+            --gradient-2: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+            
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F1F5F9;
+            --bg-card: #FFFFFF;
+            --text-primary: #1E293B;
+            --text-secondary: #64748B;
+            --border-color: #E2E8F0;
+            --code-bg: #F8FAFC;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #60A5FA;
+                --secondary: #3B82F6;
+                --accent: #93C5FD;
+                --dark: #F1F5F9;
+                --light: #1E293B;
+                --white: #0F172A;
+                
+                --bg-primary: #0F172A;
+                --bg-secondary: #1E293B;
+                --bg-card: #1E293B;
+                --text-primary: #F1F5F9;
+                --text-secondary: #94A3B8;
+                --border-color: #334155;
+                --code-bg: #0F172A;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient-1);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+        }
+
+        .btn-upload {
+            background: white;
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-upload:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Filters */
+        .filters {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid var(--border-color);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem 1.2rem;
+            padding-left: 3rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+        }
+
+        /* Projects Grid */
+        .projects-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 2rem 6rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+            border-color: var(--primary);
+        }
+
+        .project-header {
+            background: var(--gradient-1);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-author {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: var(--bg-secondary);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .project-footer {
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn-action {
+            flex: 1;
+            padding: 0.7rem 1.2rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+        }
+
+        .btn-secondary {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            background: var(--gradient-1);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s;
+        }
+
+        .form-textarea {
+            font-family: 'JetBrains Mono', monospace;
+            min-height: 200px;
+            resize: vertical;
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .tag-input-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--bg-primary);
+            min-height: 50px;
+        }
+
+        .tag-item {
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tag-remove {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tag-input-field {
+            flex: 1;
+            border: none;
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.4rem;
+            min-width: 150px;
+        }
+
+        .tag-input-field:focus {
+            outline: none;
+        }
+
+        .file-upload-area {
+            border: 3px dashed var(--border-color);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            background: var(--bg-secondary);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover,
+        .file-upload-area.drag-over {
+            border-color: var(--primary);
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .code-preview {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .code-preview pre {
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-submit:disabled {
+            background: var(--text-secondary);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Project Detail Modal */
+        .project-detail {
+            padding: 0;
+        }
+
+        .project-detail-header {
+            padding: 2rem;
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        .project-detail-body {
+            padding: 2rem;
+        }
+
+        .detail-section {
+            margin-bottom: 2rem;
+        }
+
+        .detail-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block pre {
+            margin: 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: var(--secondary);
+        }
+
+        .copy-btn.copied {
+            background: var(--success);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--text-secondary);
+        }
+
+        .empty-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .filters {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: 100%;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Micra11y</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#repositorio">Repositorio</a></li>
+                <li><a href="#documentacion">Documentación</a></li>
+                <li><a href="#comunidad">Comunidad</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Repositorio de Proyectos Accesibles</h1>
+            <p>Explora, comparte y aprende con proyectos de Micro:bit diseñados con accesibilidad en mente</p>
+            <button class="btn-upload" onclick="openUploadModal()">
+                <span>📤</span>
+                Subir tu Proyecto
+            </button>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="stats-container">
+            <div class="stat">
+                <span class="stat-number" id="total-projects">12</span>
+                <span class="stat-label">Proyectos publicados</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="total-downloads">245</span>
+                <span class="stat-label">Descargas totales</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="total-contributors">8</span>
+                <span class="stat-label">Colaboradores</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number" id="total-categories">5</span>
+                <span class="stat-label">Categorías</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <div class="filters">
+        <span class="filter-label">Filtrar por:</span>
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="accesibilidad">Accesibilidad</button>
+        <button class="filter-btn" data-filter="sensores">Sensores</button>
+        <button class="filter-btn" data-filter="comunicacion">Comunicación</button>
+        <button class="filter-btn" data-filter="educacion">Educación</button>
+        
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Buscar proyectos...">
+        </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <section class="projects-section">
+        <div class="projects-grid" id="projects-grid">
+            <!-- Projects will be dynamically inserted here -->
+        </div>
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <div class="empty-icon">📦</div>
+            <h3>No se encontraron proyectos</h3>
+            <p>Intenta con otros filtros o sé el primero en subir un proyecto</p>
+        </div>
+    </section>
+
+    <!-- Upload Modal -->
+    <div class="modal" id="upload-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeUploadModal()">×</button>
+                <h2>Subir Nuevo Proyecto</h2>
+                <p>Comparte tu proyecto accesible con la comunidad</p>
+            </div>
+            <div class="modal-body">
+                <form id="upload-form">
+                    <div class="form-group">
+                        <label class="form-label">Título del proyecto *</label>
+                        <input type="text" class="form-input" id="project-title" required placeholder="Ej: Semáforo sonoro accesible">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Categoría *</label>
+                        <select class="form-select" id="project-category" required>
+                            <option value="">Selecciona una categoría</option>
+                            <option value="accesibilidad">Accesibilidad</option>
+                            <option value="sensores">Sensores</option>
+                            <option value="comunicacion">Comunicación</option>
+                            <option value="educacion">Educación</option>
+                            <option value="entretenimiento">Entretenimiento</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Descripción *</label>
+                        <textarea class="form-input" id="project-description" required rows="4" placeholder="Describe tu proyecto, qué hace y cómo ayuda a la accesibilidad..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Tu nombre *</label>
+                        <input type="text" class="form-input" id="project-author" required placeholder="Ej: María García">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Etiquetas (presiona Enter para agregar)</label>
+                        <div class="tag-input-container" id="tags-container">
+                            <input type="text" class="tag-input-field" id="tag-input" placeholder="Ej: sonido, LED, vibración...">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Código del proyecto (.py) *</label>
+                        <div class="file-upload-area" id="file-upload-area">
+                            <div class="file-upload-icon">📁</div>
+                            <p><strong>Arrastra tu archivo .py aquí</strong></p>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem;">o haz clic para seleccionar</p>
+                            <input type="file" id="file-input" accept=".py" style="display: none;">
+                        </div>
+                        <div class="code-preview" id="code-preview" style="display: none;">
+                            <pre id="code-content"></pre>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submit-btn">
+                        Publicar Proyecto
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Modal -->
+    <div class="modal" id="detail-modal">
+        <div class="modal-content project-detail">
+            <div class="project-detail-header">
+                <button class="modal-close" onclick="closeDetailModal()">×</button>
+                <div id="detail-header-content"></div>
+            </div>
+            <div class="project-detail-body" id="detail-body-content">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample projects data
+        const projects = [
+            {
+                id: 1,
+                title: "Bastón Inteligente",
+                category: "accesibilidad",
+                description: "Detector de obstáculos con retroalimentación vibratoria y sonora para asistencia en la movilidad.",
+                author: "Equipo Micra11y",
+                tags: ["sensores", "vibración", "sonido", "movilidad"],
+                downloads: 45,
+                likes: 12,
+                date: "2026-02-10",
+                code: `# Código del Bastón Inteligente
+from microbit import *
+
+# Ver código completo en baston_inteligente.py`
+            },
+            {
+                id: 2,
+                title: "Semáforo Sonoro",
+                category: "accesibilidad",
+                description: "Sistema de señalización accesible que combina luces LED con señales auditivas para personas con discapacidad visual.",
+                author: "Equipo Micra11y",
+                tags: ["LED", "audio", "educación", "señales"],
+                downloads: 67,
+                likes: 18,
+                date: "2026-02-11",
+                code: `# Código del Semáforo Sonoro
+from microbit import *
+
+# Ver código completo en semaforo_sonoro.py`
+            },
+            {
+                id: 3,
+                title: "Comunicador Adaptativo",
+                category: "comunicacion",
+                description: "Sistema de comunicación por botones personalizables con salida de voz para personas con dificultades del habla.",
+                author: "Equipo Micra11y",
+                tags: ["voz", "CAA", "botones", "comunicación"],
+                downloads: 89,
+                likes: 25,
+                date: "2026-02-12",
+                code: `# Código del Comunicador Adaptativo
+from microbit import *
+import speech
+
+# Ver código completo en comunicador_adaptativo.py`
+            }
+        ];
+
+        let currentFilter = 'todos';
+        let currentProjects = [...projects];
+        let uploadedTags = [];
+        let uploadedFile = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProjects();
+            setupEventListeners();
+        });
+
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            const filteredProjects = currentProjects.filter(project => {
+                const matchesFilter = currentFilter === 'todos' || project.category === currentFilter;
+                const searchTerm = document.getElementById('search-input').value.toLowerCase();
+                const matchesSearch = project.title.toLowerCase().includes(searchTerm) ||
+                                    project.description.toLowerCase().includes(searchTerm) ||
+                                    project.tags.some(tag => tag.toLowerCase().includes(searchTerm));
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filteredProjects.length === 0) {
+                grid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            grid.style.display = 'grid';
+            emptyState.style.display = 'none';
+
+            grid.innerHTML = filteredProjects.map(project => `
+                <div class="project-card" onclick="openProjectDetail(${project.id})">
+                    <div class="project-header">
+                        <span class="project-category">${getCategoryLabel(project.category)}</span>
+                        <h3 class="project-title">${project.title}</h3>
+                        <div class="project-author">
+                            <span>👤</span>
+                            <span>${project.author}</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-tags">
+                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <div class="project-stats">
+                            <span class="stat-item">
+                                <span>⬇️</span>
+                                <span>${project.downloads}</span>
+                            </span>
+                            <span class="stat-item">
+                                <span>❤️</span>
+                                <span>${project.likes}</span>
+                            </span>
+                            <span class="stat-item">
+                                <span>📅</span>
+                                <span>${formatDate(project.date)}</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="project-footer">
+                        <button class="btn-action btn-primary" onclick="downloadProject(${project.id}, event)">
+                            Descargar
+                        </button>
+                        <button class="btn-action btn-secondary" onclick="viewProject(${project.id}, event)">
+                            Ver código
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function setupEventListeners() {
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    e.target.classList.add('active');
+                    currentFilter = e.target.dataset.filter;
+                    renderProjects();
+                });
+            });
+
+            // Search
+            document.getElementById('search-input').addEventListener('input', renderProjects);
+
+            // File upload
+            const fileInput = document.getElementById('file-input');
+            const fileUploadArea = document.getElementById('file-upload-area');
+
+            fileUploadArea.addEventListener('click', () => fileInput.click());
+
+            fileUploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                fileUploadArea.classList.add('drag-over');
+            });
+
+            fileUploadArea.addEventListener('dragleave', () => {
+                fileUploadArea.classList.remove('drag-over');
+            });
+
+            fileUploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                fileUploadArea.classList.remove('drag-over');
+                const file = e.dataTransfer.files[0];
+                if (file && file.name.endsWith('.py')) {
+                    handleFileUpload(file);
+                }
+            });
+
+            fileInput.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) handleFileUpload(file);
+            });
+
+            // Tags input
+            const tagInput = document.getElementById('tag-input');
+            tagInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    const tag = tagInput.value.trim();
+                    if (tag && !uploadedTags.includes(tag)) {
+                        uploadedTags.push(tag);
+                        renderTags();
+                        tagInput.value = '';
+                    }
+                }
+            });
+
+            // Form submit
+            document.getElementById('upload-form').addEventListener('submit', handleFormSubmit);
+        }
+
+        function handleFileUpload(file) {
+            uploadedFile = file;
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const content = e.target.result;
+                document.getElementById('code-content').textContent = content;
+                document.getElementById('code-preview').style.display = 'block';
+            };
+            reader.readAsText(file);
+        }
+
+        function renderTags() {
+            const container = document.getElementById('tags-container');
+            const tagInput = document.getElementById('tag-input');
+            
+            container.innerHTML = uploadedTags.map(tag => `
+                <div class="tag-item">
+                    <span>${tag}</span>
+                    <button type="button" class="tag-remove" onclick="removeTag('${tag}')">×</button>
+                </div>
+            `).join('');
+            
+            container.appendChild(tagInput);
+        }
+
+        function removeTag(tag) {
+            uploadedTags = uploadedTags.filter(t => t !== tag);
+            renderTags();
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            
+            const newProject = {
+                id: projects.length + 1,
+                title: document.getElementById('project-title').value,
+                category: document.getElementById('project-category').value,
+                description: document.getElementById('project-description').value,
+                author: document.getElementById('project-author').value,
+                tags: [...uploadedTags],
+                downloads: 0,
+                likes: 0,
+                date: new Date().toISOString().split('T')[0],
+                code: document.getElementById('code-content').textContent
+            };
+
+            projects.push(newProject);
+            currentProjects = [...projects];
+            
+            // Update stats
+            document.getElementById('total-projects').textContent = projects.length;
+            
+            closeUploadModal();
+            renderProjects();
+            
+            // Reset form
+            document.getElementById('upload-form').reset();
+            uploadedTags = [];
+            uploadedFile = null;
+            document.getElementById('code-preview').style.display = 'none';
+            
+            // Show success message
+            alert('¡Proyecto publicado con éxito! 🎉');
+        }
+
+        function openUploadModal() {
+            document.getElementById('upload-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUploadModal() {
+            document.getElementById('upload-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openProjectDetail(id) {
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            const headerContent = `
+                <span class="project-category">${getCategoryLabel(project.category)}</span>
+                <h2>${project.title}</h2>
+                <div class="project-author">
+                    <span>👤</span>
+                    <span>${project.author}</span>
+                </div>
+            `;
+
+            const bodyContent = `
+                <div class="detail-section">
+                    <h3>Descripción</h3>
+                    <p>${project.description}</p>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Etiquetas</h3>
+                    <div class="project-tags">
+                        ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h3>Código del proyecto</h3>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                        <pre>${escapeHtml(project.code)}</pre>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <button class="btn-submit" onclick="downloadProject(${id})">
+                        ⬇️ Descargar proyecto completo
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('detail-header-content').innerHTML = headerContent;
+            document.getElementById('detail-body-content').innerHTML = bodyContent;
+            document.getElementById('detail-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetailModal() {
+            document.getElementById('detail-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function downloadProject(id, event) {
+            if (event) event.stopPropagation();
+            const project = projects.find(p => p.id === id);
+            if (!project) return;
+
+            // Create download
+            const blob = new Blob([project.code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${project.title.toLowerCase().replace(/\s+/g, '_')}.py`;
+            a.click();
+            URL.revokeObjectURL(url);
+
+            // Update downloads count
+            project.downloads++;
+            renderProjects();
+        }
+
+        function viewProject(id, event) {
+            event.stopPropagation();
+            openProjectDetail(id);
+        }
+
+        function copyCode(btn) {
+            const code = btn.nextElementSibling.textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.textContent = '✓ Copiado';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copiar';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        function getCategoryLabel(category) {
+            const labels = {
+                'accesibilidad': 'Accesibilidad',
+                'sensores': 'Sensores',
+                'comunicacion': 'Comunicación',
+                'educacion': 'Educación',
+                'entretenimiento': 'Entretenimiento'
+            };
+            return labels[category] || category;
+        }
+
+        function formatDate(dateStr) {
+            const date = new Date(dateStr);
+            const options = { day: 'numeric', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('es-ES', options);
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Close modals on outside click
+        window.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                e.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

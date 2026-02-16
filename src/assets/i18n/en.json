@@ -384,7 +384,7 @@
     "CODE_1_LIST": [
       "rock = microbit.Image.SQUARE",
       "paper = microbit.Image.CHESSBOARD",
-      "scissors = microbit.Image.SCISSORS"
+      "scissors = microbit.CISSORS"
     ],
     "STEP_1_TEXT_7": "These images will make the game more visual and intuitive.",
     "STEP_1_TITLE_5": "Game logic: Micro:bit's choice",
@@ -602,7 +602,98 @@
     "P_CONCLUSIONS": "This course has covered the basics of MicroPython programming with a strong emphasis on accessible design. Remember that accessibility is not an additional feature, but a fundamental principle for creating technology inclusive. We encourage you to explore more projects and continue learning how to make technology accessible to everyone!"
   },
   "REPOSITORIO_PAGE": {
-    "CONTENT": "Repository page content."
+    "CONTENT": "Repository page content.",
+    "HEADER": {
+      "HOME": "Home",
+      "REPOSITORY": "Repository",
+      "DOCUMENTATION": "Documentation",
+      "COMMUNITY": "Community"
+    },
+    "HERO": {
+      "TITLE": "Accessible Projects Repository",
+      "SUBTITLE": "Explore, share and learn with Micro:bit projects designed with accessibility in mind",
+      "UPLOAD_PROJECT_BUTTON": "Upload Your Project"
+    },
+    "STATS": {
+      "PROJECTS_PUBLISHED": "Projects published",
+      "TOTAL_DOWNLOADS": "Total downloads",
+      "CONTRIBUTORS": "Contributors",
+      "CATEGORIES": "Categories"
+    },
+    "FILTERS": {
+      "LABEL": "Filter by:",
+      "ALL": "All",
+      "SEARCH_PLACEHOLDER": "Search projects..."
+    },
+    "CATEGORIES": {
+      "ACCESSIBILITY": "Accessibility",
+      "SENSORS": "Sensors",
+      "COMMUNICATION": "Communication",
+      "EDUCATION": "Education",
+      "ENTERTAINMENT": "Entertainment"
+    },
+    "PROJECTS_GRID": {
+      "EMPTY_STATE_TITLE": "No projects found",
+      "EMPTY_STATE_SUBTITLE": "Try with other filters or be the first to upload a project"
+    },
+    "UPLOAD_MODAL": {
+      "TITLE": "Upload New Project",
+      "SUBTITLE": "Share your accessible project with the community",
+      "PROJECT_TITLE_LABEL": "Project title *",
+      "PROJECT_TITLE_PLACEHOLDER": "Ex: Accessible sound traffic light",
+      "CATEGORY_LABEL": "Category *",
+      "SELECT_CATEGORY_PLACEHOLDER": "Select a category",
+      "DESCRIPTION_LABEL": "Description *",
+      "DESCRIPTION_PLACEHOLDER": "Describe your project, what it does and how it helps accessibility...",
+      "AUTHOR_NAME_LABEL": "Your name *",
+      "AUTHOR_NAME_PLACEHOLDER": "Ex: Maria Garcia",
+      "TAGS_LABEL": "Tags (press Enter to add)",
+      "TAGS_PLACEHOLDER": "Ex: sound, LED, vibration...",
+      "CODE_LABEL": "Project code (.py) *",
+      "DRAG_FILE_TEXT_BOLD": "Drag your .py file here",
+      "CLICK_TO_SELECT_TEXT": "or click to select",
+      "PUBLISH_BUTTON": "Publish Project"
+    },
+    "DETAIL_MODAL": {
+      "DESCRIPTION_SECTION_TITLE": "Description",
+      "TAGS_SECTION_TITLE": "Tags",
+      "CODE_SECTION_TITLE": "Project code",
+      "COPY_CODE_BUTTON": "Copy",
+      "COPIED_CODE_BUTTON": "✓ Copied",
+      "DOWNLOAD_FULL_PROJECT_BUTTON": "Download full project"
+    },
+    "PROJECT_CARD": {
+      "DOWNLOAD_BUTTON": "Download",
+      "VIEW_CODE_BUTTON": "View code"
+    },
+    "TOAST": {
+      "PROJECT_PUBLISHED_SUCCESS": "Project published successfully! 🎉"
+    }
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Accessibility Evaluator",
+  "COMPROBAR_ACCESIBILIDAD_TITLE": "Check Accessibility (Automatic)",
+  "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Check Accessibility (Manual)",
+  "MICROPYTHON_PAGE": {
+    "H1": "MicroPython Programming Course for Micro:bit (Emphasis on Accessibility)",
+    "H2_INTRO": "Introduction to MicroPython and Micro:bit",
+    "P_INTRO": "This course will introduce you to the exciting world of programming with MicroPython on the Micro:bit board. You will learn to create interactive projects, with a special focus on how to make them accessible to all users, regardless of their abilities. The Micro:bit is a small programmable computer designed to make learning to code fun and accessible. With MicroPython, an optimized dialect of Python for microcontrollers, you can write code simply and efficiently.",
+    "H2_MODULE1": "Module 1: First Steps and Accessible Outputs",
+    "H3_MODULE1_BASIC": "Basic Concepts of MicroPython",
+    "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "H3_MODULE1_LED": "Displaying Text on the LED Screen (with Accessibility Considerations)",
+    "P_MODULE1_LED": "We will learn to use the Micro:bit's LED matrix to display messages. It is crucial to consider that visually impaired users may not perceive this output. Later, we will explore alternative methods for communicating information.",
+    "H2_MODULE2": "Module 2: Interactive Inputs and Multisensory Feedback",
+    "H3_MODULE2_INPUTS": "Using Buttons and Digital Inputs",
+    "P_MODULE2_INPUTS": "We will explore how buttons A and B, as well as digital inputs, can be used to interact with our programs. For accessibility, we will consider how these inputs can be adapted or supplemented.",
+    "H3_MODULE2_SOUND": "Integrating Sound for Feedback",
+    "P_MODULE2_SOUND": "Auditory feedback is essential for accessibility. We will learn to use the buzzer (or external speaker) to provide sounds that reinforce visual information or replace it completely for visually impaired users. For example, if a game requires the user to press a button, a combination of a visual arrow on the LED screen and a distinctive sound when the button is pressed can significantly improve the experience for everyone.",
+    "H2_MODULE3": "Module 3: Sensors and Adaptations for Functional Diversity",
+    "H3_MODULE3_SENSORS": "Reading Sensors (Accelerometer, Compass, Temperature)",
+    "P_MODULE3_SENSORS": "The Micro:bit has several built-in sensors that allow us to interact with the environment. We will learn to read data from the accelerometer (to detect movement), the compass (for orientation), and the temperature sensor.",
+    "H3_MODULE3_ADAPTATIONS": "Sensor Adaptations for Accessibility",
+    "P_MODULE3_ADAPTATIONS": "We will analyze how sensor data can be used to create alternative interactions. For example, a program that is activated by tilting the Micro:bit could be more accessible for people with reduced mobility than a traditional button. In addition, we will see how the information obtained from the sensors can be translated into multisensory outputs (visual, auditory, tactile).",
+    "H2_CONCLUSIONS": "Conclusions and Next Steps",
+    "P_CONCLUSIONS": "This course has covered the basics of MicroPython programming with a strong emphasis on accessible design. Remember that accessibility is not an additional feature, but a fundamental principle for creating technology inclusive. We encourage you to explore more projects and continue learning how to make technology accessible to everyone!"
   },
   "ACCESSIBILITY_EVALUATOR_PAGE": {
     "H2": "MicroPython Code Editor with Accessibility Emphasis",

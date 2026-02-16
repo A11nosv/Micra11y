@@ -25,7 +25,7 @@ import { TranslateModule } from '@ngx-translate/core';
     }
   `],
   standalone: true,
-  imports: [CommonModule, IonList, IonItem, IonLabel, IonAvatar, TranslateModule]
+  imports: [CommonModule, IonList, IonItem, IonLabel, TranslateModule]
 })
 export class LanguagePopoverContentComponent implements OnInit {
 

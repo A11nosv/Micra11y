@@ -2,73 +2,6 @@
 .repository-content {
   /* This wraps all the content inside ion-content to apply the styles */
   
-
-
-  :root {
-      --primary: #2563EB;
-      --secondary: #3B82F6;
-      --accent: #60A5FA;
-      --dark: #1E293B;
-      --light: #F1F5F9;
-      --white: #FFFFFF;
-      --success: #10B981;
-      --warning: #F59E0B;
-      --gradient-1: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-      --gradient-2: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-      
-      --bg-primary: #FFFFFF;
-      --bg-secondary: #F1F5F9;
-      --bg-card: #FFFFFF;
-      --text-primary: #1E293B;
-      --text-secondary: #64748B;
-      --border-color: #E2E8F0;
-      --code-bg: #F8FAFC;
-  }
-
-  @media (prefers-color-scheme: dark) {
-      :root {
-          --primary: #60A5FA;
-          --secondary: #3B82F6;
-          --accent: #93C5FD;
-          --dark: #F1F5F9;
-          --light: #1E293B;
-          --white: #0F172A;
-          
-          --bg-primary: #0F172A;
-          --bg-secondary: #1E293B;
-          --bg-card: #1E293B;
-          --text-primary: #F1F5F9;
-          --text-secondary: #94A3B8;
-          --border-color: #334155;
-          --code-bg: #0F172A;
-      }
-      .btn-upload {
-          background-color: var(--bg-secondary);
-          color: var(--text-primary);
-      }
-  }
-
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
-
-  body { /* This style needs to be adjusted as it targets the global body */
-      font-family: 'Lexend', sans-serif;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-  }
-  
-  /* Applying body styles to the wrapper */
-  & {
-    font-family: 'Lexend', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-  }
-
   /* Header - This is now inside ion-header in HTML, so these styles are mostly not needed here. */
   /* If specific header styles are needed within the repository-content, they should be prefixed with & header */
   header {
@@ -190,6 +123,18 @@
   .filter-label {
       font-weight: 600;
       color: var(--text-primary);
+  }
+
+  .filter-btn {
+    --background: transparent; /* Default inactive state */
+    color: var(--text-primary);
+    border: 1px solid var(--border-color); /* Add a border to distinguish inactive buttons */
+  }
+
+  .filter-btn.active {
+    --background: var(--ion-color-primary); /* Active state */
+    color: var(--white);
+    border-color: var(--ion-color-primary); /* Active border color */
   }
 
     .search-box {

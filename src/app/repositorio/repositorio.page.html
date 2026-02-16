@@ -61,22 +61,22 @@
     <!-- Filters -->
     <div class="filters">
       <span class="filter-label">{{ 'REPOSITORIO_PAGE.FILTERS.LABEL' | translate }}</span>
-      <ion-button class="filter-btn" [class.active]="currentFilter === 'todos'" (click)="filterProjects('todos')">
+      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('todos')" (click)="filterProjects('todos')">
         {{ 'REPOSITORIO_PAGE.FILTERS.ALL' | translate }}
       </ion-button>
-      <ion-button class="filter-btn" [class.active]="currentFilter === 'accesibilidad'" (click)="filterProjects('accesibilidad')">
+      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('accesibilidad')" (click)="filterProjects('accesibilidad')">
         {{ 'REPOSITORIO_PAGE.CATEGORIES.ACCESSIBILITY' | translate }}
       </ion-button>
-      <ion-button class="filter-btn" [class.active]="currentFilter === 'sensores'" (click)="filterProjects('sensores')">
+      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('sensores')" (click)="filterProjects('sensores')">
         {{ 'REPOSITORIO_PAGE.CATEGORIES.SENSORS' | translate }}
       </ion-button>
-      <ion-button class="filter-btn" [class.active]="currentFilter === 'comunicacion'" (click)="filterProjects('comunicacion')">
+      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('comunicacion')" (click)="filterProjects('comunicacion')">
         {{ 'REPOSITORIO_PAGE.CATEGORIES.COMMUNICATION' | translate }}
       </ion-button>
-      <ion-button class="filter-btn" [class.active]="currentFilter === 'educacion'" (click)="filterProjects('educacion')">
+      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('educacion')" (click)="filterProjects('educacion')">
         {{ 'REPOSITORIO_PAGE.CATEGORIES.EDUCATION' | translate }}
       </ion-button>
-      <ion-button class="filter-btn" [class.active]="currentFilter === 'entretenimiento'" (click)="filterProjects('entretenimiento')">
+      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('entretenimiento')" (click)="filterProjects('entretenimiento')">
         {{ 'REPOSITORIO_PAGE.CATEGORIES.ENTERTAINMENT' | translate }}
       </ion-button>
 
@@ -89,7 +89,7 @@
     <!-- Projects Grid -->
     <section class="projects-section">
       <div class="projects-grid" *ngIf="filteredProjects.length > 0">
-        <div class="project-card" *ngFor="let project of filteredProjects" (click)="openProjectDetail(project.id)">
+        <div class="project-card" *ngFor="let project of filteredProjects" (click)="openProjectDetail(project.id!)">
           <div class="project-header">
             <span class="project-category">{{ getCategoryLabel(project.category) | translate }}</span>
             <h3 class="project-title">{{ project.title }}</h3>
@@ -119,10 +119,10 @@
             </div>
           </div>
           <div class="project-footer">
-            <ion-button class="btn-primary" (click)="downloadProject(project.id, $event)">
+            <ion-button class="btn-primary" (click)="downloadProject(project.id!, $event)">
               {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_BUTTON' | translate }}
             </ion-button>
-            <ion-button class="btn-secondary" (click)="viewProject(project.id, $event)">
+            <ion-button class="btn-secondary" (click)="viewProject(project.id!, $event)">
               {{ 'REPOSITORIO_PAGE.PROJECT_CARD.VIEW_CODE_BUTTON' | translate }}
             </ion-button>
           </div>

@@ -12,7 +12,7 @@ import { LanguagePopoverContentComponent } from '../language-popover-content/lan
   templateUrl: './language-chooser.component.html',
   styleUrls: ['./language-chooser.component.scss'],
   standalone: true,
-  imports: [CommonModule, IonButton, TranslateModule, LanguagePopoverContentComponent] // Update imports
+  imports: [CommonModule, IonButton, TranslateModule] // Update imports
 })
 export class LanguageChooserComponent implements OnInit, OnDestroy {
   currentLanguageFlag$: Observable<string>;
