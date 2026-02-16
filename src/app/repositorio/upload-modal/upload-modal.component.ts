@@ -53,15 +53,24 @@ export class UploadModalComponent implements OnInit {
     date: '',
     code: ''
   };
-  uploadedTags: string[] = [];
-  uploadedFile: File | null = null;
+  newProject: Project = {
+    id: 0,
+    title: '',
+    category: '',
+    description: '',
+    author: '',
+    tags: [],
+    downloads: 0,
+    likes: 0,
+    date: '',
+    code: ''
+  };
 
   constructor(private modalController: ModalController, private translate: TranslateService) {}
 
   ngOnInit() {
     if (this.newProjectInput) {
       this.newProject = { ...this.newProjectInput };
-      this.uploadedTags = [...this.newProjectInput.tags];
     }
   }
 
@@ -82,25 +91,9 @@ export class UploadModalComponent implements OnInit {
       date: '',
       code: ''
     };
-    this.uploadedTags = [];
-    this.uploadedFile = null;
   }
 
-  addTag(event: KeyboardEvent): void {
-    if (event.key === 'Enter') {
-      event.preventDefault();
-      const inputElement = event.target as HTMLInputElement;
-      const tag = inputElement.value.trim();
-      if (tag) {
-        this.toggleTagSelection(tag);
-        inputElement.value = ''; // Clear input only if tag was added/removed
-      }
-    }
-  }
 
-  removeTag(tag: string): void {
-    this.uploadedTags = this.uploadedTags.filter(t => t !== tag);
-  }
 
   availableTags: { category: string; tags: string[] }[] = [
     { category: 'General', tags: ['educación', 'juego', 'herramienta', 'ciencia', 'arte', 'música', 'deporte'] },
@@ -111,16 +104,16 @@ export class UploadModalComponent implements OnInit {
   ];
 
   toggleTagSelection(tag: string): void {
-    const index = this.uploadedTags.indexOf(tag);
+    const index = this.newProject.tags.indexOf(tag);
     if (index > -1) {
-      this.uploadedTags.splice(index, 1); // Tag exists, remove it
+      this.newProject.tags.splice(index, 1); // Tag exists, remove it
     } else {
-      this.uploadedTags.push(tag); // Tag doesn't exist, add it
+      this.newProject.tags.push(tag); // Tag doesn't exist, add it
     }
   }
 
   isTagSelected(tag: string): boolean {
-    return this.uploadedTags.includes(tag);
+    return this.newProject.tags.includes(tag);
   }
 
   handleDragOver(event: DragEvent): void {
@@ -147,7 +140,6 @@ export class UploadModalComponent implements OnInit {
   }
 
   processFileUpload(file: File): void {
-    this.uploadedFile = file;
     const reader = new FileReader();
     reader.onload = (e) => {
       this.newProject.code = e.target?.result as string;
@@ -156,8 +148,6 @@ export class UploadModalComponent implements OnInit {
   }
 
   handleFormSubmit(): void {
-    this.newProject.tags = [...this.uploadedTags];
-    this.projectSubmitted.emit(this.newProject);
     this.modalController.dismiss(this.newProject, 'submit');
   }
 }

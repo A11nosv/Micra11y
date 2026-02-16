@@ -42,13 +42,6 @@
 
       <div class="form-group">
         <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TAGS_LABEL' | translate }}</label>
-        <div class="tag-input-container">
-          <div class="tag-item" *ngFor="let tag of uploadedTags">
-            <span>{{ tag }}</span>
-            <button type="button" class="tag-remove" (click)="removeTag(tag)">×</button>
-          </div>
-          <input type="text" class="tag-input-field" (keypress)="addTag($event)" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TAGS_PLACEHOLDER' | translate }}">
-        </div>
         <div class="available-tags-container ion-margin-top">
           <div *ngFor="let category of availableTags" class="tag-category">
             <span class="category-title">{{ category.category | translate }}</span>
@@ -56,7 +49,10 @@
               <span *ngFor="let tag of category.tags"
                     class="tag-item-selectable"
                     [class.selected]="isTagSelected(tag)"
-                    (click)="toggleTagSelection(tag)">
+                    (click)="toggleTagSelection(tag)"
+                    role="button"
+                    tabindex="0"
+                    [attr.aria-pressed]="isTagSelected(tag) ? 'true' : 'false'">
                 {{ tag }}
               </span>
             </div>
