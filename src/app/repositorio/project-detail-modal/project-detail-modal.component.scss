@@ -1,0 +1,88 @@
+.project-detail-header {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+  margin-bottom: 20px;
+}
+
+#detail-header-content {
+  text-align: center;
+}
+
+.project-category {
+  display: inline-block;
+  background-color: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+
+.project-detail h2 {
+  font-size: 1.8em;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: var(--ion-color-dark);
+}
+
+.project-author {
+  font-size: 0.9em;
+  color: var(--ion-color-medium);
+  margin-bottom: 15px;
+}
+
+.detail-section {
+  margin-bottom: 20px;
+}
+
+.detail-section h3 {
+  font-size: 1.2em;
+  color: var(--ion-color-dark);
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--ion-color-medium);
+  padding-bottom: 5px;
+}
+
+.code-block {
+  position: relative;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  overflow-x: auto;
+}
+
+.code-block pre {
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: var(--ion-color-dark);
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--ion-color-secondary);
+  color: var(--ion-color-secondary-contrast);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  transition: background-color 0.3s ease;
+}
+
+.copy-btn.copied {
+  background-color: var(--ion-color-success);
+}
+
+.copy-btn:hover {
+  background-color: darken(var(--ion-color-secondary), 10%);
+}
+
+.btn-submit {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+  margin-top: 20px;
+  width: 100%;
+}

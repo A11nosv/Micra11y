@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="modal-body">
+    <p>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.SUBTITLE' | translate }}</p>
+    <form (ngSubmit)="handleFormSubmit()">
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.PROJECT_TITLE_LABEL' | translate }}</label>
+        <input type="text" [(ngModel)]="newProject.title" name="title" required class="form-input" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.PROJECT_TITLE_PLACEHOLDER' | translate }}">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CATEGORY_LABEL' | translate }}</label>
+        <select [(ngModel)]="newProject.category" name="category" required class="form-select">
+          <option value="">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.SELECT_CATEGORY_PLACEHOLDER' | translate }}</option>
+          <option value="accesibilidad">{{ 'REPOSITORIO_PAGE.CATEGORIES.ACCESSIBILITY' | translate }}</option>
+          <option value="sensores">{{ 'REPOSITORIO_PAGE.CATEGORIES.SENSORS' | translate }}</option>
+          <option value="comunicacion">{{ 'REPOSITORIO_PAGE.CATEGORIES.COMMUNICATION' | translate }}</option>
+          <option value="educacion">{{ 'REPOSITORIO_PAGE.CATEGORIES.EDUCATION' | translate }}</option>
+          <option value="entretenimiento">{{ 'REPOSITORIO_PAGE.CATEGORIES.ENTERTAINMENT' | translate }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DESCRIPTION_LABEL' | translate }}</label>
+        <textarea [(ngModel)]="newProject.description" name="description" required rows="4" class="form-input" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DESCRIPTION_PLACEHOLDER' | translate }}"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.AUTHOR_NAME_LABEL' | translate }}</label>
+        <input type="text" [(ngModel)]="newProject.author" name="author" required class="form-input" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.AUTHOR_NAME_PLACEHOLDER' | translate }}">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TAGS_LABEL' | translate }}</label>
+        <div class="tag-input-container">
+          <div class="tag-item" *ngFor="let tag of uploadedTags">
+            <span>{{ tag }}</span>
+            <button type="button" class="tag-remove" (click)="removeTag(tag)">×</button>
+          </div>
+          <input type="text" class="tag-input-field" (keypress)="addTag($event)" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TAGS_PLACEHOLDER' | translate }}">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CODE_LABEL' | translate }}</label>
+        <div class="file-upload-area" (click)="fileInput.click()" (dragover)="handleDragOver($event)" (dragleave)="handleDragLeave($event)" (drop)="handleFileDrop($event)">
+          <div class="file-upload-icon">📁</div>
+          <p><strong>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DRAG_FILE_TEXT_BOLD' | translate }}</strong></p>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate }}</p>
+          <input type="file" #fileInput accept=".py" style="display: none;" (change)="handleFileInput($event)">
+        </div>
+        <div class="code-preview" *ngIf="newProject.code">
+          <pre>{{ newProject.code }}</pre>
+        </div>
+      </div>
+
+      <ion-button type="submit" expand="block" class="ion-margin-top" [disabled]="!newProject.title || !newProject.category || !newProject.description || !newProject.author || !newProject.code">
+        {{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.PUBLISH_BUTTON' | translate }}
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

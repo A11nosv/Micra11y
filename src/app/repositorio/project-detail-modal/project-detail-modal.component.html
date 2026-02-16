@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ selectedProject?.title }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="modal-content project-detail" *ngIf="selectedProject">
+    <div class="project-detail-header">
+      <div id="detail-header-content">
+        <span class="project-category">{{ getCategoryLabel(selectedProject.category) | translate }}</span>
+        <h2>{{ selectedProject.title }}</h2>
+        <div class="project-author">
+          <span>👤</span>
+          <span>{{ selectedProject.author }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-detail-body">
+      <div class="detail-section">
+        <h3>{{ 'REPOSITORIO_PAGE.DETAIL_MODAL.DESCRIPTION_SECTION_TITLE' | translate }}</h3>
+        <p>{{ selectedProject.description }}</p>
+      </div>
+
+      <div class="detail-section">
+        <h3>{{ 'REPOSITORIO_PAGE.DETAIL_MODAL.TAGS_SECTION_TITLE' | translate }}</h3>
+        <div class="project-tags">
+          <span class="tag" *ngFor="let tag of selectedProject.tags">{{ tag }}</span>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <h3>{{ 'REPOSITORIO_PAGE.DETAIL_MODAL.CODE_SECTION_TITLE' | translate }}</h3>
+        <div class="code-block">
+          <button class="copy-btn" (click)="copyCode(selectedProject.code)" [class.copied]="copied">{{ copied ? ('REPOSITORIO_PAGE.DETAIL_MODAL.COPIED_CODE_BUTTON' | translate) : ('REPOSITORIO_PAGE.DETAIL_MODAL.COPY_CODE_BUTTON' | translate) }}</button>
+          <pre>{{ selectedProject.code }}</pre>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <ion-button class="btn-submit" (click)="downloadProject(selectedProject.id)">
+          ⬇️ {{ 'REPOSITORIO_PAGE.DETAIL_MODAL.DOWNLOAD_FULL_PROJECT_BUTTON' | translate }}
+        </ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
