@@ -53,18 +53,14 @@ export class UploadModalComponent implements OnInit {
     date: '',
     code: ''
   };
-  newProject: Project = {
-    id: 0,
-    title: '',
-    category: '',
-    description: '',
-    author: '',
-    tags: [],
-    downloads: 0,
-    likes: 0,
-    date: '',
-    code: ''
-  };
+
+  availableTags: { category: string; tags: string[] }[] = [
+    { category: 'General', tags: ['educación', 'juego', 'herramienta', 'ciencia', 'arte', 'música', 'deporte'] },
+    { category: 'Micro:bit', tags: ['LED', 'radio', 'pines', 'sensores', 'botones', 'acelerómetro', 'brújula'] },
+    { category: 'Accesibilidad', tags: ['visual', 'auditiva', 'motriz', 'cognitiva', 'lectura fácil', 'CAA'] },
+    { category: 'Lenguajes', tags: ['MicroPython', 'MakeCode', 'Scratch'] },
+    { category: 'Conectividad', tags: ['Bluetooth', 'IoT', 'redes'] },
+  ];
 
   constructor(private modalController: ModalController, private translate: TranslateService) {}
 
@@ -92,16 +88,6 @@ export class UploadModalComponent implements OnInit {
       code: ''
     };
   }
-
-
-
-  availableTags: { category: string; tags: string[] }[] = [
-    { category: 'General', tags: ['educación', 'juego', 'herramienta', 'ciencia', 'arte', 'música', 'deporte'] },
-    { category: 'Micro:bit', tags: ['LED', 'radio', 'pines', 'sensores', 'botones', 'acelerómetro', 'brújula'] },
-    { category: 'Accesibilidad', tags: ['visual', 'auditiva', 'motriz', 'cognitiva', 'lectura fácil', 'CAA'] },
-    { category: 'Lenguajes', tags: ['MicroPython', 'MakeCode', 'Scratch'] },
-    { category: 'Conectividad', tags: ['Bluetooth', 'IoT', 'redes'] },
-  ];
 
   toggleTagSelection(tag: string): void {
     const index = this.newProject.tags.indexOf(tag);
