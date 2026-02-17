@@ -4,6 +4,8 @@ export interface Project {
     category: 'accesibilidad' | 'sensores' | 'comunicacion' | 'educacion' | 'entretenimiento';
     description: string;
     author: string;
+    level: 'bajo' | 'medio' | 'alto';
+    materials: string[];
     tags: string[];
     downloads: number;
     likes: number;

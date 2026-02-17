@@ -652,7 +652,15 @@
       "CODE_LABEL": "Project code (.py) *",
       "DRAG_FILE_TEXT_BOLD": "Drag your .py file here",
       "CLICK_TO_SELECT_TEXT": "or click to select",
-      "PUBLISH_BUTTON": "Publish Project"
+      "PUBLISH_BUTTON": "Publish Project",
+      "LEVEL_LABEL": "Level",
+      "SELECT_LEVEL_PLACEHOLDER": "Select a level",
+      "MATERIALS_LABEL": "Materials"
+    },
+    "LEVELS": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High"
     },
     "DETAIL_MODAL": {
       "DESCRIPTION_SECTION_TITLE": "Description",

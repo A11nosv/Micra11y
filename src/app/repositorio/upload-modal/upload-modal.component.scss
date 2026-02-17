@@ -106,3 +106,14 @@
   border-color: var(--ion-color-primary);
   font-weight: bold;
 }
+
+.materials-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.material-checkbox {
+  display: flex;
+  align-items: center;
+}

@@ -36,8 +36,28 @@
       </div>
 
       <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.MATERIALS_LABEL' | translate }}</label>
+        <div class="materials-container">
+          <div *ngFor="let material of availableMaterials" class="material-checkbox">
+            <ion-checkbox (ionChange)="updateMaterials(material, $event)" [checked]="isMaterialSelected(material)"></ion-checkbox>
+            <ion-label>{{ material }}</ion-label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.AUTHOR_NAME_LABEL' | translate }}</label>
         <input type="text" [(ngModel)]="newProject.author" name="author" required class="form-input" placeholder="{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.AUTHOR_NAME_PLACEHOLDER' | translate }}">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.LEVEL_LABEL' | translate }}</label>
+        <select [(ngModel)]="newProject.level" name="level" required class="form-select">
+          <option value="">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.SELECT_LEVEL_PLACEHOLDER' | translate }}</option>
+          <option value="bajo">{{ 'REPOSITORIO_PAGE.LEVELS.LOW' | translate }}</option>
+          <option value="medio">{{ 'REPOSITORIO_PAGE.LEVELS.MEDIUM' | translate }}</option>
+          <option value="alto">{{ 'REPOSITORIO_PAGE.LEVELS.HIGH' | translate }}</option>
+        </select>
       </div>
 
       <div class="form-group">

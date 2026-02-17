@@ -607,7 +607,15 @@
       "CODE_LABEL": "Código del proyecto (.py) *",
       "DRAG_FILE_TEXT_BOLD": "Arrastra tu archivo .py aquí",
       "CLICK_TO_SELECT_TEXT": "o haz clic para seleccionar",
-      "PUBLISH_BUTTON": "Publicar Proyecto"
+      "PUBLISH_BUTTON": "Publicar Proyecto",
+      "LEVEL_LABEL": "Nivel",
+      "SELECT_LEVEL_PLACEHOLDER": "Selecciona un nivel",
+      "MATERIALS_LABEL": "Materiales"
+    },
+    "LEVELS": {
+      "LOW": "Bajo",
+      "MEDIUM": "Medio",
+      "HIGH": "Alto"
     },
     "DETAIL_MODAL": {
       "DESCRIPTION_SECTION_TITLE": "Descripción",

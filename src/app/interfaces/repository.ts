@@ -4,6 +4,8 @@ export interface RepositoryItem {
   category: string;
   description: string;
   author: string;
+  level: string;
+  materials: string[];
   tags: string[];
   downloads: number;
   likes: number;

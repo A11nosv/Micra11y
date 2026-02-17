@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, IonCheckbox, IonLabel } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RepositoryItem } from '../../interfaces/repository'; // Import RepositoryItem
 
@@ -20,6 +20,8 @@ import { RepositoryItem } from '../../interfaces/repository'; // Import Reposito
     IonButtons,
     IonButton,
     IonIcon,
+    IonCheckbox,
+    IonLabel,
     TranslateModule,
   ],
 })
@@ -34,12 +36,16 @@ export class UploadModalComponent implements OnInit {
     category: '',
     description: '',
     author: '',
+    level: '',
+    materials: [],
     tags: [],
     downloads: 0,
     likes: 0,
     date: '',
     code: ''
   };
+
+  availableMaterials: string[] = ['Micro:bit', 'LEDs', 'Servos', 'Sensors', 'Buzzer', 'Resistencias'];
 
   availableTags: { category: string; tags: string[] }[] = [
     { category: 'TAG_CATEGORIES.GENERAL', tags: ['TAGS.EDUCATION', 'TAGS.GAME', 'TAGS.TOOL', 'TAGS.SCIENCE', 'TAGS.ART', 'TAGS.MUSIC', 'TAGS.SPORT'] },
@@ -53,7 +59,7 @@ export class UploadModalComponent implements OnInit {
 
   ngOnInit() {
     if (this.newProjectInput) {
-      this.newProject = { ...this.newProjectInput };
+      this.newProject = { ...this.newProjectInput, level: '', materials: [] };
     }
   }
 
@@ -67,6 +73,8 @@ export class UploadModalComponent implements OnInit {
       category: '',
       description: '',
       author: '',
+      level: '',
+      materials: [],
       tags: [],
       downloads: 0,
       likes: 0,
@@ -78,14 +86,32 @@ export class UploadModalComponent implements OnInit {
   toggleTagSelection(tag: string): void {
     const index = this.newProject.tags.indexOf(tag);
     if (index > -1) {
-      this.newProject.tags.splice(index, 1); // Tag exists, remove it
+      this.newProject.tags.splice(index, 1);
     } else {
-      this.newProject.tags.push(tag); // Tag doesn't exist, add it
+      this.newProject.tags.push(tag);
     }
   }
 
   isTagSelected(tag: string): boolean {
     return this.newProject.tags.includes(tag);
+  }
+
+  updateMaterials(material: string, event: any) {
+    const isChecked = event.detail.checked;
+    if (isChecked) {
+      if (!this.newProject.materials.includes(material)) {
+        this.newProject.materials.push(material);
+      }
+    } else {
+      const index = this.newProject.materials.indexOf(material);
+      if (index > -1) {
+        this.newProject.materials.splice(index, 1);
+      }
+    }
+  }
+
+  isMaterialSelected(material: string): boolean {
+    return this.newProject.materials.includes(material);
   }
 
   handleDragOver(event: DragEvent): void {

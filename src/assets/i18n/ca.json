@@ -645,7 +645,15 @@
       "CODE_LABEL": "Codi del Projecte (.py) *",
       "DRAG_FILE_TEXT_BOLD": "Arrosega aquí el teu fitxer .py",
       "CLICK_TO_SELECT_TEXT": "o pitja per selccionar-ne un",
-      "PUBLISH_BUTTON": "Publica el Projecte"
+      "PUBLISH_BUTTON": "Publica el Projecte",
+      "LEVEL_LABEL": "Nivell",
+      "SELECT_LEVEL_PLACEHOLDER": "Selecciona un nivell",
+      "MATERIALS_LABEL": "Materials"
+    },
+    "LEVELS": {
+      "LOW": "Baix",
+      "MEDIUM": "Mitjà",
+      "HIGH": "Alt"
     },
     "DETAIL_MODAL": {
       "DESCRIPTION_SECTION_TITLE": "Descripció",

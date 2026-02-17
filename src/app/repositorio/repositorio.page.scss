@@ -74,7 +74,11 @@
       opacity: 0.95;
       margin-bottom: 2rem;
   }
-
+  
+  .btn-upload {
+      --background: var(--ion-color-success); /* Light green background */
+      --color: white; /* Ensure text color is readable */
+  }
   
   /* Stats Bar */
   .stats-bar {
