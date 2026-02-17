@@ -42,11 +42,11 @@ export class UploadModalComponent implements OnInit {
   };
 
   availableTags: { category: string; tags: string[] }[] = [
-    { category: 'General', tags: ['educación', 'juego', 'herramienta', 'ciencia', 'arte', 'música', 'deporte'] },
-    { category: 'Micro:bit', tags: ['LED', 'radio', 'pines', 'sensores', 'botones', 'acelerómetro', 'brújula'] },
-    { category: 'Accesibilidad', tags: ['visual', 'auditiva', 'motriz', 'cognitiva', 'lectura fácil', 'CAA'] },
-    { category: 'Lenguajes', tags: ['MicroPython', 'MakeCode', 'Scratch'] },
-    { category: 'Conectividad', tags: ['Bluetooth', 'IoT', 'redes'] },
+    { category: 'TAG_CATEGORIES.GENERAL', tags: ['TAGS.EDUCATION', 'TAGS.GAME', 'TAGS.TOOL', 'TAGS.SCIENCE', 'TAGS.ART', 'TAGS.MUSIC', 'TAGS.SPORT'] },
+    { category: 'TAG_CATEGORIES.MICROBIT', tags: ['TAGS.LED', 'TAGS.RADIO', 'TAGS.PINS', 'TAGS.SENSORS', 'TAGS.BUTTONS', 'TAGS.ACCELEROMETER', 'TAGS.COMPASS'] },
+    { category: 'TAG_CATEGORIES.ACCESSIBILITY', tags: ['TAGS.VISUAL', 'TAGS.AUDITORY', 'TAGS.MOTOR', 'TAGS.COGNITIVE', 'TAGS.EASY_READING', 'TAGS.AAC'] },
+    { category: 'TAG_CATEGORIES.LANGUAGES', tags: ['TAGS.MICROPYTHON', 'TAGS.MAKECODE', 'TAGS.SCRATCH'] },
+    { category: 'TAG_CATEGORIES.CONNECTIVITY', tags: ['TAGS.BLUETOOTH', 'TAGS.IOT', 'TAGS.NETWORKS'] },
   ];
 
   constructor(private modalController: ModalController, private translate: TranslateService) {}

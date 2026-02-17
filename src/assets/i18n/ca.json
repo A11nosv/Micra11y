@@ -601,10 +601,10 @@
     "P_CONCLUSIONS": "Aquest curs ha cobert les bases de la programació en MicroPython amb un fort èmfasi en el disseny accessible. Recorda que l'accessibilitat no és una característica addicional, sinó un principi fonamental per crear tecnologia inclusiva. Anima't a explorar més projectes i a seguir aprenent com fer la tecnologia accessible per a tots!"
   },
   "REPOSITORIO_PAGE": {
-    "CONTENT": "Contingut de la ´`agina del repositori..",
+    "CONTENT": "Contingut de la pàgina del repositori.",
     "HERO": {
       "TITLE": "Projectes de la micro:bit",
-      "SUBTITLE": "A uest repositori trobarà diferentes projectes aportats per la comunitat. També pot aportar projectes propis i compartir amb la resta pel seu estudi i evolució.",
+      "SUBTITLE": "Aquest repositori trobaràs diferentes projectes aportats per la comunitat. També pots aportar projectes propis i compartir-ho amb la resta pel seu estudi i evolució.",
       "UPLOAD_PROJECT_BUTTON": "Puja el teu projecte"
     },
     "STATS": {
@@ -623,7 +623,7 @@
       "SENSORS": "Sensors",
       "COMMUNICATION": "Communicació",
       "EDUCATION": "Educació",
-      "ENTERTAINMENT": "Enterteniment"
+      "ENTERTAINMENT": "Entreteniment"
     },
     "PROJECTS_GRID": {
       "EMPTY_STATE_TITLE": "No s'ha trobat cap projecte'",
@@ -638,19 +638,19 @@
       "SELECT_CATEGORY_PLACEHOLDER": "Selecciona una categoria",
       "DESCRIPTION_LABEL": "Descripció *",
       "DESCRIPTION_PLACEHOLDER": "Descriu el teu projecte, què fa i com ajuda a l'accessibilitat...",
-      "AUTHOR_NAME_LABEL": "Your name *",
+      "AUTHOR_NAME_LABEL": "El teu nom *",
       "AUTHOR_NAME_PLACEHOLDER": "Ex: Jane Doe",
-      "TAGS_LABEL": "Etiqueta (`pitja Enter per afegir-ne)",
+      "TAGS_LABEL": "Etiquetes",
       "TAGS_PLACEHOLDER": "Ex: sons, LED, vibració...",
       "CODE_LABEL": "Codi del Projecte (.py) *",
-      "DRAG_FILE_TEXT_BOLD": "Arosega aquí el teu fitxer .py",
-      "CLICK_TO_SELECT_TEXT": "o pitja per selccionar",
+      "DRAG_FILE_TEXT_BOLD": "Arrosega aquí el teu fitxer .py",
+      "CLICK_TO_SELECT_TEXT": "o pitja per selccionar-ne un",
       "PUBLISH_BUTTON": "Publica el Projecte"
     },
     "DETAIL_MODAL": {
       "DESCRIPTION_SECTION_TITLE": "Descripció",
       "TAGS_SECTION_TITLE": "Etiuetes",
-      "CODE_SECTION_TITLE": "Code del Projecte",
+      "CODE_SECTION_TITLE": "Codi del Projecte",
       "COPY_CODE_BUTTON": "Copiar",
       "COPIED_CODE_BUTTON": "✓ Copiat",
       "DOWNLOAD_FULL_PROJECT_BUTTON": "Desgarrega el projecte sencer"
@@ -662,6 +662,41 @@
     "TOAST": {
       "PROJECT_PUBLISHED_SUCCESS": "Projecte publicat satisfactoriament! 🎉"
     }
+  },
+  "TAG_CATEGORIES": {
+    "GENERAL": "General",
+    "MICROBIT": "Micro:bit",
+    "ACCESSIBILITY": "Accessibilitat",
+    "LANGUAGES": "Llenguatges",
+    "CONNECTIVITY": "Connectivitat"
+  },
+  "TAGS": {
+    "EDUCATION": "Educació",
+    "GAME": "Joc",
+    "TOOL": "Eina",
+    "SCIENCE": "Ciència",
+    "ART": "Art",
+    "MUSIC": "Música",
+    "SPORT": "Esport",
+    "LED": "LED",
+    "RADIO": "Ràdio",
+    "PINS": "Pines",
+    "SENSORS": "Sensors",
+    "BUTTONS": "Botons",
+    "ACCELEROMETER": "Acceleròmetre",
+    "COMPASS": "Brúixola",
+    "VISUAL": "Visual",
+    "AUDITORY": "Auditiva",
+    "MOTOR": "Motriu",
+    "COGNITIVE": "Cognitiva",
+    "EASY_READING": "Lectura Fàcil",
+    "AAC": "CAA",
+    "MICROPYTHON": "MicroPython",
+    "MAKECODE": "MakeCode",
+    "SCRATCH": "Scratch",
+    "BLUETOOTH": "Bluetooth",
+    "IOT": "IoT",
+    "NETWORKS": "Xarxes"
   },
   "ACCESSIBILITY_EVALUATOR_PAGE": {
     "H2": "Comprovador d'Accesibilitat del codi",
