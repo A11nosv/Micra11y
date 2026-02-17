@@ -144,6 +144,16 @@ export class RepositorioPage implements OnInit {
     return categoryMap[category] || category; // Fallback to category name if no translation key
   }
 
+  getLevelLabel(level: string): string {
+    const lowercasedLevel = level.toLowerCase();
+    const levelMap: { [key: string]: string } = {
+      'low': 'REPOSITORIO_PAGE.LEVELS.LOW',
+      'medium': 'REPOSITORIO_PAGE.LEVELS.MEDIUM',
+      'high': 'REPOSITORIO_PAGE.LEVELS.HIGH',
+    };
+    return levelMap[lowercasedLevel] || level; // Fallback to original level name if no translation key
+  }
+
   formatDate(dateStr: string): string {
     const date = new Date(dateStr);
     const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { HighlightModule } from 'ngx-highlightjs'; // Add this import
 import { RepositoryItem } from '../../interfaces/repository'; // Import RepositoryItem
 
 @Component({
@@ -21,6 +22,7 @@ import { RepositoryItem } from '../../interfaces/repository'; // Import Reposito
     IonButton,
     IonIcon,
     TranslateModule,
+    HighlightModule // Add HighlightModule here
   ],
 })
 export class ProjectDetailModalComponent implements OnInit {
@@ -46,6 +48,16 @@ export class ProjectDetailModalComponent implements OnInit {
       'entretenimiento': 'REPOSITORIO_PAGE.CATEGORIES.ENTERTAINMENT',
     };
     return categoryMap[category] || category;
+  }
+
+  getLevelLabel(level: string): string {
+    const lowercasedLevel = level.toLowerCase();
+    const levelMap: { [key: string]: string } = {
+      'low': 'REPOSITORIO_PAGE.LEVELS.LOW',
+      'medium': 'REPOSITORIO_PAGE.LEVELS.MEDIUM',
+      'high': 'REPOSITORIO_PAGE.LEVELS.HIGH',
+    };
+    return levelMap[lowercasedLevel] || level; // Fallback to original level name if no translation key
   }
 
   downloadProject(id: string): void { // Changed to string

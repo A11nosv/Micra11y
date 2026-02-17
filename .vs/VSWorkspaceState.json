@@ -2,11 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
     "\\src\\app\\interfaces",
     "\\src\\assets",
     "\\src\\assets\\i18n"
   ],
-  "SelectedNode": "\\src\\app\\interfaces\\repository.ts",
+  "SelectedNode": "\\src\\assets\\i18n\\ca.json",
   "PreviewInSolutionExplorer": false
 }

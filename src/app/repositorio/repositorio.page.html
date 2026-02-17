@@ -92,7 +92,7 @@
         <div class="project-card" *ngFor="let project of filteredProjects" (click)="openProjectDetail(project.id!)">
           <div class="project-header">
             <span class="project-category">{{ getCategoryLabel(project.category) | translate }}</span>
-            <h3 class="project-title">{{ project.title }}</h3>
+            <h3 class="project-title">{{ project.title }} <span class="project-level">({{ getLevelLabel(project.level) | translate }})</span></h3>
             <div class="project-author">
               <span>👤</span>
               <span>{{ project.author }}</span>
@@ -101,7 +101,7 @@
           <div class="project-content">
             <p class="project-description">{{ project.description }}</p>
             <div class="project-tags">
-              <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+              <span class="tag" *ngFor="let tag of project.tags">{{ tag | translate }}</span>
             </div>
             <div class="project-stats">
               <span class="stat-item">

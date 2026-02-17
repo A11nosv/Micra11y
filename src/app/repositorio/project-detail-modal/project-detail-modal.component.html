@@ -14,6 +14,7 @@
     <div class="project-detail-header">
       <div id="detail-header-content">
         <span class="project-category">{{ getCategoryLabel(selectedProject.category) | translate }}</span>
+        <span class="project-level">({{ getLevelLabel(selectedProject.level) | translate }})</span>
         <h2>{{ selectedProject.title }}</h2>
         <div class="project-author">
           <span>👤</span>
@@ -35,10 +36,15 @@
       </div>
 
       <div class="detail-section">
+        <h3>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.MATERIALS_LABEL' | translate }}</h3>
+        <p>{{ selectedProject.materials?.join(', ') }}</p>
+      </div>
+
+      <div class="detail-section">
         <h3>{{ 'REPOSITORIO_PAGE.DETAIL_MODAL.CODE_SECTION_TITLE' | translate }}</h3>
         <div class="code-block">
           <button class="copy-btn" (click)="copyCode(selectedProject.code)" [class.copied]="copied">{{ copied ? ('REPOSITORIO_PAGE.DETAIL_MODAL.COPIED_CODE_BUTTON' | translate) : ('REPOSITORIO_PAGE.DETAIL_MODAL.COPY_CODE_BUTTON' | translate) }}</button>
-          <pre>{{ selectedProject.code }}</pre>
+          <pre [highlight]="selectedProject.code" language="python"></pre>
         </div>
       </div>
 

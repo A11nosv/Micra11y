@@ -122,9 +122,9 @@ export class MicrobitValidatorPro {
         }
 
         // --- REGLA 3: Redundancia de Entrada (Evaluación a nivel de archivo/después de recorrer todas las líneas) ---
-        const hasButtonA = /button_a\.is_pressed\(\)/.test(code);
-        const hasButtonB = /button_b\.is_pressed\(\)/.test(code);
-        const hasAlternativeInput = /pin_logo\.is_touched|accelerometer|pin[0-2]\.is_touched/.test(code);
+        const hasButtonA = new RegExp('button_a\\.is_pressed\\(\)').test(code);
+        const hasButtonB = new RegExp('button_b\\.is_pressed\\(\)').test(code);
+        const hasAlternativeInput = new RegExp('pin_logo\\.is_touched|accelerometer|pin[0-2]\\.is_touched').test(code);
 
         if (!hasButtonA && !hasButtonB) {
             // New state: No buttons are used at all.
