@@ -2,10 +2,10 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app\\interfaces",
     "\\src\\assets",
-    "\\src\\assets\\i18n"
+    "\\src\\assets\\Microbit",
+    "\\src\\assets\\Microbit\\03_Advanced"
   ],
-  "SelectedNode": "\\src\\assets\\i18n\\ca.json",
+  "SelectedNode": "\\src\\assets\\Microbit\\03_Advanced\\treasure-master.py",
   "PreviewInSolutionExplorer": false
 }

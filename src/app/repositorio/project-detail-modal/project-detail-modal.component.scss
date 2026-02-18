@@ -53,8 +53,7 @@
 }
 
 .code-block pre {
-  white-space: pre-wrap;
-  word-break: break-all;
+  white-space: pre; /* Changed from pre-wrap to prevent wrapping */
   color: var(--ion-color-dark);
 }
 

@@ -205,12 +205,20 @@ body:not(.dark-theme) {
   box-sizing: border-box;
 }
 
-body {
+html, body, ion-app {
   font-family: 'Lexend', sans-serif;
+}
+
+body {
   background: var(--bg-primary); /* Assuming --bg-primary will be defined globally */
   color: var(--text-primary); /* Assuming --text-primary will be defined globally */
   line-height: 1.6;
 }
+
+code, pre {
+  font-family: monospace;
+}
+
 
 ion-toolbar.aligned-with-content {
   --padding-start: 5vw;

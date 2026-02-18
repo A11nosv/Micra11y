@@ -89,7 +89,7 @@
     <!-- Projects Grid -->
     <section class="projects-section">
       <div class="projects-grid" *ngIf="filteredProjects.length > 0">
-        <div class="project-card" *ngFor="let project of filteredProjects" (click)="openProjectDetail(project.id!)">
+        <div class="project-card" *ngFor="let project of filteredProjects">
           <div class="project-header">
             <span class="project-category">{{ getCategoryLabel(project.category) | translate }}</span>
             <h3 class="project-title">{{ project.title }} <span class="project-level">({{ getLevelLabel(project.level) | translate }})</span></h3>
