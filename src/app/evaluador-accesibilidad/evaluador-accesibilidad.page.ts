@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component';
 import { ManualCheckModalComponent } from './manual-check-modal/manual-check-modal.component'; // Import ManualCheckModalComponent
 import { ResultsModalComponent } from './results-modal/results-modal.component'; // Import ResultsModalComponent
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -62,7 +63,8 @@ while True:
   constructor(
     private translate: TranslateService,
     private languageService: LanguageService,
-    private modalController: ModalController // Inject ModalController
+    private modalController: ModalController, // Inject ModalController
+    private titleService: Title
   ) {
     this.highlightedCode = this.userCode;
     this.correctedCode = this.userCode;
@@ -70,6 +72,7 @@ while True:
   }
 
   ngOnInit() {
+    this.titleService.setTitle('Evaluador de Accesibilidad');
   }
 
   ngOnDestroy() {

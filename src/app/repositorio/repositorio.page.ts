@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, ToastController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 import { LanguageChooserComponent } from '../components/language-chooser/language-chooser.component';
 import { UploadModalComponent } from './upload-modal/upload-modal.component';
@@ -70,10 +71,12 @@ export class RepositorioPage implements OnInit {
     private translate: TranslateService,
     private modalController: ModalController,
     private toastController: ToastController,
-    private repositoryService: RepositoryService // Inject RepositoryService
+    private repositoryService: RepositoryService, // Inject RepositoryService
+    private titleService: Title
   ) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Repositorio');
     this.loadProjects(); // Load projects from Firebase
     this.selectedCategories = ['todos']; // Initialize selectedCategories
   }
@@ -166,7 +169,7 @@ export class RepositorioPage implements OnInit {
     const modal = await this.modalController.create({
       component: UploadModalComponent,
       componentProps: {
-        newProjectInput: this.newProject, // This will be an empty RepositoryItem structure
+        newProjectInput: this.newProject, // This will be an an empty RepositoryItem structure
       },
     });
 

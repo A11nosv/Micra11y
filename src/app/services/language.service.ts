@@ -39,7 +39,6 @@ export class LanguageService {
     this.translate.use(finalLang);
     this._currentLanguage.next(finalLang);
     localStorage.setItem('language', finalLang); // Now finalLang is definitely a string
-    console.log('LanguageService: Initialized with language:', finalLang); // Debug log
   }
 
   setLanguage(lang: string) {
@@ -47,7 +46,6 @@ export class LanguageService {
       this.translate.use(lang);
       this._currentLanguage.next(lang);
       localStorage.setItem('language', lang);
-      window.location.reload();
     } else {
       console.warn(`Language '${lang}' not supported.`);
     }

@@ -1,5 +1,7 @@
 {
   "projects": {
     "default": "microbit-6aff6"
-  }
+  },
+  "targets": {},
+  "etags": {}
 }

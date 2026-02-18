@@ -5,6 +5,7 @@ import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, Io
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Observable, map } from 'rxjs';
 import { LanguageChooserComponent } from '../components/language-chooser/language-chooser.component';
+import { Title } from '@angular/platform-browser';
 
 
 interface Project {
@@ -23,13 +24,14 @@ interface Project {
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, RouterLink, TranslateModule, IonButtons, IonButton, IonIcon, LanguageChooserComponent]
 })
-export class MicrobitPage {
+export class MicrobitPage implements OnInit {
 
   public projects$: Observable<{[key: string]: Project}>;
 
 
   constructor(
-    private translate: TranslateService
+    private translate: TranslateService,
+    private titleService: Title
   ) {
     this.projects$ = this.translate.get('MICROBIT_PAGE.PROJECTS').pipe(
       map(projects => {
@@ -57,6 +59,10 @@ export class MicrobitPage {
     );
 
 
+  }
+
+  ngOnInit() {
+    this.titleService.setTitle('micro:bit a11y');
   }
 
 

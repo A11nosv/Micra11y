@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
   selector: 'app-language-popover-content',
   template: `
     <ion-list>
-      <ion-item *ngFor="let lang of languageService.getAvailableLanguages()" (click)="changeLanguage(lang.code)" button>
+      <ion-item *ngFor="let lang of availableLanguages" (click)="changeLanguage(lang.code)" button>
         <div slot="start" class="language-flag-icon" [style.background-image]="'url(' + lang.flag + ')'"></div>
         <ion-label>{{ lang.name }}</ion-label>
       </ion-item>
@@ -29,12 +29,16 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class LanguagePopoverContentComponent implements OnInit {
 
+  public availableLanguages: any[] = [];
+
   constructor(
     public languageService: LanguageService, // Made public to be accessible in template
     private popoverController: PopoverController
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.availableLanguages = this.languageService.getAvailableLanguages();
+  }
 
   changeLanguage(langCode: string) {
     this.languageService.setLanguage(langCode);
