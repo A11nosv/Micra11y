@@ -26,7 +26,8 @@ interface Question {
     IonButtons,
     IonButton,
     IonItem,
-    TranslateModule
+    TranslateModule,
+    IonIcon
   ],
 })
 export class ManualCheckModalComponent {

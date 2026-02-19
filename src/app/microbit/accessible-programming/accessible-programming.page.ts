@@ -9,13 +9,14 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
 import { RouterModule } from '@angular/router';
 import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
+import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component';
 
 @Component({
   selector: 'app-accessible-programming',
   templateUrl: './accessible-programming.page.html',
   styleUrls: ['./accessible-programming.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, TranslateModule, IonModal, IonButton, HttpClientModule, Highlight, IonIcon, RouterModule]
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonButtons, IonBackButton, TranslateModule, IonModal, IonButton, HttpClientModule, Highlight, IonIcon, RouterModule, LanguageChooserComponent]
 })
 export class AccessibleProgrammingPage implements OnInit, OnDestroy {
 
@@ -27,26 +28,18 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
   public currentImageSrc: string;
   public pythonCode: string = '';
 
-  currentLanguageFlag$: Observable<string>; // New property
-  accessibleLabel: string = ''; // New property
-
   constructor(
     private translate: TranslateService,
     private http: HttpClient,
     private languageService: LanguageService // Inject LanguageService
   ) {
     this.currentImageSrc = this.getImageSrc();
-    this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
-      map(() => this.languageService.getCurrentLanguageFlag())
-    );
   }
 
   ngOnInit() {
     this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
       this.currentImageSrc = this.getImageSrc();
-      this.updateAccessibleLabel(); // Update accessible label on language change
     });
-    this.updateAccessibleLabel(); // Initialize accessible label
     console.log('Current Language:', this.translate.currentLang);
     console.log('Generated Image Source:', this.currentImageSrc);
     console.log('Translation test:', this.translate.instant('ACCESSIBLE_PROGRAMMING.TITLE'));
@@ -89,10 +82,5 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
         this.codeModal.present();
       });
     }
-  }
-
-  // New method to update accessible label
-  private updateAccessibleLabel() {
-    this.accessibleLabel = this.languageService.getAccessibleLabel();
   }
 }

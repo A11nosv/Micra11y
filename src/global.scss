@@ -309,4 +309,43 @@ ion-button[fill="outline"] {
   --border-width: 2px;
 }
 
+/* Modal close button styling: Red background and white X */
+ion-toolbar ion-buttons ion-button.close-modal-button {
+  --background: #f04141 !important; /* Red background */
+  --color: #ffffff !important; /* White icon */
+  color: #ffffff !important;
+  --border-radius: 0 !important;
+  --padding-start: 0 !important;
+  --padding-end: 0 !important;
+  --box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin: 0;
+  height: 32px !important;
+  width: 32px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  opacity: 1 !important;
+  
+  &::part(native) {
+    padding: 0 !important;
+    border-radius: 0 !important;
+    background: #f04141 !important;
+    color: #ffffff !important;
+  }
+
+  ion-icon {
+    color: #ffffff !important;
+    --color: #ffffff !important;
+    font-size: 20px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  &:hover {
+    --background: #d33939 !important;
+  }
+}
+
 

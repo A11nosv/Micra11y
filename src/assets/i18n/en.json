@@ -1,4 +1,5 @@
 {
+  "CLOSE": "Close",
   "ACCESSIBILITY": {
     "LANGUAGE_BUTTON_LABEL": "Current language {{language}} press to change language"
   },
