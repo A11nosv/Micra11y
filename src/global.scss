@@ -314,11 +314,11 @@ ion-toolbar ion-buttons ion-button.close-modal-button {
   --background: #f04141 !important; /* Red background */
   --color: #ffffff !important; /* White icon */
   color: #ffffff !important;
-  --border-radius: 0 !important;
+  --border-radius: 4px !important; /* Un pequeño radio para que no sea un cuadrado perfecto si se prefiere */
   --padding-start: 0 !important;
   --padding-end: 0 !important;
   --box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  margin: 0;
+  margin: 0 8px; /* Un poco de margen lateral */
   height: 32px !important;
   width: 32px !important;
   display: flex !important;
@@ -328,19 +328,23 @@ ion-toolbar ion-buttons ion-button.close-modal-button {
   
   &::part(native) {
     padding: 0 !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     background: #f04141 !important;
     color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   ion-icon {
     color: #ffffff !important;
     --color: #ffffff !important;
-    font-size: 20px !important;
+    font-size: 24px !important; /* Aumentado un poco */
     margin: 0 !important;
     padding: 0 !important;
     opacity: 1 !important;
     visibility: visible !important;
+    display: block !important;
   }
 
   &:hover {

@@ -2,6 +2,8 @@ import { Component, OnInit, Renderer2 } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageService } from './services/language.service';
+import { addIcons } from 'ionicons';
+import { close } from 'ionicons/icons';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent implements OnInit {
     private languageService: LanguageService, // Inject LanguageService
     private renderer: Renderer2 // Inject Renderer2
   ) {
+    addIcons({ close });
     // LanguageService's constructor already calls initLanguage(),
     // so no need to call initializeApp() for language here.
     // Dark mode initialization will remain for now.

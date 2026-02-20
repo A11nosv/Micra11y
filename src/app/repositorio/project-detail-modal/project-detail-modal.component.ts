@@ -27,7 +27,9 @@ import { RepositoryItem } from '../../interfaces/repository'; // Import Reposito
 })
 export class ProjectDetailModalComponent implements OnInit {
   @Input() selectedProject: RepositoryItem | null = null;
-  @Output() projectDownloaded = new EventEmitter<string>(); // Changed to string
+  @Input() downloadProjectFn!: (id: string) => void;
+  @Input() downloadHexFn!: (id: string) => void;
+  @Input() downloadInstructionsFn!: (id: string) => void;
 
   copied: boolean = false;
 
@@ -60,11 +62,22 @@ export class ProjectDetailModalComponent implements OnInit {
     return levelMap[lowercasedLevel] || level; // Fallback to original level name if no translation key
   }
 
-  downloadProject(id: string): void { // Changed to string
-    this.projectDownloaded.emit(id);
-    // The actual download logic will remain in the parent component for now
-    // as it interacts with the `projects` array and global `URL` object.
-    // If needed, this can be refactored to emit the project object and handle download in the modal.
+  downloadProject(id: string): void {
+    if (this.downloadProjectFn) {
+      this.downloadProjectFn(id);
+    }
+  }
+
+  downloadHex(id: string): void {
+    if (this.downloadHexFn) {
+      this.downloadHexFn(id);
+    }
+  }
+
+  downloadInstructions(id: string): void {
+    if (this.downloadInstructionsFn) {
+      this.downloadInstructionsFn(id);
+    }
   }
 
   copyCode(code: string): void {

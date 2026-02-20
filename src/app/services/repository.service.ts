@@ -89,4 +89,32 @@ export class RepositoryService {
       switchMap(snapshot => from(getDownloadURL(snapshot.ref))) // Use switchMap and from() to handle the Promise
     );
   }
+
+  /**
+   * Uploads a hex file to Firebase Storage in the 'hex_files' folder.
+   * @param file The file to upload.
+   * @param fileName The name of the file in storage.
+   * @returns An Observable of the download URL of the uploaded file.
+   */
+  uploadHexFile(file: File, fileName: string): Observable<string> {
+    const filePath = `hex_files/${fileName}`;
+    const storageRef = ref(this.storage, filePath);
+    return from(uploadBytes(storageRef, file)).pipe(
+      switchMap(snapshot => from(getDownloadURL(snapshot.ref)))
+    );
+  }
+
+  /**
+   * Uploads an instructions file to Firebase Storage in the 'documents' folder.
+   * @param file The file to upload.
+   * @param fileName The name of the file in storage.
+   * @returns An Observable of the download URL of the uploaded file.
+   */
+  uploadInstructionsFile(file: File, fileName: string): Observable<string> {
+    const filePath = `documents/${fileName}`;
+    const storageRef = ref(this.storage, filePath);
+    return from(uploadBytes(storageRef, file)).pipe(
+      switchMap(snapshot => from(getDownloadURL(snapshot.ref)))
+    );
+  }
 }

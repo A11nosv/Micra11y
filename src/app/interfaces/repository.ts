@@ -11,4 +11,6 @@ export interface RepositoryItem {
   likes: number;
   date: string;
   code: string; // URL to the code file in Firebase Storage
+  hexFile?: string; // URL or content of the .hex file
+  instructionsFile?: string; // URL to the instructions file
 }

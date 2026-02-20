@@ -59,10 +59,13 @@ export class RepositorioPage implements OnInit {
     downloads: 0,
     likes: 0,
     date: '',
-    code: ''
+    code: '',
+    hexFile: '',
+    instructionsFile: ''
   };
   uploadedTags: string[] = [];
   uploadedFile: File | null = null;
+  uploadedHexFile: File | null = null;
 
   selectedProject: RepositoryItem | null = null;
   copied: boolean = false;
@@ -175,17 +178,41 @@ export class RepositorioPage implements OnInit {
 
     modal.onWillDismiss().then(async (result) => { // Added async here
       if (result.role === 'submit' && result.data) {
-        const submittedProject: RepositoryItem = result.data; // Now RepositoryItem
+        const { project, codeFile, hexFile, instructionsFile } = result.data;
+        const submittedProject: RepositoryItem = project;
 
-        let codeUrl: string = ''; // Explicitly type as string
-        if (this.uploadedFile) {
+        // Upload Python code
+        if (codeFile) {
           try {
-            const uploadedResult = await this.repositoryService.uploadCodeFile(this.uploadedFile, submittedProject.title).toPromise();
-            codeUrl = uploadedResult || ''; // Assign uploadedResult or empty string if undefined
-            submittedProject.code = codeUrl; // Store the download URL
+            const uploadedResult = await this.repositoryService.uploadCodeFile(codeFile, submittedProject.title).toPromise();
+            submittedProject.code = uploadedResult || '';
           } catch (error) {
-            console.error('Error uploading file:', error);
+            console.error('Error uploading code file:', error);
             this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.FILE_UPLOAD_ERROR'), 'danger');
+            return;
+          }
+        }
+
+        // Upload HEX file
+        if (hexFile) {
+          try {
+            const hexUploadedResult = await this.repositoryService.uploadHexFile(hexFile, submittedProject.title).toPromise();
+            submittedProject.hexFile = hexUploadedResult || '';
+          } catch (error) {
+            console.error('Error uploading hex file:', error);
+            this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.HEX_FILE_UPLOAD_ERROR'), 'danger');
+            return;
+          }
+        }
+
+        // Upload Instructions file
+        if (instructionsFile) {
+          try {
+            const instructionsUploadedResult = await this.repositoryService.uploadInstructionsFile(instructionsFile, submittedProject.title).toPromise();
+            submittedProject.instructionsFile = instructionsUploadedResult || '';
+          } catch (error) {
+            console.error('Error uploading instructions file:', error);
+            this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.INSTRUCTIONS_FILE_UPLOAD_ERROR'), 'danger');
             return;
           }
         }
@@ -221,6 +248,9 @@ export class RepositorioPage implements OnInit {
         component: ProjectDetailModalComponent,
         componentProps: {
           selectedProject: this.selectedProject,
+          downloadProjectFn: (id: string) => this.downloadProject(id),
+          downloadHexFn: (id: string) => this.downloadHex(id),
+          downloadInstructionsFn: (id: string) => this.downloadInstructions(id)
         },
       });
 
@@ -255,10 +285,13 @@ export class RepositorioPage implements OnInit {
       downloads: 0,
       likes: 0,
       date: '',
-      code: ''
+      code: '',
+      hexFile: '',
+      instructionsFile: ''
     };
     this.uploadedTags = [];
     this.uploadedFile = null;
+    this.uploadedHexFile = null;
   }
 
   addTag(event: KeyboardEvent): void {
@@ -346,6 +379,53 @@ export class RepositorioPage implements OnInit {
         });
     } else {
       this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.PROJECT_NOT_FOUND'), 'danger');
+    }
+  }
+
+  downloadHex(id: string, event?: Event): void {
+    if (event) event.stopPropagation();
+    const project = this.projects.find(p => p.id === id);
+    if (project && project.hexFile) {
+      fetch(project.hexFile)
+        .then(response => response.text())
+        .then(hexContent => {
+          const blob = new Blob([hexContent], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `${project.title.toLowerCase().replace(/\s+/g, '_')}.hex`;
+          a.click();
+          URL.revokeObjectURL(url);
+          
+          // Optionally update download count here too
+        })
+        .catch(error => {
+          console.error('Error downloading HEX file:', error);
+          this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.HEX_DOWNLOAD_ERROR'), 'danger');
+        });
+    }
+  }
+
+  downloadInstructions(id: string, event?: Event): void {
+    if (event) event.stopPropagation();
+    const project = this.projects.find(p => p.id === id);
+    if (project && project.instructionsFile) {
+      fetch(project.instructionsFile)
+        .then(response => response.blob())
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          // Try to detect extension or default to txt/pdf
+          const isPdf = project.instructionsFile!.toLowerCase().includes('.pdf');
+          a.download = `${project.title.toLowerCase().replace(/\s+/g, '_')}_instrucciones${isPdf ? '.pdf' : '.txt'}`;
+          a.click();
+          URL.revokeObjectURL(url);
+        })
+        .catch(error => {
+          console.error('Error downloading instructions file:', error);
+          this.presentToast(this.translate.instant('REPOSITORIO_PAGE.TOAST.INSTRUCTIONS_DOWNLOAD_ERROR'), 'danger');
+        });
     }
   }
 

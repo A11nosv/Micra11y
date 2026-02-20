@@ -30,6 +30,8 @@ export class UploadModalComponent implements OnInit {
   @Output() projectSubmitted = new EventEmitter<RepositoryItem>();
 
   @ViewChild('fileInput') fileInput!: ElementRef;
+  @ViewChild('hexFileInput') hexFileInput!: ElementRef;
+  @ViewChild('instructionsFileInput') instructionsFileInput!: ElementRef;
 
   newProject: Omit<RepositoryItem, 'id'> = {
     title: '',
@@ -42,7 +44,9 @@ export class UploadModalComponent implements OnInit {
     downloads: 0,
     likes: 0,
     date: '',
-    code: ''
+    code: '',
+    hexFile: '',
+    instructionsFile: ''
   };
 
   availableMaterials: string[] = ['Micro:bit', 'LEDs', 'Servos', 'Sensors', 'Buzzer', 'Resistencias'];
@@ -54,6 +58,10 @@ export class UploadModalComponent implements OnInit {
     { category: 'TAG_CATEGORIES.LANGUAGES', tags: ['TAGS.MICROPYTHON', 'TAGS.MAKECODE', 'TAGS.SCRATCH'] },
     { category: 'TAG_CATEGORIES.CONNECTIVITY', tags: ['TAGS.BLUETOOTH', 'TAGS.IOT', 'TAGS.NETWORKS'] },
   ];
+
+  uploadedCodeFile: File | null = null;
+  uploadedHexFile: File | null = null;
+  uploadedInstructionsFile: File | null = null;
 
   constructor(private modalController: ModalController, private translate: TranslateService) {}
 
@@ -79,8 +87,15 @@ export class UploadModalComponent implements OnInit {
       downloads: 0,
       likes: 0,
       date: '',
-      code: ''
+      code: '',
+      hexFile: '',
+      instructionsFile: ''
     };
+  }
+
+  isPdfInstructions(): boolean {
+    return this.uploadedInstructionsFile?.type === 'application/pdf' || 
+           this.uploadedInstructionsFile?.name.endsWith('.pdf') || false;
   }
 
   toggleTagSelection(tag: string): void {
@@ -138,6 +153,7 @@ export class UploadModalComponent implements OnInit {
   }
 
   processFileUpload(file: File): void {
+    this.uploadedCodeFile = file;
     const reader = new FileReader();
     reader.onload = (e) => {
       this.newProject.code = e.target?.result as string;
@@ -145,7 +161,65 @@ export class UploadModalComponent implements OnInit {
     reader.readAsText(file);
   }
 
+  handleHexFileDrop(event: DragEvent): void {
+    event.preventDefault();
+    const file = event.dataTransfer?.files[0];
+    if (file && file.name.endsWith('.hex')) {
+      this.processHexFileUpload(file);
+    }
+  }
+
+  handleHexFileInput(event: Event): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      this.processHexFileUpload(file);
+    }
+  }
+
+  processHexFileUpload(file: File): void {
+    this.uploadedHexFile = file;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.newProject.hexFile = e.target?.result as string;
+    };
+    reader.readAsText(file);
+  }
+
+  handleInstructionsFileDrop(event: DragEvent): void {
+    event.preventDefault();
+    const file = event.dataTransfer?.files[0];
+    if (file && (file.name.endsWith('.txt') || file.name.endsWith('.pdf'))) {
+      this.processInstructionsFileUpload(file);
+    }
+  }
+
+  handleInstructionsFileInput(event: Event): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      this.processInstructionsFileUpload(file);
+    }
+  }
+
+  processInstructionsFileUpload(file: File): void {
+    this.uploadedInstructionsFile = file;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.newProject.instructionsFile = e.target?.result as string;
+    };
+    if (file.type === 'application/pdf') {
+      // For PDF we just want to know it's uploaded, not necessarily read as text
+      this.newProject.instructionsFile = 'PDF_FILE_UPLOADED';
+    } else {
+      reader.readAsText(file);
+    }
+  }
+
   handleFormSubmit(): void {
-    this.modalController.dismiss(this.newProject, 'submit');
+    this.modalController.dismiss({
+      project: this.newProject,
+      codeFile: this.uploadedCodeFile,
+      hexFile: this.uploadedHexFile,
+      instructionsFile: this.uploadedInstructionsFile
+    }, 'submit');
   }
 }

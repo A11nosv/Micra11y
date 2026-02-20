@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>{{ selectedProject?.title }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
+      <ion-button (click)="closeModal()" [ariaLabel]="'CLOSE' | translate" class="close-modal-button">
         <ion-icon name="close" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -48,9 +48,15 @@
         </div>
       </div>
 
-      <div class="detail-section">
+      <div class="detail-section button-group">
         <ion-button class="btn-submit" (click)="downloadProject(selectedProject.id!)">
           ⬇️ {{ 'REPOSITORIO_PAGE.DETAIL_MODAL.DOWNLOAD_FULL_PROJECT_BUTTON' | translate }}
+        </ion-button>
+        <ion-button *ngIf="selectedProject.hexFile" class="btn-submit hex-button" (click)="downloadHex(selectedProject.id!)">
+          ⚙️ {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_HEX_BUTTON' | translate }}
+        </ion-button>
+        <ion-button *ngIf="selectedProject.instructionsFile" class="btn-submit instructions-button" (click)="downloadInstructions(selectedProject.id!)">
+          📄 {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate }}
         </ion-button>
       </div>
     </div>

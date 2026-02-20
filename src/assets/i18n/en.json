@@ -651,9 +651,15 @@
       "TAGS_LABEL": "Tags (press Enter to add)",
       "TAGS_PLACEHOLDER": "Ex: sound, LED, vibration...",
       "CODE_LABEL": "Project code (.py) *",
+      "HEX_CODE_LABEL": ".HEX file",
+      "INSTRUCTIONS_LABEL": "Upload instructions (.txt, .pdf)",
       "DRAG_FILE_TEXT_BOLD": "Drag your .py file here",
+      "DRAG_HEX_FILE_TEXT_BOLD": "Drag your .hex file here",
+      "DRAG_INSTRUCTIONS_FILE_TEXT_BOLD": "Drag your instructions here",
       "CLICK_TO_SELECT_TEXT": "or click to select",
       "PUBLISH_BUTTON": "Publish Project",
+      "HEX_FILE_UPLOADED": ".hex file uploaded",
+      "INSTRUCTIONS_FILE_UPLOADED": "Instructions uploaded",
       "LEVEL_LABEL": "Level",
       "SELECT_LEVEL_PLACEHOLDER": "Select a level",
       "MATERIALS_LABEL": "Materials"
@@ -673,10 +679,16 @@
     },
     "PROJECT_CARD": {
       "DOWNLOAD_BUTTON": "Download",
+      "DOWNLOAD_HEX_BUTTON": "Download HEX",
+      "DOWNLOAD_INSTRUCTIONS_BUTTON": "Download instructions",
       "VIEW_CODE_BUTTON": "View code"
     },
     "TOAST": {
-      "PROJECT_PUBLISHED_SUCCESS": "Project published successfully! 🎉"
+      "PROJECT_PUBLISHED_SUCCESS": "Project published successfully! 🎉",
+      "HEX_FILE_UPLOAD_ERROR": "Error uploading .hex file",
+      "INSTRUCTIONS_FILE_UPLOAD_ERROR": "Error uploading instructions",
+      "HEX_DOWNLOAD_ERROR": "Error downloading .hex file",
+      "INSTRUCTIONS_DOWNLOAD_ERROR": "Error downloading instructions"
     }
   },
   "TAG_CATEGORIES": {
