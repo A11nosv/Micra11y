@@ -28,8 +28,6 @@ import { RepositoryItem } from '../../interfaces/repository'; // Import Reposito
 export class ProjectDetailModalComponent implements OnInit {
   @Input() selectedProject: RepositoryItem | null = null;
   @Input() downloadProjectFn!: (id: string) => void;
-  @Input() downloadHexFn!: (id: string) => void;
-  @Input() downloadInstructionsFn!: (id: string) => void;
 
   copied: boolean = false;
 
@@ -65,18 +63,6 @@ export class ProjectDetailModalComponent implements OnInit {
   downloadProject(id: string): void {
     if (this.downloadProjectFn) {
       this.downloadProjectFn(id);
-    }
-  }
-
-  downloadHex(id: string): void {
-    if (this.downloadHexFn) {
-      this.downloadHexFn(id);
-    }
-  }
-
-  downloadInstructions(id: string): void {
-    if (this.downloadInstructionsFn) {
-      this.downloadInstructionsFn(id);
     }
   }
 

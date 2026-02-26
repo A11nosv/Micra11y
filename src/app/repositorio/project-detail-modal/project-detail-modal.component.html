@@ -52,12 +52,6 @@
         <ion-button class="btn-submit" (click)="downloadProject(selectedProject.id!)">
           ⬇️ {{ 'REPOSITORIO_PAGE.DETAIL_MODAL.DOWNLOAD_FULL_PROJECT_BUTTON' | translate }}
         </ion-button>
-        <ion-button *ngIf="selectedProject.hexFile" class="btn-submit hex-button" (click)="downloadHex(selectedProject.id!)">
-          ⚙️ {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_HEX_BUTTON' | translate }}
-        </ion-button>
-        <ion-button *ngIf="selectedProject.instructionsFile" class="btn-submit instructions-button" (click)="downloadInstructions(selectedProject.id!)">
-          📄 {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate }}
-        </ion-button>
       </div>
     </div>
   </div>

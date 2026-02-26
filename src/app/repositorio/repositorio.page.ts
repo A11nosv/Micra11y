@@ -203,6 +203,7 @@ export class RepositorioPage implements OnInit {
       component: ProjectDetailModalComponent,
       componentProps: {
         selectedProject: project,
+        downloadProjectFn: (id: string) => this.downloadProject(id)
       },
     });
 

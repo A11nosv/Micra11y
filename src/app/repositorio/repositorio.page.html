@@ -122,12 +122,6 @@
             <ion-button class="btn-primary" (click)="downloadProject(project.id!, $event)">
               {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_BUTTON' | translate }}
             </ion-button>
-            <ion-button *ngIf="project.hexFile" class="btn-primary hex-btn" (click)="downloadHex(project.id!, $event)">
-              {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_HEX_BUTTON' | translate }}
-            </ion-button>
-            <ion-button *ngIf="project.instructionsFile" class="btn-primary instructions-btn" (click)="downloadInstructions(project.id!, $event)">
-              {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate }}
-            </ion-button>
             <ion-button class="btn-secondary" (click)="viewProject(project.id!, $event)">
               {{ 'REPOSITORIO_PAGE.PROJECT_CARD.VIEW_CODE_BUTTON' | translate }}
             </ion-button>

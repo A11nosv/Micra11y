@@ -93,35 +93,6 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.HEX_CODE_LABEL' | translate }}</label>
-        <div class="file-upload-area" (click)="hexFileInput.click()" (dragover)="handleDragOver($event)" (dragleave)="handleDragLeave($event)" (drop)="handleHexFileDrop($event)">
-          <div class="file-upload-icon">⚙️</div>
-          <p><strong>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DRAG_HEX_FILE_TEXT_BOLD' | translate }}</strong></p>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate }}</p>
-          <input type="file" #hexFileInput accept=".hex" style="display: none;" (change)="handleHexFileInput($event)">
-        </div>
-        <div class="code-preview" *ngIf="newProject.hexFile">
-          <p style="font-size: 0.8rem; color: var(--ion-color-medium);">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.HEX_FILE_UPLOADED' | translate }}</p>
-          <pre>{{ newProject.hexFile.substring(0, 100) }}...</pre>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.INSTRUCTIONS_LABEL' | translate }}</label>
-        <div class="file-upload-area" (click)="instructionsFileInput.click()" (dragover)="handleDragOver($event)" (dragleave)="handleDragLeave($event)" (drop)="handleInstructionsFileDrop($event)">
-          <div class="file-upload-icon">📄</div>
-          <p><strong>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DRAG_INSTRUCTIONS_FILE_TEXT_BOLD' | translate }}</strong></p>
-          <p style="color: var(--text-secondary); font-size: 0.9rem;">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate }}</p>
-          <input type="file" #instructionsFileInput accept=".txt,.pdf" style="display: none;" (change)="handleInstructionsFileInput($event)">
-        </div>
-        <div class="code-preview" *ngIf="newProject.instructionsFile">
-          <p style="font-size: 0.8rem; color: var(--ion-color-medium);">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.INSTRUCTIONS_FILE_UPLOADED' | translate }}</p>
-          <p *ngIf="isPdfInstructions()">PDF Document</p>
-          <pre *ngIf="!isPdfInstructions()">{{ newProject.instructionsFile.substring(0, 100) }}...</pre>
-        </div>
-      </div>
-
       <ion-button type="submit" expand="block" class="ion-margin-top" [disabled]="!newProject.title || !newProject.category || !newProject.description || !newProject.author || !newProject.code">
         {{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.PUBLISH_BUTTON' | translate }}
       </ion-button>
