@@ -29,19 +29,6 @@
     width: 100%; /* Take full width */
 }
 
-.example-button {
-    width: 150px; /* Example fixed width, adjusted for better visibility when stacked */
-    cursor: pointer;
-    border: 2px solid var(--ion-color-primary, #3880ff); /* Add a border */
-    border-radius: 8px; /* Slightly rounded corners */
-    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
-    object-fit: cover; /* Ensures image covers the area without distortion */
-
-    &:hover {
-        transform: scale(1.05); /* Slight grow on hover */
-    }
-}
-
 /* Tablet and Desktop styles */
 @media (min-width: 768px) {
     .ion-padding {
@@ -56,10 +43,6 @@
         flex-direction: row; /* Display side-by-side for larger screens */
         justify-content: center; /* Center buttons horizontally */
         gap: 30px; /* More space between buttons */
-    }
-    .example-button {
-        width: 200px; /* Larger size for desktop */
-        height: 200px; /* Larger size for desktop */
     }
 }
 

@@ -124,8 +124,8 @@
     "STEP_1_TEXT_48": "Amb aquest codi estem enviant el missatge escrit per un usuari i rebent-lo a l’altre Micro:bit. Un cop es rep el missatge la Micro:bit el mostra en pantalla i el llegeix.",
     "STEP_2_TITLE": "Pas 2: El codi",
     "STEP_2_TEXT": "Descàrrega del fitxer hex.",
-    "STEP_3_TITLE": "Pas 3: Evolucion el Codi",
-    "STEP_3_TEXT": "Hem creat un joc on s'utilitza l'alfabet Morse per enviar un missatge secret. Prova de crear un joc similar utilitzant altres alfabets com el braille."
+    "STEP_3_TEXT": "Hem creat un joc on s'utilitza l'alfabet Morse per enviar un missatge secret. Prova de crear un joc similar utilitzant altres alfabets com el braille.",
+    "STEP_3_TITLE": "Pas 3:Evoluciona el codi"
   },
   "RPS_PAGE": {
     "TITLE": "Pedra, Paper, Tisora",

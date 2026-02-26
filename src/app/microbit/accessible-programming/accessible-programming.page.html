@@ -77,12 +77,12 @@
   </div>
 
   <div class="button-container">
-      <a class="example-button" (click)="openModal('non-accessible')">
-        <img src="assets/img/non_accessible_example.png" alt="{{ 'ACCESSIBLE_PROGRAMMING.NON_ACCESSIBLE_EXAMPLE_BUTTON' | translate }}" />
-      </a>
-      <a class="example-button" (click)="openModal('accessible')">
-        <img src="../../../assets/img/accessible_example.png" alt="{{ 'ACCESSIBLE_PROGRAMMING.ACCESSIBLE_EXAMPLE_BUTTON' | translate }}" />
-    </a>
+    <ion-button color="danger" (click)="openModal('non-accessible')">
+      {{ 'ACCESSIBLE_PROGRAMMING.NON_ACCESSIBLE_EXAMPLE_BUTTON' | translate }}
+    </ion-button>
+    <ion-button color="success" (click)="openModal('accessible')">
+      {{ 'ACCESSIBLE_PROGRAMMING.ACCESSIBLE_EXAMPLE_BUTTON' | translate }}
+    </ion-button>
   </div>
 
   <ion-modal #nonAccessibleModal>

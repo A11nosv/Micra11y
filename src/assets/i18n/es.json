@@ -223,6 +223,7 @@
     "STEP_3_TEXT": "Modifica el código para crear un ritmo musical completo, un juego de reacción al ritmo, o conéctalo a otros proyectos!"
   },
   "SECRET_MESSAGE_PAGE": {
+    "TITLE": "Mensaje Secreto",
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de video.",
     "MORSE_CODE_CAPTION": "Alfabeto de Código Morse",
     "INTRODUCTION_TITLE": "Introducción",
@@ -529,7 +530,7 @@
     "MODAL_ACCESSIBLE_P": "Placa Micro:bit con un corazón latiendo y emitiendo un sonido (pip) con cada latido del corazón.",
     "MODAL_CODE_TITLE": "Código",
     "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo no accesible",
-    "ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo accesible"
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo Accesible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad (Automática)",

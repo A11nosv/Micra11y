@@ -269,6 +269,7 @@
     "STEP_3_TEXT": "Modifica el codi per crear un ritme musical complet, un joc de reacció al ritme, o connecta-ho a altres projectes!"
   },
   "SECRET_MESSAGE_PAGE": {
+    "TITLE": "Missatge Secret",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
     "MORSE_CODE_CAPTION": "Alfabet de Codi Morse",
     "INTRODUCTION_TITLE": "Introducció",
@@ -573,7 +574,9 @@
     "MODAL_ACCESSIBLE_TITLE": "Exemple Accessible",
     "MODAL_ACCESSIBLE_H2": "Videoclip (Accessible)",
     "MODAL_ACCESSIBLE_P": "El videoclip de l'exemple accessible aniria aquí.",
-    "MODAL_CODE_TITLE": "Codi"
+    "MODAL_CODE_TITLE": "Codi",
+    "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Exemple no accessible",
+    "ACCESSIBLE_EXAMPLE_BUTTON": "Exemple Accessible"
   },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Avaluador d'accessibilitat",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprovar Accessibilitat (Automàtica)",
