@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, ModalController } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, ModalController, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
@@ -16,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     IonContent,
     IonButtons,
     IonButton,
-    TranslateModule
+    TranslateModule,
+    IonIcon
   ],
 })
 export class ResultsModalComponent {

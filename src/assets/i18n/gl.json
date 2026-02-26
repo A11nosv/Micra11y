@@ -1,4 +1,5 @@
 {
+  "CLOSE": "Pechar",
   "ACCESSIBILITY": {
     "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} pulsa para modificar idioma"
   },

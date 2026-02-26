@@ -282,6 +282,15 @@
       background: var(--bg-secondary);
       display: flex;
       gap: 0.8rem;
+      flex-wrap: wrap; /* Permitir que los botones bajen de línea en pantallas pequeñas */
+  }
+
+  .hex-btn {
+      --background: var(--ion-color-secondary); /* Color diferente para distinguir */
+  }
+
+  .instructions-btn {
+      --background: var(--ion-color-tertiary); /* Otro color para distinguir */
   }
 
   .btn-action {

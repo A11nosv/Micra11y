@@ -122,4 +122,8 @@
 .material-checkbox {
   display: flex;
   align-items: center;
+
+  ion-checkbox {
+    margin-right: 1rem;
+  }
 }

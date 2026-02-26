@@ -86,6 +86,22 @@
   width: 100%;
 }
 
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hex-button {
+  --background: var(--ion-color-secondary);
+  margin-top: 0;
+}
+
+.instructions-button {
+  --background: var(--ion-color-tertiary);
+  margin-top: 0;
+}
+
 .project-tags {
   display: flex;
   flex-wrap: wrap;
