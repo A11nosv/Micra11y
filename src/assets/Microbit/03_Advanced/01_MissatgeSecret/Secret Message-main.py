@@ -2,6 +2,7 @@
 from microbit import *
 import music
 import speech
+import radio
 
 # Constants
 ALPHABET = {
@@ -52,6 +53,10 @@ while True:
     display.clear()
 
     if accelerometer.was_gesture('shake'):
-        display.show(word)
-        speech.say((word))
+        radio.send(word)
         
+    if radio.receive():
+        msg = radio.receive()
+        
+        if msg:
+            display.scroll(msg)

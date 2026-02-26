@@ -12,13 +12,18 @@ result = [j, playerA, playerB]
 # Funtions
 def countdown(i):
     while i > 0:
-        for n in range(4): 
+        for n in range(4):
+            set_volume(255)
             display.show(i)
             music.play('d') 
-            sleep(1000)
+            sleep(750)
+            set_volume(0)
+            sleep(250)
             i = i - 1
  
         if i == 0:
+            set_volume(255)
+            music.play(music.POWER_UP)
             display.show(0)
  
 def btn_presed(btn, result):

@@ -18,13 +18,16 @@ export class MicrobitValidatorPro {
 
         lines.forEach((line, index) => {
             const lineNumber = index + 1;
+            const trimmedLine = line.trim();
+
+            if (trimmedLine === '' || trimmedLine.startsWith('#')) return;
 
             // 1. REGLA: Uso de retroalimentación multisensorial
             // Track imports
-            if (/(from microbit import \*|import microbit)/.test(line)) {
+            if (/(from\s+microbit\s+import\s+.*|import\s+microbit)/.test(line)) {
                 hasMicrobitImport = true;
             }
-            if (!/^\s*#/.test(line) && /import\s+(speech|music)|from\s+(speech|music)/.test(line)) {
+            if (/import\s+(speech|music)|from\s+(speech|music)/.test(line)) {
                 hasAudioImport = true;
             }
 
@@ -32,7 +35,7 @@ export class MicrobitValidatorPro {
             if (/music\.play\(.*\)|speech\.say\(.*\)/.test(line)) {
                 hasAudioOutput = true;
             }
-            if (/display\.show\(.*\)/.test(line)) {
+            if (/display\.(show|scroll)\(.*\)/.test(line)) {
                 displayShowLines.push(lineNumber);
             }
 
@@ -47,10 +50,17 @@ export class MicrobitValidatorPro {
                         suggestion: "VALIDATOR.BLOCKING_LOOPS.WARNING_SUGGESTION",
                         line: lineNumber
                     });
+                } else {
+                    score += 0.2; // Small reward for using sleep correctly instead of pass
                 }
             }
 
-            // 4. REGLA: Pulsaciones complejas (Check per line for simplicity, might need multi-line if button checks are split)
+            // 3. REGLA: Comentarios (Semántica y Claridad)
+            if (line.includes('#')) {
+                score += 0.5;
+            }
+
+            // 4. REGLA: Pulsaciones complejas
             const complexPressRegex = /(button_a\.is_pressed\(\)\s*and\s*button_b\.is_pressed\(\))|(button_b\.is_pressed\(\)\s*and\s*button_a\.is_pressed\(\))|(button_a\.is_pressed\(\)\s*and\s*pin_logo\.is_touched\(\))|(pin_logo\.is_touched\(\)\s*and\s*button_a\.is_pressed\(\))|(button_b\.is_pressed\(\)\s*and\s*pin_logo\.is_touched\(\))|(pin_logo\.is_touched\(\)\s*and\s*button_b\.is_pressed\(\))/;
             if (complexPressRegex.test(line)) {
                 issues.push({
@@ -61,14 +71,13 @@ export class MicrobitValidatorPro {
                 });
             }
 
-            // 5. REGLA: Semántica de Código (Nueva lógica)
+            // 5. REGLA: Semántica de Código
             const assignmentMatch = line.match(/^\s*(\w+)\s*=\s*(.*)$/);
             if (assignmentMatch) {
                 const variableName = assignmentMatch[1];
                 const assignedValue = assignmentMatch[2].trim();
 
                 if (variableName.length <= 4) {
-                    // Check if value is a literal number, boolean, or string
                     const isNumber = /^-?\d+(\.\d*)?([eE][+-]?\d+)?$/.test(assignedValue);
                     const isBoolean = /^(True|False)$/.test(assignedValue);
                     const isString = /^(".*"|'.*')$/.test(assignedValue);
@@ -81,63 +90,61 @@ export class MicrobitValidatorPro {
                             line: lineNumber
                         });
                     }
+                } else {
+                    score += 0.5; // Reward for descriptive names
                 }
             }
         });
         
-        // --- REGLA 1: Feedback Auditivo (Evaluación a nivel de archivo/después de recorrer todas las líneas) ---
+        // --- REGLA 1: Feedback Auditivo ---
         const hasDisplayShow = displayShowLines.length > 0;
 
         if (hasAudioImport) {
-            score += 1.5;
-            // The success message for import is handled here, but output is separate
+            score += 1.0;
         }
         if (hasAudioImport && hasAudioOutput) {
-            score += 1.5;
-            // The success message for output is handled here
+            score += 2.0;
             issues.push({ type: 'success', message: "VALIDATOR.AUDIO_FEEDBACK.SUCCESS_MESSAGE_2" });
         } else if (hasAudioImport && !hasAudioOutput) {
             issues.push({
                 type: 'error',
-                message: "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE", // Missing sound output
-                suggestion: "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION" // Suggest adding music.play or speech.say
+                message: "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE",
+                suggestion: "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION"
             });
         } else { // No audio import
-            if (hasDisplayShow && !hasAudioOutput) { // Using display.show but no audio output
+            if (hasDisplayShow && !hasAudioOutput) {
                 displayShowLines.forEach(lineNumber => {
                     issues.push({
                         type: 'error',
                         message: "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW",
                         suggestion: "VALIDATOR.AUDIO_FEEDBACK.SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW",
-                        line: lineNumber // The crucial fix: ADD THE LINE NUMBER
+                        line: lineNumber
                     });
                 });
-            } else if (!hasAudioImport) { // General case: no audio import at all
+            } else if (!hasAudioImport) {
                 issues.push({
                     type: 'error',
-                    message: "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE", // Missing sound output
-                    suggestion: "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2" // Suggest importing speech/music
+                    message: "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE",
+                    suggestion: "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2"
                 });
             }
         }
 
-        // --- REGLA 3: Redundancia de Entrada (Evaluación a nivel de archivo/después de recorrer todas las líneas) ---
-        const hasButtonA = new RegExp('button_a\\.is_pressed\\(\)').test(code);
-        const hasButtonB = new RegExp('button_b\\.is_pressed\\(\)').test(code);
-        const hasAlternativeInput = new RegExp('pin_logo\\.is_touched|accelerometer|pin[0-2]\\.is_touched').test(code);
+        // --- REGLA 3: Redundancia de Entrada ---
+        const hasButtonA = /button_a\.is_pressed\(\)/.test(code);
+        const hasButtonB = /button_b\.is_pressed\(\)/.test(code);
+        const hasAlternativeInput = /pin_logo\.is_touched|accelerometer|pin[0-2]\.is_touched/.test(code);
 
         if (!hasButtonA && !hasButtonB) {
-            // New state: No buttons are used at all.
+            score += 2.0; // Accessibility by not requiring buttons
             issues.push({
-                type: 'success', // Changed from 'warning'
+                type: 'success',
                 message: "VALIDATOR.INPUT_REDUNDANCY.NO_BUTTONS_USED"
             });
         } else if (hasAlternativeInput) {
-            // Original success state: Alternative inputs are present.
-            score += 3;
+            score += 3.0;
             issues.push({ type: 'success', message: "VALIDATOR.INPUT_REDUNDANCY.SUCCESS_MESSAGE" });
         } else {
-            // Original error state: Buttons are used, but no alternatives.
             issues.push({
                 type: 'error',
                 message: "VALIDATOR.INPUT_REDUNDANCY.ERROR_MESSAGE",

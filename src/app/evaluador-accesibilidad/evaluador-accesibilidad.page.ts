@@ -84,7 +84,9 @@ while True:
   }
 
   checkAccessibility() {
-    const result = this.validator.validate(this.userCode);
+    const codeToValidate = this.userCode;
+    console.log('Validating code:', codeToValidate); // Added for debugging if possible
+    const result = this.validator.validate(codeToValidate);
     this.score = result.score;
 
     this.errorCount = result.issues.filter(issue => issue.type === 'error').length;
@@ -92,15 +94,15 @@ while True:
 
     const suggestionKeys = result.issues
       .filter(issue => issue.suggestion)
-      .map(issue => issue.suggestion);
+      .map(issue => issue.suggestion as string);
 
     const messageKeys = result.issues.map(issue => issue.message);
-    const allTranslationKeys = [...messageKeys, ...suggestionKeys];
+    const allTranslationKeys = [...new Set([...messageKeys, ...suggestionKeys])];
 
-    this.translate.get(allTranslationKeys as string[]).subscribe(translations => {
-      this.improvementSuggestions = Object.values(
-        suggestionKeys.map(key => translations[key as string])
-      );
+    this.translate.get(allTranslationKeys).subscribe(translations => {
+      this.improvementSuggestions = [...new Set(
+        suggestionKeys.map(key => translations[key])
+      )];
       this.improvementMessage = this.improvementSuggestions.join(';\\n');
 
       const noButtonsIssue = result.issues.find(
@@ -118,7 +120,7 @@ while True:
         this.redundancyStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.NO';
       }
 
-      let lines = this.userCode.split('\n');
+      let lines = codeToValidate.split('\n');
       const issuesToProcess = result.issues
         .filter(issue => issue.type === 'error' || issue.type === 'warning')
         .sort((a, b) => (b.line || 0) - (a.line || 0)); 
@@ -142,34 +144,11 @@ while True:
         }
       });
 
-      if (!hasSpeechImport && !hasMusicImport) {
-        if (microbitImportLine !== -1) {
-            lines.splice(microbitImportLine + 1, 0, '# Import media', 'import music');
-            hasMusicImport = true;
-        }
-      }
-
       for (const issue of issuesToProcess) {
-        const translatedMessage = translations[issue.message as string];
-        const translatedSuggestion = issue.suggestion ? translations[issue.suggestion as string] : '';
+        const translatedMessage = translations[issue.message];
+        const translatedSuggestion = issue.suggestion ? translations[issue.suggestion] : '';
 
-        if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE" && issue.suggestion === "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2") {
-          if (!hasSpeechImport && !hasMusicImport) {
-            const snippetToAdd = [
-              '#Import auditory content for visual impaired users',
-              'import music #You can also: import speech'
-            ];
-            
-            if (microbitImportLine !== -1) {
-                lines.splice(microbitImportLine + 1, 0, ...snippetToAdd);
-            } else {
-                lines.unshift(...['from microbit import *', ...snippetToAdd]);
-            }
-            hasSpeechImport = true;
-            hasMusicImport = true;
-          }
-        } 
-        else if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW" && issue.line !== undefined) {
+        if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW" && issue.line !== undefined) {
           const lineNumber = issue.line - 1;
           if (lineNumber >= 0 && lineNumber < lines.length) {
             const originalLine = lines[lineNumber];
@@ -198,12 +177,23 @@ while True:
             lines.splice(lineNumber + 1, 0, indentation + annotation);
           }
         }
-        else {
+        else if (issue.message !== "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE" || issue.suggestion !== "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2") {
+          // Only add generic annotations for issues that aren't handled by the global import fix below
           let annotation = `# ${issue.type.toUpperCase()}: ${translatedMessage}`;
           if (translatedSuggestion) {
             annotation += ` # SUGERENCIA: ${translatedSuggestion}`;
           }
           lines.push('\n' + annotation);
+        }
+      }
+
+      // First correction: ensure music import exists if no audio import detected
+      if (!hasSpeechImport && !hasMusicImport) {
+        if (microbitImportLine !== -1) {
+          lines.splice(microbitImportLine + 1, 0, '#import a media player', 'import music');
+        } else {
+          // If no microbit import found, we add both at the top
+          lines.unshift('from microbit import *', '#import a media player', 'import music');
         }
       }
 

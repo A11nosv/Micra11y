@@ -14,12 +14,17 @@ player_b=0
 def countdown(i):
     while i>0:
         for n in range(3):
+            set_volume(255)
             display.show(i)
             music.play('a')
-            sleep(500)
+            sleep(400)
+            set_volume(0)
+            sleep(100)
             i=i-1
 
             if i==0:
+                set_volume(255)
+                music.play(music.POWER_UP)
                 display.show(0)
 
 def btn_pressed(btn):

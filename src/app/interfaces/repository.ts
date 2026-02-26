@@ -1,5 +1,5 @@
 export interface RepositoryItem {
-  id?: string; // Firestore document ID is a string, and it's optional for new items
+  id?: string;
   title: string;
   category: string;
   description: string;
@@ -10,5 +10,5 @@ export interface RepositoryItem {
   downloads: number;
   likes: number;
   date: string;
-  code: string; // URL to the code file in Firebase Storage
+  code: string; // Stored directly as a string in Firestore
 }

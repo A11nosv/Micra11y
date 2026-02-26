@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, IonCheckbox, IonLabel } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { RepositoryItem } from '../../interfaces/repository'; // Import RepositoryItem
+import { RepositoryItem } from '../../interfaces/repository';
 
 @Component({
   selector: 'app-upload-modal',
@@ -27,7 +27,7 @@ import { RepositoryItem } from '../../interfaces/repository'; // Import Reposito
 })
 export class UploadModalComponent implements OnInit {
   @Input() newProjectInput: RepositoryItem | undefined;
-  @Output() projectSubmitted = new EventEmitter<RepositoryItem>();
+  @Output() projectSubmitted = new EventEmitter<any>();
 
   @ViewChild('fileInput') fileInput!: ElementRef;
 
@@ -65,22 +65,6 @@ export class UploadModalComponent implements OnInit {
 
   closeModal(): void {
     this.modalController.dismiss();
-  }
-
-  resetUploadForm(): void {
-    this.newProject = {
-      title: '',
-      category: '',
-      description: '',
-      author: '',
-      level: '',
-      materials: [],
-      tags: [],
-      downloads: 0,
-      likes: 0,
-      date: '',
-      code: ''
-    };
   }
 
   toggleTagSelection(tag: string): void {
@@ -146,6 +130,8 @@ export class UploadModalComponent implements OnInit {
   }
 
   handleFormSubmit(): void {
-    this.modalController.dismiss(this.newProject, 'submit');
+    this.modalController.dismiss({
+      project: this.newProject
+    }, 'submit');
   }
 }
