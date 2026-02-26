@@ -11,4 +11,5 @@ export interface RepositoryItem {
   likes: number;
   date: string;
   code: string; // Stored directly as a string in Firestore
+  instructions?: string;
 }

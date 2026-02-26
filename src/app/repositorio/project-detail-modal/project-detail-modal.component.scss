@@ -31,6 +31,28 @@
   margin-bottom: 15px;
 }
 
+.project-stats-modal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--ion-color-light);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1rem;
+  
+  &:hover {
+    background: var(--ion-color-light-shade);
+    transform: scale(1.05);
+    color: var(--ion-color-danger);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
 .detail-section {
   margin-bottom: 20px;
 }

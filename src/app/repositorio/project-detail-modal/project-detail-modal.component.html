@@ -20,6 +20,10 @@
           <span>👤</span>
           <span>{{ selectedProject.author }}</span>
         </div>
+        <div class="project-stats-modal" (click)="likeProject(selectedProject.id!)" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
+          <span>❤️</span>
+          <span>{{ selectedProject.likes }}</span>
+        </div>
       </div>
     </div>
     <div class="project-detail-body">
@@ -40,6 +44,11 @@
         <p>{{ selectedProject.materials?.join(', ') }}</p>
       </div>
 
+      <div class="detail-section" *ngIf="selectedProject.instructions">
+        <h3>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.INSTRUCTIONS_LABEL' | translate }}</h3>
+        <p style="white-space: pre-wrap;">{{ selectedProject.instructions }}</p>
+      </div>
+
       <div class="detail-section">
         <h3>{{ 'REPOSITORIO_PAGE.DETAIL_MODAL.CODE_SECTION_TITLE' | translate }}</h3>
         <div class="code-block">
@@ -51,6 +60,9 @@
       <div class="detail-section button-group">
         <ion-button class="btn-submit" (click)="downloadProject(selectedProject.id!)">
           ⬇️ {{ 'REPOSITORIO_PAGE.DETAIL_MODAL.DOWNLOAD_FULL_PROJECT_BUTTON' | translate }}
+        </ion-button>
+        <ion-button *ngIf="selectedProject.instructions" class="btn-submit instructions-button" (click)="downloadInstructions(selectedProject.id!)">
+          📄 {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate }}
         </ion-button>
       </div>
     </div>

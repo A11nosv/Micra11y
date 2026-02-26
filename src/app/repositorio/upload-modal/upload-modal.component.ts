@@ -42,7 +42,8 @@ export class UploadModalComponent implements OnInit {
     downloads: 0,
     likes: 0,
     date: '',
-    code: ''
+    code: '',
+    instructions: ''
   };
 
   availableMaterials: string[] = ['Micro:bit', 'LEDs', 'Servos', 'Sensors', 'Buzzer', 'Resistencias'];
@@ -125,6 +126,21 @@ export class UploadModalComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = (e) => {
       this.newProject.code = e.target?.result as string;
+    };
+    reader.readAsText(file);
+  }
+
+  handleInstructionsFileInput(event: Event): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file && (file.name.endsWith('.txt') || file.name.endsWith('.md'))) {
+      this.processInstructionsFile(file);
+    }
+  }
+
+  processInstructionsFile(file: File): void {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.newProject.instructions = e.target?.result as string;
     };
     reader.readAsText(file);
   }

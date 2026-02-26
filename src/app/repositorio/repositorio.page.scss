@@ -277,6 +277,20 @@
       gap: 0.4rem;
   }
 
+  .like-clickable {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: scale(1.1);
+      color: var(--ion-color-danger);
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
   .project-footer {
       padding: 1rem 1.5rem;
       background: var(--bg-secondary);

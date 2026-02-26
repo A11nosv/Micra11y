@@ -203,7 +203,9 @@ export class RepositorioPage implements OnInit {
       component: ProjectDetailModalComponent,
       componentProps: {
         selectedProject: project,
-        downloadProjectFn: (id: string) => this.downloadProject(id)
+        downloadProjectFn: (id: string) => this.downloadProject(id),
+        downloadInstructionsFn: (id: string) => this.downloadInstructions(id),
+        likeProjectFn: (id: string) => this.likeProject(id, new Event('click'))
       },
     });
 
@@ -255,9 +257,39 @@ export class RepositorioPage implements OnInit {
     }
   }
 
+  downloadInstructions(id: string, event?: Event): void {
+    if (event) event.stopPropagation();
+    const project = this.projects.find(p => p.id === id);
+    if (project && project.instructions) {
+      const blob = new Blob([project.instructions], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${project.title.toLowerCase().replace(/\s+/g, '_')}_instrucciones.txt`;
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  }
+
   viewProject(id: string, event: Event): void {
     event.stopPropagation();
     this.openProjectDetail(id);
+  }
+
+  likeProject(id: string, event: Event): void {
+    event.stopPropagation();
+    const project = this.projects.find(p => p.id === id);
+    if (project) {
+      const updatedProject = { ...project, likes: project.likes + 1 };
+      this.repositoryService.updateProject(updatedProject).subscribe({
+        next: () => {
+          // The subscription in loadProjects will handle the UI update if it's a real-time stream,
+          // but here we manually update the local state for immediate feedback if needed.
+          project.likes += 1;
+        },
+        error: (err) => console.error('Error liking project:', err)
+      });
+    }
   }
 
   copyCode(code: string): void {

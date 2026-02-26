@@ -28,6 +28,8 @@ import { RepositoryItem } from '../../interfaces/repository'; // Import Reposito
 export class ProjectDetailModalComponent implements OnInit {
   @Input() selectedProject: RepositoryItem | null = null;
   @Input() downloadProjectFn!: (id: string) => void;
+  @Input() downloadInstructionsFn!: (id: string) => void;
+  @Input() likeProjectFn!: (id: string) => void;
 
   copied: boolean = false;
 
@@ -63,6 +65,18 @@ export class ProjectDetailModalComponent implements OnInit {
   downloadProject(id: string): void {
     if (this.downloadProjectFn) {
       this.downloadProjectFn(id);
+    }
+  }
+
+  downloadInstructions(id: string): void {
+    if (this.downloadInstructionsFn) {
+      this.downloadInstructionsFn(id);
+    }
+  }
+
+  likeProject(id: string): void {
+    if (this.likeProjectFn) {
+      this.likeProjectFn(id);
     }
   }
 

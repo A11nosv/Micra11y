@@ -108,7 +108,7 @@
                 <span>⬇️</span>
                 <span>{{ project.downloads }}</span>
               </span>
-              <span class="stat-item">
+              <span class="stat-item like-clickable" (click)="likeProject(project.id!, $event)" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
                 <span>❤️</span>
                 <span>{{ project.likes }}</span>
               </span>
@@ -121,6 +121,9 @@
           <div class="project-footer">
             <ion-button class="btn-primary" (click)="downloadProject(project.id!, $event)">
               {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_BUTTON' | translate }}
+            </ion-button>
+            <ion-button *ngIf="project.instructions" class="btn-primary instructions-btn" (click)="downloadInstructions(project.id!, $event)">
+              {{ 'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate }}
             </ion-button>
             <ion-button class="btn-secondary" (click)="viewProject(project.id!, $event)">
               {{ 'REPOSITORIO_PAGE.PROJECT_CARD.VIEW_CODE_BUTTON' | translate }}
