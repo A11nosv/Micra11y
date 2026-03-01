@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HighlightModule } from 'ngx-highlightjs'; // Add this import
+import { addIcons } from 'ionicons';
+import { close } from 'ionicons/icons';
 import { RepositoryItem } from '../../interfaces/repository'; // Import RepositoryItem
 
 @Component({
@@ -33,7 +35,9 @@ export class ProjectDetailModalComponent implements OnInit {
 
   copied: boolean = false;
 
-  constructor(private modalController: ModalController, private translate: TranslateService) {}
+  constructor(private modalController: ModalController, private translate: TranslateService) {
+    addIcons({ close });
+  }
 
   ngOnInit() {}
 

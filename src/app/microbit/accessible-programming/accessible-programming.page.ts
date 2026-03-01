@@ -83,4 +83,40 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
       });
     }
   }
+
+  download() {
+    const lang = this.translate.currentLang;
+    let fileName = '';
+
+    switch (lang) {
+      case 'es':
+        fileName = 'Hablando_sobre_accesibilidad_en_la_microbit_es.pdf';
+        break;
+      case 'ca':
+        fileName = 'Parlant_sobre_accessibilitat_microbit_CA.pdf';
+        break;
+      case 'en':
+        fileName = 'Talking_About_Accessibility_microbit_EN.pdf';
+        break;
+      case 'gl':
+        fileName = 'Falando_sobre_accesibilidade_microbit_GL.pdf';
+        break;
+      case 'eu':
+        fileName = 'microbit_irisgarritasuna_EU.pdf';
+        break;
+      default:
+        fileName = 'Parlant_sobre_accessibilitat_microbit_CA.pdf'; // Default to Catalan
+        break;
+    }
+
+    const filePath = `assets/pdfs/${fileName}`;
+    
+    // Crear un elemento de enlace temporal para forzar la descarga
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.download = fileName; // El atributo download fuerza la descarga con este nombre
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }

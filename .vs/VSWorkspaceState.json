@@ -1,10 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Microbit",
     "\\src",
+    "\\src\\app",
+    "\\src\\app\\microbit",
+    "\\src\\app\\microbit\\accessible-programming",
+    "\\src\\app\\microbit\\secret-message",
     "\\src\\assets",
-    "\\src\\assets\\Microbit",
-    "\\src\\assets\\Microbit\\03_Advanced"
+    "\\src\\assets\\i18n"
   ],
+  "SelectedNode": "\\src\\assets\\i18n\\es.json",
   "PreviewInSolutionExplorer": true
 }

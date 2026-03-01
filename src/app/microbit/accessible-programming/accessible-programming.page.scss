@@ -1,17 +1,126 @@
 .ion-padding {
     /* Default for smartphone */
-    margin-left: 2%;
-    margin-right: 2%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column; /* Default: stack vertically for smartphones */
+  align-items: center; /* Center horizontally when stacked */
+  gap: 15px; /* Space between content when stacked */
+  padding: 15px 0; /* Vertical padding only, horizontal handled by margin */
+}
+
+.flex-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+  .flex-item {
+    flex: 0 0 100%; /* 1 per row on mobile */
+    background: var(--ion-color-light);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--ion-color-medium-shade);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    strong {
+        display: block;
+        margin-bottom: 10px;
+        color: var(--ion-color-primary);
+        font-size: 1.1em;
+    }
+
+    p {
+        margin: 0;
+        font-size: 0.95em;
+    }
+
+    &.callout {
+        flex-grow: 1 !important; /* Expands to occupy remaining free columns */
+    }
+  }
+}
+
+.outputs-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 25px 0;
+  background: var(--ion-color-light);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--ion-color-medium-shade);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+  thead {
+    background-color: var(--ion-color-primary);
+    
+    th {
+      color: var(--ion-color-primary-contrast);
+      text-align: left;
+      padding: 15px;
+      font-weight: 600;
+      font-size: 1em;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.2s ease;
+
+      &:nth-of-type(even) {
+        background-color: rgba(var(--ion-color-primary-rgb), 0.03);
+      }
+
+      &:last-of-type td {
+        border-bottom: none;
+      }
+
+      &:hover {
+        background-color: rgba(var(--ion-color-primary-rgb), 0.08);
+      }
+    }
+
+    td {
+      padding: 15px;
+      border-bottom: 1px solid var(--ion-color-medium-shade);
+      color: var(--ion-color-dark);
+      font-size: 0.95em;
+      vertical-align: middle;
+
+      strong {
+        color: var(--ion-color-primary);
+      }
+    }
+  }
+}
+
+/* Responsive table wrapper for small screens */
+@media (max-width: 600px) {
+  .outputs-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
 .additional-margin-content {
-    /* Default for smartphone (additional 0.5%) */
-    margin-left: 0.5%;
+  /* Default for smartphone (additional 0.5%) */
+  margin-left: 0.5%;
 }
 
 .language-image {
     max-height: 40vh; /* Set max height to 40% of viewport height */
     width: auto; /* Maintain aspect ratio */
+    height: auto; /* Ensure no distortion */
+    object-fit: contain;
     display: block; /* Ensure it behaves as a block element */
     margin-left: auto; /* Center the image */
     margin-right: auto; /* Center the image */
@@ -32,8 +141,33 @@
 /* Tablet and Desktop styles */
 @media (min-width: 768px) {
     .ion-padding {
-        margin-left: 5%;
-        margin-right: 5%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .flex-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+    .flex-container2 .flex-item {
+        flex: 0 0 calc(50% - 10px); /* 2 per row */
+    }
+    .intro-text {
+        flex: 1;
+        margin-right: 30px;
+    }
+    .intro-image {
+        flex: 0 0 35%; 
+        max-width: 35%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .flex-container > h2,
+    .flex-container > .additional-margin-content:not(.intro-text),
+    .flex-container > .flex-container2 {
+        flex: 0 0 100%;
+        margin-top: 20px;
     }
     .additional-margin-content {
         /* Additional 1% for tablet */
@@ -46,11 +180,14 @@
     }
 }
 
-/* Desktop styles - reapply specific desktop padding */
+/* Desktop styles */
 @media (min-width: 1024px) {
     .ion-padding {
-        margin-left: 10%;
-        margin-right: 10%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+    .flex-container2 .flex-item {
+        flex: 0 0 calc(33.33% - 13.34px); /* 3 per row */
     }
     .additional-margin-content {
         /* Additional 2% for desktop */
