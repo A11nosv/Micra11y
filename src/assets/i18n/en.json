@@ -619,11 +619,11 @@
     "MODAL_NON_ACCESSIBLE_TITLE": "Non-Accessible Example",
     "MODAL_CLOSE": "Close",
     "MODAL_NON_ACCESSIBLE_H2": "Video Clip (Non-Accessible)",
-    "MODAL_NON_ACCESSIBLE_P": "The video clip of the non-accessible example would go here.",
+    "MODAL_NON_ACCESSIBLE_P": "The micro:bit heart is beating, user is reciving just a visual feedback.",
     "MODAL_VIEW_CODE": "View Code",
     "MODAL_ACCESSIBLE_TITLE": "Accessible Example",
     "MODAL_ACCESSIBLE_H2": "Video Clip (Accessible)",
-    "MODAL_ACCESSIBLE_P": "The video clip of the accessible example would go here.",
+    "MODAL_ACCESSIBLE_P": "The micro:bit heart is beating, user is reciving visual and audible feedback.",
     "MODAL_CODE_TITLE": "Code",
     "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Non-accessible Example",
     "ACCESSIBLE_EXAMPLE_BUTTON": "Accessible Example"
