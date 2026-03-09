@@ -275,6 +275,25 @@ body:not(.dark-theme) {
   color: #000000;
 }
 
+/* Global icon color rules */
+ion-icon:not([color]) {
+  color: inherit;
+}
+
+/* Ensure icons in toolbars stay white for contrast against blue background */
+ion-toolbar ion-icon:not([color]) {
+  color: #ffffff !important;
+}
+
+/* Ensure icons in buttons inherit the button's text color (usually white) */
+ion-button ion-icon:not([color]) {
+  color: inherit !important;
+}
+
+/* Specific fix for icons in dark mode that might still be using old color variables */
+body.dark-theme ion-icon:not([color]) {
+  --color: #ffffff;
+}
 
 /* Global button styling */
 ion-button {

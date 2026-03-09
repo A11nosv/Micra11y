@@ -26,6 +26,7 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
 
   private langChangeSubscription: Subscription | undefined;
   public currentImageSrc: string;
+  public workflowImageSrc: string;
   public pythonCode: string = '';
 
   constructor(
@@ -34,11 +35,13 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
     private languageService: LanguageService // Inject LanguageService
   ) {
     this.currentImageSrc = this.getImageSrc();
+    this.workflowImageSrc = this.getWorkflowImageSrc();
   }
 
   ngOnInit() {
     this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
       this.currentImageSrc = this.getImageSrc();
+      this.workflowImageSrc = this.getWorkflowImageSrc();
     });
     console.log('Current Language:', this.translate.currentLang);
     console.log('Generated Image Source:', this.currentImageSrc);
@@ -57,6 +60,34 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
     console.log('Lang in getImageSrc:', lang);
     console.log('Image Path in getImageSrc:', imagePath);
     return imagePath;
+  }
+
+  getWorkflowImageSrc(): string {
+    const lang = this.translate.currentLang;
+    let imageName = '';
+
+    switch (lang) {
+      case 'ca':
+        imageName = 'flux_treball.png';
+        break;
+      case 'es':
+        imageName = 'flujo_trabajo.png';
+        break;
+      case 'en':
+        imageName = 'workflow.png';
+        break;
+      case 'gl':
+        imageName = 'fluxo_traballo.png';
+        break;
+      case 'eu':
+        imageName = 'lan_fluxoa.png';
+        break;
+      default:
+        imageName = 'flux_treball.png'; // Default to Catalan
+        break;
+    }
+
+    return `assets/img/${imageName}`;
   }
 
   async openModal(type: 'non-accessible' | 'accessible') {

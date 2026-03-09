@@ -5,9 +5,6 @@
     </ion-buttons>
     <ion-title>{{ 'ACCESSIBLE_PROGRAMMING.TITLE' | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-      </ion-button>
       <app-language-chooser></app-language-chooser>
     </ion-buttons>
   </ion-toolbar>
@@ -18,13 +15,11 @@
     <ion-toolbar class="aligned-with-content">
       <ion-title size="large">{{ 'ACCESSIBLE_PROGRAMMING.TITLE' | translate }}</ion-title>
       <ion-buttons slot="end">
-        <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-        </ion-button>
         <app-language-chooser></app-language-chooser>
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+
   <div class="ion-padding flex-container">
     <h1 class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.H1' | translate }}</h1>
     <div class="additional-margin-content intro-text">
@@ -32,34 +27,34 @@
       <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_P2' | translate }}</p>
       <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_PFINAL2' | translate }}</p>
     </div>
-    <img [src]="currentImageSrc" alt="" class="language-image intro-image" />
+    <img [src]="currentImageSrc" [alt]="'ACCESSIBLE_PROGRAMMING.INTRO_IMAGE_ALT' | translate" class="language-image intro-image" />
 
     <section>
       <h2>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_TITLE' | translate }}</h2>
 
       <div class="flex-container2">
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TITLE' | translate }}</strong>
+          <strong><ion-icon name="grid-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TITLE' | translate }}</strong>
+          <strong><ion-icon name="volume-high-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TITLE' | translate }}</strong>
+          <strong><ion-icon name="game-controller-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TITLE' | translate }}</strong>
+          <strong><ion-icon name="radio-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TITLE' | translate }}</strong>
+          <strong><ion-icon name="move-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TITLE' | translate }}</strong>
+          <strong><ion-icon name="vibrate-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TEXT' | translate }}</p>
         </div>
       </div>
@@ -68,23 +63,23 @@
 
       <div class="flex-container2">
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TITLE' | translate }}</strong>
+          <strong><ion-icon name="megaphone-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TITLE' | translate }}</strong>
+          <strong><ion-icon name="settings-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TITLE' | translate }}</strong>
+          <strong><ion-icon name="code-working-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TEXT' | translate }}</p>
         </div>
         <div class="flex-item">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TITLE' | translate }}</strong>
+          <strong><ion-icon name="options-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TITLE' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TEXT' | translate }}</p>
         </div>
         <div class="flex-item callout">
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_T' | translate }}</strong>
+          <strong><ion-icon name="bulb-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_T' | translate }}</strong>
           <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_P' | translate }}</p>
         </div>
       </div>
@@ -174,6 +169,7 @@
 
     <section>
       <h2>{{ 'ACCESSIBLE_PROGRAMMING.CODE_TITLE' | translate }}</h2>
+      <img [src]="workflowImageSrc" [alt]="'ACCESSIBLE_PROGRAMMING.WORKFLOW_IMAGE_ALT' | translate" class="language-image workflow-image" />
       <p>{{ 'ACCESSIBLE_PROGRAMMING.CODE_P' | translate }}</p>
       <ul>
         <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L1_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L1_P' | translate }}</li>
@@ -182,37 +178,6 @@
         <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L4_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L4_P' | translate }}</li>
       </ul>
     </section>
-    <!--
-    <h2>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_TITLE' | translate }}</h2>
-    <div class="additional-margin-content">
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_P1' | translate }}</p>
-      <ul>
-        <li>
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_OVERCOME_TITLE' | translate }}</strong>
-          <ul>
-            <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_OVERCOME_LI3_TITLE' | translate }}</strong> {{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_OVERCOME_LI3_TEXT' | translate }}</li>
-          </ul>
-        </li>
-        <li>
-          <strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_TITLE' | translate }}</strong>
-          <ul>
-            <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI1_TITLE' | translate }}</strong> {{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI1_TEXT' | translate }}</li>
-            <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI2_TITLE' | translate }}</strong> {{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI2_TEXT' | translate }}</li>
-            <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI3_TITLE' | translate }}</strong> {{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI3_TEXT' | translate }}</li>
-            <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI4_TITLE' | translate }}</strong> {{ 'ACCESSIBLE_PROGRAMMING.BLOCKLY_CHALLENGES_LI4_TEXT' | translate }}</li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-      
-    <h2>{{ 'ACCESSIBLE_PROGRAMMING.PYTHON_TITLE' | translate }}</h2>
-    <div class="additional-margin-content">
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.PYTHON_P1' | translate }}</p>
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.PYTHON_P2' | translate }}</p>
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.PYTHON_P3' | translate }}</p>
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.PYTHON_P4' | translate }}</p>
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.PYTHON_P5' | translate }}</p>
-    </div>-->
   </div>
 
   <div class="button-container">
