@@ -80,7 +80,7 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
         imageName = 'fluxo_traballo.png';
         break;
       case 'eu':
-        imageName = 'lan_fluxoa.png';
+        imageName = 'lan_fluxua.png';
         break;
       default:
         imageName = 'flux_treball.png'; // Default to Catalan
