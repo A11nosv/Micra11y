@@ -564,7 +564,7 @@
     "EXITS_COL1_L1": "Diversi:bit",
     "EXITS_COL1_L1_EXT": "(s'obre a una nova pestanya)",
     "EXITS_COL1_L2": "LEDs RGB, pins magnètics, botons grans, vibrador, connnectors grans",
-    "EXITS_COL1_L3": "Baixa visió / sordoceguesa / Movilitat reduïda",
+    "EXITS_COL1_L3": "Baixa visió / sordceguesa / Movilitat reduïda",
     "EXITS_COL2_L1": "NeoPixel",
     "EXITS_COL2_L2": "LEDs RGB externs, colors i brillantor ajustables",
     "EXITS_COL2_L3": "Baixa visió",
