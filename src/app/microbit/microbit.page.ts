@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { Observable, map } from 'rxjs';
+import { Observable, map, Subscription } from 'rxjs';
 import { LanguageChooserComponent } from '../components/language-chooser/language-chooser.component';
 import { Title } from '@angular/platform-browser';
 
@@ -24,16 +24,18 @@ interface Project {
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonCard, IonCardHeader, IonCardTitle, IonCardContent, RouterLink, TranslateModule, IonButtons, IonButton, IonIcon, LanguageChooserComponent]
 })
-export class MicrobitPage implements OnInit {
+export class MicrobitPage implements OnInit, OnDestroy {
 
   public projects$: Observable<{[key: string]: Project}>;
 
+
+  private langChangeSubscription: Subscription | undefined;
 
   constructor(
     private translate: TranslateService,
     private titleService: Title
   ) {
-    this.projects$ = this.translate.get('MICROBIT_PAGE.PROJECTS').pipe(
+    this.projects$ = this.translate.stream('MICROBIT_PAGE.PROJECTS').pipe(
       map(projects => {
         const projectOrder: string[] = [
           "ACCESSIBLE_PROGRAMMING",
@@ -57,12 +59,25 @@ export class MicrobitPage implements OnInit {
         return transformedProjects;
       })
     );
-
-
   }
 
   ngOnInit() {
-    this.titleService.setTitle('micro:bit a11y');
+    this.updateTitle();
+    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.updateTitle();
+    });
+  }
+
+  private updateTitle() {
+    this.translate.get('TABS.MICROBIT').subscribe(title => {
+      this.titleService.setTitle(title);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
   }
 
 

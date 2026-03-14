@@ -91,23 +91,29 @@ export class SecretMessagePage implements OnInit {
     this.pythonCode_8_1 = "import radio";
     this.pythonCode_9_1 = "\t\t\tradio.send(word) \n\n\t\t\tif radio.receive(): \n\t\t\t\tmsg = radio.receive() \n\n\t\t\tif msg: \n\t\t\t\t\tdisplay.scroll(msg) \n\t\t\t\tspeech.say((msg))";
 
-    this.translate.get('SECRET_MESSAGE_PAGE.TITLE').subscribe((res: string) => {
-      this.title = res;
-    });
+    this.updateTitle();
+    this.updateAccessibleLabel();
 
-    this.updateAccessibleLabel(); // Call to initialize accessibleLabel
-
-    // Subscribe to language changes for title and accessible label
+    // Subscribe to language changes
     this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.translate.get('SECRET_MESSAGE_PAGE.TITLE').subscribe((res: string) => {
-        this.title = res;
-      });
-      this.updateAccessibleLabel(); // Also update accessibleLabel on language change
+      this.updateTitle();
+      this.updateAccessibleLabel();
     });
   }
 
-  // New method to update accessible label
+  private updateTitle() {
+    this.translate.get('SECRET_MESSAGE_PAGE.TITLE').subscribe((res: string) => {
+      this.title = res;
+    });
+  }
+
   private updateAccessibleLabel() {
     this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
+
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
   }
 }

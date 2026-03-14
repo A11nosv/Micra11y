@@ -50,19 +50,18 @@ export class HeartPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._loadPythonCode();
-    this._setTranslatedTitle();
+    this.updateTitle();
 
-    // Subscribe to language changes for title
-    this.languageChangeSubscription = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this._setTranslatedTitle();
+    // Subscribe to language changes
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.updateTitle();
     });
   }
 
-  ngOnDestroy() {
-    // Unsubscribe to prevent memory leaks
-    if (this.languageChangeSubscription) {
-      this.languageChangeSubscription.unsubscribe();
-    }
+  private updateTitle() {
+    this.translate.get('HEART_PAGE.TITLE').subscribe((res: string) => {
+      this.title = res;
+    });
   }
 
   private _loadPythonCode() {
@@ -90,10 +89,10 @@ export class HeartPage implements OnInit, OnDestroy {
     this.pythonCode_11_2 = "\tif button_b.is_pressed() or pin_logo.is_touched():";
   }
 
-  private _setTranslatedTitle() {
-    this.translate.get('HEART_PAGE.TITLE').subscribe((res: string) => {
-      this.title = res;
-    });
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
   }
 
   getImageSrc(): string {

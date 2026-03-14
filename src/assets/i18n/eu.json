@@ -537,7 +537,7 @@
     "INTRO_P1": "micro:bit-ekin gelan lan egiten dugunean, normalean kodeak funtzionatzea eta proiektua erakargarria izatea bilatzen dugu. Baina maiz ahazten dugun galdera bat dago: guztiak erabil al dezake sortu duguna?",
     "INTRO_P2": "Irisgarritasuna ez da enpresa handiei soilik dagokien gaia. Programazioaren lehen esperientzietatik txerta dezakegun pentsamolde bat da. Aniztasuna kontuan hartuta diseinatzeak proiektuak sendoagoak, sortzaileagoak eta bidezkoagoak egiten ditu.",
     "INTRO_PFINAL2": "Irisgarritasuna ezin da izan proiektuaren amaieran gehitzen den adabaki bat, baldintza bat betetzeko edo onurak lortzeko.",
-    
+
     "CREATION_TITLE": "Zer du micro:bit-ek eta zer falta zaio?",
     "CREATION_LI1_TITLE": "LED matrizea 5×5:",
     "CREATION_LI1_TEXT": "Testua, ikonoak eta animazioak erakusten ditu. Erabilgarria, baina bereizmen txikia du eta ez du kontraste edo abiadura kontrolatzeko aukerarik.",
@@ -718,5 +718,120 @@
   "RESULTS_MODAL_FEEDBACK_18_27": "Irisgarritasun ertaina (hobetu daiteke)",
   "RESULTS_MODAL_FEEDBACK_28_36": "Oso irisgarria den proiektua",
   "RESULTS_MODAL_ACCEPT": "Onartu",
-  "MANUAL_CHECK_MODAL_HEADER_QUESTION": "Galdera"
+  "MANUAL_CHECK_MODAL_HEADER_QUESTION": "Galdera",
+  "REPOSITORIO_PAGE": {
+    "CONTENT": "Biltegiko orrialdearen edukia.",
+    "HEADER": {
+      "HOME": "Hasi",
+      "REPOSITORY": "Biltegia",
+      "DOCUMENTATION": "Dokumentazioa",
+      "COMMUNITY": "Komunitatea"
+    },
+    "HERO": {
+      "TITLE": "Proiektu Irisgarrien Biltegia",
+      "SUBTITLE": "Arakatu, partekatu eta ikasi irisgarritasuna kontuan hartuta diseinatutako Micro:bit proiektuekin.",
+      "UPLOAD_PROJECT_BUTTON": "Kargatu zure proiektua"
+    },
+    "STATS": {
+      "PROJECTS_PUBLISHED": "Argitaratutako proiektuak",
+      "TOTAL_DOWNLOADS": "Deskarga guztiak",
+      "CONTRIBUTORS": "Kolaboratzaileak",
+      "CATEGORIES": "Kategoriak"
+    },
+    "FILTERS": {
+      "LABEL": "Iragazi honen arabera:",
+      "ALL": "Guztiak",
+      "SEARCH_PLACEHOLDER": "Proiektuak bilatzen..."
+    },
+    "CATEGORIES": {
+      "ACCESSIBILITY": "Irisgarritasuna",
+      "SENSORS": "Sentsoreak",
+      "COMMUNICATION": "Komunikazioa",
+      "EDUCATION": "Hezkuntza",
+      "ENTERTAINMENT": "Aisialdia"
+    },
+    "PROJECTS_GRID": {
+      "EMPTY_STATE_TITLE": "Ez da proiekturik aurkitu",
+      "EMPTY_STATE_SUBTITLE": "Probatu beste iragazki batzuk edo izan zaitez proiektu bat igotzen lehena"
+    },
+    "UPLOAD_MODAL": {
+      "TITLE": "Proiektu berria igo",
+      "SUBTITLE": "Partekatu zure proiektu irisgarria komunitatearekin",
+      "PROJECT_TITLE_LABEL": "Proiektuaren izenburua *",
+      "PROJECT_TITLE_PLACEHOLDER": "Adibidea: Semaforo entzungarri irisgarria",
+      "CATEGORY_LABEL": "Kategoria *",
+      "SELECT_CATEGORY_PLACEHOLDER": "Hautatu kategoria bat",
+      "DESCRIPTION_LABEL": "Deskribapena *",
+      "DESCRIPTION_PLACEHOLDER": "Deskribatu zure proiektua, zer egiten duen eta nola laguntzen duen irisgarritasunarekin...",
+      "AUTHOR_NAME_LABEL": "Zure izena *",
+      "AUTHOR_NAME_PLACEHOLDER": "Adibidea: Maria Garcia",
+      "TAGS_LABEL": "Etiketak (gehitzeko, sakatu Sartu)",
+      "TAGS_PLACEHOLDER": "Adibideak: soinua, LEDa, bibrazioa...",
+      "CODE_LABEL": "Proiektuaren kodea (.py) *",
+      "DRAG_FILE_TEXT_BOLD": "Arrastatu zure .py fitxategia hona",
+      "INSTRUCTIONS_LABEL": "Proiektuaren argibideak",
+      "DRAG_INSTRUCTIONS_TEXT_BOLD": "Arrastatu argibideak hona",
+      "CLICK_TO_SELECT_TEXT": "edo egin klik hautatzeko",
+      "PUBLISH_BUTTON": "Proiektua argitaratu",
+      "LEVEL_LABEL": "Maila",
+      "SELECT_LEVEL_PLACEHOLDER": "Hautatu maila bat",
+      "MATERIALS_LABEL": "Materialak"
+    },
+    "LEVELS": {
+      "LOW": "Baxua",
+      "MEDIUM": "Erdia",
+      "HIGH": "Altua"
+    },
+    "DETAIL_MODAL": {
+      "DESCRIPTION_SECTION_TITLE": "Deskribapena",
+      "TAGS_SECTION_TITLE": "Etiketak",
+      "CODE_SECTION_TITLE": "Proiektuaren kodea",
+      "COPY_CODE_BUTTON": "Kopiatu",
+      "COPIED_CODE_BUTTON": "✓ Kopiatu da",
+      "DOWNLOAD_FULL_PROJECT_BUTTON": "Deskargatu proiektu osoa"
+    },
+    "PROJECT_CARD": {
+      "DOWNLOAD_BUTTON": "Deskargatu proiektua",
+      "DOWNLOAD_INSTRUCTIONS_BUTTON": "Deskargatzeko argibideak",
+      "VIEW_CODE_BUTTON": "Ikusi kodea"
+    },
+    "TOAST": {
+      "PROJECT_PUBLISHED_SUCCESS": "Proiektua behar bezala argitaratu da! 🎉"
+    }
+  },
+  "TAG_CATEGORIES": {
+    "GENERAL": "Orokorra",
+    "MICROBIT": "Micro:bit",
+    "ACCESSIBILITY": "Irisgarritasuna",
+    "LANGUAGES": "Hizkuntzak",
+    "CONNECTIVITY": "Konektibitatea"
+  },
+  "TAGS": {
+    "EDUCATION": "Hezkuntza",
+    "GAME": "Jokoa",
+    "TOOL": "Tresna",
+    "SCIENCE": "Zientzia",
+    "ART": "Artea",
+    "MUSIC": "Musika",
+    "SPORT": "Kirola",
+    "LED": "LED",
+    "RADIO": "Irratia",
+    "PINS": "Pinak",
+    "SENSORS": "Sentsoreak",
+    "BUTTONS": "Botoiak",
+    "ACCELEROMETER": "Azelerometroa",
+    "COMPASS": "Iparrorratza",
+    "VISUAL": "Ikusmenezkoa",
+    "AUDITORY": "Entzumenezkoa",
+    "MOTOR": "Motorra",
+    "COGNITIVE": "Kognitiboa",
+    "EASY_READING": "Irakurketa Erraz",
+    "AAC": "CAA",
+    "MICROPYTHON": "MicroPython",
+    "MAKECODE": "MakeCode",
+    "SCRATCH": "Scratch",
+    "BLUETOOTH": "Bluetooth",
+    "IOT": "IoT",
+    "NETWORKS": "Sareak"
+  }
 }

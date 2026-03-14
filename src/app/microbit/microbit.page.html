@@ -5,7 +5,7 @@
     </ion-title>
     <ion-buttons slot="end">
       <ion-button routerLink="/evaluador-accesibilidad">
-        <ion-icon name="accessibility-outline" slot="icon-only" alt="'ACCESSIBILITY_EVALUATOR_TITLE' | translate"></ion-icon>
+        <ion-icon name="accessibility-outline" slot="icon-only" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate"></ion-icon>
       </ion-button>
       <app-language-chooser></app-language-chooser>
     </ion-buttons>

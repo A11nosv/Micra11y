@@ -1,3 +1,4 @@
+
 {
   "CLOSE": "Tancar",
   "ACCESSIBILITY": {
@@ -719,14 +720,15 @@
     },
     "DETAIL_MODAL": {
       "DESCRIPTION_SECTION_TITLE": "Descripció",
-      "TAGS_SECTION_TITLE": "Etiuetes",
+      "TAGS_SECTION_TITLE": "Etiquetes",
       "CODE_SECTION_TITLE": "Codi del Projecte",
       "COPY_CODE_BUTTON": "Copiar",
       "COPIED_CODE_BUTTON": "✓ Copiat",
       "DOWNLOAD_FULL_PROJECT_BUTTON": "Desgarrega el projecte sencer"
     },
     "PROJECT_CARD": {
-      "DOWNLOAD_BUTTON": "Descarrega",
+      "DOWNLOAD_BUTTON": "Descarregar Projecte",
+      "DOWNLOAD_INSTRUCTIONS_BUTTON": "Descarregar Instruccions",
       "VIEW_CODE_BUTTON": "Veure el codi"
     },
     "TOAST": {

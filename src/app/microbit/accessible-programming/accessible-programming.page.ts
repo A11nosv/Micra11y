@@ -34,18 +34,25 @@ export class AccessibleProgrammingPage implements OnInit, OnDestroy {
     private http: HttpClient,
     private languageService: LanguageService // Inject LanguageService
   ) {
-    this.currentImageSrc = this.getImageSrc();
-    this.workflowImageSrc = this.getWorkflowImageSrc();
+    // Initial assignment will be handled in ngOnInit and onLangChange subscription
+    this.currentImageSrc = '';
+    this.workflowImageSrc = '';
   }
 
   ngOnInit() {
+    this.updateImageSources();
+
     this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.currentImageSrc = this.getImageSrc();
-      this.workflowImageSrc = this.getWorkflowImageSrc();
+      this.updateImageSources();
     });
     console.log('Current Language:', this.translate.currentLang);
     console.log('Generated Image Source:', this.currentImageSrc);
     console.log('Translation test:', this.translate.instant('ACCESSIBLE_PROGRAMMING.TITLE'));
+  }
+
+  private updateImageSources() {
+    this.currentImageSrc = this.getImageSrc();
+    this.workflowImageSrc = this.getWorkflowImageSrc();
   }
 
   ngOnDestroy() {

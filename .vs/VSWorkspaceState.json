@@ -3,14 +3,9 @@
     "",
     "\\Microbit",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\microbit",
-    "\\src\\app\\microbit\\accessible-programming",
-    "\\src\\app\\microbit\\heart",
-    "\\src\\app\\microbit\\secret-message",
     "\\src\\assets",
     "\\src\\assets\\i18n"
   ],
-  "SelectedNode": "\\src\\assets\\i18n\\es.json",
+  "SelectedNode": "\\src\\assets\\i18n\\gl.json",
   "PreviewInSolutionExplorer": true
 }

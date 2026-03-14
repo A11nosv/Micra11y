@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, ToastController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { Subscription } from 'rxjs';
 
 import { LanguageChooserComponent } from '../components/language-chooser/language-chooser.component';
 import { UploadModalComponent } from './upload-modal/upload-modal.component';
@@ -67,6 +68,8 @@ export class RepositorioPage implements OnInit {
   selectedProject: RepositoryItem | null = null;
   copied: boolean = false;
 
+  private langChangeSubscription: Subscription | undefined;
+
   constructor(
     private translate: TranslateService,
     private modalController: ModalController,
@@ -76,9 +79,27 @@ export class RepositorioPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.titleService.setTitle('Repositorio');
+    this.updateTitle();
     this.loadProjects(); // Load projects from Firebase
     this.selectedCategories = ['todos']; // Initialize selectedCategories
+
+    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.updateTitle();
+      this.renderProjects();
+      this.updateStats();
+    });
+  }
+
+  private updateTitle() {
+    this.translate.get('TABS.REPOSITORIO').subscribe(title => {
+      this.titleService.setTitle(title);
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
   }
 
   loadProjects() {

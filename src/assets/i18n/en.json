@@ -730,7 +730,8 @@
       "DOWNLOAD_FULL_PROJECT_BUTTON": "Download full project"
     },
     "PROJECT_CARD": {
-      "DOWNLOAD_BUTTON": "Download",
+      "DOWNLOAD_BUTTON": "Download Project",
+      "DOWNLOAD_INSTRUCTIONS_BUTTON": "Download Instructions",
       "VIEW_CODE_BUTTON": "View code"
     },
     "TOAST": {

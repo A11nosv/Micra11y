@@ -60,6 +60,8 @@ while True:
 
   private validator: MicrobitValidatorPro;
 
+  private langChangeSubscription: Subscription | undefined;
+
   constructor(
     private translate: TranslateService,
     private languageService: LanguageService,
@@ -72,10 +74,22 @@ while True:
   }
 
   ngOnInit() {
-    this.titleService.setTitle('Evaluador de Accesibilidad');
+    this.updateTitle();
+    this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.updateTitle();
+    });
+  }
+
+  private updateTitle() {
+    this.translate.get('ACCESSIBILITY_EVALUATOR_TITLE').subscribe(title => {
+      this.titleService.setTitle(title);
+    });
   }
 
   ngOnDestroy() {
+    if (this.langChangeSubscription) {
+      this.langChangeSubscription.unsubscribe();
+    }
   }
 
   onCodeChange() {

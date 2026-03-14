@@ -36,16 +36,18 @@ export class LanguageService {
     }
 
     this.translate.setDefaultLang('ca');
-    this.translate.use(finalLang);
-    this._currentLanguage.next(finalLang);
-    localStorage.setItem('language', finalLang); // Now finalLang is definitely a string
+    this.translate.use(finalLang).subscribe(() => {
+      this._currentLanguage.next(finalLang);
+      localStorage.setItem('language', finalLang); // Now finalLang is definitely a string
+    });
   }
 
   setLanguage(lang: string) {
     if (this.languageMap[lang]) {
-      this.translate.use(lang);
-      this._currentLanguage.next(lang);
-      localStorage.setItem('language', lang);
+      this.translate.use(lang).subscribe(() => {
+        this._currentLanguage.next(lang);
+        localStorage.setItem('language', lang);
+      });
     } else {
       console.warn(`Language '${lang}' not supported.`);
     }

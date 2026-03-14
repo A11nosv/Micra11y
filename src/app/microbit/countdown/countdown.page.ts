@@ -51,23 +51,29 @@ export class CountdownPage implements OnInit {
     this.pythonCode_1_2 = "# Imports go at the top \nfrom microbit import * \n\n# Variables \nstep = 10";
     this.pythonCode_2_1 =  "# Main loop \nfor index in range(11): \n\tdisplay.show(step) \n\tmusic.play(‘a’) \n\tstep = step - 1 \n\tsleep(1000)";
 
-    this.translate.get('COUNTDOWN_PAGE.TITLE').subscribe((res: string) => {
-      this.title = res;
-    });
+    this.updateTitle();
+    this.updateAccessibleLabel();
 
-    this.updateAccessibleLabel(); // Call to initialize accessibleLabel
-
-    // Subscribe to language changes for title and accessible label
+    // Subscribe to language changes
     this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.translate.get('COUNTDOWN_PAGE.TITLE').subscribe((res: string) => {
-        this.title = res;
-      });
-      this.updateAccessibleLabel(); // Also update accessibleLabel on language change
+      this.updateTitle();
+      this.updateAccessibleLabel();
     });
   }
 
-  // New method to update accessible label
+  private updateTitle() {
+    this.translate.get('COUNTDOWN_PAGE.TITLE').subscribe((res: string) => {
+      this.title = res;
+    });
+  }
+
   private updateAccessibleLabel() {
     this.accessibleLabel = this.languageService.getAccessibleLabel();
+  }
+
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
   }
 }

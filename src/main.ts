@@ -21,7 +21,7 @@ if (environment.production) {
 
 // Factory for the TranslateHttpLoader
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 
 bootstrapApplication(AppComponent, {

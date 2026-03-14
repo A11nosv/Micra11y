@@ -68,19 +68,18 @@ export class DuelPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this._loadPythonCode();
-    this._setTranslatedTitle();
+    this.updateTitle();
 
-    // Subscribe to language changes for title
-    this.languageChangeSubscription = this.translate.onLangChange.subscribe((event: LangChangeEvent) => {
-      this._setTranslatedTitle();
+    // Subscribe to language changes
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
+      this.updateTitle();
     });
   }
 
-  ngOnDestroy() {
-    // Unsubscribe to prevent memory leaks
-    if (this.languageChangeSubscription) {
-      this.languageChangeSubscription.unsubscribe();
-    }
+  private updateTitle() {
+    this.translate.get('DUEL_PAGE.TITLE').subscribe((res: string) => {
+      this.title = res;
+    });
   }
 
   private _loadPythonCode() {
@@ -126,10 +125,10 @@ export class DuelPage implements OnInit, OnDestroy {
     this.pythonCode_step_10_1 = "\tif pin_logo.is_touched(): \n\trounds = rounds + 1 \n\n\t\tif rounds < 5: \n\t\t\tmsg = True \n\t\telse: \n\t\t\tif score >= 3: \n\t\t\t\tspeech.say('Guanyes') \n\t\t\t\t\tdisplay.show(Image.FABULOUS) \n\t\t\t\tmusic.play(music.PYTHON) \n\t\t\telse: \n\t\t\t\tspeech.say('Perds') \n\t\t\t\tdisplay.show(Image.SKULL) \n\t\t\tmusic.play(music.FUNERAL)";
   }
 
-  private _setTranslatedTitle() {
-    this.translate.get('DUEL_PAGE.TITLE').subscribe((res: string) => {
-      this.title = res;
-    });
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
   }
 
 

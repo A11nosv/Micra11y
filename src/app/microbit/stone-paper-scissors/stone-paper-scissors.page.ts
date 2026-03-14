@@ -98,22 +98,22 @@ export class StonePaperScissorsPage implements OnInit {
     this.pythonCode_18_1 = "\t\tif result == 'Guanyes': \n\t\t\tpoints = points + 1";
     this.pythonCode_19_1 = "\t\tif points > 2: \n\t\t\tdisplay.show(Image.SMILE) \n\t\t\tspeech.say('Guanyes') \n\t\t\tmusic.play(music.PYTHON)\n\t\telif points < 3: \n\t\t\tdisplay.show(Image.SAD) \n\t\t\tspeech.say('Perds') \n\t\t\tmusic.play(music.FUNERAL)";
 
-    this.translate.get('RPS_PAGE.TITLE').subscribe((res: string) => {
-      this.title = res;
-    });
+    this.updateTitle();
+    this.updateAccessibleLabel();
 
-    this.updateAccessibleLabel(); // Call to initialize accessibleLabel
-
-    // Subscribe to language changes for title and accessible label
+    // Subscribe to language changes
     this.languageChangeSubscription = this.translate.onLangChange.subscribe(() => {
-      this.translate.get('RPS_PAGE.TITLE').subscribe((res: string) => {
-        this.title = res;
-      });
-      this.updateAccessibleLabel(); // Also update accessibleLabel on language change
+      this.updateTitle();
+      this.updateAccessibleLabel();
     });
   }
 
-  // New method to update accessible label
+  private updateTitle() {
+    this.translate.get('RPS_PAGE.TITLE').subscribe((res: string) => {
+      this.title = res;
+    });
+  }
+
   private updateAccessibleLabel() {
     this.accessibleLabel = this.languageService.getAccessibleLabel();
   }

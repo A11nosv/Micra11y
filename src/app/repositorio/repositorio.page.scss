@@ -297,6 +297,10 @@
       display: flex;
       gap: 0.8rem;
       flex-wrap: wrap; /* Permitir que los botones bajen de línea en pantallas pequeñas */
+
+      ion-icon {
+        color: #000000;
+      }
   }
 
   .hex-btn {

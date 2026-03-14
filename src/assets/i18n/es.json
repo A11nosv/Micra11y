@@ -686,7 +686,8 @@
       "DOWNLOAD_FULL_PROJECT_BUTTON": "Descargar proyecto completo"
     },
     "PROJECT_CARD": {
-      "DOWNLOAD_BUTTON": "Descargar",
+      "DOWNLOAD_BUTTON": "Descargar Proyectp",
+      "DOWNLOAD_INSTRUCTIONS_BUTTON": "Descargar Instrucciones",
       "VIEW_CODE_BUTTON": "Ver código"
     },
     "TOAST": {
