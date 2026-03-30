@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sentsoreak — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🌡️ Kapitulua 06</div>
+      <h1>Sentsoreak</h1>
+      <p class="subtitle">Azelerometroa, keinuak, argi eta tenperatura sentsoreak, eta mikrofonoa (v2).</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap6');
+document.getElementById('mc').innerHTML=`
+
+  <h2>6.1 Azelerometroa</h2>
+  ${duaBox('rep',['<strong>Zuzeneko erakustaldi:</strong> pasa micro:bit-a eskutik eskura simulagailuak balioak denbora errealean erakusten dituen bitartean.', '<strong>Zientzien konexioa:</strong> lurreko grabitazioa 1g da, micro:bit-aren eskalan 1000.'])}
+  ${codeBlock('accel.py',['from microbit import *', '', 'while True:', '    x = accelerometer.get_x()', '    y = accelerometer.get_y()', '    z = accelerometer.get_z()', '    display.scroll(str(x))', '    sleep(500)'])}
+  ${codeBlock('bubble.py',['from microbit import *', '', 'while True:', '    x = accelerometer.get_x()', '    y = accelerometer.get_y()', '    col  = min(4, max(0, 2 + x // 500))', '    row  = min(4, max(0, 2 + y // 500))', '    display.clear()', '    display.set_pixel(col, row, 9)', '    sleep(50)'])}
+  <h2>6.2 Aurredefinitutako keinuak</h2>
+  ${table(['Keinua', 'Mugimendua'],[["'shake'", 'Astindu'], ["'up'", 'Pantaila gora'], ["'left'/'right'", 'Okertuta'], ["'face up'", 'Gora begira'], ["'3g'/'6g'", 'Astinaldi bizia']])}
+  <h3>✏️ 6.1 Ariketa — Dado elektronikoa ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>micro:bit-a astintzean, 1etik 6ra bitarteko zenbaki bat erakutsi. Emaitza hurrengo astinaldia arte mantentzen da.</p>
+  </div></div>
+  <h2>6.3 Argi eta tenperatura sentsoreak</h2>
+  ${codeBlock('sensors.py',['from microbit import *', '', 'while True:', '    light = display.read_light_level()', '    temp  = temperature()', '    if light < 50:', '        display.show(Image.ASLEEP)', '    elif temp > 28:', '        display.show(Image.SURPRISED)', '    else:', '        display.show(Image.HAPPY)', '    sleep(1500)'])}
+  ${warnBox(['Mikrofonoa micro:bit v2-an soilik dago erabilgarri. v1-ean errorea emango du.'])}
+`;
+</script>
+</body>
+</html>

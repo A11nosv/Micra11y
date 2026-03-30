@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroPython in the Classroom — MicroPython in the Classroom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🏠</div>
+      <h1>MicroPython in the Classroom</h1>
+      <p class="subtitle">Manual with UDL approach</p>
+      <div class="header-badges"></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('index');
+document.getElementById('mc').innerHTML=`
+
+  <div style="background:var(--ink);color:#fff;padding:52px 56px 44px;margin:-40px -56px 32px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.22) 0%,transparent 70%)"></div>
+    <div style="font-family:var(--font-code);font-size:12px;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px">Manual · micro:bit</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;margin-bottom:14px">MicroPython<br><em>in the Classroom</em></h1>
+    <p style="font-size:17px;color:#94a3b8;max-width:560px;line-height:1.65;margin-bottom:24px">Practical guide with micro:bit for Primary and Secondary teachers. Designed with the <strong style='color:#fff'>Universal Design for Learning (UDL)</strong> framework so all students, ages 6–16, can participate.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px"><span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🎓 Primary & Secondary</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🎯 Ages 6–16</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🔧 micro:bit v1/v2</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>♿ UDL</span></div>
+  </div>
+  <h2>Manual modules</h2>
+  <div class="card-grid" id="cg"></div>
+  <h2>How to use this site</h2>
+  <ul>
+    <li>Use the sidebar to navigate directly to any chapter.</li>
+    <li>Each exercise has <strong>collapsible UDL boxes</strong> (🟥🟦🟩) with concrete adaptations.</li>
+    <li>Exercises are labelled by level: <span class='level-badge level-1'>🟢 Starter</span> <span class='level-badge level-2'>🟡 Basic</span> <span class='level-badge level-3'>🟠 Intermediate</span> <span class='level-badge level-4'>🔴 Advanced</span></li>
+  </ul>
+  <script>
+  const descs={'dua': 'The 3 UDL principles and how to read the markers in this manual.', 'cap1': 'Online editor, first program and LED images.', 'cap2': 'Variables, data types and the temperature sensor.', 'cap3': 'if/elif/else conditionals, buttons A and B.', 'cap4': 'while and for loops, LED animations.', 'cap5': 'Lists and reusable functions.', 'cap6': 'Accelerometer, gestures, light and temperature sensors.', 'cap7': 'Melodies and composition with notes.', 'cap8': 'Radio communication between micro:bits.', 'cap9': 'Four projects with three UDL levels.', 'cap10': 'UDL strategies, assessment and classroom management.', 'apendice': 'Quick reference, common errors and glossary.'};
+  const grid=document.getElementById('cg');
+  PAGES.filter(p=>p.id!=='index').forEach(p=>{
+    grid.innerHTML+=`<a href="${p.file}" class="module-card">
+      <span class="card-num">${p.num?'Module '+p.num:''}</span>
+      <span class="card-icon">${p.icon}</span>
+      <span class="card-title">${p.title}</span>
+      <span class="card-desc">${descs[p.id]||''}</span></a>`;
+  });
+  </script>
+`;
+</script>
+</body>
+</html>

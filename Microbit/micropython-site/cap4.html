@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 4: Bucles — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🔄 Capítulo 04</div>
+      <h1>Bucles — Repetir sin Cansarse</h1>
+      <p class="subtitle">Bucles while y for con range(), bucles anidados para animar la pantalla LED y patrones con píxeles.</p>
+      <div class="header-badges">
+        <span class="badge badge-green">🟢 Iniciación</span>
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+        <span class="badge badge-blue">🔴 Avanzado</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap4');
+document.getElementById('main-content').innerHTML = `
+  <h2>4.1 El bucle while</h2>
+  <p>Un bucle repite un bloque de código mientras se cumpla una condición.</p>
+
+  ${duaBox('rep', [
+    '<strong>Actividad física:</strong> pide a 5 alumnos que se pongan en fila y diles: "repetid en voz alta vuestro nombre MIENTRAS queden personas delante de vosotros". Han actuado un bucle while.',
+    '<strong>Analogía:</strong> un bucle es como el tambor de una lavadora: gira una y otra vez mientras hay ropa. Cuando termina (condición falsa), para.',
+  ])}
+
+  ${codeBlock('cuenta_atras.py', [
+    'from microbit import *',
+    '',
+    '# Cuenta regresiva de 5 a 0',
+    'numero = 5',
+    'while numero > 0:',
+    '    display.show(str(numero))',
+    '    sleep(800)',
+    '    numero -= 1   # Equivale a: numero = numero - 1',
+    '',
+    'display.show(Image.HAPPY)',
+  ])}
+
+  ${conceptBox([
+    'El bucle while sigue repitiendo mientras la condición sea True.',
+    'CUIDADO: si la condición nunca se hace False, el bucle es infinito y el programa se cuelga.',
+    'numero -= 1 es una abreviatura de numero = numero - 1.',
+  ])}
+
+  <h2>4.2 El bucle for</h2>
+  ${codeBlock('bucle_for.py', [
+    'from microbit import *',
+    '',
+    '# range(5) genera: 0, 1, 2, 3, 4',
+    'for i in range(5):',
+    '    display.show(str(i))',
+    '    sleep(500)',
+    '',
+    '# range(1, 6) genera: 1, 2, 3, 4, 5',
+    'for i in range(1, 6):',
+    '    display.show(str(i))',
+    '    sleep(400)',
+    '',
+    '# range con paso: 0, 2, 4, 6, 8',
+    'for i in range(0, 10, 2):',
+    '    display.scroll(str(i))',
+    '    sleep(300)',
+  ])}
+
+  ${noteBox([
+    'range(n) genera los números 0, 1, 2, ..., n-1.',
+    'range(inicio, fin) genera de inicio hasta fin-1.',
+    'range(inicio, fin, paso) permite ir de 2 en 2, de 3 en 3, o en sentido inverso con paso negativo.',
+  ])}
+
+  <h2>4.3 Animación: bucles anidados</h2>
+  ${codeBlock('animacion_leds.py', [
+    'from microbit import *',
+    '',
+    '# Encender LEDs fila a fila',
+    'for y in range(5):             # fila: 0, 1, 2, 3, 4',
+    '    for x in range(5):         # columna: 0, 1, 2, 3, 4',
+    '        display.set_pixel(x, y, 9)    # brillo máximo = 9',
+    '        sleep(50)',
+    '',
+    'sleep(500)',
+    'display.clear()',
+  ])}
+
+  <h3>✏️ Ejercicio 4.1 — Contador digital ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>El contador muestra 0, 1, 2... hasta 9 y vuelve a empezar (bucle infinito).</p>
+      <p>Cada número se ve durante 0,5 segundos.</p>
+      <p><em>Extensión:</em> al pulsar el botón A, el contador se detiene.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Nivel 1 — Plantilla:</strong> for i in range(___): display.show(str(___)) sleep(___)',
+    '<strong>Nivel 2 — Estándar:</strong> el ejercicio tal como se describe.',
+    '<strong>Nivel 3 — Avanzado:</strong> cuenta de 9 a 0 usando range(9, -1, -1).',
+    '<strong>Nivel 4 — Reto:</strong> el contador salta de 2 en 2 o de 3 en 3.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Elección de contexto:</strong> el alumno puede programar un "temporizador de partido de fútbol", un "contador de ejercicios de gimnasia" o lo que conecte con sus intereses.',
+  ])}
+
+  <h3>✏️ Ejercicio 4.2 — Dibujando con píxeles ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Con <code>display.set_pixel(x, y, brillo)</code> y bucles anidados:</p>
+      <ol>
+        <li>Dibuja el <strong>borde</strong> de la pantalla (perímetro de 5×5 píxeles).</li>
+        <li>Dibuja una <strong>X</strong> (las dos diagonales).</li>
+        <li>Dibuja un <strong>tablero de ajedrez</strong>: encendido si (x + y) % 2 == 0.</li>
+      </ol>
+    </div>
+  </div>
+
+  ${duaBox('rep', [
+    '<strong>Cuadrícula física:</strong> entrega a cada alumno una hoja cuadriculada 5×5 para que coloreen primero el patrón a mano. El dibujo en papel ES el algoritmo.',
+    '<strong>Coordenadas:</strong> en la micro:bit x=0 es la columna izquierda e y=0 es la fila superior. Dibuja los ejes en la pizarra.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Creatividad:</strong> después de los 3 patrones obligatorios, propón "inventa tu propio patrón". Algunos alumnos dibujarán letras, caras o patrones geométricos complejos. Todos son válidos.',
+  ])}
+
+  ${codeBlock('lluvia.py', [
+    '# Animación de lluvia — ejemplo creativo',
+    'from microbit import *',
+    'import random',
+    '',
+    'while True:',
+    '    columna = random.randint(0, 4)',
+    '    for fila in range(5):',
+    '        display.clear()',
+    '        display.set_pixel(columna, fila, 9)',
+    '        sleep(80)',
+    '    display.clear()',
+    '    sleep(random.randint(50, 200))',
+  ])}
+
+  ${challengeBox('Reto: Serpiente minimalista', [
+    'Implementa una "serpiente" de 3 píxeles que se mueve por la pantalla.',
+    'Botón A: gira a la izquierda. Botón B: gira a la derecha.',
+    'Si choca con el borde, el juego termina y muestra la puntuación.',
+    'Necesitas: lista de posiciones [(x,y)], lógica de movimiento, detección de colisiones.',
+  ])}
+`;
+</script>
+</body>
+</html>

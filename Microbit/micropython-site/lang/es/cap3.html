@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Condicionales — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🚦 Capítulo 03</div>
+      <h1>Condicionales</h1>
+      <p class="subtitle">if/elif/else, operadores lógicos y uso de los botones A y B.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap3');
+document.getElementById('mc').innerHTML=`
+
+  <h2>3.1 La estructura if / elif / else</h2>
+  <p>Los condicionales permiten que el programa tome decisiones. Como un semáforo: si rojo, para; si verde, pasa.</p>
+  ${duaBox('rep',["<strong>Actividad desenchufada:</strong> 'SI llevas zapatillas → levántate; SINO → quédate sentado'. Los alumnos viven el condicional con el cuerpo.", '<strong>Diagrama de flujo:</strong> dibuja un rombo de decisión con SÍ/NO en la pizarra antes de abrir el editor.'])}
+  ${codeBlock('cond.py',['from microbit import *', '', 'temp = temperature()', '', 'if temp > 30:', '    display.show(Image.HAPPY)', 'elif temp > 20:', "    display.scroll('OK')", 'elif temp > 10:', "    display.scroll('Cool')", 'else:', '    display.show(Image.SAD)'])}
+  ${conceptBox(['INDENTACIÓN: el código dentro del if va sangrado 4 espacios. En Python es OBLIGATORIO.', 'if condicion:       ← los dos puntos son obligatorios', '    codigo_verdad   ← solo si la condición es True'])}
+  <h2>3.2 Operadores</h2>
+  ${table(['Op.', 'Ejemplo'],[['==', 'Igual: x == 5'], ['!=', 'Distinto: x != 0'], ['> <', 'Mayor/menor: x > 10'], ['and', 'Y lógico: x > 0 and x < 10'], ['or', 'O lógico'], ['not', 'Negación']])}
+  <h2>3.3 Los botones A y B</h2>
+  ${codeBlock('buttons.py',['from microbit import *', '', 'while True:', '    if button_a.is_pressed():', '        display.show(Image.HAPPY)', '    elif button_b.is_pressed():', '        display.show(Image.SAD)', '    elif button_a.is_pressed() and button_b.is_pressed():', '        display.show(Image.SURPRISED)', '    else:', '        display.clear()', '    sleep(100)'])}
+  ${noteBox(['is_pressed() → True si pulsado ahora.', 'was_pressed() → True si pulsado desde la última vez.'])}
+  <h3>✏️ Ejercicio 3.1 — Semáforo ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <ul>
+      <li>Botón A → Image.NO (rojo — STOP)</li>
+      <li>Botón B → Image.ARROW_N (verde — PASA)</li>
+      <li>Sin botón → Image.DIAMOND (amarillo — ESPERA)</li>
+    </ul>
+  </div></div>
+  ${duaBox('ace',['<strong>Nivel básico:</strong> solo 2 botones.', '<strong>Nivel estándar:</strong> 3 estados completos.', '<strong>Nivel avanzado:</strong> añade un contador de personas que pasan.'])}
+  <h3>✏️ Ejercicio 3.2 — Piedra, Papel, Tijera ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Botón A → Piedra | Botón B → Papel | Ambos → Tijera</p>
+    <p><code>import random</code> → <code>random.randint(0, 2)</code></p>
+  </div></div>
+  ${codeBlock('rps.py',['from microbit import *', 'import random', '', "opts = ['Rock', 'Paper', 'Scissors']", '', 'while True:', '    player = None', '    if button_a.is_pressed() and button_b.is_pressed():', '        player = 2', '    elif button_a.is_pressed():', '        player = 0', '    elif button_b.is_pressed():', '        player = 1', '    if player is not None:', '        machine = random.randint(0, 2)', '        display.scroll(opts[player])', '        if player == machine:', "            display.scroll('Tie!')", '        elif (player - machine) % 3 == 1:', "            display.scroll('WIN!')", '        else:', "            display.scroll('Lose...')", '    sleep(200)'])}
+`;
+</script>
+</body>
+</html>

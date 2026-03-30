@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baldintzazkoak — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🚦 Kapitulua 03</div>
+      <h1>Baldintzazkoak</h1>
+      <p class="subtitle">if/elif/else, operadore logikoak eta A eta B botoiak erabiltzea.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap3');
+document.getElementById('mc').innerHTML=`
+
+  <h2>3.1 if / elif / else egitura</h2>
+  <p>Baldintzazkoek programari erabakiak hartzeko aukera ematen diote. Trafiko argi bat bezala: gorria bada, gelditu; berdea bada, aurrera.</p>
+  ${duaBox('rep',["<strong>Deskonektatutako jarduera:</strong> 'kirol-oinetakoak badituzu → zutitu; BESTELA → eserita geratu'. Ikasleek baldintza gorputzarekin bizi dute.", '<strong>Fluxu-diagrama:</strong> marraztu erabaki-erronbo bat BAI/EZ adarrekin arbel gainean.'])}
+  ${codeBlock('cond.py',['from microbit import *', '', 'temp = temperature()', '', 'if temp > 30:', '    display.show(Image.HAPPY)', 'elif temp > 20:', "    display.scroll('OK')", 'elif temp > 10:', "    display.scroll('Cool')", 'else:', '    display.show(Image.SAD)'])}
+  ${conceptBox(['INDENTAZIOA: if barruko kodea 4 zuriunerekin sartu behar da. Pythonen DERRIGORREZKOA.', 'if baldintza:       ← bi puntuak beharrezkoak dira', '    egia_kodea      ← baldintza True bada soilik'])}
+  <h2>3.2 Operadoreak</h2>
+  ${table(['Op.', 'Adibidea'],[['==', 'Berdina: x == 5'], ['!=', 'Desberdina: x != 0'], ['> <', 'Handiagoa/txikiagoa: x > 10'], ['and', 'ETA: x > 0 and x < 10'], ['or', 'EDO'], ['not', 'Ezeztapena']])}
+  <h2>3.3 A eta B botoiak</h2>
+  ${codeBlock('buttons.py',['from microbit import *', '', 'while True:', '    if button_a.is_pressed():', '        display.show(Image.HAPPY)', '    elif button_b.is_pressed():', '        display.show(Image.SAD)', '    elif button_a.is_pressed() and button_b.is_pressed():', '        display.show(Image.SURPRISED)', '    else:', '        display.clear()', '    sleep(100)'])}
+  ${noteBox(['is_pressed() → True orain sakatuta badago.', 'was_pressed() → True azken aldiz galdetu zenetik sakatu bada.'])}
+  <h3>✏️ 3.1 Ariketa — Trafiko argia ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <ul>
+      <li>A botoia → Image.NO (gorria — GELDITU)</li>
+      <li>B botoia → Image.ARROW_N (berdea — AURRERA)</li>
+      <li>Botoi gabe → Image.DIAMOND (horia — ITXARON)</li>
+    </ul>
+  </div></div>
+  ${duaBox('ace',['<strong>Oinarrizko maila:</strong> 2 botoiak soilik.', '<strong>Maila estandarra:</strong> 3 egoera osoak.', '<strong>Maila aurreratua:</strong> gehitu pasatzen diren pertsonen kontadorea.'])}
+  <h3>✏️ 3.2 Ariketa — Harri, Orri, Artaziak ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>A botoia → Harria | B botoia → Orria | Biak → Artaziak</p>
+    <p><code>import random</code> → <code>random.randint(0, 2)</code></p>
+  </div></div>
+  ${codeBlock('rps.py',['from microbit import *', 'import random', '', "opts = ['Rock', 'Paper', 'Scissors']", '', 'while True:', '    player = None', '    if button_a.is_pressed() and button_b.is_pressed():', '        player = 2', '    elif button_a.is_pressed():', '        player = 0', '    elif button_b.is_pressed():', '        player = 1', '    if player is not None:', '        machine = random.randint(0, 2)', '        display.scroll(opts[player])', '        if player == machine:', "            display.scroll('Tie!')", '        elif (player - machine) % 3 == 1:', "            display.scroll('WIN!')", '        else:', "            display.scroll('Lose...')", '    sleep(200)'])}
+`;
+</script>
+</body>
+</html>

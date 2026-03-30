@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Universal Design for Learning (UDL) — MicroPython in the Classroom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">♿ Module 00</div>
+      <h1>Universal Design for Learning (UDL)</h1>
+      <p class="subtitle">The pedagogical framework behind the whole manual: its three principles and how they are integrated in every chapter.</p>
+      <div class="header-badges"><span class="badge badge-blue">Theory</span><span class="badge badge-coral">3 principles</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('dua');
+document.getElementById('mc').innerHTML=`
+
+  <p>UDL is a scientific and pedagogical framework based on a simple premise: <strong>there is no such thing as the average learner</strong>. Everyone learns differently. Designing with diversity in mind from the start is what UDL proposes.</p>
+  <h2>The three UDL principles</h2>
+  <div style="display:flex;flex-direction:column;gap:16px;margin:20px 0">
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-red);width:8px;flex-shrink:0"></div><div style="background:var(--dua-red-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-red);font-size:15px;margin-bottom:8px">🟥 PRINCIPLE I — Multiple means of REPRESENTATION</div><p style="color:var(--dua-red);margin:0">Provide information in multiple ways: text, image, sound, physical demonstration, video, code. No learner is excluded because of how they process information.</p></div></div>
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-blue);width:8px;flex-shrink:0"></div><div style="background:var(--dua-blue-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-blue);font-size:15px;margin-bottom:8px">🟦 PRINCIPLE II — Multiple means of ACTION & EXPRESSION</div><p style="color:var(--dua-blue);margin:0">Give options to demonstrate what has been learned: oral explanation, video, physical prototype, diagram, portfolio. The learner chooses how to express themselves.</p></div></div>
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-green);width:8px;flex-shrink:0"></div><div style="background:var(--dua-green-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-green);font-size:15px;margin-bottom:8px">🟩 PRINCIPLE III — Multiple means of ENGAGEMENT</div><p style="color:var(--dua-green);margin:0">Capture and sustain interest and motivation: choice of context, graded challenges, connection to personal interests, learning community.</p></div></div>
+  </div>
+  ${duaBox('rep',['Alternative visual materials, explained vocabulary, analogies, audio options.','Unplugged activities before opening the editor.'])}
+  ${duaBox('ace',['Alternatives to writing code: template with blanks, pseudocode, drawn flowchart.','Support tools: simulator, autocomplete, integrated reference in the editor.'])}
+  ${duaBox('imp',['Context choice: the learner chooses the project topic.','Error culture: normalise failure as part of the learning process.'])}
+  ${tipBox(['UDL does not mean lowering standards. It means ensuring everyone can reach them by different paths.',"UDL markers are not 'for students with special needs': they are for the whole class."])}
+`;
+</script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-
 {
   "CLOSE": "Tancar",
   "ACCESSIBILITY": {
@@ -77,7 +76,7 @@
     "STEP_1_TEXT_5": "El següent fragment de codi gestiona la detecció de la pressió dels botons:",
     "STEP_1_TEXT_6": "Aquestes línies detecten quin botó es prem primer i mostren una fletxa en la direcció corresponent.",
     "STEP_2_TITLE": "Pas 2: Millorant la Interactivitat",
-    "STEP_2_TEXT": "Ara afegirem elements per fer el joc més dinàmic i interactiu.",
+    "STEP_2_TEXT": "Ara afegirem elements per fer le joc més dinàmic i interactiu.",
     "STEP_2_TEXT_1": "Integració de so per a la retroalimentació:",
     "STEP_2_TEXT_2": "El so ajudarà els jugadors a saber quan comença i acaba el compte enrere, i qui ha premut primer.",
     "STEP_2_TEXT_3": "També afegirem una variable per controlar l'estat del joc, com ara si el duel està actiu o no.",
@@ -177,7 +176,7 @@
     "STEP_1_TITLE_1": "El Batec Bàsic",
     "STEP_1_TEXT": "Començarem programant una animació senzilla d'un cor que batega a la pantalla de LEDs de la Micro:bit.",
     "STEP_1_TITLE_2": "Afegint So al Batec",
-    "STEP_1_TEXT_1": "Per fer el batec més realista i accessible, afegirem un so cada vegada que el cor s'il·lumini.",
+    "STEP_1_TEXT_1": "Per fer el batec més realista i accessible, afegiremos un so cada vegada que el cor s'il·lumini.",
     "STEP_1_TEXT_2": [
       "Importarem el mòdul 'music' per poder reproduir notes musicals.",
       "El so hauria de ser clar i distintiu, replicant el 'lub-dub' d'un batec real."
@@ -602,7 +601,7 @@
     "BLOCKLY_P1": "Las interfaces de programación por bloques, como la que utiliza MakeCode para Micro:bit, son una herramienta potente para la accesibilidad. Su naturaleza visual e intuitiva reduce barreras importantes:",
     "BLOCKLY_OVERCOME_TITLE": "Barreras que Supera:",
     "BLOCKLY_OVERCOME_LI1_TITLE": "Discapacidad visual (baja visión):",
-    "BLOCKLY_OVERCOME_LI1_TEXT": "Aunque las interfaces visuales pueden ser un reto, el uso de bloques con códigos de color permite que los usuarios con baja visión reconozcan el tipo de bloque que se está utilizando de manera más rápida y sencilla.",
+    "BLOCKLY_OVERCOME_LI1_TEXT": "Aunque las interfaces visuales pueden ser un reto, el uso de bloques con códigos de color permite que los usuarios con baja visión reconozcan el tipo de block que se está utilizando de manera más rápida y sencilla.",
     "BLOCKLY_OVERCOME_LI2_TITLE": "Discapacidad motriz:",
     "BLOCKLY_OVERCOME_LI2_TEXT": "La manipulación de bloques suele ser más sencilla que la escritura de código, especialmente con adaptaciones de ratón o teclado. La función de arrastrar y soltar puede ser reemplazada por la navegación con teclado para quienes no pueden usar un ratón.",
     "BLOCKLY_OVERCOME_LI3_TITLE": "Discapacidad cognitiva y del aprendizaje:",
@@ -614,7 +613,7 @@
     "BLOCKLY_CHALLENGES_LI2_TEXT": "La navegación completa y eficiente solo con teclado no siempre está implementada a la perfección en todas las plataformas de programación por bloques.",
     "BLOCKLY_CHALLENGES_LI3_TITLE": "Personalización:",
     "BLOCKLY_CHALLENGES_LI3_TEXT": "La falta de opciones de personalización (tamaño de fuente, contraste de color, eliminación de animaciones) puede afectar a usuarios con diversas necesidades visuales o cognitivas.",
-    "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentación y Ejemplos:",
+    "BLOCKLY_CHALLENGES_LI4_TITLE": "Documentation y Ejemplos:",
     "BLOCKLY_CHALLENGES_LI4_TEXT": "No siempre se dispone de documentación y ejemplos de proyectos diseñados específicamente con la accesibilidad en mente.",
     "PYTHON_TITLE": "Programación por Código (Editor Micro:bit Python)",
     "PYTHON_P1": "Como alternativa a la programación por bloques se puede utilizar la programación por código (microPython o JavaScript). Este tipo de programación, al ser texto plano, es altamente accesible para los lectores de pantalla.",
@@ -638,9 +637,15 @@
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprovar Accessibilitat (Automàtica)",
   "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprovar Accessibilitat (Manual)",
   "MICROPYTHON_PAGE": {
-    "H1": "Curs de Programació en MicroPython per a Micro:bit (Èmfasi en Accessibilitat)",
-    "H2_INTRO": "Introducció a MicroPython i Micro:bit",
-    "P_INTRO": "Aquest curs t'introduirà al món emocionant de la programació amb MicroPython a la placa Micro:bit. Aprendràs a crear projectes interactius, amb un enfocament especial en com fer-los accessibles per a tots els usuaris, independentment de les seves capacitats. La Micro:bit és una petita computadora programable dissenyada per fer que l'aprenentatge de la programació sigui divertit i accessible. Amb MicroPython, un dialecte optimitzat de Python per a microcontroladors, podràs escriure codi de manera senzilla i eficient.",
+    "H1": "MicroPython",
+    "H2_INTRO": "Introducció a MicroPython",
+    "P_INTRO": "MicroPython és una implementació lleugera i eficient del llenguatge de programació Python 3, dissenyada específicament per funcionar en microcontroladors com la Micro:bit. Permet interactuar amb el maquinari de manera senzilla i directa, facilitant l'aprenentatge de la programació i la creació de projectes innovadors.",
+    "H2_EDUCATORS": "Educadors",
+    "P_EDUCATORS": "Troba recursos, guies i materials dissenyats per ensenyar MicroPython a l'aula, amb un enfocament inclusiu i accessible per a tot l'alumnat.",
+    "BTN_EDUCATORS": "Àrea d'Educadors",
+    "H2_STUDENTS": "Estudiants",
+    "P_STUDENTS": "Comença a programar la teva Micro:bit amb MicroPython! Descobreix projectes pas a pas i aprèn a crear les teves pròpies aplicacions de forma divertida.",
+    "BTN_STUDENTS": "Àrea d'Alumnes",
     "H2_MODULE1": "Mòdul 1: Primers Passos i Sortides Accessibles",
     "H3_MODULE1_BASIC": "Conceptes Bàsics de MicroPython",
     "P_MODULE1_BASIC": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercici ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -811,7 +816,7 @@
       "SUCCESS_MESSAGE": "Premudes simples: No s'han detectat premudes complexes."
     },
     "CODE_SEMANTICS": {
-      "SUCCESS_MESSAGE": "Semàntica: Les variables tenen noms descriptius.",
+      "SUCCESS_MESSAGE": "Semàntica: Las variables tenen noms descriptius.",
       "WARNING_MESSAGE": "Noms de variables genèrics.",
       "WARNING_SUGGESTION": "Utilitza noms com 'estat_alarma' en lloc de 'a' per facilitar la lectura amb lectors de pantalla."
     }

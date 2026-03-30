@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DUA en este Manual — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">♿ Módulo 00</div>
+      <h1>El Diseño Universal para el Aprendizaje</h1>
+      <p class="subtitle">El marco pedagógico que vertebra todo el manual: qué es el DUA, sus tres principios y cómo están integrados en cada capítulo.</p>
+      <div class="header-badges">
+        <span class="badge badge-blue">Marco teórico</span>
+        <span class="badge badge-coral">3 principios</span>
+        <span class="badge badge-green">Aplicación práctica</span>
+      </div>
+    </div>
+
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('dua');
+document.getElementById('main-content').innerHTML = `
+
+  <p>El DUA es un marco científico y pedagógico que parte de una premisa simple: <strong>no existe el "alumno promedio"</strong>. Cada persona aprende de forma diferente, tiene distintos puntos de entrada al conocimiento y se motiva con cosas distintas. Diseñar pensando en la diversidad desde el inicio —no como un parche posterior— es lo que el DUA propone.</p>
+  <p>Este manual integra el DUA de forma transversal. No es un apéndice ni una sección separada: las adaptaciones están dentro de los propios ejercicios, ejemplos y orientaciones didácticas.</p>
+
+  <h2>Los tres principios del DUA</h2>
+
+  <div style="display:flex;flex-direction:column;gap:16px;margin:20px 0">
+
+    <div style="display:flex;gap:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
+      <div style="background:var(--dua-red);width:8px;flex-shrink:0"></div>
+      <div style="background:var(--dua-red-bg);padding:20px 22px;flex:1">
+        <div style="font-weight:700;color:var(--dua-red);font-size:16px;margin-bottom:8px">🟥 PRINCIPIO I — Múltiples formas de REPRESENTACIÓN</div>
+        <p style="color:var(--dua-red);margin-bottom:8px">Ofrecer la información de varias maneras: texto, imagen, sonido, demostración física, vídeo, código. Ningún alumno queda excluido por su forma de procesar la información.</p>
+        <p style="color:var(--dua-red)"><strong>Pautas en programación:</strong> metáforas cotidianas, combinación de pantalla y placa física, glosario visual, código con comentarios en español.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
+      <div style="background:var(--dua-blue);width:8px;flex-shrink:0"></div>
+      <div style="background:var(--dua-blue-bg);padding:20px 22px;flex:1">
+        <div style="font-weight:700;color:var(--dua-blue);font-size:16px;margin-bottom:8px">🟦 PRINCIPIO II — Múltiples formas de ACCIÓN Y EXPRESIÓN</div>
+        <p style="color:var(--dua-blue);margin-bottom:8px">Dar opciones para demostrar lo aprendido: no solo texto escrito, también oralidad, vídeo, prototipo físico, diagrama, portfolio. El alumno elige cómo se expresa.</p>
+        <p style="color:var(--dua-blue)"><strong>Pautas en programación:</strong> plantillas de código, pseudocódigo, diagrama dibujado, explicación oral, herramientas de apoyo como el simulador y autocompletado.</p>
+      </div>
+    </div>
+
+    <div style="display:flex;gap:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
+      <div style="background:var(--dua-green);width:8px;flex-shrink:0"></div>
+      <div style="background:var(--dua-green-bg);padding:20px 22px;flex:1">
+        <div style="font-weight:700;color:var(--dua-green);font-size:16px;margin-bottom:8px">🟩 PRINCIPIO III — Múltiples formas de IMPLICACIÓN</div>
+        <p style="color:var(--dua-green);margin-bottom:8px">Captar y mantener el interés y la motivación: elección de contexto y tema, retos graduados, conexión con intereses personales, comunidad de aprendizaje.</p>
+        <p style="color:var(--dua-green)"><strong>Pautas en programación:</strong> el alumno elige el tema del proyecto, datos personales reales, cultura del error, retos visibles y opcionales, celebración de logros parciales.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Cómo leer las marcas DUA en este manual</h2>
+  <p>A lo largo de todos los capítulos encontrarás tres tipos de bloques DUA desplegables junto a los ejercicios y explicaciones. Haz clic para expandirlos:</p>
+
+  ${duaBox('rep', [
+    'Material visual alternativo, vocabulario explicado, analogías, opciones de audio.',
+    'Actividades desenchufadas (unplugged) antes de abrir el editor.',
+    'Glosario en el aula con pictogramas junto a cada término técnico.',
+  ])}
+  ${duaBox('ace', [
+    'Alternativas a la escritura de código: plantilla con huecos, pseudocódigo, diagrama dibujado.',
+    'Formas de presentación: oral, vídeo de 60 segundos, portfolio de fichas.',
+    'Herramientas de apoyo: simulador, autocompletado, referencia integrada en el editor.',
+  ])}
+  ${duaBox('imp', [
+    'Elección de contexto: el alumno elige el tema del proyecto.',
+    'Retos con dificultad graduada (Nivel 1 → 3) visibles para todos.',
+    'Feedback inmediato de la micro:bit: el resultado se ve al instante.',
+    'Cultura del error: normalizar el fallo como parte del proceso.',
+  ])}
+
+  ${tipBox([
+    'El DUA no es sinónimo de bajar el nivel. Es garantizar que todos puedan alcanzarlo por caminos distintos.',
+    'No es necesario aplicar las tres marcas en cada ejercicio: selecciona las más relevantes para tu grupo.',
+    'Las marcas DUA no son "para alumnos con necesidades especiales": son para todo el grupo clase, porque todos aprendemos diferente.',
+  ])}
+
+  <h2>¿Por qué DUA en la programación?</h2>
+  <p>La programación se presenta históricamente como una actividad para «los que tienen cabeza para ello». El DUA desmonta esta idea: cualquier persona puede aprender a programar si se le ofrece el acceso correcto.</p>
+
+  ${table(
+    ['Barrera frecuente', 'Respuesta DUA'],
+    [
+      ['Dislexia / dificultades lectoras', 'Código con comentarios amplios, metáforas físicas, pasos numerados, fuentes sin serifa.'],
+      ['TDAH / dificultades atencionales', 'Sesiones cortas con producto visible al final, feedback inmediato de la placa, opción de trabajo individual o en pareja.'],
+      ['Altas capacidades', 'Retos abiertos sin techo (Nivel 3 o retos 🚀), rol de tutor entre iguales, proyectos de investigación autónomos.'],
+      ['Ansiedad tecnológica', 'Empezar siempre con el simulador antes de la placa física, normalizar el error, rutina de inicio igual en todas las sesiones.'],
+      ['Dificultades motoras', 'Dictado a un compañero/a, plantillas de código con huecos, reconocimiento de voz del sistema operativo.'],
+      ['Barrera idiomática', 'El código usa palabras en inglés simples. Crear con el grupo un glosario bilingüe: inglés-castellano-lengua materna.'],
+    ]
+  )}
+`;
+</script>
+</body>
+</html>

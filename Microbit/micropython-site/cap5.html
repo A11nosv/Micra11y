@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 5: Listas y Funciones — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🧩 Capítulo 05</div>
+      <h1>Listas y Funciones</h1>
+      <p class="subtitle">Colecciones de datos con listas y código reutilizable con funciones. Primer paso hacia la programación modular.</p>
+      <div class="header-badges">
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+        <span class="badge badge-blue">🔴 Avanzado</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap5');
+document.getElementById('main-content').innerHTML = `
+  <h2>5.1 Listas: colecciones de datos</h2>
+  <p>Una lista almacena varios valores en una sola variable, accesibles por su posición (índice, empezando por 0).</p>
+
+  ${duaBox('rep', [
+    '<strong>Actividad física:</strong> pide a 5 alumnos que se pongan en fila y numérales del 0 al 4. Di: "alumno número 2, ¿cuál es tu nombre?" → Han actuado el acceso a una lista por índice.',
+    '<strong>Analogía:</strong> una lista es como una lista de la compra numerada: tiene elementos en orden, se puede añadir, quitar o consultar cualquier posición.',
+  ])}
+
+  ${codeBlock('listas_basicas.py', [
+    'from microbit import *',
+    '',
+    "colores = ['rojo', 'verde', 'azul', 'amarillo']",
+    'numeros = [3, 7, 15, 2, 9]',
+    '',
+    "display.scroll(colores[0])      # 'rojo'   (índice 0 = primero)",
+    "display.scroll(colores[2])      # 'azul'   (índice 2 = tercero)",
+    'display.scroll(str(len(colores)))  # 4 (cantidad de elementos)',
+    '',
+    '# Recorrer una lista con for',
+    'for color in colores:',
+    '    display.scroll(color)',
+    '    sleep(200)',
+  ])}
+
+  ${table(
+    ['Operación', 'Ejemplo'],
+    [
+      ['Acceder por índice', 'lista[0], lista[-1] (último)'],
+      ['Modificar elemento', "lista[1] = 'nuevo valor'"],
+      ['Añadir al final', "lista.append('nuevo')"],
+      ['Eliminar elemento', "lista.remove('valor') o del lista[i]"],
+      ['Longitud', 'len(lista)'],
+      ['Comprobar pertenencia', "'elemento' in lista → True o False"],
+      ['Ordenar', 'lista.sort()'],
+    ]
+  )}
+
+  <h2>5.2 Funciones: código con nombre propio</h2>
+  <p>Las funciones encapsulan código reutilizable y le dan un nombre. Son el primer paso hacia la programación modular.</p>
+
+  ${duaBox('rep', [
+    '<strong>Metáfora:</strong> una función es como una receta con nombre. "hacer_bizcocho()" agrupa todos los pasos; cada vez que quieres hacer un bizcocho, solo llamas a la receta.',
+    '<strong>Diagrama:</strong> dibuja un rectángulo con el nombre en la parte superior, las entradas (parámetros) con flechas entrando por la izquierda y la salida (return) saliendo por la derecha.',
+  ])}
+
+  ${codeBlock('funciones.py', [
+    'from microbit import *',
+    '',
+    '# Función sin parámetros',
+    'def mostrar_temperatura():',
+    '    temp = temperature()',
+    "    display.scroll('T:' + str(temp))",
+    '',
+    '# Función con parámetros',
+    'def parpadear(imagen, veces):',
+    '    for i in range(veces):',
+    '        display.show(imagen)',
+    '        sleep(300)',
+    '        display.clear()',
+    '        sleep(200)',
+    '',
+    '# Función que devuelve un valor',
+    'def celsius_a_fahrenheit(c):',
+    '    return (c * 9 / 5) + 32',
+    '',
+    '# Llamar a las funciones',
+    'mostrar_temperatura()',
+    'parpadear(Image.HEART, 3)',
+    'f = celsius_a_fahrenheit(100)',
+    "display.scroll(str(f) + 'F')",
+  ])}
+
+  ${conceptBox([
+    'def nombre_funcion(parametros):  ← definición de la función',
+    '    código indentado              ← cuerpo de la función',
+    '    return valor                  ← opcional: lo que devuelve',
+    'Una función debe definirse ANTES de ser llamada.',
+    'Los parámetros son variables locales: solo existen dentro de la función.',
+  ])}
+
+  <h3>✏️ Ejercicio 5.1 — Librería de animaciones ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Crea 4 funciones de animación:</p>
+      <ol>
+        <li><code>celebrar()</code> → animación de victoria (3 imágenes, 0,3 s cada una)</li>
+        <li><code>fracasar()</code> → animación de derrota</li>
+        <li><code>contar_atras(n)</code> → cuenta desde n hasta 0</li>
+        <li><code>mostrar_info()</code> → temperatura + icono según el valor</li>
+      </ol>
+      <p>Escribe un programa principal que las llame en orden.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Código con huecos (nivel apoyo):</strong>',
+    'def celebrar():',
+    '    display.show(____)',
+    '    sleep(____)',
+    '    display.show(____)',
+    '<strong>Portfolio:</strong> el alumno documenta sus funciones en una "tarjeta de función" física: nombre, para qué sirve, parámetros, lo que devuelve.',
+    '<strong>Presentación oral:</strong> el alumno explica ante la clase cómo funciona una de sus funciones mientras la ejecuta.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Autoría:</strong> el alumno puede nombrar las funciones como quiera. No es obligatorio que se llamen exactamente como en el enunciado.',
+    "<strong>Conexión:</strong> relaciona las funciones con los 'comandos' de los videojuegos: saltar(), atacar(), correr(). El concepto ya está en su experiencia previa.",
+  ])}
+`;
+</script>
+</body>
+</html>

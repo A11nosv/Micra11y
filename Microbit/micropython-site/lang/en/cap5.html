@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lists & Functions — MicroPython in the Classroom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🧩 Chapter 05</div>
+      <h1>Lists & Functions</h1>
+      <p class="subtitle">Data collections with lists and reusable code with functions.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap5');
+document.getElementById('mc').innerHTML=`
+
+  <h2>5.1 Lists</h2>
+  ${duaBox('rep',["<strong>Physical activity:</strong> 5 students in a row numbered 0-4. 'Student number 2, what is your name?' → They have acted out index access.", '<strong>Analogy:</strong> a list is like a numbered shopping list.'])}
+  ${codeBlock('lists.py',['from microbit import *', '', "colors = ['red', 'green', 'blue']", '', "display.scroll(colors[0])       # 'red'", 'display.scroll(str(len(colors))) # 3', '', 'for c in colors:', '    display.scroll(c)', '    sleep(200)'])}
+  ${table(['Operation', 'Example'],[['Access', 'list[0], list[-1]'], ['Add', "list.append('new')"], ['Length', 'len(list)'], ['Sort', 'list.sort()']])}
+  <h2>5.2 Functions</h2>
+  ${duaBox('rep',["<strong>Metaphor:</strong> a function is like a named recipe: 'make_cake()' groups all the steps.", '<strong>Diagram:</strong> rectangle with the name at the top, inputs (parameters) entering on the left, output (return) leaving on the right.'])}
+  ${codeBlock('funcs.py',['from microbit import *', '', 'def show_temp():', '    t = temperature()', '    display.scroll(str(t))', '', 'def blink(img, times):', '    for i in range(times):', '        display.show(img)', '        sleep(300)', '        display.clear()', '        sleep(200)', '', 'def to_fahrenheit(c):', '    return (c * 9 / 5) + 32', '', 'show_temp()', 'blink(Image.HEART, 3)'])}
+  ${conceptBox(['def name(parameters):     ← definition', '    indented code          ← body', '    return value           ← optional', 'A function must be defined BEFORE it is called.'])}
+  <h3>✏️ Exercise 5.1 — Animation library ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Create 4 functions: celebrate(), fail(), count_down(n), show_info(). Write a main program that calls them in order.</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Template:</strong> def celebrate(): display.show(____) sleep(____)', '<strong>Portfolio:</strong> physical function cards with name, parameters and what it does.', '<strong>Oral:</strong> the student explains one of their functions to the class.'])}
+`;
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DBU Ikuspuntuko Gida Pedagogikoa — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🎓 Kapitulua 10</div>
+      <h1>DBU Ikuspuntuko Gida Pedagogikoa</h1>
+      <p class="subtitle">Estrategia didaktikoak, ebaluazioa, bikoteka programazioa, gela-kudeaketa eta konexio kurrikularrak.</p>
+      <div class="header-badges"><span class="badge badge-blue">🎓</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap10');
+document.getElementById('mc').innerHTML=`
+
+  <h2>10.1 Zergatik DBU programazioan?</h2>
+  ${table(['Oztopoa', 'DBU erantzuna'],[['Dislexia', 'Iruzkin zabalak, metafora fisikoak, zenbakitutako urratsak.'], ['ADHA', 'Saio laburrak, amaierako produktu ikusgaia, berehalako feedbacka.'], ['Gaitasun handiak', 'Goi-mugagabeko erronka irekiak 3. maila + 🚀, ikaskideen tutore-rola.'], ['Teknologia-antsietatea', 'Beti simulagailuarekin hasi, errorea normalizatu, errutina egonkorra.'], ['Hizkuntza-oztopoa', 'Taldeak eraikitako hiztegia bietan. Kodeak ingelera sinplea erabiltzen du.']])}
+  <h2>10.2 Saio-ereduaren diseinua</h2>
+  ${table(['Unea', 'Jarduera', 'DBU'],[['0-5 min', 'Proiektuko hasierako galdera.', 'Inplikazioa'], ['5-15 min', 'Kontzeptuaren 3 irudikapen: metafora, diagrama, kodea.', 'Irudikapena'], ['15-30 min', 'Gidatutako praktika. Irakaslea ozen programatu (think-aloud).', 'Irudikapena'], ['30-40 min', 'Ikaslearen aukeratutako mailako praktika autonomoa.', 'Ekintza + Inplikazioa'], ['40-45 min', '1-2 ikaslek beren irtenbidea partekatzen dute. Irtenbide desberdinak normalizatu.', 'Inplikazioa']])}
+  <h2>10.3 Bikoteka Programazioa</h2>
+  ${tipBox(['Gidaria: kodea idazten du. Nabigatzailea: irakurtzen du, akatsak detektatzen ditu, hurrengo urratsak planifikatzen ditu. 15 minuturo txandakatu.', 'EZ da onartzen bakarra lan egitea. Kideetako bat deskonektatuta badago, aldatu rolak edo bereizi bikotea aldi baterako.'])}
+  <h2>10.4 DBUrekin bateragarria den ebaluazioa</h2>
+  ${table(['Tresna', 'DBU Printzipioa', 'Deskribapena'],[['Proiektuaren errubrika', 'Ekintza eta Adierazpena', 'Kodea funtzionamenduaren, kontzeptuen eta dokumentazioaren arabera.'], ['Ahozko azalpena', 'Ekintza eta Adierazpena', 'Ikasleak bere programa eta hartutako erabakiak azaltzen ditu.'], ['Portfolio', 'Irudikapena + Ekintza', 'Proiektu eta hausnarketa bilduma unitate osoan.'], ['Fluxu-diagrama', 'Irudikapena', 'Algoritmoaren ulermena erakusten du sintaxi zehatza beharrezkoa izan gabe.']])}
+  <h2>10.5 Gela-kudeaketa</h2>
+  ${table(['Egoera', 'DBU erantzuna'],[['Oso azkar bukatzen duten ikasleak', '3. mailako erronkak eta 🚀 beti erabilgarri. Baita hobetu, dokumentatu, tutorizatu ere.'], ['Blokeatzen diren ikasleak', 'Eskain 1. mailako txantiloia. Hasi lehen lerroa harekin batera.'], ['micro:bit gutxi dago', '15 minutuko txandakatzea: plaka + simulagailua. Simulagailua %100 funtzionala da.'], ['Programak errorea ematen du', "Normalizatu: 'programatzaile guztiek erroreak dituzte. Diferentzia da guk aurkitzen dakigula'. Irakurri errorea ozen elkarrekin."]])}
+  <h2>10.6 Konexio kurrikularrak</h2>
+  ${table(['Ikasgaia', 'Konexioa'],[['Matematika', 'Aldagaiak, eragiketak, estatistika, koordinatuak (set_pixel).'], ['Zientziak', 'Tenperatura, argia (fotosintesia), mugimendua (azelerometroa).'], ['Musika', 'Notakekin konposizioa, konpasa, musika-eskala.'], ['Herritartzarako Hezkuntza', 'GPDR, pribatutasuna, diseinuan irisgarritasuna, gizarte-inpaktua.']])}
+  <h2>10.7 Baliabideak</h2>
+  <ul>
+    <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Editorea ofiziala.</li>
+    <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Irakasleen gidak.</li>
+    <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — DBU jarraibideak.</li>
+    <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Deskonektatutako jarduerak.</li>
+  </ul>
+`;
+</script>
+</body>
+</html>

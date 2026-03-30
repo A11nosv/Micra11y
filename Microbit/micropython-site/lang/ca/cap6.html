@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sensors — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🌡️ Capítol 06</div>
+      <h1>Sensors</h1>
+      <p class="subtitle">Acceleròmetre, gestos, sensor de llum i temperatura, i micròfon (v2).</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap6');
+document.getElementById('mc').innerHTML=`
+
+  <h2>6.1 L'acceleròmetre</h2>
+  ${duaBox('rep',['<strong>Demo en viu:</strong> passa la micro:bit de mà en mà mentre el simulador mostra els valors en temps real.', "<strong>Connexió amb Ciències:</strong> la gravetat terrestre és 1g ≈ 1000 en l'escala de la micro:bit."])}
+  ${codeBlock('accel.py',['from microbit import *', '', 'while True:', '    x = accelerometer.get_x()', '    y = accelerometer.get_y()', '    z = accelerometer.get_z()', '    display.scroll(str(x))', '    sleep(500)'])}
+  ${codeBlock('bubble.py',['from microbit import *', '', 'while True:', '    x = accelerometer.get_x()', '    y = accelerometer.get_y()', '    col  = min(4, max(0, 2 + x // 500))', '    row  = min(4, max(0, 2 + y // 500))', '    display.clear()', '    display.set_pixel(col, row, 9)', '    sleep(50)'])}
+  <h2>6.2 Gestos predefinits</h2>
+  ${table(['Gest', 'Moviment'],[["'shake'", 'Agitar'], ["'up'", 'Pantalla cap amunt'], ["'left'/'right'", 'Inclinada'], ["'face up'", 'Plana cara amunt'], ["'3g'/'6g'", 'Sacudida forta']])}
+  <h3>✏️ Exercici 6.1 — Dau electrònic ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>En agitar la micro:bit, mostra un número de l'1 al 6. El resultat es manté fins a la propera sacsejada.</p>
+  </div></div>
+  <h2>6.3 Sensors de llum i temperatura</h2>
+  ${codeBlock('sensors.py',['from microbit import *', '', 'while True:', '    light = display.read_light_level()', '    temp  = temperature()', '    if light < 50:', '        display.show(Image.ASLEEP)', '    elif temp > 28:', '        display.show(Image.SURPRISED)', '    else:', '        display.show(Image.HAPPY)', '    sleep(1500)'])}
+  ${warnBox(['El micròfon només està disponible en micro:bit v2. En v1 donarà error.'])}
+`;
+</script>
+</body>
+</html>

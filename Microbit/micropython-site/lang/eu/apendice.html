@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroPython Erreferentzia Azkarra — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📋 Eranskina</div>
+      <h1>MicroPython Erreferentzia Azkarra</h1>
+      <p class="subtitle">Funtzio nagusiak, akats arruntak eta DBU hiztegia gelako erabilgai.</p>
+      <div class="header-badges"><span class="badge badge-blue">📋</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('apendice');
+document.getElementById('mc').innerHTML=`
+
+  <h2>A.1 LED Pantaila</h2>
+  ${codeBlock('ref_screen.py',['from microbit import *', 'display.show(Image.HAPPY)         # Show image', "display.scroll('text')            # Scroll text", 'display.clear()                   # Turn off all LEDs', 'display.set_pixel(x, y, b)        # Set pixel (b = 0-9)', 'display.read_light_level()        # Light sensor (0-255)'])}
+  <h2>A.2 Botoiak eta Sentsoreak</h2>
+  ${codeBlock('ref_input.py',['button_a.is_pressed()   # True if pressed now', 'button_a.was_pressed()  # True since last check', 'accelerometer.get_x()  # X axis (-2000 to +2000)', 'accelerometer.current_gesture()  # shake/up/down/left/right', 'temperature()           # Chip temperature in Celsius'])}
+  <h2>A.3 Denbora eta Ausazkotasuna</h2>
+  ${codeBlock('ref_time.py',['sleep(ms)              # Pause (1000 = 1 second)', 'import random', 'random.randint(a, b)   # Random integer [a, b]', 'random.choice(lst)     # Random element from list'])}
+  <h2>A.4 Musika</h2>
+  ${codeBlock('ref_music.py',['import music', 'music.play(music.BIRTHDAY)', "music.play(['C4:4', 'D4:4'])   # Note list", 'music.pitch(freq, dur)         # Hz, milliseconds', '# Notes: C D E F G A B'])}
+  <h2>A.5 Irratia</h2>
+  ${codeBlock('ref_radio.py',['import radio', 'radio.on()             # Always first!', 'radio.config(group=N)  # Channel 1-255', "radio.send('msg')      # Send text", 'radio.receive()        # Receive text (None if empty)'])}
+  <h2>A.6 Akats arruntak</h2>
+  ${table(['Errorea', 'Kausa', 'Irtenbidea'],[['SyntaxError', "':' falta edo komatxoak itxi gabe.", 'Adierazitako lerroa egiaztatu.'], ['IndentationError', 'Zuriuneen eta tabuladoren nahasketa.', 'Berriz indentatu 4 zuriunerekin.'], ['TypeError', 'Zenbakia eta testua zuzenean kateatu.', "str(number) + 'text'"], ['NameError', 'Aldagaia definitu aurretik erabili.', "Lehenik '='-rekin definitu aldagaia."]])}
+  <h2>A.7 DBU Hiztegia</h2>
+  ${table(['Terminoa', 'Definizioa', 'Metafora'],[['aldagaia', 'Balio bat gordetzeko espazioa.', 'Etiketa duen kutxa.'], ['if / else', 'Baldintza baten arabera kodea exekutatu.', 'Trafiko argia.'], ['while / for', 'Kode-bloke bat errepikatu.', 'Garbigailua.'], ['def', 'Funtzio berrerabiligarri bat definitu.', 'Izena duen errezeta.'], ['sleep()', 'Exekuzioa aldi baterako eteten du.', 'Programak lo txiki bat egiten du.'], ['True / False', 'Balio boolearen bi balioak bakarrik.', 'Argi-etengailua on/off.']])}
+  <div style="text-align:center;margin-top:48px;padding-top:24px;border-top:2px solid var(--paper2)">
+    <p style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue);font-style:italic;margin-bottom:8px">
+      Zorte on zure ikasleekin programatzen!
+    </p>
+    <p style="color:var(--ink2);font-style:italic">
+      Aniztasunerako diseinatzea ez da gutxi batzuentzat diseinatzea. Denendako hobeto diseinatzea da.
+    </p>
+  </div>
+`;
+</script>
+</body>
+</html>

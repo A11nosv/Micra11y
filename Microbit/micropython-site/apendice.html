@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apéndice: Referencia Rápida — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📋 Apéndice</div>
+      <h1>Referencia Rápida de MicroPython</h1>
+      <p class="subtitle">Todas las funciones clave, errores frecuentes y glosario DUA-compatible para tener a mano en el aula.</p>
+      <div class="header-badges">
+        <span class="badge badge-blue">Consulta rápida</span>
+        <span class="badge badge-coral">Glosario visual</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('apendice');
+document.getElementById('main-content').innerHTML = `
+  <h2>A.1 Pantalla LED</h2>
+  ${codeBlock('ref_pantalla.py', [
+    'from microbit import *',
+    'display.show(Image.HAPPY)            # Mostrar imagen',
+    "display.scroll('texto')              # Desplazar texto",
+    "display.scroll('txt', delay=100)     # delay menor = más rápido",
+    'display.clear()                      # Apagar todos los LEDs',
+    'display.set_pixel(x, y, brillo)      # LED en col x, fila y, brillo 0-9',
+    'display.get_pixel(x, y)             # Leer brillo de un LED',
+    'display.read_light_level()           # Sensor de luz (0-255)',
+    'display.on() / display.off()        # Encender/apagar pantalla',
+  ])}
+
+  <h2>A.2 Botones, Gestos y Sensores</h2>
+  ${codeBlock('ref_entrada.py', [
+    'button_a.is_pressed()         # True si pulsado AHORA',
+    'button_a.was_pressed()        # True si pulsado desde la última vez',
+    'button_a.get_presses()        # Número de pulsaciones acumuladas',
+    '',
+    'accelerometer.get_x()         # Eje X (-2000 a +2000 mili-g)',
+    'accelerometer.get_y()         # Eje Y',
+    'accelerometer.get_z()         # Eje Z',
+    "accelerometer.current_gesture() # 'shake','up','down','left','right'...",
+    '',
+    'temperature()                 # Temperatura del chip en °C',
+    'display.read_light_level()    # Luz ambiente (0-255)',
+  ])}
+
+  <h2>A.3 Tiempo y Azar</h2>
+  ${codeBlock('ref_tiempo.py', [
+    'sleep(ms)               # Pausa en milisegundos (1000 = 1 segundo)',
+    'running_time()          # Tiempo en ms desde el inicio',
+    '',
+    'import random',
+    'random.randint(a, b)    # Entero aleatorio entre a y b (inclusive)',
+    'random.choice(lista)    # Elemento aleatorio de una lista',
+    'random.random()         # Float aleatorio entre 0.0 y 1.0',
+  ])}
+
+  <h2>A.4 Música</h2>
+  ${codeBlock('ref_musica.py', [
+    'import music',
+    'music.play(music.BIRTHDAY)           # Melodía predefinida',
+    "music.play(['C4:4', 'D4:4'])         # Lista de notas",
+    'music.pitch(frecuencia, duracion)    # Tono en Hz durante ms',
+    'music.stop()',
+    '# Notas: C D E F G A B = Do Re Mi Fa Sol La Si',
+    '# Duración: 4=negra  8=corchea  2=blanca  1=redonda',
+    '# Hz: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494',
+  ])}
+
+  <h2>A.5 Radio</h2>
+  ${codeBlock('ref_radio.py', [
+    'import radio',
+    'radio.on()                   # SIEMPRE primero',
+    'radio.config(group=N)        # Canal 1-255',
+    'radio.config(power=7)        # Potencia 0-7 (7=máxima)',
+    "radio.send('mensaje')        # Enviar cadena de texto",
+    'radio.receive()              # Recibir cadena (None si no hay)',
+  ])}
+
+  <h2>A.6 Errores frecuentes</h2>
+  ${table(
+    ['Error', 'Causa más frecuente', 'Solución'],
+    [
+      ['SyntaxError', "Falta ':' tras if/for/while/def, o comillas sin cerrar.", "Revisa la línea indicada. Los ':' son obligatorios al final de if, for, while, def."],
+      ['IndentationError', 'Mezcla de espacios y tabuladores.', 'Selecciona todo, borra y re-indenta con exactamente 4 espacios.'],
+      ["NameError: name 'x'", 'Variable usada antes de definirse.', "Define la variable con '=' antes de usarla. Python distingue mayúsculas."],
+      ["TypeError: can't convert int to str", 'Concatenar número y texto directamente.', "Convierte: 'Valor: ' + str(numero)"],
+      ['AttributeError', 'Llamar a una función que no existe en ese objeto.', 'Consulta la referencia. Ej: display.scroll(), no display.print()'],
+    ]
+  )}
+
+  <h2>A.7 Glosario DUA — para colgar en el aula</h2>
+  <p>Este glosario está diseñado para fijarse en el aula como referencia visual permanente.</p>
+  ${table(
+    ['Término', 'Definición técnica', 'Metáfora cotidiana'],
+    [
+      ['variable', 'Espacio en memoria con un nombre para guardar un valor.', 'Caja etiquetada donde guardas algo.'],
+      ['if / else', 'Estructura condicional: ejecuta código según una condición.', 'Semáforo: si rojo para, si verde pasa.'],
+      ['while / for', 'Bucle: repite un bloque de código.', 'Lavadora: gira y gira hasta que termina.'],
+      ['def (función)', 'Bloque de código con nombre, reutilizable.', 'Receta: los pasos están definidos, úsalos cuando quieras.'],
+      ['list (lista)', 'Colección de valores en orden, accesibles por índice.', 'Lista de la compra numerada.'],
+      ['import', 'Cargar una librería de funciones adicionales.', 'Abrir la caja de herramientas que necesitas hoy.'],
+      ['display.scroll()', 'Desplaza texto por la pantalla LED.', 'Marquesina de publicidad que mueve el texto.'],
+      ['sleep()', 'Pausa la ejecución del programa un tiempo.', 'El programa "echa una siesta".'],
+      ['True / False', 'Los dos únicos valores booleanos.', 'Interruptor: encendido o apagado. Sin término medio.'],
+      ['return', 'Devuelve un valor desde una función.', 'El resultado de una calculadora al pulsar "=".'],
+    ]
+  )}
+
+  <div style="text-align:center;margin-top:48px;padding-top:24px;border-top:2px solid var(--paper2)">
+    <p style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue);font-style:italic;margin-bottom:8px">¡Buena suerte programando con tus alumnos!</p>
+    <p style="color:var(--ink2);font-style:italic">Diseñar para la diversidad no es diseñar para unos pocos. Es diseñar mejor para todos.</p>
+  </div>
+`;
+</script>
+</body>
+</html>

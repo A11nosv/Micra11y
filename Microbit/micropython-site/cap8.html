@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 8: Comunicación Radio — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📡 Capítulo 08</div>
+      <h1>Comunicación entre micro:bits</h1>
+      <p class="subtitle">Radio inalámbrica 2,4 GHz para proyectos colaborativos y juegos multijugador en el aula.</p>
+      <div class="header-badges">
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+        <span class="badge badge-blue">🔴 Avanzado</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap8');
+document.getElementById('main-content').innerHTML = `
+  <h2>8.1 Radio inalámbrica</h2>
+  ${duaBox('rep', [
+    '<strong>Metáfora:</strong> la radio funciona como los walkie-talkies: el mismo canal (group=N) = mismo grupo de chat. Diferentes grupos no se escuchan.',
+    '<strong>Diagrama:</strong> dibuja dos micro:bits con una flecha de radio entre ellas, etiquetando radio.send() (salida) y radio.receive() (entrada).',
+  ])}
+
+  ${codeBlock('radio_emisor.py', [
+    '# EMISOR — micro:bit que envía',
+    'from microbit import *',
+    'import radio',
+    '',
+    'radio.on()                    # Activar la radio',
+    'radio.config(group=7)         # Solo hablan micro:bits en el mismo grupo',
+    '',
+    'while True:',
+    '    if button_a.is_pressed():',
+    "        radio.send('Hola!')",
+    '        display.show(Image.ARROW_E)',
+    '        sleep(500)',
+    '        display.clear()',
+    '    sleep(100)',
+  ])}
+
+  ${codeBlock('radio_receptor.py', [
+    '# RECEPTOR — micro:bit que recibe',
+    'from microbit import *',
+    'import radio',
+    '',
+    'radio.on()',
+    'radio.config(group=7)         # Mismo canal que el emisor',
+    '',
+    'while True:',
+    '    mensaje = radio.receive()  # None si no hay mensaje',
+    '    if mensaje:',
+    '        display.scroll(mensaje)',
+    '    sleep(50)',
+  ])}
+
+  ${noteBox([
+    'radio.config(group=N) con el mismo número asegura que solo hablen entre sí las micro:bits del grupo.',
+    'En un aula con varios grupos, asigna grupos diferentes (1-255) para evitar interferencias.',
+    'radio.send() solo puede enviar cadenas de texto. Para enviar números, usa str().',
+    'radio.receive() devuelve None si no hay mensajes; siempre comprobar antes de usar el valor.',
+  ])}
+
+  <h2>8.2 Enviando datos numéricos</h2>
+  ${codeBlock('radio_temperatura.py', [
+    '# Compartir temperatura con el grupo',
+    'from microbit import *',
+    'import radio',
+    '',
+    'radio.on()',
+    'radio.config(group=7)',
+    '',
+    'while True:',
+    '    temp = temperature()',
+    "    radio.send('T:' + str(temp))",
+    "    display.scroll('Envie:' + str(temp), delay=60)",
+    '',
+    '    dato = radio.receive()',
+    '    if dato:',
+    "        display.scroll('Rec:' + dato, delay=60)",
+    '',
+    '    sleep(3000)',
+  ])}
+
+  <h3>✏️ Ejercicio 8.1 — Chat de emoticonos ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>En parejas, crea un sistema de emoticonos radio:</p>
+      <ul>
+        <li>Botón A → envía "feliz" → receptor muestra <code>Image.HAPPY</code></li>
+        <li>Botón B → envía "triste" → receptor muestra <code>Image.SAD</code></li>
+        <li>Ambos → envía "sorpresa" → receptor muestra <code>Image.SURPRISED</code></li>
+      </ul>
+      <p>Cada micro:bit debe poder enviar Y recibir simultáneamente.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Roles claros:</strong> uno es "emisor principal" y otro "receptor principal" los primeros 10 minutos. Luego se intercambian. Reduce la carga cognitiva de gestionar las dos funciones a la vez.',
+    '<strong>Tarjeta de referencia:</strong> crea una tarjeta con los mensajes posibles y la imagen que produce cada uno.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Interdependencia:</strong> el código de un alumno no funciona sin el de su compañero/a. La interdependencia es el motor de la implicación.',
+    '<strong>Debate:</strong> ¿cómo se parece esto a WhatsApp? ¿Qué pasaría si el canal (group) no fuera el mismo?',
+  ])}
+`;
+</script>
+</body>
+</html>

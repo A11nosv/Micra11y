@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Begiztak — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🔄 Kapitulua 04</div>
+      <h1>Begiztak</h1>
+      <p class="subtitle">while eta for begiztak, LED animazioak eta piksel-patroiak.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap4');
+document.getElementById('mc').innerHTML=`
+
+  <h2>4.1 while begizta</h2>
+  ${duaBox('rep',['<strong>Jarduera fisikoa:</strong> 5 ikasle ilaran beren izena esaten dute aurrekoek irauten duten bitartean. while begiztaren antza.', '<strong>Analogia:</strong> begiztaren antzera garbigailu-danborra: bueltaka amaitu arte.'])}
+  ${codeBlock('while_loop.py',['from microbit import *', '', 'n = 5', 'while n > 0:', '    display.show(str(n))', '    sleep(800)', '    n -= 1   # n = n - 1', '', 'display.show(Image.HAPPY)'])}
+  ${conceptBox(['while begizta True den bitartean errepikatu.', 'n -= 1, n = n - 1-ren laburpena da.'])}
+  <h2>4.2 for begizta</h2>
+  ${codeBlock('for_loop.py',['from microbit import *', '', '# range(5) → 0,1,2,3,4', 'for i in range(5):', '    display.show(str(i))', '    sleep(500)', '', '# range(1,6) → 1,2,3,4,5', 'for i in range(1, 6):', '    display.show(str(i))', '    sleep(400)'])}
+  ${noteBox(['range(n)-ek 0, 1, 2, ..., n-1 sortzen ditu.', 'range(hasiera, amaiera, urratsa) 2naka, 3naka edo atzera kontatzen uzten du.'])}
+  <h2>4.3 Habiaratutako begiztak — Animazioa</h2>
+  ${codeBlock('nested.py',['from microbit import *', '', 'for y in range(5):', '    for x in range(5):', '        display.set_pixel(x, y, 9)', '        sleep(50)', 'sleep(500)', 'display.clear()'])}
+  <h3>✏️ 4.1 Ariketa — Zenbaki-kontadorea ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Kontatu 0, 1, 2... 9ra arte eta berriz hasi. Zenbaki bakoitza 0,5 s. Hedapena: A botoia gelditu.</p>
+  </div></div>
+  ${duaBox('ace',['<strong>1. maila — Txantiloia:</strong> for i in range(___): display.show(str(___)) sleep(___)', '<strong>3. maila — Aurreratua:</strong> atzerantz zenbatu 9→0 range(9, -1, -1) erabiliz.'])}
+  ${duaBox('imp',['<strong>Testuingurua aukeratzea:</strong> ikasleak partidu-denbora-neurtzaile, ariketa-kontadore bat...'])}
+  <h3>✏️ 4.2 Ariketa — Pikselak eta patroiak ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>display.set_pixel(x, y, distira) eta habiaratutako begiztekin: 1. Ertza marraztu (5×5). 2. X bat (bi diagonalak). 3. Xake-taula: piztuta (x+y)%2==0 bada.</p>
+  </div></div>
+`;
+</script>
+</body>
+</html>

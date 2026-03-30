@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Setting Up the Environment — MicroPython in the Classroom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🖥️ Chapter 01</div>
+      <h1>Setting Up the Environment</h1>
+      <p class="subtitle">Required materials, the online editor and first programs.</p>
+      <div class="header-badges"><span class="badge badge-green">${level(1)}</span><span class="badge badge-amber">${level(2)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap1');
+document.getElementById('mc').innerHTML=`
+
+  <h2>1.1 What you need</h2>
+  <ul>
+    <li><strong>micro:bit v1 or v2</strong> — v2 has a built-in microphone and speaker.</li>
+    <li><strong>USB cable</strong> micro-USB to USB-A standard.</li>
+    <li><strong>Computer or tablet</strong> with a modern browser (Chrome recommended).</li>
+    <li><strong>Online editor</strong> <a href='https://python.microbit.org' target='_blank'>python.microbit.org</a> — free, no installation.</li>
+  </ul>
+  ${noteBox(['micro:bit v2 is recommended from Year 5 onwards.', 'A set of 6-8 shared micro:bits in rotation is enough for 30 students.', 'The editor also works on tablets with a Bluetooth keyboard.'])}
+  ${duaBox('rep',['<strong>Metaphor:</strong> the program is like a recipe: first you list the ingredients (import), then the steps (display.scroll).', "<strong>Multimodal:</strong> have students 'act out' the program before writing it.", '<strong>Visual glossary:</strong> classroom poster with the new terms: import, display, scroll.'])}
+  <h2>1.2 The Online Editor</h2>
+  <p>Visit <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> from any browser. No account or installation needed.</p>
+  ${table(['Editor area', 'Function', "When you'll use it"],[['Left panel', 'Python code', 'Write programs'], ['Central simulator', 'micro:bit preview', 'Test without board'], ['Bottom console', 'Errors and print()', 'Debug'], ['Flash button', 'Sends to board', 'Load program'], ['API Reference', 'Documentation', 'Look up']])}
+  <h2>1.3 Your first program</h2>
+  <p>Type the code in the editor and press <strong>Flash</strong>:</p>
+  ${codeBlock('hola_full.py',['# First MicroPython program', '# # marks a comment: Python ignores it', '', 'from microbit import *', '', "display.scroll('Hello world!')"])}
+  ${table(['Line of code', 'What it does'],[['# First program...', 'Comment: Python ignores it.'], ['from microbit import *', 'Imports all functions. ALWAYS the first line.'], ["display.scroll('Hello world!')", 'Scrolls the text across the LEDs.']])}
+  ${duaBox('rep',['<strong>Metaphor:</strong> the program is like a recipe: first you list the ingredients (import), then the steps (display.scroll).', "<strong>Multimodal:</strong> have students 'act out' the program before writing it.", '<strong>Visual glossary:</strong> classroom poster with the new terms: import, display, scroll.'])}
+  <h3>✏️ Exercise 1.1 — Personal introduction ${level(1)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Modify the program so the micro:bit shows <strong>your name</strong>.</p><p>Then make it show your age too.</p><p><em>Extension:</em> can you add Image.HEART?</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Option A:</strong> write the code by modifying the example.', "<strong>Option B (template):</strong> <code>display.scroll('____')</code>", '<strong>Option C (verbal):</strong> dictate to a partner who types.', '<strong>Option D (extension):</strong> look up Image.HEART and other images.'])}
+  ${duaBox('imp',['<strong>Choice:</strong> each student chooses what to display: name, nickname, favourite emoji.', '<strong>Visible achievement:</strong> seeing their own name on the LEDs is the first cause-effect loop.'])}
+  <h2>1.4 Built-in images</h2>
+  ${codeBlock('images.py',['from microbit import *', '', 'display.show(Image.HAPPY)    # Happy face', 'sleep(1000)                  # Wait 1 second', 'display.show(Image.SAD)      # Sad face', 'sleep(1000)', 'display.show(Image.HEART)    # Heart'])}
+  ${noteBox(['sleep() takes milliseconds: 1000 = 1 second.', 'Image bank: Image.HAPPY, Image.SAD, Image.SURPRISED, Image.HEART, Image.ARROW_N...'])}
+  <h3>✏️ Exercise 1.2 — Emotional story ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Create a sequence of at least <strong>5 images</strong> that tell a story.</p><p>Use sleep() to make each image last a different amount of time.</p><p>Example: HAPPY → HEART → SAD → NO → HAPPY</p>
+  </div></div>
+`;
+</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
@@ -15,7 +15,11 @@ import { LanguageChooserComponent } from '../components/language-chooser/languag
   templateUrl: 'micropython.page.html',
   styleUrls: ['micropython.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, RouterModule, TranslateModule, CommonModule, HttpClientModule, Highlight, LanguageChooserComponent], // Added LanguageChooserComponent
+  imports: [
+    IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, 
+    IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
+    RouterModule, TranslateModule, CommonModule, HttpClientModule, Highlight, LanguageChooserComponent
+  ], // Added LanguageChooserComponent and Grid/Card components
 })
 export class MicropythonPage implements OnInit, OnDestroy {
   pythonCode: string = '';

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 1: Entorno de trabajo — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🖥️ Capítulo 01</div>
+      <h1>Preparando el Entorno de Trabajo</h1>
+      <p class="subtitle">Material necesario, el editor online python.microbit.org y los primeros programas: texto desplazable e imágenes en los LEDs.</p>
+      <div class="header-badges">
+        <span class="badge badge-green">🟢 Iniciación</span>
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-blue">Sin experiencia previa</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap1');
+document.getElementById('main-content').innerHTML = `
+
+  <h2>1.1 Material necesario</h2>
+  <ul>
+    <li><strong>micro:bit v1 o v2</strong> — la v2 tiene micrófono y altavoz integrados.</li>
+    <li><strong>Cable USB</strong> micro-USB a USB-A estándar.</li>
+    <li><strong>Ordenador o tablet</strong> con navegador moderno (Chrome recomendado).</li>
+    <li><strong>Editor online</strong> <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> — gratuito, sin instalación.</li>
+    <li>Opcionalmente: batería de pilas AA o LiPo para proyectos portátiles.</li>
+  </ul>
+
+  ${noteBox([
+    'La micro:bit v2 es recomendable para cursos de 5.º de Primaria en adelante por sus capacidades de audio.',
+    'Para grupos grandes, un juego de 6-8 micro:bits compartidas en rotación es suficiente para talleres de 30 alumnos.',
+    'El editor python.microbit.org funciona también en tabletas con teclado Bluetooth.',
+  ])}
+
+  ${duaBox('rep', [
+    '<strong>Accesibilidad física:</strong> verifica que el espacio permite el acceso a alumnos con silla de ruedas. La micro:bit puede manejarse con una sola mano o con adaptadores de botones grandes.',
+    '<strong>Baja visión:</strong> amplía la interfaz del editor al 150% con Ctrl/Cmd + "+" para restaurar usa Ctrl/Cmd + 0.',
+    '<strong>Hipoacusia:</strong> los sonidos son opcionales; los alumnos con hipoacusia pueden trabajar solo con los LEDs sin perder contenido.',
+  ])}
+
+  <h2>1.2 El Editor MicroPython Online</h2>
+  <p>Visita <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> desde cualquier navegador. No requiere cuenta ni instalación.</p>
+
+  ${table(
+    ['Zona del editor', 'Función', 'Para qué la usarás'],
+    [
+      ['Panel izquierdo', 'Área de escritura de código Python', 'Escribir y editar programas'],
+      ['Simulador central', 'Vista previa de la micro:bit', 'Probar sin placa física'],
+      ['Consola inferior', 'Mensajes, errores y print()', 'Depurar el código'],
+      ["Botón 'Flash'", 'Envía el código a la micro:bit real', 'Cargar el programa'],
+      ["Botón 'Descargar'", 'Guarda el .hex en el ordenador', 'Guardar proyectos'],
+      ['Referencia API', 'Documentación de todas las funciones', 'Consulta durante la clase'],
+    ]
+  )}
+
+  <h2>1.3 Tu primer programa: ¡Hola, micro:bit!</h2>
+  <p>Escribe el siguiente código en el editor y pulsa <strong>Flash</strong> para enviarlo a la placa:</p>
+
+  ${codeBlock('hola_mundo.py', [
+    '# Mi primer programa en MicroPython',
+    '# El símbolo # indica un comentario: Python lo ignora',
+    '',
+    'from microbit import *',
+    '',
+    "display.scroll('Hola mundo!')",
+  ])}
+
+  ${table(
+    ['Línea de código', '¿Qué hace?'],
+    [
+      ["# Mi primer programa...", 'Comentario: nota para el programador. Python lo ignora por completo.'],
+      ['from microbit import *', 'Importa todas las funciones de la micro:bit. SIEMPRE debe ser la primera línea.'],
+      ["display.scroll('Hola mundo!')", 'Desplaza el texto por la pantalla LED de derecha a izquierda.'],
+    ]
+  )}
+
+  ${duaBox('rep', [
+    '<strong>Metáfora:</strong> explica el programa como una receta: primero dices de dónde coges los ingredientes (<code>from microbit import *</code>), luego das los pasos (<code>display.scroll</code>).',
+    '<strong>Multimodal:</strong> antes de escribir, haz que los alumnos "actúen" el programa: uno dice "Hola mundo" mientras otro lo escribe letra a letra en la pizarra, simulando el scroll.',
+    '<strong>Glosario:</strong> añade al aula un cartel con los términos nuevos: import, display, scroll. Usa pictogramas junto a las palabras.',
+  ])}
+
+  <h3>✏️ Ejercicio 1.1 — Presentación personal ${level(1)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Modifica el programa para que la micro:bit muestre <strong>tu nombre</strong>.</p>
+      <p>Después, haz que muestre también tu edad.</p>
+      <p><em>Pista:</em> puedes llamar a <code>display.scroll()</code> varias veces seguidas.</p>
+      <p><em>Extensión:</em> ¿puedes hacer que muestre un corazón? Busca <code>Image.HEART</code> en la referencia.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Opción A (texto):</strong> escribe el código modificando el ejemplo.',
+    "<strong>Opción B (plantilla):</strong> usa la plantilla con huecos → <code>display.scroll('____')</code>",
+    '<strong>Opción C (verbal):</strong> dicta a un compañero/a que escribe por ti mientras explicas qué quieres hacer.',
+    '<strong>Opción D (extensión):</strong> añade también <code>Image.HEART</code>. Busca en la referencia qué otras imágenes existen.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Elección:</strong> permite que cada alumno elija qué muestra: nombre, apodo, emoji favorito, frase. La personalización multiplica la motivación.',
+    '<strong>Logro visible:</strong> al ver su nombre en los LEDs, el alumno experimenta el primer bucle completo de causa-efecto: "yo escribí el código → la placa hace lo que yo quería".',
+  ])}
+
+  <h2>1.4 Imágenes predefinidas</h2>
+
+  ${codeBlock('imagenes_basicas.py', [
+    'from microbit import *',
+    '',
+    '# Mostrar una imagen del banco de imágenes integrado',
+    'display.show(Image.HAPPY)        # Cara feliz',
+    'sleep(1000)                      # Espera 1 segundo (1000 ms)',
+    'display.show(Image.SAD)          # Cara triste',
+    'sleep(1000)',
+    'display.show(Image.HEART)        # Corazón',
+  ])}
+
+  ${noteBox([
+    'sleep() recibe milisegundos: sleep(1000) = 1 segundo, sleep(500) = 0,5 segundos.',
+    'Banco de imágenes: Image.HAPPY, Image.SAD, Image.SURPRISED, Image.ANGRY, Image.YES, Image.NO, Image.HEART, Image.DIAMOND, Image.SKULL, Image.ARROW_N...',
+    'Consulta la referencia completa en python.microbit.org → Reference → Image',
+  ])}
+
+  <h3>✏️ Ejercicio 1.2 — Historia emocional ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Crea una secuencia de al menos <strong>5 imágenes</strong> que cuenten una historia.</p>
+      <p>Usa <code>sleep()</code> para que cada imagen dure un tiempo diferente.</p>
+      <p>Ejemplo: HAPPY → HEART → SAD → NO → HAPPY</p>
+      <p><em>Nivel avanzado:</em> añade <code>display.scroll('Fin')</code> al terminar.</p>
+    </div>
+  </div>
+
+  ${duaBox('rep', [
+    '<strong>Narración previa:</strong> antes de programar, pide a los alumnos que dibujen en papel las 5 "escenas" de su historia. El boceto es el pseudocódigo visual.',
+    '<strong>Vocabulario:</strong> muestra en la pizarra un póster con todas las imágenes disponibles con su nombre y aspecto visual.',
+  ])}
+  ${duaBox('ace', [
+    '<strong>Demostración alternativa:</strong> el alumno puede presentar su historia en formato cómic en papel y luego transcribirla al código, o grabar un vídeo de 30 segundos explicando la historia mientras la micro:bit la reproduce.',
+  ])}
+`;
+</script>
+</body>
+</html>

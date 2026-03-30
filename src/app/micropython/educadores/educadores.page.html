@@ -1,0 +1,1951 @@
+
+<ng-container>
+  <ion-split-pane contentId="main-content" when="md">
+
+  <!-- Start Sidebar menu -->
+  <ion-menu contentId="main-content" type="overlay">
+      <ion-header>
+        <ion-toolbar color="light">
+          <ion-title>Contenidos</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-list-header>
+            <ion-label>General</ion-label>
+          </ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item button (click)="selectModule(null)" [class.active-item]="currentModule === null">
+              <span slot="start">🏠</span>
+              <ion-label>Inicio</ion-label>
+              <span class="scr-reader" *ngIf="currentModule === null"> (Módulo actual)</span>
+            </ion-item>
+            <ion-item button (click)="selectModule('dua')" [class.active-item]="currentModule?.id === 'dua'" *ngIf="userRole === 'educator'">
+              <span slot="start">♿</span>
+              <ion-label>DUA en este manual</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'dua'"> (Módulo actual)</span>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-list-header>
+            <ion-label>Capítulos</ion-label>
+          </ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item button *ngFor="let m of modules.slice(1, 9)" (click)="selectModule(m.id)" [class.active-item]="currentModule?.id === m.id">
+              <span slot="start">{{ m.icon }}</span>
+              <ion-label>{{ m.num }} {{ m.title }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === m.id"> (Módulo actual)</span>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-list-header>
+            <ion-label>Proyectos y Guía</ion-label>
+          </ion-list-header>
+          <ion-menu-toggle auto-hide="false">
+            <ion-item button (click)="selectModule('cap9')" [class.active-item]="currentModule?.id === 'cap9'">
+              <span slot="start">🚀</span>
+              <ion-label>09 Proyectos completos</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap9'"> (Módulo actual)</span>
+            </ion-item>
+            <ion-item button (click)="selectModule('cap10')" [class.active-item]="currentModule?.id === 'cap10'" *ngIf="userRole === 'educator'">
+              <span slot="start">🎓</span>
+              <ion-label>10 Guía pedagógica DUA</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap10'"> (Módulo actual)</span>
+            </ion-item>
+            <ion-item button (click)="selectModule('cap11')" [class.active-item]="currentModule?.id === 'cap11'">
+              <span slot="start">♿</span>
+              <ion-label>11 Accesibilidad y Diseño</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap11'"> (Módulo actual)</span>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-list-header>
+            <ion-label>Referencia</ion-label>
+          </ion-list-header>
+            <ion-menu-toggle auto-hide="false">
+              <ion-item button (click)="selectModule('apendice')" [class.active-item]="currentModule?.id === 'apendice'">
+                <span slot="start">📋</span>
+                <ion-label>Referencia rápida</ion-label>
+                <span class="scr-reader" *ngIf="currentModule?.id === 'apendice'"> (Módulo actual)</span>
+              </ion-item>
+            </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <!-- End Sidebar menu -->
+
+    <ion-content id="main-content" #mainContent>
+    <!-- Start menu  btns -->
+    <ion-header>
+        <ion-toolbar class="aligned-with-content">
+          <ion-buttons slot="start">
+            <ion-menu-button></ion-menu-button>
+            <ion-back-button defaultHref="/tabs/micropython"></ion-back-button>
+          </ion-buttons>
+          <ion-title class="ion-text-left">
+            {{ (userRole === 'educator' ? 'MICROPYTHON_PAGE.BTN_EDUCATORS' : 'MICROPYTHON_PAGE.BTN_STUDENTS') | translate }}
+          </ion-title>
+          <ion-buttons slot="end">
+            <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+              <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+            <app-language-chooser></app-language-chooser>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <!-- End menu  btns -->
+
+      <div class="content-wrapper">
+
+        <!-- Home: Inicio -->
+        <div *ngIf="currentModule === null">
+          <div class="hero-section ion-margin-bottom">
+            <div class="hero-eyebrow">{{ (userRole === 'educator' ? 'Guía para Educadores' : 'Guía para Estudiantes') }}</div>
+            <h1>Aprende <span class="python-text">Python</span> con micro:bit</h1>
+            <p class="hero-desc" *ngIf="userRole === 'educator'">Bienvenido al manual interactivo diseñado bajo el marco DUA (Diseño Universal para el Aprendizaje). Esta guía te acompañará desde los conceptos básicos hasta proyectos avanzados de accesibilidad.</p>
+            <p class="hero-desc" *ngIf="userRole === 'student'">¡Bienvenido! En este manual aprenderás a programar tu micro:bit paso a paso usando el lenguaje Python. Descubre cómo crear juegos, sensores y proyectos increíbles.</p>
+            <div class="hero-pills">
+              <ion-badge *ngIf="userRole === 'educator'">♿ DUA-Ready</ion-badge>
+              <ion-badge>🐍 MicroPython</ion-badge>
+              <ion-badge>💻 Simulador + Placa</ion-badge>
+              <ion-badge *ngIf="userRole === 'educator'">🎓 Pedagógico</ion-badge>
+              <ion-badge *ngIf="userRole === 'student'">🎮 Proyectos</ion-badge>
+            </div>
+          </div>
+
+          <div class="main-content-wrapper">
+            <h2>Cómo usar esta guía</h2>
+            <p *ngIf="userRole === 'educator'">Este manual no es solo una lista de ejercicios. Cada capítulo incluye pautas pedagógicas específicas para atender a la diversidad en tu aula:</p>
+            <p *ngIf="userRole === 'student'">Este manual está dividido en capítulos que te enseñarán los secretos de MicroPython:</p>
+            <ul>
+              <li *ngIf="userRole === 'educator'"><strong>Marcas DUA:</strong> Busca los bloques de colores (rojo, azul, verde) para encontrar adaptaciones de Representación, Acción/Expresión e Implicación.</li>
+              <li><strong>Niveles de dificultad:</strong> Los ejercicios están graduados para que cada alumno encuentre su reto óptimo.</li>
+              <li><strong>Código real:</strong> Copia y pega el código directamente en el editor online o úsalo como referencia.</li>
+            </ul>
+
+            <h2 class="ion-margin-top">Explora los módulos</h2>
+            <ion-grid fixed>
+              <ion-row>
+                <ng-container *ngFor="let m of modules">
+                  <ion-col size="12" size-md="6" size-lg="4" *ngIf="userRole === 'educator' || !m.educatorOnly">
+                    <ion-card class="module-card" (click)="selectModule(m.id)" button="true">
+                      <ion-card-header>
+                        <ion-card-subtitle>Capítulo {{ m.num }}</ion-card-subtitle>
+                        <ion-card-title>
+                          <span class="card-icon">{{ m.icon }}</span>
+                          {{ m.title }}
+                        </ion-card-title>
+                      </ion-card-header>
+                      <ion-card-content>
+                        <p>{{ m.desc }}</p>
+                        <ion-button fill="clear" size="small">Explorar módulo →</ion-button>
+                      </ion-card-content>
+                    </ion-card>
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ion-grid>
+          </div>
+        </div>
+
+        <!-- Module 00: DUA en este manual -->
+        <div *ngIf="currentModule?.id === 'dua' && userRole === 'educator'">
+          <div class="module-header ion-padding ion-margin-bottom">
+            <div class="module-tag">♿ Módulo 00</div>
+            <h1>El Diseño Universal para el Aprendizaje</h1>
+            <p class="subtitle">El marco pedagógico que vertebra todo el manual: qué es el DUA, sus tres principios y cómo están integrados en cada capítulo.</p>
+            <div class="header-badges">
+              <ion-badge color="primary">Marco teórico</ion-badge>
+              <ion-badge color="secondary">3 principios</ion-badge>
+              <ion-badge color="success">Aplicación práctica</ion-badge>
+            </div>
+          </div>
+
+          <div class="main-content-wrapper">
+            <p>El DUA es un marco científico y pedagógico que parte de una premisa simple: <strong>no existe el "alumno promedio"</strong>. Cada persona aprende de forma diferente, tiene distintos puntos de entrada al conocimiento y se motiva con cosas distintas. Diseñar pensando en la diversidad desde el inicio —no como un parche posterior— es lo que el DUA propone.</p>
+            <p>Este manual integra el DUA de forma transversal. No es un apéndice ni una sección separada: las adaptaciones están dentro de los propios ejercicios, ejemplos y orientaciones didácticas.</p>
+
+            <h2>Los tres principios del DUA</h2>
+
+            <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c; border-left-width: 8px;">
+              <div class="box-body">
+                <div class="box-title" style="color: #b91c1c;">🟥 PRINCIPIO I — Múltiples formas de REPRESENTACIÓN</div>
+                <p>Ofrecer la información de varias maneras: texto, imagen, sonido, demostración física, vídeo, código. Ningún alumno queda excluido por su forma de procesar la información.</p>
+                <p><strong>Pautas en programación:</strong> metáforas cotidianas, combinación de pantalla y placa física, glosario visual, código con comentarios en español.</p>
+              </div>
+            </div>
+
+            <div class="box box-note ion-margin-vertical" style="background-color: #dbeafe; border-color: #93c5fd; color: #1d4ed8; border-left-width: 8px;">
+              <div class="box-body">
+                <div class="box-title" style="color: #1d4ed8;">🟦 PRINCIPIO II — Múltiples formas de ACCIÓN Y EXPRESIÓN</div>
+                <p>Dar opciones para demostrar lo aprendido: no solo texto escrito, también oralidad, vídeo, prototipo físico, diagrama, portfolio. El alumno elige cómo se expresa.</p>
+                <p><strong>Pautas en programación:</strong> plantillas de código, pseudocódigo, diagrama dibujado, explicación oral, herramientas de apoyo como el simulador y autocompletado.</p>
+              </div>
+            </div>
+
+            <div class="box box-note ion-margin-vertical" style="background-color: #dcfce7; border-color: #86efac; color: #15803d; border-left-width: 8px;">
+              <div class="box-body">
+                <div class="box-title" style="color: #15803d;">🟩 PRINCIPIO III — Múltiples formas de IMPLICACIÓN</div>
+                <p>Captar y mantener el interés y la motivación: elección de contexto y tema, retos graduados, conexión con intereses personales, comunidad de aprendizaje.</p>
+                <p><strong>Pautas en programación:</strong> el alumno elige el tema del proyecto, datos personales reales, cultura del error, retos visibles y opcionales, celebración de logros parciales.</p>
+              </div>
+            </div>
+
+            <h2>Cómo leer las marcas DUA en este manual</h2>
+            <p>A lo largo de todos los capítulos encontrarás tres tipos de bloques DUA desplegables junto a los ejercicios y explicaciones. Haz clic para expandirlos:</p>
+
+            <ng-container *ngIf="userRole === 'educator'">
+              <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap0_1>
+                <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap0_1', duaGroupCap0_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap0_1')">
+                    <ion-label>🟥 DUA — Representación</ion-label>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li>Material visual alternativo, vocabulario explicado, analogías, opciones de audio.</li>
+                      <li>Actividades desenchufadas (unplugged) antes de abrir el editor.</li>
+                      <li>Glosario en el aula con pictogramas junto a cada término técnico.</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+
+                <ion-accordion value="ace_cap0_1" class="dua-accordion ace ion-margin-vertical">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap0_1', duaGroupCap0_1)" role="button" [attr.aria-expanded]="isExpanded('ace_cap0_1')">
+                    <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li>Alternativas a la escritura de código: plantilla con huecos, pseudocódigo, diagrama dibujado.</li>
+                      <li>Formas de presentación: oral, vídeo de 60 segundos, portfolio de fichas.</li>
+                      <li>Herramientas de apoyo: simulador, autocompletado, referencia integrada en el editor.</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+
+                <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap0_1', duaGroupCap0_1)" role="button" [attr.aria-expanded]="isExpanded('imp_cap0_1')">
+                    <ion-label>🟩 DUA — Implicación</ion-label>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li>Elección de contexto: el alumno elige el tema del proyecto.</li>
+                      <li>Retos con dificultad graduada (Nivel 1 → 3) visibles para todos.</li>
+                      <li>Feedback inmediato de la micro:bit: el resultado se ve al instante.</li>
+                      <li>Cultura del error: normalizar el fallo como parte del proceso.</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+              </ion-accordion-group>
+            </ng-container>
+
+            <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+              <span class="box-icon">💡</span>
+              <div class="box-body">
+                <ul>
+                  <li>El DUA no es sinónimo de bajar el nivel. Es garantizar que todos puedan alcanzarlo por caminos distintos.</li>
+                  <li>No es necesario aplicar las tres marcas en cada ejercicio: selecciona las más relevantes para tu grupo.</li>
+                  <li>Las marcas DUA no son "para alumnos con necesidades especiales": son para todo el grupo clase, porque todos aprendemos diferente.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2>¿Por qué DUA en la programación?</h2>
+            <p>La programación se presenta históricamente como una actividad para «los que tienen cabeza para ello». El DUA desmonta esta idea: cualquier persona puede aprender a programar si se le ofrece el acceso correcto.</p>
+
+            <div class="table-container ion-margin-vertical">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Barrera frecuente</th>
+                    <th>Respuesta DUA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Dislexia / dificultades lectoras</td><td>Código con comentarios amplios, metáforas físicas, pasos numerados, fuentes sin serifa.</td></tr>
+                  <tr><td>TDAH / dificultades atencionales</td><td>Sesiones cortas con producto visible al final, feedback inmediato de la placa, opción de trabajo individual o en pareja.</td></tr>
+                  <tr><td>Altas capacidades</td><td>Retos abiertos sin techo (Nivel 3 o retos 🚀), rol de tutor entre iguales, proyectos de investigación autónomos.</td></tr>
+                  <tr><td>Ansiedad tecnológica</td><td>Empezar siempre con el simulador antes de la placa física, normalizar el error, rutina de inicio igual en todas las sesiones.</td></tr>
+                  <tr><td>Dificultades motoras</td><td>Dictado a un compañero/a, plantillas de código con huecos, reconocimiento de voz del sistema operativo.</td></tr>
+                  <tr><td>Barrera idiomática</td><td>El código usa palabras en inglés simples. Crear con el grupo un glosario bilingüe: inglés-castellano-lengua materna.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 1: Entorno de trabajo -->
+        <div *ngIf="currentModule?.id === 'cap1'">
+          <div class="module-header ion-padding ion-margin-bottom">
+            <div class="module-tag">🖥️ Capítulo 01</div>
+            <h1>{{ currentModule.title }}</h1>
+            <p class="subtitle">Editor online, primer programa y carga de imágenes en los LEDs.</p>
+            <!--<div class="header-badges">
+              <ion-badge color="success">🟢 Iniciación</ion-badge>
+              <ion-badge color="warning">🟡 Básico</ion-badge>
+            </div>-->
+          </div>
+
+          <div class="main-content-wrapper">
+            <h2>1.1 Material necesario</h2>
+            <ul>
+              <li><strong>micro:bit v1 o v2</strong> — la v2 tiene micrófono y altavoz integrados.</li>
+              <li><strong>Cable USB</strong> micro-USB a USB-A estándar.</li>
+              <li><strong>Ordenador o tablet</strong> con navegador moderno (Chrome recomendado).</li>
+              <li><strong>Editor online</strong> <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> — gratuito, sin instalación.</li>
+              <li>Opcionalmente: batería de pilas AA o LiPo para proyectos portátiles.</li>
+            </ul>
+
+            <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+              <span class="box-icon">💡</span>
+              <div class="box-body">
+                <div class="box-title">Nota para el educador</div>
+                <p>La micro:bit v2 es recomendable para cursos de 5.º de Primaria en adelante por sus capacidades de audio.</p>
+                <p>Para grupos grandes, un juego de 6-8 micro:bits compartidas en rotación es suficiente para talleres de 30 alumnos.</p>
+                <p>El editor python.microbit.org funciona también en tabletas con teclado Bluetooth.</p>
+              </div>
+            </div>
+
+            <ng-container *ngIf="userRole === 'educator'">
+              <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap1_1>
+                <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap1_1', duaGroupCap1_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap1_1')">
+                    <ion-label>🟥 DUA — Representación</ion-label>
+                    <span class="scr-reader">({{ isExpanded('rep_cap1_1') ? 'Extendido' : 'Contraído' }})</span>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li><strong>Accesibilidad física:</strong> verifica que el espacio permite el acceso a alumnos con silla de ruedas. La micro:bit puede manejarse con una sola mano o con adaptadores de botones grandes.</li>
+                      <li><strong>Baja visión:</strong> amplía la interfaz del editor al 150% con Ctrl/Cmd + "+" para restaurar usa Ctrl/Cmd + 0.</li>
+                      <li><strong>Hipoacusia:</strong> los sonidos son opcionales; los alumnos con hipoacusia pueden trabajar solo con los LEDs sin perder contenido.</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+              </ion-accordion-group>
+            </ng-container>
+
+            <h2>1.2 El Editor MicroPython Online</h2>
+            <p>Visita <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> desde cualquier navegador. No requiere cuenta ni instalación.</p>
+
+            <div class="table-container ion-margin-vertical">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Zona del editor</th>
+                    <th>Función</th>
+                    <th>Para qué la usarás</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>Panel izquierdo</td><td>Área de escritura de código Python</td><td>Escribir y editar programas</td></tr>
+                  <tr><td>Simulador central</td><td>Vista previa de la micro:bit</td><td>Probar sin placa física</td></tr>
+                  <tr><td>Consola inferior</td><td>Mensajes, errores y print()</td><td>Depurar el código</td></tr>
+                  <tr><td>Botón 'Flash'</td><td>Envía el código a la micro:bit real</td><td>Cargar el programa</td></tr>
+                  <tr><td>Botón 'Descargar'</td><td>Guarda el .hex en el ordenador</td><td>Guardar proyectos</td></tr>
+                  <tr><td>Referencia API</td><td>Documentación de todas las funciones</td><td>Consulta durante la clase</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>1.3 Tu primer programa: ¡Hola, micro:bit!</h2>
+            <p>Escribe el siguiente código en el editor y pulsa <strong>Flash</strong> para enviarlo a la placa:</p>
+
+            <div class="code-container ion-margin-vertical">
+              <div class="code-header">
+                <span>hola_mundo.py</span>
+              </div>
+              <pre><code [highlight]="pythonCode_1_1" language="python"></code></pre>
+            </div>
+
+            <div class="table-container ion-margin-vertical">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Línea de código</th>
+                    <th>¿Qué hace?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td># Mi primer programa...</td><td>Comentario: nota para el programador. Python lo ignora por completo.</td></tr>
+                  <tr><td>from microbit import *</td><td>Importa todas las funciones de la micro:bit. SIEMPRE debe ser la primera línea.</td></tr>
+                  <tr><td>display.scroll('Hola mundo!')</td><td>Desplaza el texto por la pantalla LED de derecha a izquierda.</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <ng-container *ngIf="userRole === 'educator'">
+              <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap1_2>
+                <ion-accordion value="ace_cap1_1" class="dua-accordion ace">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap1_1', duaGroupCap1_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap1_1')">
+                    <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                    <span class="scr-reader">({{ isExpanded('ace_cap1_1') ? 'Extendido' : 'Contraído' }})</span>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li><strong>Metáfora:</strong> explica el programa como una receta: primero dices de dónde coges los ingredientes (<code>from microbit import *</code>), luego das los pasos (<code>display.scroll</code>).</li>
+                      <li><strong>Multimodal:</strong> antes de escribir, haz que los alumnos "actúen" el programa: uno dice "Hola mundo" mientras otro lo escribe letra a letra en la pizarra, simulando el scroll.</li>
+                      <li><strong>Glosario:</strong> añade al aula un cartel con los términos nuevos: import, display, scroll. Usa pictogramas junto a las palabras.</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+              </ion-accordion-group>
+            </ng-container>
+
+            <h2>1.4 Imágenes predefinidas</h2>
+
+            <div class="code-container ion-margin-vertical">
+              <div class="code-header">
+                <span>imagenes_basicas.py</span>
+              </div>
+              <pre><code [highlight]="pythonCode_1_2" language="python"></code></pre>
+            </div>
+
+            <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+              <span class="box-icon">📝</span>
+              <div class="box-body">
+                <p><code>sleep(ms)</code> = Espera <code>ms</code> milisegundos (1000 = 1 segundo).</p>
+                <p>Banco de imágenes: Image.HAPPY, Image.SAD, Image.SURPRISED, Image.ANGRY, Image.YES, Image.NO, Image.HEART, Image.DIAMOND, Image.SKULL, Image.ARROW_N...</p>
+                <p>Consulta la referencia completa en python.microbit.org → Reference → Image</p>
+              </div>
+            </div>
+
+            <h3>✏️ Ejercicio 1.2 — Historia emocional</h3>
+            <div class="box box-exercise ion-margin-vertical">
+              <span class="box-icon">✏️</span>
+              <div class="box-body">
+                <p>Crea una secuencia de al menos <strong>5 imágenes</strong> que cuenten una historia.</p>
+                <p>Usa <code>sleep()</code> para que cada imagen dure un tiempo diferente.</p>
+                <p>Ejemplo: HAPPY → HEART → SAD → NO → HAPPY</p>
+                <p><em>Nivel avanzado:</em> añade <code>display.scroll('Fin')</code> al terminar.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+          <!-- Module 2: Variables y tipos de datos -->
+          <div *ngIf="currentModule?.id === 'cap2'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">📦 Capítulo 02</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Qué es una variable, los cuatro tipos básicos, operaciones matemáticas y lectura del sensor de temperatura.</p>
+              <div class="header-badges">
+                <ion-badge color="success">🟢 Iniciación</ion-badge>
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>2.1 ¿Qué es una variable?</h2>
+              <p>Una variable es como una <strong>caja etiquetada</strong> donde guardamos información. Podemos meter cosas en la caja, cambiarlas o sacarlas para usarlas.</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap2_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap2_1', duaGroupCap2_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap2_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap2_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Metáfora física:</strong> trae cajas de cartón reales al aula etiquetadas con papel. Mete objetos físicos y muestra cómo "cambiar el valor" = cambiar lo que hay dentro.</li>
+                        <li><strong>Analogía 6-9 años:</strong> "una variable es como el casillero del aula: tiene tu nombre (etiqueta) y dentro guardas lo que quieres".</li>
+                        <li><strong>Multimodal:</strong> dibuja en la pizarra el diagrama caja–etiqueta–valor para cada tipo antes de mostrar el código.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>2.2 Tipos de datos básicos</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Tipo</th>
+                      <th>¿Qué contiene? / Ejemplo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>int (entero)</td><td>Números sin decimales: 0, 5, -3, 100</td></tr>
+                    <tr><td>float (decimal)</td><td>Números con decimales: 3.14, -0.5, 36.7</td></tr>
+                    <tr><td>str (texto / string)</td><td>Texto entre comillas: 'Hola', 'micro:bit'</td></tr>
+                    <tr><td>bool (booleano)</td><td>Solo True o False (verdadero o falso)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>variables_basicas.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_2_1" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title" style="color: #b91c1c;">Atención</div>
+                  <p>Para mostrar un número en los LEDs hay que convertirlo a texto con <code>str()</code>.</p>
+                  <p><code>display.scroll(5)</code> dará error. La forma correcta: <code>display.scroll(str(5))</code>.</p>
+                </div>
+              </div>
+
+              <h2>2.3 Operaciones matemáticas</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>operaciones.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_2_2" language="python"></code></pre>
+              </div>
+
+              <h3>✏️ Ejercicio 2.1 — Calculadora en la micro:bit</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Define dos variables numéricas: <code>num1</code> y <code>num2</code>.</p>
+                  <p>Calcula su suma, resta, producto y división.</p>
+                  <p>Muestra cada resultado en la pantalla LED con un prefijo (+, -, x, /).</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap2_2>
+                  <ion-accordion value="ace_cap2_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap2_1', duaGroupCap2_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap2_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap2_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Plantilla (nivel de apoyo):</strong><br>
+                          <code>num1 = ___</code><br>
+                          <code>num2 = ___</code><br>
+                          <code>suma = ___ + ___</code><br>
+                          <code>display.scroll('+' + str(___))</code>
+                        </li>
+                        <li><strong>Extensión avanzada:</strong> convierte el resultado de la división a 1 decimal con <code>round(resultado, 1)</code>.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>2.4 Lectura del sensor de temperatura</h2>
+              <p>La micro:bit tiene un sensor de temperatura integrado en el procesador:</p>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>termometro.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_2_3" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">📝</span>
+                <div class="box-body">
+                  <div class="box-title">Conceptos clave</div>
+                  <p><code>temperature()</code> devuelve la temperatura del chip (±2 °C de error). Para el ambiente, resta 3 grados.</p>
+                  <p>La micro:bit v2 tiene también un micrófono con <code>microphone.sound_level()</code></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 3: Condicionales -->
+          <div *ngIf="currentModule?.id === 'cap3'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🚦 Capítulo 03</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Toma de decisiones con if/elif/else, operadores lógicos y uso de los botones A y B de la micro:bit.</p>
+              <div class="header-badges">
+                <ion-badge color="success">🟢 Iniciación</ion-badge>
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>3.1 La estructura if / elif / else</h2>
+              <p>Los condicionales permiten que el programa tome decisiones según una condición. Es como un semáforo: si la luz es roja, para; si es verde, pasa.</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap3_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap3_1', duaGroupCap3_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap3_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap3_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Actividad física (unplugged):</strong> el educador da instrucciones a los alumnos: "SI llevas zapatillas → levántate; SI NO → quédate sentado". Han vivido el condicional con su cuerpo.</li>
+                        <li><strong>Diagrama de flujo:</strong> dibuja en la pizarra un rombo de decisión con SÍ/NO antes de abrir el editor.</li>
+                        <li><strong>Conexión real:</strong> el semáforo, el torniquete del metro, el sensor de apertura de puertas automáticas.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>condicional_temperatura.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_3_1" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title">Reglas de Python</div>
+                  <ul>
+                    <li><strong>INDENTACIÓN:</strong> el código dentro del if va sangrado 4 espacios. En Python es OBLIGATORIO.</li>
+                    <li><code>if condicion:</code> ← los dos puntos son obligatorios</li>
+                    <li><code>    codigo_si_verdad</code> ← solo se ejecuta si la condición es True</li>
+                    <li><code>else:</code> ← opcional: qué hacer si la condición es False</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h2>3.2 Operadores de comparación y lógicos</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Operador</th>
+                      <th>Significado / Ejemplo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><code>==</code></td><td>Igual a: x == 5 (¿x vale 5?)</td></tr>
+                    <tr><td><code>!=</code></td><td>Distinto de: x != 0</td></tr>
+                    <tr><td><code>&gt; y &lt;</code></td><td>Mayor / menor que: x &gt; 10</td></tr>
+                    <tr><td><code>&gt;= y &lt;=</code></td><td>Mayor o igual / menor o igual: x &gt;= 18</td></tr>
+                    <tr><td><code>and</code></td><td>Y lógico: x &gt; 0 and x &lt; 10 (ambas verdaderas)</td></tr>
+                    <tr><td><code>or</code></td><td>O lógico: x &lt; 0 or x &gt; 100 (al menos una)</td></tr>
+                    <tr><td><code>not</code></td><td>Negación: not button_a.is_pressed()</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>3.3 Los botones A y B</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>botones_emociones.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_3_2" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">📝</span>
+                <div class="box-body">
+                  <p><code>is_pressed()</code> → True si el botón está pulsado en ese instante.</p>
+                  <p><code>was_pressed()</code> → True si el botón fue pulsado desde la última consulta.</p>
+                  <p><code>get_presses()</code> → cuántas veces se ha pulsado el botón.</p>
+                </div>
+              </div>
+
+              <h3>✏️ Ejercicio 3.1 — Semáforo</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Programa un semáforo de 1 luz con la micro:bit:</p>
+                  <ul>
+                    <li>Botón A → <code>Image.NO</code> (rojo — STOP)</li>
+                    <li>Botón B → <code>Image.ARROW_N</code> (verde — PASA)</li>
+                    <li>Sin botón → <code>Image.DIAMOND</code> (amarillo — ESPERA)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap3_2>
+                  <ion-accordion value="ace_cap3_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap3_1', duaGroupCap3_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap3_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap3_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel básico:</strong> solo programa los 2 botones (sin el estado "sin botón").</li>
+                        <li><strong>Nivel estándar:</strong> los 3 estados como se describe.</li>
+                        <li><strong>Nivel avanzado:</strong> añade un contador de personas que pasan (variable que sube 1 con cada pulsación de B).</li>
+                        <li><strong>Oral:</strong> el alumno explica verbalmente qué hace cada estado en lugar de escribir comentarios.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap3_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap3_1', duaGroupCap3_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap3_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap3_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Contexto real:</strong> propón que los números sean datos significativos para el alumno: su número de zapato y su edad, la temperatura de hoy y la de ayer. Los datos con significado personal aumentan el engagement.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h3>✏️ Ejercicio 3.2 — Piedra, Papel o Tijera</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Botón A → Piedra &nbsp;|&nbsp; Botón B → Papel &nbsp;|&nbsp; Ambos → Tijera</p>
+                  <p>La micro:bit elige al azar: <code>import random</code> → <code>random.randint(0, 2)</code></p>
+                  <p>Muestra quién gana o si hay empate.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap3_3>
+                  <ion-accordion value="ace_cap3_2" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap3_2', duaGroupCap3_3)" role="button" [attr.aria-expanded]="isExpanded('ace_cap3_2')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap3_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Scaffolding — código con huecos:</strong><br>
+                          <code>opciones = ['Piedra', '____', '____']</code><br>
+                          <code>jugador = 0   # Cambiar según botón pulsado</code><br>
+                          <code>maquina = random.randint(___, ___)</code><br>
+                          <code>if jugador == maquina:</code><br>
+                          <code>    display.scroll("____")</code>
+                        </li>
+                        <li><strong>Alternativa:</strong> el alumno dibuja en papel el diagrama de flujo completo del juego (sin código) como evidencia de comprensión de la lógica.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap3_2" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap3_2', duaGroupCap3_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap3_2')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap3_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Interdependencia:</strong> el código de un alumno no funciona sin el de su compañero/a. La interdependencia es el motor de la implicación.</li>
+                        <li><strong>Debate:</strong> ¿cómo se parece esto a WhatsApp? ¿Qué pasaría si el canal (group) no fuera el mismo?</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- Module 4: Bucles -->
+          <div *ngIf="currentModule?.id === 'cap4'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🔄 Capítulo 04</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Bucles while y for con range(), bucles anidados para animar la pantalla LED y patrones con píxeles.</p>
+              <div class="header-badges">
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+                <ion-badge color="primary">🔴 Avanzado</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>4.1 El bucle while</h2>
+              <p>Un bucle repite un bloque de código mientras se cumpla una condición. Es como un semáforo: si la luz es roja, para; si es verde, pasa.</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap4_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap4_1', duaGroupCap4_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap4_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap4_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Actividad física (unplugged):</strong> pide a 5 alumnos que se pongan en fila y diles: "repetid en voz alta vuestro nombre MIENTRAS queden personas delante de vosotros". Han actuado un bucle while.</li>
+                        <li><strong>Analogía:</strong> un bucle es como el tambor de una lavadora: gira una y otra vez hasta que termina (condición falsa).</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>cuenta_atras.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_4_1" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title">Conceptos clave</div>
+                  <ul>
+                    <li>El bucle <code>while</code> sigue repitiendo mientras la condición sea <code>True</code>.</li>
+                    <li><strong>CUIDADO:</strong> si la condición nunca se hace <code>False</code>, el bucle es infinito y el programa se cuelga.</li>
+                    <li><code>numero -= 1</code> es una abreviatura de <code>numero = numero - 1</code>.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h2>4.2 El bucle for</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>bucle_for.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_4_2" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">📝</span>
+                <div class="box-body">
+                  <p><code>range(n)</code> genera los números 0, 1, 2, ..., n-1.</p>
+                  <p><code>range(inicio, fin)</code> genera de inicio hasta fin-1.</p>
+                  <p><code>range(inicio, fin, paso)</code> permite ir de 2 en 2, de 3 en 3, o en sentido inverso con paso negativo.</p>
+                </div>
+              </div>
+
+              <h2>4.3 Animación: bucles anidados</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>animacion_leds.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_4_3" language="python"></code></pre>
+              </div>
+
+              <h3>✏️ Ejercicio 4.1 — Contador digital</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>El contador muestra 0, 1, 2... hasta 9 y vuelve a empezar (bucle infinito).</p>
+                  <p>Cada número se ve durante 0,5 segundos.</p>
+                  <p><em>Extensión:</em> al pulsar el botón A, el contador se detiene.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap4_2>
+                  <ion-accordion value="ace_cap4_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap4_1', duaGroupCap4_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap4_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap4_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel 1 — Plantilla:</strong> <code>for i in range(___): display.show(str(___)) sleep(___)</code></li>
+                        <li><strong>Nivel 2 — Estándar:</strong> el ejercicio tal como se describe.</li>
+                        <li><strong>Nivel 3 — Avanzado:</strong> cuenta de 9 a 0 usando <code>range(9, -1, -1)</code>.</li>
+                        <li><strong>Nivel 4 — Reto:</strong> el contador salta de 2 en 2 o de 3 en 3.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap4_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap4_1', duaGroupCap4_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap4_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap4_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Elección de contexto:</strong> el alumno puede programar un "temporizador de partido de fútbol", un "contador de ejercicios de gimnasia" o lo que conecte con sus intereses.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>lluvia.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_4_4" language="python"></code></pre>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 5: Listas y funciones -->
+          <div *ngIf="currentModule?.id === 'cap5'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🧩 Capítulo 05</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Listas como colecciones de datos y código reutilizable con funciones. Primer paso hacia la programación modular.</p>
+              <div class="header-badges">
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>5.1 Listas: colecciones de datos</h2>
+              <p>Una lista almacena varios valores en una sola variable, accesibles por su posición (índice, empezando por 0).</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap5_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap5_1', duaGroupCap5_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap5_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap5_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Actividad física:</strong> pide a 5 alumnos que se pongan en fila y numérales del 0 al 4. Di: "alumno número 2, ¿cuál es tu nombre?" → Han actuado el acceso a una lista por índice.</li>
+                        <li><strong>Analogía:</strong> una lista es como una lista de la compra numerada: tiene elementos en orden, se puede añadir, quitar o consultar cualquier posición.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>listas_basicas.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_5_1" language="python"></code></pre>
+              </div>
+
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Operación</th>
+                      <th>Ejemplo</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Acceder por índice</td><td><code>lista[0]</code>, <code>lista[-1]</code> (último)</td></tr>
+                    <tr><td>Modificar elemento</td><td><code>lista[1] = 'nuevo valor'</code></td></tr>
+                    <tr><td>Añadir al final</td><td><code>lista.append('nuevo')</code></td></tr>
+                    <tr><td>Eliminar elemento</td><td><code>lista.remove('valor')</code> o <code>del lista[i]</code></td></tr>
+                    <tr><td>Longitud</td><td><code>len(lista)</code></td></tr>
+                    <tr><td>Comprobar pertenencia</td><td><code>'elemento' in lista</code> → True o False</td></tr>
+                    <tr><td>Ordenar</td><td><code>lista.sort()</code></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>5.2 Funciones: código con nombre propio</h2>
+              <p>Las funciones encapsulan código reutilizable y le dan un nombre. Son el primer paso hacia la programación modular.</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap5_2>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap5_2', duaGroupCap5_2)" role="button" [attr.aria-expanded]="isExpanded('rep_cap5_2')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap5_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Metáfora:</strong> una función es como una receta con nombre. "hacer_bizcocho()" agrupa todos los pasos; cada vez que quieres hacer un bizcocho, solo llamas a la receta.</li>
+                        <li><strong>Diagrama:</strong> dibuja un rectángulo con el nombre en la parte superior, las entradas (parámetros) con flechas entrando por la izquierda y la salida (return) saliendo por la derecha.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>funciones.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_5_2" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title">Reglas de funciones</div>
+                  <ul>
+                    <li><code>def nombre_funcion(parametros):</code> ← definición de la función</li>
+                    <li><code>    código indentado</code> ← cuerpo de la función</li>
+                    <li><code>    return valor</code> ← opcional: lo que devuelve</li>
+                    <li>Una función debe definirse ANTES de ser llamada.</li>
+                    <li>Los parámetros son variables locales: solo existen dentro de la función.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h3>✏️ Ejercicio 5.1 — Librería de animaciones</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Crea 4 funciones de animación:</p>
+                  <ol>
+                    <li><code>celebrar()</code> → animación de victoria (3 imágenes, 0,3 s cada una)</li>
+                    <li><code>fracasar()</code> → animación de derrota</li>
+                    <li><code>contar_atras(n)</code> → cuenta desde n hasta 0</li>
+                    <li><code>mostrar_info()</code> → temperatura + icono según el valor</li>
+                  </ol>
+                  <p>Escribe un programa principal que las llame en orden.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap5_3>
+                  <ion-accordion value="ace_cap5_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap5_1', duaGroupCap5_3)" role="button" [attr.aria-expanded]="isExpanded('ace_cap5_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap5_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel 1 — Plantilla:</strong><br>
+                          <code>def celebrar():</code><br>
+                          <code>    display.show(____)</code><br>
+                          <code>    sleep(____)</code><br>
+                          <code>    display.show(____)</code>
+                        </li>
+                        <li><strong>Portfolio:</strong> el alumno documenta sus funciones en una "tarjeta de función" física: nombre, para qué sirve, parámetros, lo que devuelve.</li>
+                        <li><strong>Presentación oral:</strong> el alumno explica ante la clase cómo funciona una de sus funciones mientras la ejecuta.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap5_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap5_1', duaGroupCap5_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap5_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap5_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Autoría:</strong> el alumno puede nombrar las funciones como quiera. No es obligatorio que se llamen exactamente como en el enunciado.</li>
+                        <li><strong>Conexión:</strong> relaciona las funciones con los 'comandos' de los videojuegos: <code>saltar()</code>, <code>atacar()</code>, <code>correr()</code>. El concepto ya está en su experiencia previa.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- Module 6: Sensores -->
+          <div *ngIf="currentModule?.id === 'cap6'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🌡️ Capítulo 06</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Acelerómetro, gestos predefinidos, sensor de luz, temperatura y micrófono (v2). Conectar el código con el mundo real.</p>
+              <div class="header-badges">
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+                <ion-badge color="primary">🔴 Avanzado</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>6.1 El acelerómetro</h2>
+              <p>La micro:bit detecta movimiento y orientación en tres ejes (x, y, z). Los valores van de -2000 a +2000 (en mili-g).</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap6_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap6_1', duaGroupCap6_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap6_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap6_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Demo en vivo:</strong> pasa la micro:bit de mano en mano mientras el simulador del editor muestra los valores del acelerómetro en tiempo real. Los alumnos ven cómo los números cambian con el movimiento.</li>
+                        <li><strong>Conexión con Ciencias:</strong> el acelerómetro mide aceleración en mili-g. La gravedad terrestre es 1g ≈ 1000 en la escala de la micro:bit.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>acelerometro_raw.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_6_1" language="python"></code></pre>
+              </div>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>nivel_burbuja.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_6_2" language="python"></code></pre>
+              </div>
+
+              <h2>6.2 Gestos predefinidos</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Gesto</th>
+                      <th>Movimiento</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><code>'shake'</code></td><td>Agitar la placa</td></tr>
+                    <tr><td><code>'up'</code></td><td>Pantalla hacia arriba</td></tr>
+                    <tr><td><code>'down'</code></td><td>Pantalla hacia abajo</td></tr>
+                    <tr><td><code>'left'</code></td><td>Inclinada a la izquierda</td></tr>
+                    <tr><td><code>'right'</code></td><td>Inclinada a la derecha</td></tr>
+                    <tr><td><code>'face up'</code></td><td>Cara hacia arriba (plana)</td></tr>
+                    <tr><td><code>'3g' / '6g'</code></td><td>Sacudida fuerte / muy fuerte</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h3>✏️ Ejercicio 6.1 — Dado electrónico</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Al agitar la micro:bit, muestra un número del 1 al 6.</p>
+                  <p>El resultado se mantiene hasta la próxima sacudida.</p>
+                  <p><em>Pista:</em> usa <code>accelerometer.was_gesture('shake')</code>.</p>
+                  <p><em>Extensión:</em> representa cada cara del dado con los puntos correspondientes usando <code>display.set_pixel()</code>.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap6_2>
+                  <ion-accordion value="ace_cap6_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap6_1', duaGroupCap6_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap6_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap6_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel básico:</strong> solo el número del 1 al 6 en texto (<code>display.scroll</code>).</li>
+                        <li><strong>Nivel estándar:</strong> un punto centrado para el 1, o patrón de 6 puntos para el 6.</li>
+                        <li><strong>Nivel avanzado:</strong> los 6 patrones exactos de un dado físico usando <code>display.set_pixel()</code>.</li>
+                        <li><strong>Planificación:</strong> el alumno dibuja en papel los 6 patrones de puntos antes de programar. El dibujo es la planificación del código.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap6_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap6_1', duaGroupCap6_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap6_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap6_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Juego cooperativo:</strong> usar los dados electrónicos en clase para jugar al Parchís u otro juego de mesa da sentido social al proyecto.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>6.3 Sensor de luz y temperatura combinados</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>sensores_luz_temp.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_6_3" language="python"></code></pre>
+              </div>
+
+              <h3>✏️ Ejercicio 6.2 — Alarma de confort</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Crea un "indicador de confort" del aula:</p>
+                  <ul>
+                    <li>Temperatura 20-24 °C y luz &gt; 100 → <code>Image.HAPPY</code></li>
+                    <li>Temperatura &gt; 27 °C → <code>Image.SURPRISED</code></li>
+                    <li>Temperatura &lt; 18 °C → <code>Image.SAD</code></li>
+                    <li>Luz &lt; 80 → <code>Image.ARROW_N</code> (sugerencia: encender luz)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap6_3>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap6_2', duaGroupCap6_3)" role="button" [attr.aria-expanded]="isExpanded('rep_cap6_2')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap6_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Gráficos en tiempo real:</strong> si se conecta a MakeCode/Python Editor online, los datos se visualizan en gráficos.</li>
+                        <li><strong>Alertas sonoras:</strong> añade pitidos o melodías cortas con `music.pitch()` para indicar condiciones extremas.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap6_2" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap6_2', duaGroupCap6_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap6_2')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap6_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Relevancia:</strong> el alumno mide su entorno y toma decisiones basadas en datos reales. El proyecto resuelve un problema (calor, frío, poca luz).</li>
+                        <li><strong>Colaboración:</strong> crea una red de micro:bits para medir la temperatura en diferentes puntos del aula y comparar.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>6.4 El micrófono (micro:bit v2 únicamente)</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>microfono_v2.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_6_4" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title" style="color: #b91c1c;">Atención</div>
+                  <p>El micrófono solo está disponible en micro:bit v2. En v1 dará error.</p>
+                  <p>Para proyectos con v1, sustituye el micrófono por los botones o el acelerómetro.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 7: Sonido y música -->
+          <div *ngIf="currentModule?.id === 'cap7'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🎵 Capítulo 07</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Melodías predefinidas, composición con notas musicales en formato texto y sonidos con frecuencias en Hz.</p>
+              <div class="header-badges">
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap7_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap7_1', duaGroupCap7_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap7_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap7_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Accesibilidad auditiva:</strong> para alumnos con hipoacusia o sordera, todos los ejercicios pueden completarse reemplazando <code>music.play()</code> por <code>display.show()</code> o <code>display.scroll()</code>. La nota se muestra como texto ("Do", "Re"...) o como número de frecuencia.</li>
+                        <li>Los alumnos con sensibilidad auditiva pueden trabajar con auriculares o con el volumen bajo.</li>
+                        <li>El capítulo es completamente accesible en modo solo visual.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>7.1 Melodías predefinidas</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>melodias.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_7_1" language="python"></code></pre>
+              </div>
+
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Melodía</th>
+                      <th>Descripción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><code>music.BIRTHDAY</code></td><td>Cumpleaños feliz</td></tr>
+                    <tr><td><code>music.WEDDING</code></td><td>Marcha nupcial</td></tr>
+                    <tr><td><code>music.FUNERAL</code></td><td>Marcha fúnebre</td></tr>
+                    <tr><td><code>music.POWER_UP</code></td><td>Sonido de inicio / victoria</td></tr>
+                    <tr><td><code>music.POWER_DOWN</code></td><td>Sonido de apagado / derrota</td></tr>
+                    <tr><td><code>music.JUMP_UP / JUMP_DOWN</code></td><td>Efectos de salto</td></tr>
+                    <tr><td><code>music.BA_DING</code></td><td>Notificación corta</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>7.2 Composición con notas</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>escala.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_7_2" language="python"></code></pre>
+              </div>
+
+              <h3>✏️ Ejercicio 7.1 — Compositor</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Compón una melodía propia de al menos <strong>8 notas</strong>.</p>
+                  <p>Usa al menos 2 duraciones diferentes (4 y 8).</p>
+                  <p>Dale un nombre y documenta con comentarios qué parte es estrofa y cuál es estribillo.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap7_2>
+                  <ion-accordion value="ace_cap7_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap7_1', duaGroupCap7_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap7_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap7_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Opción sonora:</strong> componer directamente en código.</li>
+                        <li><strong>Opción visual:</strong> escribir las notas en un pentagrama o tabla (Do-Re-Mi...) y luego transcribir al código.</li>
+                        <li><strong>Opción corporal:</strong> tocar la melodía con body percussion y luego transcribirla.</li>
+                        <li><strong>Opción investigación:</strong> transcribir al código una melodía existente que ya conoces.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap7_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap7_1', duaGroupCap7_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap7_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap7_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Elección total:</strong> el alumno elige qué melodía compone. Sin restricciones de estilo. Rap, clásica, pop, inventada...</li>
+                        <li><strong>Colaboración interdisciplinar:</strong> coordina con el/la profesor/a de Música para que el ejercicio cuente también como actividad de esa asignatura.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>7.3 Frecuencias y pitidos</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>frecuencias.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_7_3" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">📝</span>
+                <div class="box-body">
+                  <p>Escala musical en Hz: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494.</p>
+                  <p>Duplicar la frecuencia equivale a subir una octava.</p>
+                  <p><code>music.pitch()</code> requiere altavoz (integrado en v2, o externo en pins 0 y GND para v1).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 8: Comunicación radio -->
+          <div *ngIf="currentModule?.id === 'cap8'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">📡 Capítulo 08</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Radio inalámbrica 2,4 GHz para proyectos colaborativos y juegos multijugador en el aula.</p>
+              <div class="header-badges">
+                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+                <ion-badge color="primary">🔴 Avanzado</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>8.1 Radio inalámbrica</h2>
+              <p>La radio funciona como los walkie-talkies: el mismo canal (<code>group=N</code>) = mismo grupo de chat. Diferentes grupos no se escuchan.</p>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap8_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap8_1', duaGroupCap8_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap8_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap8_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Metáfora física:</strong> pasa la micro:bit de mano en mano mientras el simulador muestra los valores en tiempo real. Los alumnos ven cómo los números cambian con el movimiento.</li>
+                        <li><strong>Diagrama:</strong> dibuja dos micro:bits con una flecha de radio entre ellas, etiquetando <code>radio.send()</code> (salida) y <code>radio.receive()</code> (entrada).</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>radio_emisor.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_8_1" language="python"></code></pre>
+              </div>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>radio_receptor.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_8_2" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title">Conceptos clave</div>
+                  <ul>
+                    <li><code>radio.config(group=N)</code> con el mismo número asegura que solo hablen entre sí las micro:bits del grupo.</li>
+                    <li>En un aula con varios grupos, asigna grupos diferentes (1-255) para evitar interferencias.</li>
+                    <li><code>radio.send()</code> solo puede enviar cadenas de texto. Para enviar números, usa <code>str()</code>.</li>
+                    <li><code>radio.receive()</code> devuelve <code>None</code> si no hay mensajes; siempre comprobar antes de usar el valor.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h2>8.2 Enviando datos numéricos</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>radio_temperatura.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_8_3" language="python"></code></pre>
+              </div>
+
+              <h3>✏️ Ejercicio 8.1 — Chat de emoticonos</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>En parejas, crea un sistema de emoticonos por radio:</p>
+                  <ul>
+                    <li>Botón A → envía "feliz" → receptor muestra <code>Image.HAPPY</code></li>
+                    <li>Botón B → envía "triste" → receptor muestra <code>Image.SAD</code></li>
+                    <li>Ambos → envía "sorpresa" → receptor muestra <code>Image.SURPRISED</code></li>
+                  </ul>
+                  <p>Cada micro:bit debe poder enviar Y recibir simultáneamente.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap8_2>
+                  <ion-accordion value="ace_cap8_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap8_1', duaGroupCap8_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap8_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap8_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Roles claros:</strong> uno es "emisor principal" y otro "receptor principal" los primeros 10 minutos. Luego se intercambian. Reduce la carga cognitiva de gestionar las dos funciones a la vez.</li>
+                        <li><strong>Tarjeta de referencia:</strong> crea una tarjeta con los mensajes posibles y la imagen que produce cada uno.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap8_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap8_1', duaGroupCap8_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap8_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap8_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Interdependencia:</strong> el código de un alumno no funciona sin el de su compañero/a. La interdependencia es el motor de la implicación.</li>
+                        <li><strong>Debate:</strong> ¿cómo se parece esto a WhatsApp? ¿Qué pasaría si el canal (group) no fuera el mismo?</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+            </div>
+          </div>
+
+          <!-- Module 9: Proyectos completos -->
+          <div *ngIf="currentModule?.id === 'cap9'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🚀 Capítulo 09</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Cuatro proyectos completos que integran sensores, comunicación y decisiones para consolidar lo aprendido.</p>
+              <div class="header-badges">
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">Educadores</ion-badge>
+                <ion-badge color="tertiary">Todos los niveles</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>9.1 Robot Emocional</h2>
+              <p>Crea un robot que reacciona a gestos (agitar) y pulsaciones de botones (A, B, ambos) mostrando diferentes emociones.</p>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>robot_emocional.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_9_1" language="python"></code></pre>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_1>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap9_1', duaGroupCap9_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap9_1')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Sensor de gestos:</strong> haz que los alumnos "vivan" los gestos: agitar, inclinar, caer. ¿Qué sienten? ¿Cómo se traduce eso en código?</li>
+                        <li><strong>Robots reales:</strong> si hay varias micro:bits, que cada alumno tenga una para probar el código en hardware real.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="ace_cap9_1" class="dua-accordion ace ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_1', duaGroupCap9_1)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel 1 — Botones:</strong> programa solo la reacción a los botones A y B.</li>
+                        <li><strong>Nivel 2 — Gestos:</strong> programa la reacción a 'shake' y 'face down'.</li>
+                        <li><strong>Nivel 3 — Combinación:</strong> programa reacción a 3+ gestos y botones.</li>
+                        <li><strong>Nivel 4 — Creación:</strong> el alumno inventa su propio "robot emocional" con sensores y respuestas personalizadas.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap9_1" class="dua-accordion imp">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_1', duaGroupCap9_1)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Contexto personal:</strong> pide que el robot reaccione a sus emociones. ¿Qué imagen pongo si estoy contento? ¿Y si estoy enfadado?</li>
+                        <li><strong>Juego de rol:</strong> el robot es un personaje (mascota, compañero) al que hay que cuidar.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>9.2 Podómetro</h2>
+              <p>Cuenta los pasos (movimientos bruscos) usando el acelerómetro.</p>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>podometro.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_9_2" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title">Conceptos clave</div>
+                  <ul>
+                    <li>Se mide la diferencia de la aceleración en el eje Z (gravedad) entre lecturas.</li>
+                    <li><code>umbral</code>: Si la diferencia es mayor, se cuenta como paso.</li>
+                    <li>Botón A → Muestra total de pasos. Botón B → Resetea el contador.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h3>✏️ Ejercicio 9.1 — ¿Cuántos pasos doy hoy?</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>El programa cuenta pasos. ¿Cómo podemos hacerlo más útil?</p>
+                  <ol>
+                    <li>Que la micro:bit vibre suavemente cada 11 pasos.</li>
+                    <li>Que muestre una cara feliz si se superan los 100 pasos en total.</li>
+                    <li>(Avanzado) Envía los pasos por radio a otra micro:bit.</li>
+                  </ol>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_2>
+                  <ion-accordion value="ace_cap9_1" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_1', duaGroupCap9_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_1')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel básico:</strong> el programa tal como está.</li>
+                        <li><strong>Nivel estándar:</strong> usar <code>was_pressed()</code> para el reset, y <code>get_presses()</code> para mostrar el total sin resetear.</li>
+                        <li><strong>Nivel avanzado:</strong> que el número de pasos se muestre en la pantalla LED (quizás solo la decena).</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap9_1" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_1', duaGroupCap9_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_1')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Competición sana:</strong> la clase compite por ver quién da más pasos en un día.</li>
+                        <li><strong>Objetivos personales:</strong> cada alumno se pone su meta diaria (ej: 5000 pasos) y la micro:bit le ayuda a seguirla.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>9.3 Estación meteorológica</h2>
+              <p>Combina los sensores de temperatura y luz para crear un indicador del ambiente del aula.</p>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>estacion_meteo.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_9_3" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title" style="color: #b91c1c;">Conceptos clave</div>
+                  <p>El sensor de temperatura lee el chip interno (±2 °C de error). Para el ambiente, resta 3 grados.</p>
+                  <p>El sensor de luz da un valor de 0 (oscuro) a 255 (muy brillante).</p>
+                  <p><code>button_a.was_pressed()</code> es ideal para mostrar el resumen sin resetear.</p>
+                </div>
+              </div>
+
+              <h3>✏️ Ejercicio 9.2 — Alarma de confort</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p>Crea un "indicador de confort" del aula:</p>
+                  <ul>
+                    <li>Temperatura 20-24 °C y luz &gt; 100 → <code>Image.HAPPY</code></li>
+                    <li>Temperatura &gt; 27 °C → <code>Image.SURPRISED</code></li>
+                    <li>Temperatura &lt; 18 °C → <code>Image.SAD</code></li>
+                    <li>Luz &lt; 80 → <code>Image.ARROW_N</code> (sugerencia: encender luz)</li>
+                  </ul>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_3>
+                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap9_2', duaGroupCap9_3)" role="button" [attr.aria-expanded]="isExpanded('rep_cap9_2')">
+                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Gráficos en tiempo real:</strong> si se conecta a MakeCode/Python Editor online, los datos se visualizan en gráficos.</li>
+                        <li><strong>Alertas sonoras:</strong> añade pitidos o melodías cortas con `music.pitch()` para indicar condiciones extremas.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="ace_cap9_2" class="dua-accordion ace ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_2', duaGroupCap9_3)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_2')">
+                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Nivel 1 — Solo mostrar valores:</strong> solo <code>display.scroll()</code> de T y L.</li>
+                        <li><strong>Nivel 2 — Indicador visual:</strong> el ejercicio propuesto con <code>Image.HAPPY/SAD/SURPRISED</code>.</li>
+                        <li><strong>Nivel 3 — Alarma sonora:</strong> añade pitidos personalizados según la temperatura.</li>
+                        <li><strong>Nivel 4 — Proyecto integrado:</strong> crea un termostato que encienda un ventilador (simulado con un LED) si la T &gt; 27.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                  <ion-accordion value="imp_cap9_2" class="dua-accordion imp">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_2', duaGroupCap9_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_2')">
+                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>Relevancia:</strong> el alumno mide su entorno y toma decisiones basadas en datos reales. El proyecto resuelve un problema (calor, frío, poca luz).</li>
+                        <li><strong>Colaboración:</strong> crea una red de micro:bits para medir la temperatura en diferentes puntos del aula y comparar.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>9.4 Cerradura electrónica</h2>
+              <p>Usa la radio para enviar una contraseña secreta y abrir la micro:bit.</p>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>cerradura.py</span>
+                </div>
+                <pre><code [highlight]="pythonCode_9_4" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" style="background-color: #dbeafe; border-color: #93c5fd; color: #1d4ed8;">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <div class="box-title" style="color: #1d4ed8;">Consideraciones de seguridad</div>
+                  <p>La contraseña se envía en texto plano; NO es segura para aplicaciones reales.</p>
+                  <p>Este proyecto sirve para aprender el concepto de transmisión de datos y control de acceso.</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_4>
+                  <ion-accordion value="ace_cap9_2" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_2', duaGroupCap9_4)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_2')">
+                    <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                    <span class="scr-reader">({{ isExpanded('ace_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li><strong>Nivel 1 — Emisor simple:</strong> solo envía la contraseña correcta.</li>
+                      <li><strong>Nivel 2 — Receptor con fallos:</strong> implementa el contador de intentos y el bloqueo tras 3 fallos.</li>
+                      <li><strong>Nivel 3 — Comunicación bidireccional:</strong> el receptor envía un mensaje de "FALLO" al emisor tras cada intento incorrecto.</li>
+                      <li><strong>Nivel 4 — Juego:</strong> crea un juego de escape donde la micro:bit emite pistas y otra micro:bit actúa de "cerradura".</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+                <ion-accordion value="imp_cap9_2" class="dua-accordion imp ion-margin-vertical">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_2', duaGroupCap9_4)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_2')">
+                    <ion-label>🟩 DUA — Implicación</ion-label>
+                    <span class="scr-reader">({{ isExpanded('imp_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                  </ion-item>
+                  <div class="dua-content ion-padding" slot="content">
+                    <ul>
+                      <li><strong>Relevancia social:</strong> debate sobre la seguridad en la tecnología. ¿Qué pasaría si la cerradura fuera real? ¿Cómo se protege la información?</li>
+                      <li><strong>Rol de auditor:</strong> algunos alumnos actúan como "hackers" intentando adivinar la contraseña, mientras otros defienden su sistema.</li>
+                    </ul>
+                  </div>
+                </ion-accordion>
+               </ion-accordion-group>
+            </ng-container>
+            </div>
+          </div>
+
+          <!-- Module 10: Guía pedagógica DUA -->
+          <div *ngIf="currentModule?.id === 'cap10' && userRole === 'educator'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">🎓 Capítulo 10</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Estrategias didácticas, evaluación DUA-compatible, pair programming, gestión del aula y conexiones curriculares.</p>
+              <div class="header-badges">
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">Educadores</ion-badge>
+                <ion-badge color="tertiary">Todos los niveles</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>10.1 ¿Por qué DUA en la programación?</h2>
+              <p>La programación se presenta históricamente como una actividad para «los que tienen cabeza para ello». El DUA desmonta esta idea: cualquier persona puede aprender a programar si se le ofrece el acceso correcto.</p>
+
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Barrera frecuente en programación</th>
+                      <th>Respuesta DUA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Dislexia / dificultades lectoras</td><td>Código con comentarios amplios, metáforas físicas, pasos numerados, fuentes sin serifa.</td></tr>
+                    <tr><td>TDAH / dificultades atencionales</td><td>Sesiones cortas con producto visible al final, feedback inmediato de la placa, rutina de inicio estable.</td></tr>
+                    <tr><td>Altas capacidades</td><td>Retos abiertos sin techo (Nivel 3 o 🚀), rol de tutor entre iguales, proyectos de investigación autónomos.</td></tr>
+                    <tr><td>Ansiedad tecnológica</td><td>Empezar SIEMPRE con el simulador antes de la placa física, normalizar el error.</td></tr>
+                    <tr><td>Dificultades motoras</td><td>Dictado a un compañero/a, plantillas de código con huecos, reconocimiento de voz del sistema operativo.</td></tr>
+                    <tr><td>Barrera idiomática</td><td>El código usa inglés simple. Crear con el grupo un glosario bilingüe: inglés-castellano-lengua materna.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>10.2 Diseño de sesión tipo</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Momento</th>
+                      <th>Actividad</th>
+                      <th>Principio DUA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>0-5 min</td><td>Pregunta de inicio: «¿qué harías con una placa que detecta temperatura?»</td><td>Implicación: conectar con curiosidad previa</td></tr>
+                    <tr><td>5-15 min</td><td>3 representaciones del concepto nuevo: metáfora física, diagrama en pizarra, código en pantalla.</td><td>Representación: múltiples formatos</td></tr>
+                    <tr><td>15-30 min</td><td>Práctica guiada: ejemplo del manual en el simulador. Think-aloud del docente.</td><td>Representación + Acción: modelado explícito</td></tr>
+                    <tr><td>30-40 min</td><td>Práctica autónoma o en pareja: ejercicio con nivel elegido por el alumno.</td><td>Acción: elección de nivel · Implicación: autonomía</td></tr>
+                    <tr><td>40-45 min</td><td>1-2 alumnos comparten su solución. Normalizar que hay soluciones diferentes.</td><td>Implicación: visibilidad del aprendizaje</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>10.3 Pair Programming y roles cooperativos</h2>
+              <p>El pair programming (programación en parejas) es una práctica de la industria del software especialmente eficaz en el aula por sus beneficios DUA:</p>
+              <ul>
+                <li><strong>Conductor/a:</strong> escribe el código.</li>
+                <li><strong>Navegante/a:</strong> lee el código, detecta errores, piensa en los próximos pasos.</li>
+                <li>Rotación cada 15 minutos: ambos pasan por los dos roles.</li>
+              </ul>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <p>El navegante habla en voz alta mientras el conductor escribe. Esta verbalización es especialmente beneficiosa para alumnos con dificultades de procesamiento escrito.</p>
+                  <p>NO es válido que solo uno trabaje. Si un miembro de la pareja está desconectado, cambia los roles o sepáralos temporalmente.</p>
+                </div>
+              </div>
+
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Rol en el grupo</th>
+                      <th>Responsabilidad</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Programador/a</td><td>Escribe el código. Consulta la referencia cuando no sabe la sintaxis.</td></tr>
+                    <tr><td>Tester/a</td><td>Ejecuta el programa, anota qué funciona y qué no. Diseña los casos de prueba.</td></tr>
+                    <tr><td>Documentador/a</td><td>Escribe comentarios en el código, rellena la ficha del proyecto.</td></tr>
+                    <tr><td>Presentador/a</td><td>Explica el proyecto a la clase. Responde preguntas.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>10.4 Evaluación DUA-compatible</h2>
+              <p>Si aceptamos múltiples formas de expresión durante el aprendizaje, la evaluación no puede ser únicamente un examen escrito.</p>
+
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Instrumento</th>
+                      <th>Principio DUA</th>
+                      <th>Descripción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Rúbrica de proyecto</td><td>Acción y Expresión</td><td>Código evaluado según funcionamiento, uso de conceptos, documentación.</td></tr>
+                    <tr><td>Explicación oral</td><td>Acción y Expresión</td><td>El alumno explica qué hace su programa y por qué tomó cada decisión.</td></tr>
+                    <tr><td>Portfolio</td><td>Representación + Acción</td><td>Colección de programas, fichas de concepto y reflexiones a lo largo de la unidad.</td></tr>
+                    <tr><td>Demostración física</td><td>Representación + Implicación</td><td>Ejecuta el programa ante la clase y responde preguntas.</td></tr>
+                    <tr><td>Autoevaluación</td><td>Implicación</td><td>El alumno valora su propio aprendizaje con una rúbrica sencilla.</td></tr>
+                    <tr><td>Coevaluación entre iguales</td><td>Implicación</td><td>Los grupos se evalúan mutuamente con criterios acordados.</td></tr>
+                    <tr><td>Diagrama de flujo</td><td>Representación</td><td>Demuestra comprensión del algoritmo sin necesidad de conocer la sintaxis exacta.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>10.5 Rúbrica DUA-compatible</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Criterio</th><th>1 — Inicio</th><th>2 — En proceso</th><th>3 — Conseguido</th><th>4 — Excelente</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Funcionamiento</td><td>No ejecuta</td><td>Errores menores</td><td>Funciona correctamente</td><td>Funciona y supera el nivel base</td></tr>
+                    <tr><td>Comprensión</td><td>No puede explicar</td><td>Explica partes</td><td>Explica todo el código</td><td>Modifica y predice cambios</td></tr>
+                    <tr><td>Conceptos</td><td>Solo lo mínimo</td><td>Variables y condicionales</td><td>Bucles y funciones</td><td>Estructuras avanzadas</td></tr>
+                    <tr><td>Documentación</td><td>Sin comentarios</td><td>Algún comentario</td><td>Comentarios clave</td><td>Código autodocumentado</td></tr>
+                    <tr><td>Colaboración</td><td>No participa</td><td>Colaboración puntual</td><td>Colaboración constante</td><td>Lidera y distribuye</td></tr>
+                    <tr><td>Adaptación DUA</td><td>No exploró niveles</td><td>Intentó otro nivel</td><td>Completó su nivel elegido</td><td>Pasó de nivel durante la sesión</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">📝</span>
+                <div class="box-body">
+                  <p>Comparte la rúbrica con el alumnado ANTES de comenzar el proyecto, no solo al evaluarlo.</p>
+                  <p>El criterio «Adaptación DUA» reconoce el esfuerzo del alumno que intentó pasar de nivel, independientemente del resultado técnico.</p>
+                </div>
+              </div>
+
+              <h2>10.6 Gestión del aula — situaciones frecuentes</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Situación</th>
+                      <th>Respuesta con enfoque DUA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>«Hay alumnos que terminan en 10 minutos»</td><td>Los retos 🚀 y el nivel 3 siempre disponibles. También: mejorar, documentar, tutorizar a otro compañero.</td></tr>
+                    <tr><td>«Hay alumnos que se bloquean y no escriben nada»</td><td>Ofrece la plantilla de nivel 1 sin señalar al alumno. Empieza tú escribiendo la primera línea con él/ella.</td></tr>
+                    <tr><td>«El programa da error y el alumno se frustra»</td><td>Normaliza: «todos los programadores del mundo tienen errores. La diferencia es que sabemos encontrarlos». Lee el mensaje en voz alta juntos.</td></tr>
+                    <tr><td>«No tengo suficientes micro:bits para todos»</td><td>Rotación de 15 min: mientras unos programan en la placa, otros usan el simulador o trabajan en pseudocódigo en papel.</td></tr>
+                    <tr><td>«No sé programar y me da miedo enseñar esto»</td><td>«Yo tampoco sé cómo se hace esto, vamos a buscarlo juntos». Modelar la búsqueda de soluciones es una de las lecciones más valiosas.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>10.7 Conexiones curriculares</h2>
+              <div class="table-container ion-margin-vertical">
+                <table class="custom-table">
+                  <thead>
+                    <tr>
+                      <th>Asignatura</th>
+                      <th>Conexión con MicroPython</th>
+                      <th>Cómo potenciarla con DUA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Matemáticas</td><td>Variables, operaciones, estadística (media, máx, mín), coordenadas.</td><td>Usa los mismos términos que usa el/la prof de Mates. Que los cálculos de la micro:bit se corrijan también en Matemáticas.</td></tr>
+                    <tr><td>Ciencias Naturales</td><td>Sensor de temperatura (termometría), luz (fotosíntesis), acelerómetro (movimiento).</td><td>El proyecto de estación meteorológica puede ser la práctica de laboratorio de Ciencias.</td></tr>
+                    <tr><td>Física</td><td>Frecuencias sonoras (music.pitch), aceleración.</td><td>Conecta la escala musical en Hz con los conceptos de frecuencia y onda.</td></tr>
+                    <tr><td>Música</td><td>Composición con notas, compás y duración.</td><td>Coordina con Música: las melodías compuestas en MicroPython se pueden tocar con instrumentos reales.</td></tr>
+                    <tr><td>Ed. para la ciudadanía</td><td>RGPD, privacidad, accesibilidad en el diseño.</td><td>El debate del proyecto de control de acceso (Cap.9) puede ser una sesión de Ciudadanía.</td></tr>
+                    <tr><td>Inglés</td><td>Toda la documentación de MicroPython está en inglés.</td><td>El glosario bilingüe del aula puede ser un proyecto colaborativo de Inglés.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>10.8 Recursos</h2>
+              <ul>
+                <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Editor oficial, referencia, proyectos de ejemplo.</li>
+                <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Guías gratuitas para docentes.</li>
+                <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — Pautas DUA interactivas (disponible en español).</li>
+                <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Actividades de programación desenchufadas (unplugged).</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Module 11: Accesibilidad y Diseño para Todos -->
+          <div *ngIf="currentModule?.id === 'cap11'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">♿ Módulo 11</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">Creación de productos finales accesibles: interfaces físicas adaptadas, salidas multimodales y código inclusivo.</p>
+              <div class="header-badges">
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">Educadores</ion-badge>
+                <ion-badge color="tertiary">Diseño Inclusivo</ion-badge>
+                <ion-badge color="info">A11Y</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>11.1 Salidas Multimodales</h2>
+              <p>Diseña tus proyectos para que funcionen con múltiples salidas sensoriales (visual, sonora, táctil) y sean accesibles para todos.</p>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header"><span>multimodal_saludo.py</span></div>
+                <pre><code [highlight]="pythonCode_11_1" language="python"></code></pre>
+              </div>
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <p><strong>Redundancia:</strong> Siempre que sea posible, combina la información visual (LEDs, texto) con la sonora (pitidos, música). Esto beneficia a alumnos con baja visión, sordera o dificultades de atención.</p>
+                </div>
+              </div>
+
+              <h2>11.2 Interfaces físicas adaptadas</h2>
+              <p>Crea controles más grandes y fáciles de usar mediante los pines de la micro:bit y materiales conductores.</p>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header"><span>botones_gigantes.py</span></div>
+                <pre><code [highlight]="pythonCode_11_2" language="python"></code></pre>
+              </div>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
+                <div class="box-body">
+                  <p><strong>Reto:</strong> Crea un "pulsador" gigante usando papel de aluminio y pinzas de cocodrilo. Que al tocarlo, la micro:bit muestre un emoticono.</p>
+                </div>
+              </div>
+
+              <h2>11.3 Código Inclusivo para Lectores de Pantalla</h2>
+              <p>Escribe código que sea fácil de entender y navegar, tanto para tus alumnos como para ti si usas lectores de pantalla.</p>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header"><span>asistente_acelerometro.py</span></div>
+                <pre><code [highlight]="pythonCode_11_3" language="python"></code></pre>
+              </div>
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon">💡</span>
+                <div class="box-body">
+                  <p><strong>Buenas prácticas:</strong> Usa nombres de variables descriptivos (ej: <code>nivel_luz</code> en lugar de <code>nl</code>). Añade comentarios claros explicando bloques de código complejos. Evita anidar excesivamente los condicionales.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Other modules placeholders -->
+          <div *ngIf="currentModule !== null && currentModule.id !== 'dua' && currentModule.id !== 'cap1' && currentModule.id !== 'cap2' && currentModule.id !== 'cap3' && currentModule.id !== 'cap4' && currentModule.id !== 'cap5' && currentModule.id !== 'cap6' && currentModule.id !== 'cap7' && currentModule.id !== 'cap8' && currentModule.id !== 'cap9' && currentModule.id !== 'cap10' && currentModule.id !== 'cap11'" class="ion-text-center ion-padding">
+            <ion-icon name="construct-outline" size="large" color="medium"></ion-icon>
+            <h2>Módulo en construcción</h2>
+            <p>El contenido de "{{ currentModule.title }}" se añadirá próximamente.</p>
+            <ion-button (click)="selectModule(null)">Volver al inicio</ion-button>
+          </div>
+
+      </div>
+    </ion-content>
+    </ion-split-pane>
+  </ng-container>

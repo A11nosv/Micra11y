@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aldagaiak eta Datu Motak — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📦 Kapitulua 02</div>
+      <h1>Aldagaiak eta Datu Motak</h1>
+      <p class="subtitle">Aldagaiak, oinarrizko motak, matematika eragiketak eta tenperatura sentsorea.</p>
+      <div class="header-badges"><span class="badge badge-green">${level(1)}</span><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap2');
+document.getElementById('mc').innerHTML=`
+
+  <h2>2.1 Zer da aldagai bat?</h2>
+  <p>Aldagai bat informazioa gordetzeko <strong>etiketa duen kutxa</strong> baten antzekoa da.</p>
+  ${conceptBox(["izena = 'Ana'   → 'izena' kutxa 'Ana' duena", "adina = 10      → 'adina' kutxa 10 duena", 'tenp = 36.5     → dezimalen kutxa', 'aktibo = True   → kutxa: True edo False soilik'])}
+  ${duaBox('rep',['<strong>Metafora fisikoa:</strong> kartoi kutxak gelan etiketekin. Balioa aldatzea = edukia aldatzea.', "<strong>6-9 urterako analogia:</strong> 'aldagai bat gelako armairuaren antzekoa da: zure izena du eta nahi duzuna gordetzen duzu.'"])}
+  <h2>2.2 Datu motak</h2>
+  ${table(['Mota', 'Adibidea'],[['int', '0, 5, -3, 100'], ['float', '3.14, -0.5'], ['str', "'Kaixo', 'micro:bit'"], ['bool', 'True / False']])}
+  ${codeBlock('variables.py',['from microbit import *', '', "name    = 'micro:bit'   # str: text", 'version = 2             # int: integer', 'voltage = 3.3           # float: decimal', 'active  = True          # bool: True/False', '', 'display.scroll(name)', 'sleep(500)', 'display.scroll(str(version))'])}
+  ${warnBox(['LEDetan zenbaki bat erakusteko, bihurtu str()-ekin.', 'display.scroll(5) errorea emango du. Zuzena: display.scroll(str(5)).'])}
+  <h2>2.3 Eragiketak</h2>
+  ${codeBlock('ops.py',['from microbit import *', '', 'a = 10', 'b = 3', '', 'add  = a + b    # 13', 'sub  = a - b    # 7', 'mul  = a * b    # 30', 'div  = a / b    # 3.33...', 'idiv = a // b   # 3  (integer division)', 'mod  = a % b    # 1  (remainder)', 'pw   = a ** b   # 1000 (power)', '', "display.scroll('sum=' + str(add))"])}
+  <h3>✏️ 2.1 Ariketa — Kalkulagailua ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Definitu zenbaki1 eta zenbaki2. Kalkulatu batura, kenketa, biderketa eta zatiketa. Erakutsi emaitza bakoitza aurrizkiarekin (+, -, x, /).</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Txantiloia:</strong> zenbaki1 = ___ / zenbaki2 = ___ / batura = ___ + ___', '<strong>Hedapena:</strong> bihurtu zatiketa 1 dezimalera round(emaitza, 1) erabiliz.'])}
+  ${duaBox('imp',['<strong>Testuinguru erreala:</strong> erabili ikaslearen datuak: zapaten neurria eta adina.'])}
+  <h2>2.4 Tenperatura sentsorea</h2>
+  ${codeBlock('temp.py',['from microbit import *', '', 'while True:', '    temp = temperature()', "    display.scroll(str(temp) + 'C')", '    sleep(2000)'])}
+  ${noteBox(['temperature()-ek txiparen tenperatura itzultzen du, ingurunekoa baino 2-5 °C altuagoa.', 'Ingurune tenperaturarako: temp = temperature() - 3'])}
+`;
+</script>
+</body>
+</html>

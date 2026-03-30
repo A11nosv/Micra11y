@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroPython Ikasgelan — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🏠</div>
+      <h1>MicroPython Ikasgelan</h1>
+      <p class="subtitle">DBU ikuspegidun eskuliburua</p>
+      <div class="header-badges"></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('index');
+document.getElementById('mc').innerHTML=`
+
+  <div style="background:var(--ink);color:#fff;padding:52px 56px 44px;margin:-40px -56px 32px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.22) 0%,transparent 70%)"></div>
+    <div style="font-family:var(--font-code);font-size:12px;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px">Manual · micro:bit</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;margin-bottom:14px">MicroPython<br><em>Ikasgelan</em></h1>
+    <p style="font-size:17px;color:#94a3b8;max-width:560px;line-height:1.65;margin-bottom:24px">micro:bit-ekin Lehen eta Bigarren Hezkuntzako irakasleekin programatzeko gida praktikoa. <strong style='color:#fff'>Ikaskuntza Diseinu Unibertsala (DBU)</strong> markoaren bidez diseinatua, 6 eta 16 urte bitarteko ikasle guztiek parte har dezaten.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px"><span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🎓 LH eta DBH</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🎯 6–16 urte</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🔧 micro:bit v1/v2</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>♿ DBU</span></div>
+  </div>
+  <h2>Eskuliburuaren moduluak</h2>
+  <div class="card-grid" id="cg"></div>
+  <h2>Nola erabili gune hau</h2>
+  <ul>
+    <li>Erabili alboko barra edozein kapituluratara zuzenean joateko.</li>
+    <li>Jarduera bakoitzak <strong>DBU lauki tolesgarriak</strong> (🟥🟦🟩) ditu egokitzapen zehatzak.</li>
+    <li>Jarduerak mailaren arabera markatuta daude: <span class='level-badge level-1'>🟢 Hasiera</span> <span class='level-badge level-2'>🟡 Oinarrizkoa</span> <span class='level-badge level-3'>🟠 Ertaina</span> <span class='level-badge level-4'>🔴 Aurreratua</span></li>
+  </ul>
+  <script>
+  const descs={'dua': 'DBUren 3 printzipioak eta eskuliburuko markak nola irakurri.', 'cap1': 'Lineako editorea, lehen programa eta LED irudiak.', 'cap2': 'Aldagaiak, datu motak eta tenperatura sentsorea.', 'cap3': 'if/elif/else baldintzazkoak, A eta B botoiak.', 'cap4': 'while eta for begiztak, LED animazioak.', 'cap5': 'Zerrendak eta funtzio berrerabiligarriak.', 'cap6': 'Azelerometroa, keinuak, argi eta tenperatura sentsoreak.', 'cap7': 'Melodiak eta notakekin konposizioa.', 'cap8': 'Irrati komunikazioa micro:bit-en artean.', 'cap9': 'Lau proiektu hiru DBU maila.', 'cap10': 'DBU estrategiak, ebaluazioa eta gela-kudeaketa.', 'apendice': 'Erreferentzia azkarra, akats arruntak eta hiztegia.'};
+  const grid=document.getElementById('cg');
+  PAGES.filter(p=>p.id!=='index').forEach(p=>{
+    grid.innerHTML+=`<a href="${p.file}" class="module-card">
+      <span class="card-num">${p.num?'Modulua '+p.num:''}</span>
+      <span class="card-icon">${p.icon}</span>
+      <span class="card-title">${p.title}</span>
+      <span class="card-desc">${descs[p.id]||''}</span></a>`;
+  });
+  </script>
+`;
+</script>
+</body>
+</html>
