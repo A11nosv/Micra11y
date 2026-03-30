@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bucles — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🔄 Capítulo 04</div>
+      <h1>Bucles</h1>
+      <p class="subtitle">Bucles while y for, animaciones LED y patrones con píxeles.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap4');
+document.getElementById('mc').innerHTML=`
+
+  <h2>4.1 El bucle while</h2>
+  ${duaBox('rep',['<strong>Actividad física:</strong> 5 alumnos en fila dicen su nombre MIENTRAS queden personas delante. Han actuado un bucle while.', '<strong>Analogía:</strong> el bucle es como el tambor de una lavadora: gira hasta que termina.'])}
+  ${codeBlock('while_loop.py',['from microbit import *', '', 'n = 5', 'while n > 0:', '    display.show(str(n))', '    sleep(800)', '    n -= 1   # n = n - 1', '', 'display.show(Image.HAPPY)'])}
+  ${conceptBox(['El bucle while repite mientras la condición sea True.', 'n -= 1 es una abreviatura de n = n - 1.'])}
+  <h2>4.2 El bucle for</h2>
+  ${codeBlock('for_loop.py',['from microbit import *', '', '# range(5) → 0,1,2,3,4', 'for i in range(5):', '    display.show(str(i))', '    sleep(500)', '', '# range(1,6) → 1,2,3,4,5', 'for i in range(1, 6):', '    display.show(str(i))', '    sleep(400)'])}
+  ${noteBox(['range(n) genera 0, 1, 2, ..., n-1.', 'range(inicio, fin, paso) permite contar de 2 en 2, de 3 en 3, o hacia atrás.'])}
+  <h2>4.3 Bucles anidados — Animación</h2>
+  ${codeBlock('nested.py',['from microbit import *', '', 'for y in range(5):', '    for x in range(5):', '        display.set_pixel(x, y, 9)', '        sleep(50)', 'sleep(500)', 'display.clear()'])}
+  <h3>✏️ Ejercicio 4.1 — Contador digital ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Cuenta 0, 1, 2... hasta 9 y vuelve a empezar. Cada número 0,5 s. Extensión: botón A pausa.</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Nivel 1 — Plantilla:</strong> for i in range(___): display.show(str(___)) sleep(___)', '<strong>Nivel 3 — Avanzado:</strong> cuenta atrás 9→0 con range(9, -1, -1).'])}
+  ${duaBox('imp',['<strong>Elección de contexto:</strong> el alumno puede programar un temporizador de partido, contador de ejercicios...'])}
+  <h3>✏️ Ejercicio 4.2 — Píxeles y patrones ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Con display.set_pixel(x, y, brillo) y bucles anidados: 1. Dibuja el borde (perímetro 5×5). 2. Dibuja una X (dos diagonales). 3. Tablero de ajedrez: encendido si (x+y)%2==0.</p>
+  </div></div>
+`;
+</script>
+</body>
+</html>

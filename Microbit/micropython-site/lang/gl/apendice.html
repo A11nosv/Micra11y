@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Referencia Rapida de MicroPython — MicroPython na Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📋 Apendice</div>
+      <h1>Referencia Rapida de MicroPython</h1>
+      <p class="subtitle">Funcins clave, erros frecuentes e glosario DUA para ter a man na aula.</p>
+      <div class="header-badges"><span class="badge badge-blue">📋</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('apendice');
+document.getElementById('mc').innerHTML=`
+
+  <h2>A.1 Pantalla LED</h2>
+  ${codeBlock('ref_screen.py',['from microbit import *', 'display.show(Image.HAPPY)         # Show image', "display.scroll('text')            # Scroll text", 'display.clear()                   # Turn off all LEDs', 'display.set_pixel(x, y, b)        # Set pixel (b = 0-9)', 'display.read_light_level()        # Light sensor (0-255)'])}
+  <h2>A.2 Botons e Sensores</h2>
+  ${codeBlock('ref_input.py',['button_a.is_pressed()   # True if pressed now', 'button_a.was_pressed()  # True since last check', 'accelerometer.get_x()  # X axis (-2000 to +2000)', 'accelerometer.current_gesture()  # shake/up/down/left/right', 'temperature()           # Chip temperature in Celsius'])}
+  <h2>A.3 Tempo e Azar</h2>
+  ${codeBlock('ref_time.py',['sleep(ms)              # Pause (1000 = 1 second)', 'import random', 'random.randint(a, b)   # Random integer [a, b]', 'random.choice(lst)     # Random element from list'])}
+  <h2>A.4 Musica</h2>
+  ${codeBlock('ref_music.py',['import music', 'music.play(music.BIRTHDAY)', "music.play(['C4:4', 'D4:4'])   # Note list", 'music.pitch(freq, dur)         # Hz, milliseconds', '# Notes: C D E F G A B'])}
+  <h2>A.5 Radio</h2>
+  ${codeBlock('ref_radio.py',['import radio', 'radio.on()             # Always first!', 'radio.config(group=N)  # Channel 1-255', "radio.send('msg')      # Send text", 'radio.receive()        # Receive text (None if empty)'])}
+  <h2>A.6 Erros frecuentes</h2>
+  ${table(['Erro', 'Causa', 'Solucion'],[['SyntaxError', "Falta ':' ou comiñas sen pechar.", 'Revisa a lina indicada.'], ['IndentationError', 'Mestura de espazos e tabuladores.', 'Reindenta con 4 espazos.'], ['TypeError', 'Concatenar numero e texto directamente.', "str(number) + 'text'"], ['NameError', 'Variable usada antes de definirse.', "Define a variable con '=' primeiro."]])}
+  <h2>A.7 Glosario DUA</h2>
+  ${table(['Termo', 'Definicion', 'Metafora'],[['variable', 'Espazo para gardar un valor.', 'Caixa etiquetada.'], ['if / else', 'Executa codigo segundo condicion.', 'Semaforo.'], ['while / for', 'Repite un bloque de codigo.', 'Lavadora.'], ['def', 'Define funcion reutilizable.', 'Receita con nome.'], ['sleep()', 'Para a execucion un tempo.', 'O programa bota unha sesta.'], ['True / False', 'Os dous unicos valores booleanos.', 'Interruptor on/off.']])}
+  <div style="text-align:center;margin-top:48px;padding-top:24px;border-top:2px solid var(--paper2)">
+    <p style="font-family:var(--font-display);font-size:22px;font-weight:700;color:var(--blue);font-style:italic;margin-bottom:8px">
+      Boa sorte programando cos teus alumnos!
+    </p>
+    <p style="color:var(--ink2);font-style:italic">
+      Deshenar para a diversidade non e deshenar para uns poucos. E deshenar mellor para todos.
+    </p>
+  </div>
+`;
+</script>
+</body>
+</html>

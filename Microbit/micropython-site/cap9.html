@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 9: Proyectos Completos — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🚀 Capítulo 09</div>
+      <h1>Proyectos Completos con Adaptaciones DUA</h1>
+      <p class="subtitle">Cuatro proyectos por nivel educativo, cada uno con 3 versiones de dificultad para que todo el grupo trabaje sobre la misma temática.</p>
+      <div class="header-badges">
+        <span class="badge badge-green">🟢 6-8 años</span>
+        <span class="badge badge-amber">🟡 9-11 años</span>
+        <span class="badge badge-coral">🟠 12-13 años</span>
+        <span class="badge badge-blue">🔴 14-16 años</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap9');
+document.getElementById('main-content').innerHTML = `
+  ${noteBox([
+    'Principio DUA aplicado: todos los alumnos trabajan el MISMO proyecto, con distintos niveles de apoyo.',
+    'Esto evita la estigmatización de "los ejercicios fáciles para los lentos". Todo el mundo programa un robot emocional, un podómetro o una estación meteorológica.',
+    'El nivel no es fijo: un alumno puede empezar en Nivel 1 y avanzar durante la sesión al Nivel 2 o 3.',
+  ])}
+
+  <h2>Proyecto 1 — Mi Robot Emocional ${level(1)}</h2>
+  ${table(['', ''], [
+    ['Sesiones', '2 sesiones de 45 min'],
+    ['Conexión curricular', 'Emociones (tutoría), Lengua (vocabulario emocional), Ed. Artística'],
+    ['Nivel 1 (apoyo)', 'Plantilla de código ya escrita, solo cambia imágenes y sleep()'],
+    ['Nivel 2 (estándar)', 'Escribe el código a partir del ejemplo guiado'],
+    ['Nivel 3 (avanzado)', 'Añade sonidos, temperatura y emociones propias'],
+  ])}
+
+  ${codeBlock('robot_emocional.py', [
+    '# ROBOT EMOCIONAL — Nivel 2 (estándar)',
+    'from microbit import *',
+    '',
+    'display.show(Image.HAPPY)',
+    '',
+    'while True:',
+    "    if accelerometer.current_gesture() == 'shake':",
+    '        display.show(Image.SURPRISED)',
+    '        sleep(1000)',
+    '        display.show(Image.HAPPY)',
+    '',
+    '    if button_a.is_pressed():',
+    '        display.show(Image.SAD)',
+    '        sleep(800)',
+    "        display.scroll('Tengo hambre')",
+    '        display.show(Image.HAPPY)',
+    '',
+    '    if button_b.is_pressed():',
+    '        display.show(Image.ASLEEP)',
+    '        sleep(2000)',
+    '        display.show(Image.HAPPY)',
+    '',
+    '    sleep(100)',
+  ])}
+
+  ${duaBox('rep', [
+    '<strong>Narrativa previa:</strong> antes de programar, el alumno dibuja y bautiza a su robot. Le da nombre y personalidad. La narrativa precede al código.',
+    '<strong>Vocabulario emocional:</strong> trabaja el vocabulario de emociones en el idioma vehicular y, si el aula es bilingüe, en ambas lenguas.',
+  ])}
+  ${duaBox('ace', [
+    '<strong>Nivel 1 — Plantilla:</strong> solo rellena los nombres de las imágenes y los tiempos sleep.',
+    '<strong>Nivel 2 — Código guiado:</strong> el ejemplo del capítulo.',
+    "<strong>Nivel 3 — Libre:</strong> añade temperatura ('si hace frío, tiembla'), sonidos, nuevas emociones.",
+    '<strong>Arte:</strong> decorar físicamente la micro:bit con cartón y rotuladores. La parte artística es tan válida como el código.',
+  ])}
+  ${duaBox('imp', [
+    "<strong>Motivación intrínseca:</strong> el robot tiene el nombre y la personalidad que el alumno eligió. No es 'el robot del ejercicio', es 'su robot'.",
+    '<strong>Exposición:</strong> al final de la sesión, cada alumno presenta su robot en 30 segundos. La audiencia es motor de motivación.',
+  ])}
+
+  <h2>Proyecto 2 — Podómetro ${level(2)}</h2>
+  ${table(['', ''], [
+    ['Sesiones', '3 sesiones de 45 min'],
+    ['Conexión curricular', 'Educación Física, Ciencias Naturales, Matemáticas (estadística)'],
+    ['Nivel 1', 'Solo el contador de pasos y visualización básica'],
+    ['Nivel 2', 'Contador + botón reset + mostrar total al pulsar A'],
+    ['Nivel 3', 'Todo lo anterior + cálculo de calorías + alerta de objetivo'],
+  ])}
+
+  ${codeBlock('podometro.py', [
+    '# PODÓMETRO — Nivel 2',
+    'from microbit import *',
+    '',
+    'pasos    = 0',
+    'ultimo_z = accelerometer.get_z()',
+    'umbral   = 400',
+    '',
+    "display.scroll('Listo!')",
+    '',
+    'while True:',
+    '    z          = accelerometer.get_z()',
+    '    diferencia = abs(z - ultimo_z)',
+    '',
+    '    if diferencia > umbral:',
+    '        pasos += 1',
+    '        display.show(str(pasos % 10))',
+    '',
+    '    ultimo_z = z',
+    '',
+    '    if button_a.was_pressed():',
+    "        display.scroll('Pasos: ' + str(pasos))",
+    '',
+    '    if button_b.was_pressed():',
+    '        pasos = 0',
+    "        display.scroll('Reset!')",
+    '',
+    '    sleep(50)',
+  ])}
+
+  ${duaBox('imp', [
+    '<strong>Fuera del aula:</strong> lleva la sesión al patio. Los alumnos prueban el podómetro caminando, corriendo, subiendo escaleras. Comparan sus resultados.',
+    '<strong>Investigación real:</strong> recoge datos durante un día completo. En la siguiente sesión, analizan los datos en grupo.',
+  ])}
+
+  <h2>Proyecto 3 — Estación Meteorológica ${level(3)}</h2>
+  ${codeBlock('estacion_met.py', [
+    '# ESTACIÓN METEOROLÓGICA — Nivel 2',
+    'from microbit import *',
+    '',
+    'lecturas = []',
+    '',
+    'def temp_calibrada():',
+    '    return temperature() - 3',
+    '',
+    'def media(lista):',
+    '    if len(lista) == 0: return 0',
+    '    return sum(lista) / len(lista)',
+    '',
+    'def registrar():',
+    '    t = temp_calibrada()',
+    '    lecturas.append(t)',
+    '    if len(lecturas) > 10: lecturas.pop(0)',
+    '    return t',
+    '',
+    'def mostrar_stats():',
+    '    if not lecturas:',
+    "        display.scroll('Sin datos'); return",
+    "    display.scroll('Med:' + str(round(media(lecturas), 1)))",
+    "    display.scroll('Max:' + str(max(lecturas)))",
+    "    display.scroll('Min:' + str(min(lecturas)))",
+    '',
+    'while True:',
+    '    t = registrar()',
+    "    display.scroll(str(t) + 'C', delay=70)",
+    '    if button_a.was_pressed(): mostrar_stats()',
+    '    sleep(5000)',
+  ])}
+
+  <h2>Proyecto 4 — Sistema de Control de Acceso ${level(4)}</h2>
+  <p>Dos micro:bits: una como <strong>llave</strong> (portátil) y otra como <strong>cerradura</strong> (fija). La llave envía una contraseña, la cerradura la verifica.</p>
+
+  ${codeBlock('cerradura.py', [
+    '# CERRADURA — micro:bit fija en la puerta',
+    'from microbit import *',
+    'import radio',
+    '',
+    'radio.on()',
+    'radio.config(group=42)',
+    '',
+    "CONTRASENA = '2024micro'",
+    'intentos   = 0',
+    'bloqueado  = False',
+    '',
+    'def abrir():',
+    '    display.show(Image.YES)',
+    '    sleep(2000); display.clear()',
+    '',
+    'def bloquear():',
+    '    global bloqueado',
+    '    bloqueado = True',
+    '    for i in range(10):',
+    '        display.show(Image.NO); sleep(200)',
+    '        display.clear(); sleep(200)',
+    "    display.scroll('BLOQUEADO')",
+    '',
+    'while True:',
+    '    msg = radio.receive()',
+    '    if msg and not bloqueado:',
+    '        if msg == CONTRASENA:',
+    '            intentos = 0; abrir()',
+    '        else:',
+    '            intentos += 1',
+    "            radio.send('FALLO:' + str(intentos))",
+    '            if intentos >= 3: bloquear()',
+    '    sleep(100)',
+  ])}
+
+  ${duaBox('imp', [
+    '<strong>Debate ético:</strong> ¿qué datos debe almacenar un sistema de control de acceso? ¿Cuánto tiempo? ¿Quién los puede ver? Conecta con el RGPD y la privacidad.',
+    '<strong>Conexión real:</strong> compara con sistemas reales (tarjeta del metro, huella dactilar, reconocimiento facial). ¿Cuál es más seguro? ¿Cuál es más privado? No son sinónimos.',
+  ])}
+  ${duaBox('ace', [
+    '<strong>Nivel 1:</strong> solo enviar y recibir un mensaje simple (sin contraseña, sin conteo).',
+    '<strong>Nivel 2:</strong> con contraseña y conteo de intentos.',
+    '<strong>Nivel 3:</strong> PIN de 4 dígitos + temporizador de auto-bloqueo.',
+    '<strong>Rol de auditor:</strong> algunos alumnos buscan vulnerabilidades en el sistema de sus compañeros en lugar de programar el suyo.',
+  ])}
+`;
+</script>
+</body>
+</html>

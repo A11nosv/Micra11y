@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Variables i Tipus de Dades — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📦 Capítol 02</div>
+      <h1>Variables i Tipus de Dades</h1>
+      <p class="subtitle">Variables, tipus bàsics, operacions matemàtiques i el sensor de temperatura.</p>
+      <div class="header-badges"><span class="badge badge-green">${level(1)}</span><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap2');
+document.getElementById('mc').innerHTML=`
+
+  <h2>2.1 Què és una variable?</h2>
+  <p>Una variable és com una <strong>caixa etiquetada</strong> on guardem informació.</p>
+  ${conceptBox(["nom = 'Ana'     → caixa 'nom' que conté 'Ana'", "edat = 10       → caixa 'edat' que conté 10", 'temp = 36.5     → caixa amb decimal', 'on = True       → caixa: sols True o False'])}
+  ${duaBox('rep',['<strong>Metàfora física:</strong> caixes de cartró a classe amb etiquetes. Canviar el valor = canviar el contingut.', "<strong>Analogia 6-9 anys:</strong> 'una variable és com la taquilla de l'aula: té el teu nom i guardes el que vols.'"])}
+  <h2>2.2 Tipus de dades</h2>
+  ${table(['Tipus', 'Exemple'],[['int', '0, 5, -3, 100'], ['float', '3.14, -0.5'], ['str', "'Hola', 'micro:bit'"], ['bool', 'True / False']])}
+  ${codeBlock('variables.py',['from microbit import *', '', "name    = 'micro:bit'   # str: text", 'version = 2             # int: integer', 'voltage = 3.3           # float: decimal', 'active  = True          # bool: True/False', '', 'display.scroll(name)', 'sleep(500)', 'display.scroll(str(version))'])}
+  ${warnBox(['Per mostrar un número als LEDs, converteix-lo amb str().', 'display.scroll(5) dóna error. Correcte: display.scroll(str(5)).'])}
+  <h2>2.3 Operacions</h2>
+  ${codeBlock('ops.py',['from microbit import *', '', 'a = 10', 'b = 3', '', 'add  = a + b    # 13', 'sub  = a - b    # 7', 'mul  = a * b    # 30', 'div  = a / b    # 3.33...', 'idiv = a // b   # 3  (integer division)', 'mod  = a % b    # 1  (remainder)', 'pw   = a ** b   # 1000 (power)', '', "display.scroll('sum=' + str(add))"])}
+  <h3>✏️ Exercici 2.1 — Calculadora ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Defineix num1 i num2. Calcula suma, resta, producte i divisió. Mostra cada resultat amb prefix (+, -, x, /).</p>
+  </div></div>
+  ${duaBox('ace',["<strong>Plantilla:</strong> num1 = ___ / num2 = ___ / suma = ___ + ___ / display.scroll('+' + str(suma))", '<strong>Extensió:</strong> arrodoneix la divisió a 1 decimal amb round(resultat, 1).'])}
+  ${duaBox('imp',["<strong>Context real:</strong> utilitza dades de l'alumne: número de sabata i edat, temperatura d'avui i d'ahir."])}
+  <h2>2.4 Sensor de temperatura</h2>
+  ${codeBlock('temp.py',['from microbit import *', '', 'while True:', '    temp = temperature()', "    display.scroll(str(temp) + 'C')", '    sleep(2000)'])}
+  ${noteBox(["temperature() retorna la temperatura del xip, 2-5 °C més alta que la de l'ambient.", 'Per a ambient: temp = temperature() - 3'])}
+`;
+</script>
+</body>
+</html>

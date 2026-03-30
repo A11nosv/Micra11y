@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 10: Guía Pedagógica DUA — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🎓 Capítulo 10</div>
+      <h1>Guía Pedagógica con Enfoque DUA</h1>
+      <p class="subtitle">Estrategias didácticas, evaluación DUA-compatible, pair programming, gestión del aula y conexiones curriculares.</p>
+      <div class="header-badges">
+        <span class="badge badge-blue">Educadores</span>
+        <span class="badge badge-coral">Todos los niveles</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap10');
+document.getElementById('main-content').innerHTML = `
+  <h2>10.1 ¿Por qué DUA en la programación?</h2>
+  <p>La programación se presenta históricamente como una actividad para "los que tienen cabeza para ello". El DUA desmonta esta idea: cualquier persona puede aprender a programar si se le ofrece el acceso correcto.</p>
+
+  ${table(
+    ['Barrera frecuente en programación', 'Respuesta DUA'],
+    [
+      ['Dislexia / dificultades lectoras', 'Código con comentarios amplios, metáforas físicas, pasos numerados, fuentes sin serifa.'],
+      ['TDAH / dificultades atencionales', 'Sesiones cortas con producto visible al final, feedback inmediato de la placa, rutina de inicio estable.'],
+      ['Altas capacidades', 'Retos abiertos sin techo (Nivel 3 o 🚀), rol de tutor entre iguales, proyectos de investigación autónomos.'],
+      ['Ansiedad tecnológica', 'Empezar SIEMPRE con el simulador antes de la placa física, normalizar el error.'],
+      ['Dificultades motoras', 'Dictado a un compañero/a, plantillas con huecos, reconocimiento de voz del sistema operativo.'],
+      ['Barrera idiomática', 'El código usa inglés simple. Crear con el grupo un glosario bilingüe: inglés-castellano-lengua materna.'],
+    ]
+  )}
+
+  <h2>10.2 Diseño de sesión tipo</h2>
+  ${table(
+    ['Momento', 'Actividad', 'Principio DUA'],
+    [
+      ['0-5 min', 'Pregunta de inicio: "¿qué harías con una placa que detecta temperatura?"', 'Implicación: conectar con curiosidad previa'],
+      ['5-15 min', '3 representaciones del concepto nuevo: metáfora física, diagrama en pizarra, código en pantalla.', 'Representación: múltiples formatos'],
+      ['15-30 min', 'Práctica guiada: ejemplo del manual en el simulador. Think-aloud del docente.', 'Representación + Acción: modelado explícito'],
+      ['30-40 min', 'Práctica autónoma o en pareja: ejercicio con nivel elegido por el alumno.', 'Acción: elección de nivel · Implicación: autonomía'],
+      ['40-45 min', '1-2 alumnos comparten su solución. Normalizar que hay soluciones diferentes.', 'Implicación: visibilidad del aprendizaje'],
+    ]
+  )}
+
+  <h2>10.3 Pair Programming y roles cooperativos</h2>
+  <p>El pair programming (programación en parejas) es una práctica de la industria del software especialmente eficaz en el aula por sus beneficios DUA:</p>
+  <ul>
+    <li><strong>Conductor/a:</strong> escribe el código.</li>
+    <li><strong>Navegante/a:</strong> lee el código, detecta errores, piensa en los próximos pasos.</li>
+    <li>Rotación cada 15 minutos: ambos pasan por los dos roles.</li>
+  </ul>
+
+  ${tipBox([
+    'El navegante habla en voz alta mientras el conductor escribe. Esta verbalización es especialmente beneficiosa para alumnos con dificultades de procesamiento escrito.',
+    'NO es válido que solo uno trabaje. Si un miembro de la pareja está desconectado, cambia los roles o sepáralos temporalmente.',
+  ])}
+
+  ${table(
+    ['Rol en el grupo', 'Responsabilidad'],
+    [
+      ['Programador/a', 'Escribe el código. Consulta la referencia cuando no sabe la sintaxis.'],
+      ['Tester/a', 'Ejecuta el programa, anota qué funciona y qué no. Diseña los casos de prueba.'],
+      ['Documentador/a', 'Escribe comentarios en el código, rellena la ficha del proyecto.'],
+      ['Presentador/a', 'Explica el proyecto a la clase. Responde preguntas.'],
+    ]
+  )}
+
+  <h2>10.4 Evaluación DUA-compatible</h2>
+  <p>Si aceptamos múltiples formas de expresión durante el aprendizaje, la evaluación no puede ser únicamente un examen escrito.</p>
+
+  ${table(
+    ['Instrumento', 'Principio DUA', 'Descripción'],
+    [
+      ['Rúbrica de proyecto', 'Acción y Expresión', 'Código evaluado según funcionamiento, uso de conceptos, documentación.'],
+      ['Explicación oral', 'Acción y Expresión', 'El alumno explica qué hace su programa y por qué tomó cada decisión.'],
+      ['Portfolio', 'Representación + Acción', 'Colección de programas, fichas de concepto y reflexiones a lo largo de la unidad.'],
+      ['Demostración física', 'Representación + Implicación', 'Ejecuta el programa ante la clase y responde preguntas.'],
+      ['Autoevaluación', 'Implicación', 'El alumno valora su propio aprendizaje con una rúbrica sencilla.'],
+      ['Coevaluación entre iguales', 'Implicación', 'Los grupos se evalúan mutuamente con criterios acordados.'],
+      ['Diagrama de flujo', 'Representación', 'Demuestra comprensión del algoritmo sin necesidad de conocer la sintaxis exacta.'],
+    ]
+  )}
+
+  <h2>10.5 Rúbrica DUA-compatible</h2>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Criterio</th><th>1 — Inicio</th><th>2 — En proceso</th><th>3 — Conseguido</th><th>4 — Excelente</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Funcionamiento</td><td>No ejecuta</td><td>Errores menores</td><td>Funciona correctamente</td><td>Funciona y supera el nivel base</td></tr>
+      <tr><td>Comprensión</td><td>No puede explicar</td><td>Explica partes</td><td>Explica todo el código</td><td>Modifica y predice cambios</td></tr>
+      <tr><td>Conceptos</td><td>Solo lo mínimo</td><td>Variables y condicionales</td><td>Bucles y funciones</td><td>Estructuras avanzadas</td></tr>
+      <tr><td>Documentación</td><td>Sin comentarios</td><td>Algún comentario</td><td>Comentarios clave</td><td>Código autodocumentado</td></tr>
+      <tr><td>Colaboración</td><td>No participa</td><td>Colaboración puntual</td><td>Colaboración constante</td><td>Lidera y distribuye</td></tr>
+      <tr><td>Adaptación DUA</td><td>No exploró niveles</td><td>Intentó otro nivel</td><td>Completó su nivel elegido</td><td>Pasó de nivel durante la sesión</td></tr>
+    </tbody>
+  </table></div>
+
+  ${noteBox([
+    'Comparte la rúbrica con el alumnado ANTES de comenzar el proyecto, no solo al evaluarlo.',
+    'El criterio "Adaptación DUA" reconoce el esfuerzo del alumno que intentó pasar de nivel, independientemente del resultado técnico.',
+  ])}
+
+  <h2>10.6 Gestión del aula — situaciones frecuentes</h2>
+  ${table(
+    ['Situación', 'Respuesta con enfoque DUA'],
+    [
+      ['"Hay alumnos que terminan en 10 minutos"', 'Los retos 🚀 y el nivel 3 siempre disponibles. También: mejorar, documentar, tutorizar a otro compañero.'],
+      ['"Hay alumnos que se bloquean y no escriben nada"', 'Ofrece la plantilla de nivel 1 sin señalar al alumno. Empieza tú escribiendo la primera línea con él/ella.'],
+      ['"El programa da error y el alumno se frustra"', 'Normaliza: "todos los programadores del mundo tienen errores. La diferencia es que sabemos encontrarlos". Lee el mensaje en voz alta juntos.'],
+      ['"No tengo suficientes micro:bits para todos"', 'Rotación de 15 min: mientras unos programan en la placa, otros usan el simulador o trabajan en pseudocódigo en papel.'],
+      ['"No sé programar y me da miedo enseñar esto"', '"Yo tampoco sé cómo se hace esto, vamos a buscarlo juntos". Modelar la búsqueda de soluciones es una de las lecciones más valiosas.'],
+    ]
+  )}
+
+  <h2>10.7 Conexiones curriculares</h2>
+  ${table(
+    ['Asignatura', 'Conexión con MicroPython', 'Cómo potenciarla con DUA'],
+    [
+      ['Matemáticas', 'Variables, operaciones, estadística (media, máx, mín), coordenadas.', 'Usa los mismos términos que usa el/la prof de Mates. Que los cálculos de la micro:bit se corrijan también en Matemáticas.'],
+      ['Ciencias Naturales', 'Sensor de temperatura (termometría), luz (fotosíntesis), acelerómetro (movimiento).', 'El proyecto de estación meteorológica puede ser la práctica de laboratorio de Ciencias.'],
+      ['Física', 'Frecuencias sonoras (music.pitch), aceleración.', 'Conecta la escala musical en Hz con los conceptos de frecuencia y onda.'],
+      ['Música', 'Composición con notas, compás y duración.', 'Coordina con Música: las melodías compuestas en MicroPython se pueden tocar con instrumentos reales.'],
+      ['Ed. para la ciudadanía', 'RGPD, privacidad, accesibilidad en el diseño.', 'El debate del proyecto de control de acceso (Cap.9) puede ser una sesión de Ciudadanía.'],
+      ['Inglés', 'Toda la documentación de MicroPython está en inglés.', 'El glosario bilingüe del aula puede ser un proyecto colaborativo de Inglés.'],
+    ]
+  )}
+
+  <h2>10.8 Recursos</h2>
+  <ul>
+    <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Editor oficial, referencia, proyectos de ejemplo.</li>
+    <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Guías gratuitas para docentes.</li>
+    <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — Pautas DUA interactivas (disponible en español).</li>
+    <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Actividades de programación desenchufadas (unplugged).</li>
+  </ul>
+`;
+</script>
+</body>
+</html>

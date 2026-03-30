@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comunicación entre micro:bits — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📡 Capítulo 08</div>
+      <h1>Comunicación entre micro:bits</h1>
+      <p class="subtitle">Radio inalámbrica 2,4 GHz para proyectos colaborativos y juegos multijugador.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span><span class="badge badge-blue">${level(4)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap8');
+document.getElementById('mc').innerHTML=`
+
+  <h2>8.1 Radio inalámbrica</h2>
+  ${duaBox('rep',['<strong>Metáfora:</strong> la radio funciona como walkie-talkies: el mismo canal (group=N) = el mismo grupo. Grupos distintos no se escuchan.', '<strong>Diagrama:</strong> dibuja dos micro:bits con una flecha de radio entre ellas.'])}
+  ${codeBlock('radio_tx.py',['# TRANSMITTER', 'from microbit import *', 'import radio', '', 'radio.on()', 'radio.config(group=7)', '', 'while True:', '    if button_a.is_pressed():', "        radio.send('Hello!')", '        display.show(Image.ARROW_E)', '        sleep(500)', '        display.clear()', '    sleep(100)'])}
+  ${codeBlock('radio_rx.py',['# RECEIVER', 'from microbit import *', 'import radio', '', 'radio.on()', 'radio.config(group=7)', '', 'while True:', '    msg = radio.receive()', '    if msg:', '        display.scroll(msg)', '    sleep(50)'])}
+  ${noteBox(['radio.config(group=N): el mismo número garantiza que solo hablen entre sí las micro:bits del grupo.', 'radio.receive() devuelve None si no hay mensajes; comprueba siempre antes de usar el valor.'])} 
+  <h3>✏️ Ejercicio 8.1 — Chat de emoticonos ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>En parejas: botón A → envía 'feliz' → receptor muestra Image.HAPPY. Botón B → 'triste' → Image.SAD. Ambos → 'sorpresa' → Image.SURPRISED.</p>
+  </div></div>
+  ${duaBox('imp',['<strong>Interdependencia:</strong> el código de un alumno no funciona sin el de su compañero/a. La interdependencia es el motor de la implicación.', '<strong>Debate:</strong> ¿cómo se parece esto a WhatsApp? ¿Qué pasaría si el canal (group) no fuera el mismo?'])}
+`;
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teaching Guide with UDL Approach — MicroPython in the Classroom</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🎓 Chapter 10</div>
+      <h1>Teaching Guide with UDL Approach</h1>
+      <p class="subtitle">Teaching strategies, assessment, pair programming, classroom management and curricular connections.</p>
+      <div class="header-badges"><span class="badge badge-blue">🎓</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap10');
+document.getElementById('mc').innerHTML=`
+
+  <h2>10.1 Why UDL in programming?</h2>
+  ${table(['Barrier', 'UDL Response'],[['Dyslexia', 'Extended comments, physical metaphors, numbered steps.'], ['ADHD', 'Short sessions, visible product at the end, immediate feedback.'], ['High ability', 'Open challenges level 3 + 🚀, peer tutoring role.'], ['Technology anxiety', 'Always start with the simulator, normalise errors, stable routine.'], ['Language barrier', 'Bilingual glossary built with the group. Code uses simple English.']])}
+  <h2>10.2 Template session design</h2>
+  ${table(['Phase', 'Activity', 'UDL'],[['0-5 min', 'Opening question related to the project.', 'Engagement'], ['5-15 min', '3 representations of the concept: metaphor, diagram, code.', 'Representation'], ['15-30 min', 'Guided practice. Teacher codes aloud (think-aloud).', 'Representation'], ['30-40 min', 'Independent practice at the student-chosen level.', 'Action + Engagement'], ['40-45 min', '1-2 students share their solution. Normalise different solutions.', 'Engagement']])}
+  <h2>10.3 Pair Programming</h2>
+  ${tipBox(['Driver: writes the code. Navigator: reads, spots errors, plans the next steps. Rotate every 15 minutes.', 'It is NOT acceptable for only one person to work. If one member is disengaged, change roles or temporarily separate the pair.'])}
+  <h2>10.4 UDL-compatible assessment</h2>
+  ${table(['Instrument', 'UDL Principle', 'Description'],[['Project rubric', 'Action & Expression', 'Code assessed by function, concepts and documentation.'], ['Oral explanation', 'Action & Expression', 'The student explains their program and the decisions made.'], ['Portfolio', 'Representation + Action', 'Collection of programs and reflections throughout the unit.'], ['Flowchart', 'Representation', 'Demonstrates algorithmic understanding without needing exact syntax.']])}
+  <h2>10.5 Classroom management</h2>
+  ${table(['Situation', 'UDL Response'],[['Students who finish very quickly', 'Level 3 challenges and 🚀 always available. Also: improve, document, tutor others.'], ['Students who get stuck', 'Offer the Level 1 template. Start the first line together.'], ['Not enough micro:bits', '15-min rotation: board + simulator. The simulator is 100% functional for learning.'], ['The program gives an error', "Normalise: 'all programmers make errors. The difference is we know how to find them'. Read the error message aloud together."]])}
+  <h2>10.6 Curricular connections</h2>
+  ${table(['Subject', 'Connection'],[['Maths', 'Variables, operations, statistics, coordinates (set_pixel).'], ['Science', 'Temperature, light (photosynthesis), movement (accelerometer).'], ['Music', 'Composition with notes, time signature, musical scale.'], ['Citizenship Education', 'GDPR, privacy, accessibility in design, social impact.']])}
+  <h2>10.7 Resources</h2>
+  <ul>
+    <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Official editor.</li>
+    <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Teacher guides.</li>
+    <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — UDL guidelines.</li>
+    <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Unplugged activities.</li>
+  </ul>
+`;
+</script>
+</body>
+</html>

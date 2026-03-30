@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 3: Condicionales — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🚦 Capítulo 03</div>
+      <h1>Condicionales — Si esto, entonces aquello</h1>
+      <p class="subtitle">Toma de decisiones con if/elif/else, operadores lógicos y uso de los botones A y B de la micro:bit.</p>
+      <div class="header-badges">
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap3');
+document.getElementById('main-content').innerHTML = `
+  <h2>3.1 La estructura if / elif / else</h2>
+  <p>Los condicionales permiten que el programa tome decisiones según una condición. Es como un semáforo: si la luz es roja, para; si es verde, pasa.</p>
+
+  ${duaBox('rep', [
+    '<strong>Actividad desenchufada (unplugged):</strong> el educador da instrucciones a los alumnos: "SI llevas zapatillas → levántate; SINO → quédate sentado". Los alumnos viven el condicional con su cuerpo antes de escribirlo.',
+    '<strong>Diagrama de flujo:</strong> dibuja en la pizarra un rombo de decisión con SÍ/NO antes de abrir el editor.',
+    '<strong>Conexión real:</strong> el semáforo, el torniquete del metro, el sensor de apertura de puertas automáticas.',
+  ])}
+
+  ${codeBlock('condicional_temperatura.py', [
+    'from microbit import *',
+    '',
+    'temperatura = temperature()',
+    '',
+    'if temperatura > 30:',
+    '    display.show(Image.HAPPY)      # Hace calor',
+    'elif temperatura > 20:',
+    "    display.scroll('Bien')         # Agradable",
+    'elif temperatura > 10:',
+    "    display.scroll('Frio')",
+    'else:',
+    '    display.show(Image.SAD)        # Mucho frio',
+  ])}
+
+  ${conceptBox([
+    "INDENTACIÓN: el código dentro del if va sangrado 4 espacios. En Python es OBLIGATORIO.",
+    "if condicion:          ← los dos puntos son obligatorios",
+    "    codigo_si_verdad   ← solo se ejecuta si la condición es True",
+    "else:                  ← opcional: qué hacer si la condición es False",
+  ])}
+
+  <h2>3.2 Operadores de comparación y lógicos</h2>
+  ${table(
+    ['Operador', 'Significado / Ejemplo'],
+    [
+      ['==', 'Igual a: x == 5 (¿x vale 5?)'],
+      ['!=', 'Distinto de: x != 0'],
+      ['> y <', 'Mayor / menor que: x > 10'],
+      ['>= y <=', 'Mayor o igual / menor o igual: x >= 18'],
+      ['and', 'Y lógico: x > 0 and x < 10 (ambas verdaderas)'],
+      ['or', 'O lógico: x < 0 or x > 100 (al menos una)'],
+      ['not', 'Negación: not button_a.is_pressed()'],
+    ]
+  )}
+
+  <h2>3.3 Los botones A y B</h2>
+  ${codeBlock('botones_emociones.py', [
+    'from microbit import *',
+    '',
+    'while True:',
+    '    if button_a.is_pressed():',
+    '        display.show(Image.HAPPY)',
+    '    elif button_b.is_pressed():',
+    '        display.show(Image.SAD)',
+    '    elif button_a.is_pressed() and button_b.is_pressed():',
+    '        display.show(Image.SURPRISED)',
+    '    else:',
+    '        display.clear()            # Apaga todos los LEDs',
+    '    sleep(100)',
+  ])}
+
+  ${noteBox([
+    'is_pressed() → True si el botón está pulsado en ese instante.',
+    'was_pressed() → True si el botón fue pulsado desde la última consulta.',
+    'get_presses() → cuántas veces se ha pulsado el botón.',
+  ])}
+
+  <h3>✏️ Ejercicio 3.1 — Semáforo ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Programa un semáforo de 1 luz con la micro:bit:</p>
+      <ul>
+        <li>Botón A → <code>Image.NO</code> (rojo — STOP)</li>
+        <li>Botón B → <code>Image.ARROW_N</code> (verde — PASA)</li>
+        <li>Sin botón → <code>Image.DIAMOND</code> (amarillo — ESPERA)</li>
+      </ul>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Nivel básico:</strong> solo programa los 2 botones (sin el estado "sin botón").',
+    '<strong>Nivel estándar:</strong> los 3 estados como se describe.',
+    '<strong>Nivel avanzado:</strong> añade un contador de personas que pasan (variable que sube 1 con cada pulsación de B).',
+    '<strong>Oral:</strong> el alumno explica verbalmente qué hace cada estado en lugar de escribir comentarios.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Cooperativo:</strong> grupos de 3 — programador, tester, documentador. El tester pulsa los botones y describe lo que ve.',
+    '<strong>Feedback inmediato:</strong> la micro:bit responde al instante, especialmente motivador para alumnos que necesitan ver resultados rápidos.',
+  ])}
+
+  <h3>✏️ Ejercicio 3.2 — Piedra, Papel o Tijera ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Botón A → Piedra &nbsp;|&nbsp; Botón B → Papel &nbsp;|&nbsp; Ambos → Tijera</p>
+      <p>La micro:bit elige al azar: <code>import random</code> → <code>random.randint(0, 2)</code></p>
+      <p>Muestra quién gana o si hay empate.</p>
+    </div>
+  </div>
+
+  ${codeBlock('piedra_papel_tijera.py', [
+    'from microbit import *',
+    'import random',
+    '',
+    "opciones = ['Piedra', 'Papel', 'Tijera']",
+    '',
+    'while True:',
+    '    jugador = None',
+    '    if button_a.is_pressed() and button_b.is_pressed():',
+    '        jugador = 2   # Tijera',
+    '    elif button_a.is_pressed():',
+    '        jugador = 0   # Piedra',
+    '    elif button_b.is_pressed():',
+    '        jugador = 1   # Papel',
+    '',
+    '    if jugador is not None:',
+    '        maquina = random.randint(0, 2)',
+    '        display.scroll(opciones[jugador])',
+    '        if jugador == maquina:',
+    "            display.scroll('Empate!')",
+    '        elif (jugador - maquina) % 3 == 1:',
+    "            display.scroll('GANAS!')",
+    '        else:',
+    "            display.scroll('Pierdes...')",
+    '    sleep(200)',
+  ])}
+
+  ${duaBox('ace', [
+    '<strong>Scaffolding — código con huecos:</strong>',
+    "opciones = ['Piedra', '____', '____']",
+    'jugador = 0   # Cambiar según botón pulsado',
+    'maquina = random.randint(___, ___)',
+    'if jugador == maquina:',
+    '    display.scroll("____")',
+    '<strong>Alternativa:</strong> el alumno dibuja en papel el diagrama de flujo completo del juego (sin código) como evidencia de comprensión de la lógica.',
+  ])}
+`;
+</script>
+</body>
+</html>

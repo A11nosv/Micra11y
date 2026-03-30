@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>micro:bit-en arteko Komunikazioa — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📡 Kapitulua 08</div>
+      <h1>micro:bit-en arteko Komunikazioa</h1>
+      <p class="subtitle">2,4 GHz irrati haririk gabea proiektu kolaboratiboetarako eta joko anizkoitzarentzat.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span><span class="badge badge-blue">${level(4)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap8');
+document.getElementById('mc').innerHTML=`
+
+  <h2>8.1 Irrati haririk gabea</h2>
+  ${duaBox('rep',['<strong>Metafora:</strong> irratia walkie-talkie gisa funtzionatzen du: kanal bera (group=N) = talde bera. Talde ezberdinak ezin dira entzun.', '<strong>Diagrama:</strong> marraztu bi micro:bit irrati-gezi batekin elkarren artean.'])}
+  ${codeBlock('radio_tx.py',['# TRANSMITTER', 'from microbit import *', 'import radio', '', 'radio.on()', 'radio.config(group=7)', '', 'while True:', '    if button_a.is_pressed():', "        radio.send('Hello!')", '        display.show(Image.ARROW_E)', '        sleep(500)', '        display.clear()', '    sleep(100)'])}
+  ${codeBlock('radio_rx.py',['# RECEIVER', 'from microbit import *', 'import radio', '', 'radio.on()', 'radio.config(group=7)', '', 'while True:', '    msg = radio.receive()', '    if msg:', '        display.scroll(msg)', '    sleep(50)'])}
+  ${noteBox(['radio.config(group=N): zenbaki berak taldeko micro:bit-ek elkarren artean soilik hitz egiten dutela bermatzen du.', 'radio.receive()-k None itzultzen du mezurik ez badago; beti egiaztatu balioa erabili aurretik.'])} 
+  <h3>✏️ 8.1 Ariketa — Emotikoien txata ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Bikoteka: A botoia → 'pozik' bidali → hartzaileak Image.HAPPY erakutsi. B botoia → 'triste' → Image.SAD. Biak → 'harritu' → Image.SURPRISED.</p>
+  </div></div>
+  ${duaBox('imp',['<strong>Elkarren mendekotasuna:</strong> ikasle baten kodeak ez du funtzionatzen lagunaren kodea gabe.', '<strong>Eztabaida:</strong> nola antzekotzen da hau WhatsAppekin? Zer gertatuko litzateke kanala (group) berdina ez balitz?'])}
+`;
+</script>
+</body>
+</html>

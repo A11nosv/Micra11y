@@ -128,11 +128,12 @@ body.dark-theme {
   }
 
   ion-card {
-    --background: var(--ion-color-medium); /* Darker cards in dark mode */
+    --background: #1e1e1e; /* Darker background for better contrast in dark mode */
+    --color: #ffffff;
   }
 
   ion-card-title {
-    color: var(--ion-color-primary);
+    color: var(--ion-color-tertiary); /* Use a more vibrant color for titles in dark mode */
   }
 
   ion-item {

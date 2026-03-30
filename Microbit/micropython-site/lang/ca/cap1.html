@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preparant l'Entorn de Treball — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🖥️ Capítol 01</div>
+      <h1>Preparant l'Entorn de Treball</h1>
+      <p class="subtitle">Material necessari, l'editor en línia i els primers programes.</p>
+      <div class="header-badges"><span class="badge badge-green">${level(1)}</span><span class="badge badge-amber">${level(2)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap1');
+document.getElementById('mc').innerHTML=`
+
+  <h2>1.1 Material necessari</h2>
+  <ul>
+    <li><strong>micro:bit v1 o v2</strong> — la v2 té micròfon i altaveu integrats.</li>
+    <li><strong>Cable USB</strong> micro-USB a USB-A estàndard.</li>
+    <li><strong>Ordinador o tauleta</strong> amb navegador modern (Chrome recomanat).</li>
+    <li><strong>Editor en línia</strong> <a href='https://python.microbit.org' target='_blank'>python.microbit.org</a> — gratuït, sense instal·lació.</li>
+  </ul>
+  ${noteBox(['La micro:bit v2 és recomanable per a 5è de Primària en endavant.', 'Un joc de 6-8 micro:bits en rotació és suficient per a 30 alumnes.', "L'editor funciona també en tauletes amb teclat Bluetooth."])}
+  ${duaBox('rep',['<strong>Metàfora:</strong> el programa és com una recepta: primer dius els ingredients (import), llavors els passos (display.scroll).', "<strong>Multimodal:</strong> fes que els alumnes 'actuïn' el programa abans d'escriure'l.", "<strong>Glossari visual:</strong> cartell a l'aula amb els termes nous: import, display, scroll."])}
+  <h2>1.2 L'Editor en Línia</h2>
+  <p>Visita <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> des de qualsevol navegador. Sense compte ni instal·lació.</p>
+  ${table(["Zona de l'editor", 'Funció', 'Per a què'],[['Panell esquerre', 'Codi Python', 'Escriure programes'], ['Simulador central', 'Vista prèvia', 'Provar sense placa'], ['Consola inferior', 'Errors i print()', 'Depurar'], ['Botó Flash', 'Envia a la placa', 'Carregar programa'], ['Referència API', 'Documentació', 'Consultar']])}
+  <h2>1.3 El teu primer programa</h2>
+  <p>Escriu el codi a l'editor i prem <strong>Flash</strong>:</p>
+  ${codeBlock('hola_full.py',['# First MicroPython program', '# # marks a comment: Python ignores it', '', 'from microbit import *', '', "display.scroll('Hello world!')"])}
+  ${table(['Línia de codi', 'Què fa?'],[['# Primer programa...', "Comentari: Python l'ignora."], ['from microbit import *', 'Importa totes les funcions. SEMPRE primera línia.'], ["display.scroll('Hola món!')", 'Desplaça el text pels LEDs.']])}
+  ${duaBox('rep',['<strong>Metàfora:</strong> el programa és com una recepta: primer dius els ingredients (import), llavors els passos (display.scroll).', "<strong>Multimodal:</strong> fes que els alumnes 'actuïn' el programa abans d'escriure'l.", "<strong>Glossari visual:</strong> cartell a l'aula amb els termes nous: import, display, scroll."])}
+  <h3>✏️ Exercici 1.1 — Presentació personal ${level(1)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Modifica el programa perquè la micro:bit mostri <strong>el teu nom</strong>.</p><p>Després, fes que mostri també la teva edat.</p><p><em>Extensió:</em> pots afegir Image.HEART?</p>
+  </div></div>
+  ${duaBox('ace',["<strong>Opció A:</strong> escriu el codi modificant l'exemple.", "<strong>Opció B (plantilla):</strong> <code>display.scroll('____')</code>", '<strong>Opció C (verbal):</strong> dicta a un company/a que escriu.', '<strong>Opció D (extensió):</strong> cerca Image.HEART i altres imatges.'])}
+  ${duaBox('imp',['<strong>Elecció:</strong> cada alumne tria què mostrar: nom, malnom, emoji preferit.', '<strong>Assoliment visible:</strong> veure el propi nom als LEDs és el primer cicle de causa-efecte.'])}
+  <h2>1.4 Imatges predefinides</h2>
+  ${codeBlock('images.py',['from microbit import *', '', 'display.show(Image.HAPPY)    # Happy face', 'sleep(1000)                  # Wait 1 second', 'display.show(Image.SAD)      # Sad face', 'sleep(1000)', 'display.show(Image.HEART)    # Heart'])}
+  ${noteBox(['sleep() rep mil·lisegons: 1000 = 1 segon.', "Banc d'imatges: Image.HAPPY, Image.SAD, Image.SURPRISED, Image.HEART, Image.ARROW_N..."])}
+  <h3>✏️ Exercici 1.2 — Història emocional ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Crea una seqüència d'almenys <strong>5 imatges</strong> que expliquin una història.</p><p>Usa sleep() perquè cada imatge duri un temps diferent.</p><p>Exemple: HAPPY → HEART → SAD → NO → HAPPY</p>
+  </div></div>
+`;
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ingurunea Prestatzen — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🖥️ Kapitulua 01</div>
+      <h1>Ingurunea Prestatzen</h1>
+      <p class="subtitle">Beharrezko materiala, lineako editorea eta lehen programak.</p>
+      <div class="header-badges"><span class="badge badge-green">${level(1)}</span><span class="badge badge-amber">${level(2)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap1');
+document.getElementById('mc').innerHTML=`
+
+  <h2>1.1 Beharrezko materiala</h2>
+  <ul>
+    <li><strong>micro:bit v1 edo v2</strong> — v2-ak mikrofono eta bozgorailuak ditu.</li>
+    <li><strong>USB kablea</strong> micro-USB-tik USB-A estandarrera.</li>
+    <li><strong>Ordenagailua edo tableta</strong> nabigatzaile modernoarekin (Chrome gomendatua).</li>
+    <li><strong>Lineako editorea</strong> <a href='https://python.microbit.org' target='_blank'>python.microbit.org</a> — doan, instalaziorik gabe.</li>
+  </ul>
+  ${noteBox(['micro:bit v2 gomendatzen da LHko 5. mailatik aurrera.', '6-8 micro:bit txandaka erabiltzea nahikoa da 30 ikaslerako.', 'Editoreak Bluetooth teklatuarekin ere funtzionatzen du tabletetan.'])}
+  ${duaBox('rep',['<strong>Metafora:</strong> programa errezeta bat bezalakoa da: lehenik osagaiak zerrendatzen dituzu (import), gero urratsak (display.scroll).', "<strong>Multimodal:</strong> ikasleei programa 'antzeztera' eskatu idatzi aurretik.", '<strong>Ikusizko hiztegia:</strong> termino berri guztiekin gelan kartela: import, display, scroll.'])}
+  <h2>1.2 Lineako Editorea</h2>
+  <p>Bisitatu <a href="https://python.microbit.org" target="_blank">python.microbit.org</a> edozein nabigatzailetik. Ez du konturik edo instalaziorik behar.</p>
+  ${table(['Editoreko eremua', 'Funtzioa', 'Noiz'],[['Ezkerreko panela', 'Python kodea', 'Programak idatzi'], ['Erdiko simulagailua', 'Aurrebista', 'Plaka gabe probatu'], ['Beheko kontsola', 'Erroreak eta print()', 'Arazkatu'], ['Flash botoia', 'Plakara bidali', 'Kargatu'], ['API Erreferentzia', 'Dokumentazioa', 'Kontsultatu']])}
+  <h2>1.3 Zure lehen programa</h2>
+  <p>Idatzi kodea editorean eta sakatu <strong>Flash</strong>:</p>
+  ${codeBlock('hola_full.py',['# First MicroPython program', '# # marks a comment: Python ignores it', '', 'from microbit import *', '', "display.scroll('Hello world!')"])}
+  ${table(['Kode lerroa', 'Zer egiten du?'],[['# Lehen programa...', 'Iruzkina: Pythonek baztertzen du.'], ['from microbit import *', 'Funtzio guztiak inportatzen ditu. BETI lehen lerroa.'], ["display.scroll('Kaixo mundua!')", 'Testua LEDetan barrena mugitzen du.']])}
+  ${duaBox('rep',['<strong>Metafora:</strong> programa errezeta bat bezalakoa da: lehenik osagaiak zerrendatzen dituzu (import), gero urratsak (display.scroll).', "<strong>Multimodal:</strong> ikasleei programa 'antzeztera' eskatu idatzi aurretik.", '<strong>Ikusizko hiztegia:</strong> termino berri guztiekin gelan kartela: import, display, scroll.'])}
+  <h3>✏️ 1.1 Ariketa — Norberaren aurkezpena ${level(1)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Aldatu programa micro:bit-ek <strong>zure izena</strong> erakuts dezan.</p><p>Ondoren, zure adina ere erakuts dezala.</p><p><em>Hedapena:</em> Image.HEART gehitu al dezakezu?</p>
+  </div></div>
+  ${duaBox('ace',['<strong>A aukera:</strong> idatzi kodea adibidea aldatuz.', "<strong>B aukera (txantiloia):</strong> <code>display.scroll('____')</code>", '<strong>C aukera (ahozkoa):</strong> dikta iezaiozu lagunari.', '<strong>D aukera (hedapena):</strong> bilatu Image.HEART eta beste irudiak.'])}
+  ${duaBox('imp',['<strong>Hautaketa:</strong> ikasle bakoitzak erabakitzen du zer erakusten duen: izena, ezizena, emoji gogokoena.', '<strong>Lorpen ikusgaria:</strong> LEDetan bere izena ikustea lehen kausa-efektu begizta da.'])}
+  <h2>1.4 Aurredefinitutako irudiak</h2>
+  ${codeBlock('images.py',['from microbit import *', '', 'display.show(Image.HAPPY)    # Happy face', 'sleep(1000)                  # Wait 1 second', 'display.show(Image.SAD)      # Sad face', 'sleep(1000)', 'display.show(Image.HEART)    # Heart'])}
+  ${noteBox(['sleep()-ek milisegundoak jasotzen ditu: 1000 = 1 segundo.', 'Irudi bankua: Image.HAPPY, Image.SAD, Image.SURPRISED, Image.HEART, Image.ARROW_N...'])}
+  <h3>✏️ 1.2 Ariketa — Istorio emozionala ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Sortu gutxienez <strong>5 irudi</strong>ko sekuentzia bat istorio bat kontatzen duena.</p><p>Erabili sleep() irudi bakoitza denbora diferente batez irauteko.</p><p>Adibidea: HAPPY → HEART → SAD → NO → HAPPY</p>
+  </div></div>
+`;
+</script>
+</body>
+</html>

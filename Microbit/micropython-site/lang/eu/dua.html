@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ikaskuntza Diseinu Unibertsala (DBU) — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">♿ Modulua 00</div>
+      <h1>Ikaskuntza Diseinu Unibertsala (DBU)</h1>
+      <p class="subtitle">Eskuliburu osoa ezaugarritzen duen pedagogia-esparrua: hiru printzipioak eta nola dauden kapitulu guztietan integratuta.</p>
+      <div class="header-badges"><span class="badge badge-blue">Teoria</span><span class="badge badge-coral">3 printzipio</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('dua');
+document.getElementById('mc').innerHTML=`
+
+  <p>DBU esparru zientifiko eta pedagogiko bat da, premisa sinple batean oinarritua: <strong>ez dago ikasle ertainik</strong>. Pertsona bakoitzak modu desberdinean ikasten du. Aniztasuna kontuan hartuta hasieratik diseinatzea da DBUk proposatzen duena.</p>
+  <h2>DBUren hiru printzipioak</h2>
+  <div style="display:flex;flex-direction:column;gap:16px;margin:20px 0">
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-red);width:8px;flex-shrink:0"></div><div style="background:var(--dua-red-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-red);font-size:15px;margin-bottom:8px">🟥 I. PRINTZIPIOA — Irudikapen modu anitzak</div><p style="color:var(--dua-red);margin:0">Informazioa modu askotan eskaintzea: testua, irudia, soinua, erakustaldi fisikoa, bideoa, kodea. Ikasle bat ere ez da kanpoan geratzen informazioa prozesatzeko moduagatik.</p></div></div>
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-blue);width:8px;flex-shrink:0"></div><div style="background:var(--dua-blue-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-blue);font-size:15px;margin-bottom:8px">🟦 II. PRINTZIPIOA — Ekintza eta adierazpen modu anitzak</div><p style="color:var(--dua-blue);margin:0">Ikasitakoa erakusteko aukerak ematea: ahozkoa, bideoa, prototipo fisikoa, diagrama, portfolioa. Ikasleak aukeratzen du nola adierazten den.</p></div></div>
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-green);width:8px;flex-shrink:0"></div><div style="background:var(--dua-green-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-green);font-size:15px;margin-bottom:8px">🟩 III. PRINTZIPIOA — Inplikazio modu anitzak</div><p style="color:var(--dua-green);margin:0">Interesa eta motibazioa piztea eta mantentzea: testuingurua aukeratzea, erronka graduatuak, interes pertsonalekin lotzea, ikaskuntza-komunitatea.</p></div></div>
+  </div>
+  ${duaBox('rep',['Material bisual alternatiboak, terminologia azaldua, analogiak, audio aukerak.','Deskonektatutako jarduerak (unplugged) editorea ireki aurretik.'])}
+  ${duaBox('ace',['Idatzizko kodearen alternatibak: hutsunedun txantiloia, pseudokodea, fluxu-diagrama marraztua.','Laguntza-tresnak: simulagailua, autoosatzea, editorearen erreferentzia integratua.'])}
+  ${duaBox('imp',['Testuingurua aukeratzea: ikasleak proiektuaren gaia aukeratzen du.','Akats-kultura: porrota prozesuaren parte gisa normalizatzea.'])}
+  ${tipBox(['DBU ez da maila jaistea. Denek lor dezaten bermatzea da, bide ezberdinen bidez.',"DBU markak ez dira 'behar bereziak dituzten ikasleentzat': talde osoarentzat dira."])}
+`;
+</script>
+</body>
+</html>

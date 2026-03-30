@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 2: Variables — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">📦 Capítulo 02</div>
+      <h1>Variables y Tipos de Datos</h1>
+      <p class="subtitle">Qué es una variable, los cuatro tipos básicos, operaciones matemáticas y lectura del sensor de temperatura.</p>
+      <div class="header-badges">
+        <span class="badge badge-green">🟢 Iniciación</span>
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap2');
+document.getElementById('main-content').innerHTML = `
+  <h2>2.1 ¿Qué es una variable?</h2>
+  <p>Una variable es como una <strong>caja etiquetada</strong> donde guardamos información. Podemos meter cosas en la caja, cambiarlas o sacarlas para usarlas.</p>
+
+  ${conceptBox([
+    "nombre = 'Ana'       → caja 'nombre' que contiene el texto 'Ana'",
+    "edad = 10            → caja 'edad' que contiene el número 10",
+    "temperatura = 36.5   → caja con un número decimal",
+    "encendido = True     → caja que solo vale True o False",
+  ])}
+
+  ${duaBox('rep', [
+    '<strong>Metáfora física:</strong> trae cajas de cartón reales al aula etiquetadas con papel. Mete objetos físicos y muestra cómo "cambiar el valor" = cambiar lo que hay dentro.',
+    '<strong>Analogía 6-9 años:</strong> "una variable es como el casillero del aula: tiene tu nombre (etiqueta) y dentro guardas lo que quieres".',
+    '<strong>Multimodal:</strong> dibuja en la pizarra el diagrama caja–etiqueta–valor para cada tipo antes de mostrar el código.',
+  ])}
+
+  <h2>2.2 Tipos de datos básicos</h2>
+  ${table(
+    ['Tipo', '¿Qué contiene? / Ejemplo'],
+    [
+      ['int (entero)', 'Números sin decimales: 0, 5, -3, 100'],
+      ['float (decimal)', 'Números con decimales: 3.14, -0.5, 36.7'],
+      ['str (texto / string)', "Texto entre comillas: 'Hola', 'micro:bit'"],
+      ['bool (booleano)', 'Solo True o False (verdadero o falso)'],
+    ]
+  )}
+
+  ${codeBlock('variables_basicas.py', [
+    'from microbit import *',
+    '',
+    "nombre  = 'micro:bit'   # str: texto",
+    'version = 2             # int: número entero',
+    'voltaje = 3.3           # float: decimal',
+    'activo  = True          # bool: verdadero/falso',
+    '',
+    'display.scroll(nombre)',
+    'sleep(500)',
+    'display.scroll(str(version))  # str() convierte número a texto',
+  ])}
+
+  ${warnBox([
+    "Para mostrar un número en los LEDs hay que convertirlo a texto con str().",
+    "display.scroll(5) dará error. La forma correcta: display.scroll(str(5)).",
+  ])}
+
+  <h2>2.3 Operaciones matemáticas</h2>
+  ${codeBlock('operaciones.py', [
+    'from microbit import *',
+    '',
+    'a = 10',
+    'b = 3',
+    '',
+    'suma     = a + b    # 13',
+    'resta    = a - b    # 7',
+    'producto = a * b    # 30',
+    'division = a / b    # 3.333...',
+    'entero   = a // b   # 3  (división sin decimales)',
+    'resto    = a % b    # 1  (módulo: resto de la división)',
+    'potencia = a ** b   # 1000 (10 elevado a 3)',
+    '',
+    "display.scroll('suma=' + str(suma))",
+    'sleep(500)',
+    "display.scroll('resto=' + str(resto))",
+  ])}
+
+  <h3>✏️ Ejercicio 2.1 — Calculadora en la micro:bit ${level(2)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Define dos variables numéricas: <code>num1</code> y <code>num2</code>.</p>
+      <p>Calcula su suma, resta, producto y división.</p>
+      <p>Muestra cada resultado en la pantalla LED con un prefijo (+, -, x, /).</p>
+    </div>
+  </div>
+
+  ${duaBox('rep', [
+    '<strong>Conexión matemática:</strong> relaciona este ejercicio con lo que los alumnos ya saben. "La variable num1 es como la x de las ecuaciones: puede valer cualquier número".',
+    '<strong>Diagrama:</strong> dibuja en la pizarra el flujo: num1 → operación → resultado → display.',
+  ])}
+  ${duaBox('ace', [
+    '<strong>Plantilla (nivel de apoyo):</strong>',
+    'num1 = ___',
+    'num2 = ___',
+    'suma = ___ + ___',
+    "display.scroll('+' + str(___))",
+    '<strong>Extensión avanzada:</strong> convierte el resultado de la división a 1 decimal con round(resultado, 1).',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Contexto real:</strong> propón que los números sean datos significativos para el alumno: su número de zapato y su edad, la temperatura de hoy y la de ayer. Los datos con significado personal aumentan el engagement.',
+  ])}
+
+  <h2>2.4 Lectura del sensor de temperatura</h2>
+  <p>La micro:bit tiene un sensor de temperatura integrado en el procesador:</p>
+
+  ${codeBlock('termometro.py', [
+    'from microbit import *',
+    '',
+    'while True:',
+    '    temp = temperature()        # Lee la temperatura en °C',
+    "    display.scroll(str(temp) + 'C')",
+    '    sleep(2000)                 # Espera 2 segundos entre lecturas',
+  ])}
+
+  ${noteBox([
+    'temperature() devuelve la temperatura del chip, que suele ser 2-5 °C más alta que la del ambiente.',
+    'Para temperatura ambiente, resta un valor de calibración: temp = temperature() - 3',
+    'La micro:bit v2 tiene también un micrófono con microphone.sound_level()',
+  ])}
+`;
+</script>
+</body>
+</html>

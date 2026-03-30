@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guia Pedaxoxica con Enfoque DUA — MicroPython na Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🎓 Capitulo 10</div>
+      <h1>Guia Pedaxoxica con Enfoque DUA</h1>
+      <p class="subtitle">Estratexias didacticas, avaliacion, pair programming, xestion da aula e conexins curriculares.</p>
+      <div class="header-badges"><span class="badge badge-blue">🎓</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap10');
+document.getElementById('mc').innerHTML=`
+
+  <h2>10.1 Por que DUA na programacion?</h2>
+  ${table(['Barreira', 'Resposta DUA'],[['Dislexia', 'Comentarios amplos, metaforas fisicas, pasos numerados.'], ['TDAH', 'Sesins curtas, produto visible ao final, retroalimentacion inmediata.'], ['Altas capacidades', 'Retos abertos nivel 3 + 🚀, rol de titor entre iguais.'], ['Ansiedade tecnoloxica', 'Empezar sempre co simulador, normalizar o erro, rutina estable.'], ['Barreira idiomatica', 'Glosario bilnigüe construido co grupo. O codigo usa ingles sinxelo.']])}
+  <h2>10.2 Deseño de sesion tipo</h2>
+  ${table(['Momento', 'Actividade', 'DUA'],[['0-5 min', 'Pregunta de inicio relacionada co proxecto.', 'Implicacion'], ['5-15 min', '3 representacins do concepto: metafora, diagrama, codigo.', 'Representacion'], ['15-30 min', 'Practica guiada. Docente programa en voz alta (think-aloud).', 'Representacion'], ['30-40 min', 'Practica autonoma co nivel elixido polo alumno.', 'Accion + Implicacion'], ['40-45 min', '1-2 alumnos comparten a sua solucion. Normalizar solucins distintas.', 'Implicacion']])}
+  <h2>10.3 Pair Programming</h2>
+  ${tipBox(['Condutor/a: escribe o codigo. Navegante/a: le, detecta erros, planifica os seguintes pasos. Rotar cada 15 minutos.', 'NON e valido que so un traballe. Se un membro esta desconectado, cambia os roles ou separa a parella temporalmente.'])}
+  <h2>10.4 Avaliacion DUA-compatible</h2>
+  ${table(['Instrumento', 'Principio DUA', 'Descripcion'],[['Rubrica do proxecto', 'Accion e Expresion', 'Codigo avaliado por funcionamento, conceptos e documentacion.'], ['Explicacion oral', 'Accion e Expresion', 'O alumno explica o seu programa e as decisins tomadas.'], ['Portfolio', 'Representacion + Accion', 'Coleccion de programas e reflexins ao longo da unidade.'], ['Diagrama de fluxo', 'Representacion', 'Demostra comprension do algoritmo sen necesidade de sintaxe exacta.']])}
+  <h2>10.5 Xestion da aula</h2>
+  ${table(['Situacion', 'Resposta DUA'],[['Alumnos que rematan moi rapido', 'Retos nivel 3 e 🚀 sempre disponibles. Tamén: mellorar, documentar, tutorizar.'], ['Alumnos que se bloquean', 'Ofrece o modelo de nivel 1. Comeza ti a primeira lina con el/ela.'], ['Non hai suficientes micro:bits', 'Rotacion 15 min: placa + simulador. O simulador e 100% funcional para aprender.'], ['O programa da erro', "Normaliza: 'todos os programadores teen erros. A diferenza e que sabemos atopalos'. Le o erro en voz alta xuntos."]])}
+  <h2>10.6 Conexins curriculares</h2>
+  ${table(['Materia', 'Conexion'],[['Matematicas', 'Variables, operacins, estatistica, coordenadas (set_pixel).'], ['Ciencias', 'Temperatura, luz (fotosintese), movemento (acelometro).'], ['Musica', 'Composicion con notas, compas, escala musical.'], ['Educacion para a Cidadania', 'RXPD, privacidade, accesibilidade no deseño, impacto social.']])}
+  <h2>10.7 Recursos</h2>
+  <ul>
+    <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Editor oficial.</li>
+    <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Guias para docentes.</li>
+    <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — Pautas DUA.</li>
+    <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Actividades desconectadas.</li>
+  </ul>
+`;
+</script>
+</body>
+</html>

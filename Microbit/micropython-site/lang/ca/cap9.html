@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projectes Complets amb Adaptacions DUA — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🚀 Capítol 09</div>
+      <h1>Projectes Complets amb Adaptacions DUA</h1>
+      <p class="subtitle">Quatre projectes amb tres nivells DUA. Tot el grup treballa el mateix projecte.</p>
+      <div class="header-badges"><span class="badge badge-green">${level(1)}</span><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span><span class="badge badge-blue">${level(4)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap9');
+document.getElementById('mc').innerHTML=`
+
+  ${noteBox(["Principi DUA: tots els alumnes treballen el MATEIX projecte, amb diferent nivell de suport. Això evita l'estigmatització.", 'El nivell no és fix: un alumne pot començar al Nivell 1 i avançar al Nivell 2 o 3 durant la sessió.'])}
+  <h2>Projecte 1 — El meu Robot Emocional ${level(1)}</h2>
+  ${codeBlock('robot.py',['from microbit import *', '', 'display.show(Image.HAPPY)', '', 'while True:', "    if accelerometer.current_gesture() == 'shake':", '        display.show(Image.SURPRISED)', '        sleep(1000)', '        display.show(Image.HAPPY)', '    if button_a.is_pressed():', '        display.show(Image.SAD)', '        sleep(800)', '        display.show(Image.HAPPY)', '    if button_b.is_pressed():', '        display.show(Image.ASLEEP)', '        sleep(2000)', '        display.show(Image.HAPPY)', '    sleep(100)'])}
+  ${duaBox('ace',["<strong>Nivell 1 — Plantilla:</strong> codi ja escrit, l'alumne sols canvia imatges i temps.", "<strong>Nivell 2 — Estàndard:</strong> codi guiat de l'exemple.", '<strong>Nivell 3 — Extensió lliure:</strong> afegeix sons, temperatura i emocions pròpies.'])}
+  ${duaBox('imp',["<strong>Motivació intrínseca:</strong> el robot té el nom i la personalitat que l'alumne va triar. No és 'el robot de l'exercici', és 'el seu robot'."])}
+  <h2>Projecte 2 — Podòmetre ${level(2)}</h2>
+  ${codeBlock('pedo.py',['from microbit import *', '', 'steps  = 0', 'last_z = accelerometer.get_z()', 'thresh = 400', '', 'while True:', '    z    = accelerometer.get_z()', '    diff = abs(z - last_z)', '    if diff > thresh:', '        steps += 1', '        display.show(str(steps % 10))', '    last_z = z', '    if button_a.was_pressed():', '        display.scroll(str(steps))', '    if button_b.was_pressed():', '        steps = 0', '    sleep(50)'])}
+  ${duaBox('imp',["<strong>Fora de l'aula:</strong> porta la sessió al pati. Els alumnes proven el podòmetre caminant, corrent, pujant escales i comparen resultats."])}
+  <h2>Projecte 3 — Estació Meteorològica ${level(3)}</h2>
+  ${codeBlock('weather.py',['from microbit import *', '', 'readings = []', '', 'def cal_temp():', '    return temperature() - 3', '', 'def mean(lst):', '    return sum(lst)/len(lst) if lst else 0', '', 'def record():', '    t = cal_temp()', '    readings.append(t)', '    if len(readings) > 10:', '        readings.pop(0)', '    return t', '', 'while True:', '    t = record()', "    display.scroll(str(t) + 'C', delay=70)", '    if button_a.was_pressed():', '        display.scroll(str(round(mean(readings),1)))', '    sleep(5000)'])}
+  <h2>Projecte 4 — Sistema de Control d'Accés ${level(4)}</h2>
+  ${codeBlock('lock.py',['from microbit import *', 'import radio', '', 'radio.on()', 'radio.config(group=42)', '', "PASSWORD = '2024micro'", 'attempts = 0', 'locked   = False', '', 'def open_door():', '    display.show(Image.YES)', '    sleep(2000)', '    display.clear()', '', 'def lock_out():', '    global locked', '    locked = True', "    display.scroll('LOCKED')", '', 'while True:', '    msg = radio.receive()', '    if msg and not locked:', '        if msg == PASSWORD:', '            attempts = 0', '            open_door()', '        else:', '            attempts += 1', '            if attempts >= 3:', '                lock_out()', '    sleep(100)'])}
+  ${duaBox('imp',["<strong>Debat ètic:</strong> quines dades ha de guardar un sistema d'accés? Quant temps? Qui les pot veure? Connecta amb el RGPD.", '<strong>Comparació amb la realitat:</strong> targeta del metro, empremta digital, reconeixement facial. Quin és més segur? Quin respecta més la privacitat?'])}
+`;
+</script>
+</body>
+</html>

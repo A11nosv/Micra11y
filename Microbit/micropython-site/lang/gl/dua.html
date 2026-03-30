@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O Desenho Universal para a Aprendizaxe (DUA) — MicroPython na Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">♿ Módulo 00</div>
+      <h1>O Desenho Universal para a Aprendizaxe (DUA)</h1>
+      <p class="subtitle">O marco pedagoxico que vertebra todo o manual: os seus tres principios e como estan integrados en cada capitulo.</p>
+      <div class="header-badges"><span class="badge badge-blue">Marco</span><span class="badge badge-coral">3 principios</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('dua');
+document.getElementById('mc').innerHTML=`
+
+  <p>O DUA é un marco cientifico e pedagoxico que parte dunha premisa sinxela: <strong>non existe o alumno medio</strong>. Cada persoa aprende de forma diferente. Deshenar pensando na diversidade dende o inicio é o que o DUA propón.</p>
+  <h2>Os tres principios do DUA</h2>
+  <div style="display:flex;flex-direction:column;gap:16px;margin:20px 0">
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-red);width:8px;flex-shrink:0"></div><div style="background:var(--dua-red-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-red);font-size:15px;margin-bottom:8px">🟥 PRINCIPIO I — Múltiples formas de REPRESENTACIÓN</div><p style="color:var(--dua-red);margin:0">Ofrecer a informacion de varias maneiras: texto, imaxe, son, demostracion fisica, video, codigo. Ningún alumno queda excluido pola sua forma de procesar a informacion.</p></div></div>
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-blue);width:8px;flex-shrink:0"></div><div style="background:var(--dua-blue-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-blue);font-size:15px;margin-bottom:8px">🟦 PRINCIPIO II — Múltiples formas de ACCIÓN E EXPRESIÓN</div><p style="color:var(--dua-blue);margin:0">Dar opcions para demostrar o aprendido: oralidade, video, prototipo fisico, diagrama, portfolio. O alumno elixe como se expresa.</p></div></div>
+    <div style="display:flex;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)"><div style="background:var(--dua-green);width:8px;flex-shrink:0"></div><div style="background:var(--dua-green-bg);padding:20px 22px;flex:1"><div style="font-weight:700;color:var(--dua-green);font-size:15px;margin-bottom:8px">🟩 PRINCIPIO III — Múltiples formas de IMPLICACIÓN</div><p style="color:var(--dua-green);margin:0">Captar e manter o interese e a motivacion: eleccion de contexto, retos graduados, conexion con intereses persoais, comunidade de aprendizaxe.</p></div></div>
+  </div>
+  ${duaBox('rep',['Material visual alternativo, vocabulario explicado, analoxias, opcions de audio.','Actividades desconectadas (unplugged) antes de abrir o editor.'])}
+  ${duaBox('ace',['Alternativas ao codigo escrito: modelo con ocos, pseudocodigo, diagrama debuxado.','Ferramentas de apoio: simulador, autocompletado, referencia integrada no editor.'])}
+  ${duaBox('imp',['Eleccion de contexto: o alumno elixe o tema do proxecto.','Cultura do erro: normalizar o fallo como parte do proceso de aprendizaxe.'])}
+  ${tipBox(['O DUA non é sinonimo de baixar o nivel. É garantir que todos poidan alcanzalo por camiños distintos.',"As marcas DUA non son 'para alumnos con necesidades especiais': son para todo o grupo clase."])}
+`;
+</script>
+</body>
+</html>

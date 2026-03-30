@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Guia Pedagògica amb Enfocament DUA — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🎓 Capítol 10</div>
+      <h1>Guia Pedagògica amb Enfocament DUA</h1>
+      <p class="subtitle">Estratègies didàctiques, avaluació, pair programming, gestió de l'aula i connexions curriculars.</p>
+      <div class="header-badges"><span class="badge badge-blue">🎓</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap10');
+document.getElementById('mc').innerHTML=`
+
+  <h2>10.1 Per què DUA en la programació?</h2>
+  ${table(['Barrera', 'Resposta DUA'],[['Dislèxia', 'Comentaris amplis, metàfores físiques, passos numerats.'], ['TDAH', 'Sessions curtes, producte visible al final, feedback immediat.'], ['Altes capacitats', 'Reptes oberts nivell 3 + 🚀, rol de tutor entre iguals.'], ['Ansietat tecnològica', "Sempre comença amb el simulador, normalitza l'error, rutina estable."], ['Barrera idiomàtica', 'Glossari bilingüe construït amb el grup. El codi usa anglès simple.']])}
+  <h2>10.2 Disseny de sessió tipus</h2>
+  ${table(['Moment', 'Activitat', 'DUA'],[['0-5 min', "Pregunta d'inici relacionada amb el projecte.", 'Implicació'], ['5-15 min', '3 representacions del concepte: metàfora, diagrama, codi.', 'Representació'], ['15-30 min', 'Pràctica guiada. Docent programa en veu alta (think-aloud).', 'Representació'], ['30-40 min', "Pràctica autònoma amb el nivell triat per l'alumne.", 'Acció + Implicació'], ['40-45 min', '1-2 alumnes comparteixen la seva solució. Normalitzar solucions distintes.', 'Implicació']])}
+  <h2>10.3 Pair Programming</h2>
+  ${tipBox(['Conductor/a: escriu el codi. Navegant/a: llegeix, detecta errors, planifica els propers passos. Rotar cada 15 minuts.', 'NO és vàlid que sols un treballi. Si un membre està desconnectat, canvia els rols o separa la parella temporalment.'])}
+  <h2>10.4 Avaluació DUA-compatible</h2>
+  ${table(['Instrument', 'Principi DUA', 'Descripció'],[['Rúbrica del projecte', 'Acció i Expressió', 'Codi avaluat per funcionament, conceptes i documentació.'], ['Explicació oral', 'Acció i Expressió', "L'alumne explica el seu programa i les decisions preses."], ['Portfolio', 'Representació + Acció', 'Col·lecció de programes i reflexions al llarg de la unitat.'], ['Diagrama de flux', 'Representació', "Demostra comprensió de l'algorisme sense necessitat de sintaxi exacta."]])}
+  <h2>10.5 Gestió de l'aula</h2>
+  ${table(['Situació', 'Resposta DUA'],[['Alumnes que acaben molt ràpid', 'Reptes nivell 3 i 🚀 sempre disponibles. També: millorar, documentar, tutoritzar.'], ['Alumnes que es bloquegen', 'Ofereix la plantilla de nivell 1. Comença tu la primera línia amb ell/ella.'], ['No hi ha prou micro:bits', 'Rotació 15 min: placa + simulador. El simulador és 100% funcional per aprendre.'], ['El programa dóna error', "Normalitza: 'tots els programadors tenen errors. La diferència és que sabem trobar-los'. Llegeix l'error en veu alta junts."]])}
+  <h2>10.6 Connexions curriculars</h2>
+  ${table(['Assignatura', 'Connexió'],[['Matemàtiques', 'Variables, operacions, estadística, coordenades (set_pixel).'], ['Ciències', 'Temperatura, llum (fotosíntesi), moviment (acceleròmetre).'], ['Música', 'Composició amb notes, compàs, escala musical.'], ['Ed. per a la Ciutadania', 'RGPD, privadesa, accessibilitat en el disseny, impacte social.']])}
+  <h2>10.7 Recursos</h2>
+  <ul>
+    <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Editor oficial.</li>
+    <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Guies per a docents.</li>
+    <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — Pautes DUA.</li>
+    <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Activitats desconnectades.</li>
+  </ul>
+`;
+</script>
+</body>
+</html>

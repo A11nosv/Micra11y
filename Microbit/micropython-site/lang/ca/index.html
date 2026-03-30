@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MicroPython a l'Aula — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🏠</div>
+      <h1>MicroPython a l'Aula</h1>
+      <p class="subtitle">Manual amb enfocament DUA</p>
+      <div class="header-badges"></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('index');
+document.getElementById('mc').innerHTML=`
+
+  <div style="background:var(--ink);color:#fff;padding:52px 56px 44px;margin:-40px -56px 32px;position:relative;overflow:hidden">
+    <div style="position:absolute;top:-80px;right:-80px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.22) 0%,transparent 70%)"></div>
+    <div style="font-family:var(--font-code);font-size:12px;color:var(--coral);text-transform:uppercase;letter-spacing:2px;margin-bottom:12px">Manual · micro:bit</div>
+    <h1 style="font-family:var(--font-display);font-size:clamp(36px,5vw,60px);font-weight:900;line-height:1.05;letter-spacing:-1px;margin-bottom:14px">MicroPython<br><em>a l'Aula</em></h1>
+    <p style="font-size:17px;color:#94a3b8;max-width:560px;line-height:1.65;margin-bottom:24px">Guia pràctica amb micro:bit per a docents de Primària i Secundària. Dissenyada amb el marc del <strong style='color:#fff'>Disseny Universal per a l'Aprenentatge (DUA)</strong> perquè tots els alumnes, de 6 a 16 anys, puguin participar.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px"><span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🎓 Primaria i Secundaria</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🎯 6–16 anys</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>🔧 micro:bit v1/v2</span> <span class='pill' style='background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:100px;padding:6px 14px;font-size:13px;color:#cbd5e1'>♿ DUA</span></div>
+  </div>
+  <h2>Mòduls del manual</h2>
+  <div class="card-grid" id="cg"></div>
+  <h2>Com usar aquest lloc</h2>
+  <ul>
+    <li>Navega per la barra lateral per anar directament a qualsevol capítol.</li>
+    <li>Cada exercici té <strong>caixes DUA desplegables</strong> (🟥🟦🟩) amb adaptacions concretes.</li>
+    <li>Els exercicis estan marcats per nivell: <span class='level-badge level-1'>🟢 Iniciació</span> <span class='level-badge level-2'>🟡 Bàsic</span> <span class='level-badge level-3'>🟠 Intermedi</span> <span class='level-badge level-4'>🔴 Avançat</span></li>
+  </ul>
+  <script>
+  const descs={'dua': 'Els 3 principis DUA i com llegir les marques en aquest manual.', 'cap1': 'Editor en línia, primer programa i imatges als LEDs.', 'cap2': 'Variables, tipus de dades i el sensor de temperatura.', 'cap3': 'Condicionals if/elif/else, botons A i B.', 'cap4': 'Bucles while i for, animacions LED.', 'cap5': 'Llistes i funcions reutilitzables.', 'cap6': 'Acceleròmetre, gestos, sensors de llum i temperatura.', 'cap7': 'Melodies i composició amb notes.', 'cap8': 'Comunicació ràdio entre micro:bits.', 'cap9': 'Quatre projectes amb tres nivells DUA.', 'cap10': "Estratègies DUA, avaluació i gestió de l'aula.", 'apendice': 'Referència ràpida, errors freqüents i glossari.'};
+  const grid=document.getElementById('cg');
+  PAGES.filter(p=>p.id!=='index').forEach(p=>{
+    grid.innerHTML+=`<a href="${p.file}" class="module-card">
+      <span class="card-num">${p.num?'Mòdul '+p.num:''}</span>
+      <span class="card-icon">${p.icon}</span>
+      <span class="card-title">${p.title}</span>
+      <span class="card-desc">${descs[p.id]||''}</span></a>`;
+  });
+  </script>
+`;
+</script>
+</body>
+</html>

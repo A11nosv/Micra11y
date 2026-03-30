@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zerrendak eta Funtzioak — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🧩 Kapitulua 05</div>
+      <h1>Zerrendak eta Funtzioak</h1>
+      <p class="subtitle">Datu bildumak zerrenden bidez eta kode berrerabiligarria funtzioen bidez.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap5');
+document.getElementById('mc').innerHTML=`
+
+  <h2>5.1 Zerrendak</h2>
+  ${duaBox('rep',["<strong>Jarduera fisikoa:</strong> 5 ikasle ilaran 0-4 zenbakituta. '2. zenbakiko ikaslea, zein da zure izena?' → Indizeen bidezko sarbidea antzeztua.", '<strong>Analogia:</strong> zerrenda bat zenbakidun erosketa-zerrendaren antzekoa da.'])}
+  ${codeBlock('lists.py',['from microbit import *', '', "colors = ['red', 'green', 'blue']", '', "display.scroll(colors[0])       # 'red'", 'display.scroll(str(len(colors))) # 3', '', 'for c in colors:', '    display.scroll(c)', '    sleep(200)'])}
+  ${table(['Eragiketa', 'Adibidea'],[['Sartu', 'zerrenda[0], zerrenda[-1]'], ['Gehitu', "zerrenda.append('berria')"], ['Luzera', 'len(zerrenda)'], ['Ordenatu', 'zerrenda.sort()']])}
+  <h2>5.2 Funtzioak</h2>
+  ${duaBox('rep',["<strong>Metafora:</strong> funtzio bat izena duen errezeta baten antzekoa da: 'pastel_egin()' urrats guztiak biltzen ditu.", '<strong>Diagrama:</strong> goikaldean izenarekin laukizuzen bat, sarrerak (parametroak) ezkerretik, irteera (return) eskuinetik.'])}
+  ${codeBlock('funcs.py',['from microbit import *', '', 'def show_temp():', '    t = temperature()', '    display.scroll(str(t))', '', 'def blink(img, times):', '    for i in range(times):', '        display.show(img)', '        sleep(300)', '        display.clear()', '        sleep(200)', '', 'def to_fahrenheit(c):', '    return (c * 9 / 5) + 32', '', 'show_temp()', 'blink(Image.HEART, 3)'])}
+  ${conceptBox(['def izena(parametroak):   ← definizioa', '    indentaturiko kodea    ← gorputza', '    return balioa          ← hautazkoa', 'Funtzio bat erabili AURRETIK definitu behar da.'])}
+  <h3>✏️ 5.1 Ariketa — Animazio-liburutegia ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Sortu 4 funtzio: ospatzen(), huts_egiten(), atzerantz_zenbatzen(n), informazioa_erakutsi(). Idatzi programa nagusi bat deitzen dituena.</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Txantiloia:</strong> def ospatzen(): display.show(____) sleep(____)', '<strong>Portfolioa:</strong> funtzio-fitxa fisikoak izena, parametroak eta zer egiten duen adierazita.', '<strong>Ahozkoa:</strong> ikasleak bere funtzioetako bat klaseari azaltzen dio.'])}
+`;
+</script>
+</body>
+</html>

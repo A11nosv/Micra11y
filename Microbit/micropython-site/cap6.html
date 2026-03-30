@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 6: Sensores — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🌡️ Capítulo 06</div>
+      <h1>Sensores — El Mundo Físico en el Código</h1>
+      <p class="subtitle">Acelerómetro, gestos predefinidos, sensor de luz, temperatura y micrófono (v2). Conectar el código con el mundo real.</p>
+      <div class="header-badges">
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+        <span class="badge badge-blue">🔴 Avanzado</span>
+      </div>
+    </div>
+    <div class="content" id="main-content"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap6');
+document.getElementById('main-content').innerHTML = `
+  <h2>6.1 El acelerómetro</h2>
+  <p>La micro:bit detecta movimiento y orientación en tres ejes (x, y, z). Los valores van de -2000 a +2000 (en mili-g).</p>
+
+  ${duaBox('rep', [
+    '<strong>Demo en vivo:</strong> pasa la micro:bit de mano en mano mientras el simulador del editor muestra los valores del acelerómetro en tiempo real. Los alumnos ven cómo los números cambian con el movimiento.',
+    '<strong>Conexión con Ciencias:</strong> el acelerómetro mide aceleración en mili-g. La gravedad terrestre es 1g ≈ 1000 en la escala de la micro:bit.',
+  ])}
+
+  ${codeBlock('acelerometro_raw.py', [
+    'from microbit import *',
+    '',
+    'while True:',
+    '    x = accelerometer.get_x()   # Izquierda-derecha (-2000 a +2000)',
+    '    y = accelerometer.get_y()   # Adelante-atrás',
+    '    z = accelerometer.get_z()   # Arriba-abajo (gravedad ≈ 1000)',
+    '',
+    "    display.scroll('x:' + str(x), delay=50)",
+    '    sleep(500)',
+  ])}
+
+  ${codeBlock('nivel_burbuja.py', [
+    '# El LED sigue la inclinación de la placa',
+    'from microbit import *',
+    '',
+    'while True:',
+    '    x = accelerometer.get_x()',
+    '    y = accelerometer.get_y()',
+    '    col  = min(4, max(0, 2 + x // 500))',
+    '    fila = min(4, max(0, 2 + y // 500))',
+    '    display.clear()',
+    '    display.set_pixel(col, fila, 9)',
+    '    sleep(50)',
+  ])}
+
+  <h2>6.2 Gestos predefinidos</h2>
+  ${table(
+    ['Gesto', 'Movimiento'],
+    [
+      ["'shake'", 'Agitar la placa'],
+      ["'up'", 'Pantalla hacia arriba'],
+      ["'down'", 'Pantalla hacia abajo'],
+      ["'left'", 'Inclinada a la izquierda'],
+      ["'right'", 'Inclinada a la derecha'],
+      ["'face up'", 'Cara hacia arriba (plana)'],
+      ["'3g' / '6g'", 'Sacudida fuerte / muy fuerte'],
+    ]
+  )}
+
+  <h3>✏️ Ejercicio 6.1 — Dado electrónico ${level(1)} ${level(2)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Al agitar la micro:bit, muestra un número del 1 al 6.</p>
+      <p>El resultado se mantiene hasta la próxima sacudida.</p>
+      <p><em>Extensión:</em> representa cada cara del dado con los puntos correspondientes usando <code>display.set_pixel()</code>.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Nivel básico:</strong> solo el número del 1 al 6 en texto (display.scroll).',
+    '<strong>Nivel estándar:</strong> un punto centrado para el 1, o patrón de 6 puntos para el 6.',
+    '<strong>Nivel avanzado:</strong> los 6 patrones exactos de un dado físico usando display.set_pixel().',
+    '<strong>Planificación:</strong> el alumno dibuja en papel los 6 patrones de puntos antes de programar. El dibujo es la planificación del código.',
+  ])}
+  ${duaBox('imp', [
+    '<strong>Juego cooperativo:</strong> usar los dados electrónicos en clase para jugar al Parchís u otro juego de mesa da sentido social al proyecto.',
+  ])}
+
+  <h2>6.3 Sensor de luz y temperatura combinados</h2>
+  ${codeBlock('sensores_luz_temp.py', [
+    'from microbit import *',
+    '',
+    'while True:',
+    '    luz  = display.read_light_level()  # 0-255',
+    '    temp = temperature()               # grados Celsius',
+    '',
+    "    display.scroll('L:' + str(luz) + ' T:' + str(temp), delay=60)",
+    '',
+    '    if luz < 50:',
+    '        display.show(Image.ASLEEP)     # Muy oscuro',
+    '    elif temp > 28:',
+    '        display.show(Image.SURPRISED)  # Mucho calor',
+    '    else:',
+    '        display.show(Image.HAPPY)',
+    '    sleep(1500)',
+  ])}
+
+  <h3>✏️ Ejercicio 6.2 — Sensor de bienestar del aula ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Crea un "indicador de confort" del aula:</p>
+      <ul>
+        <li>Temperatura 20-24 °C y luz suficiente → cara feliz + sonido breve</li>
+        <li>Temperatura &gt; 27 °C → alerta de calor</li>
+        <li>Temperatura &lt; 18 °C → alerta de frío</li>
+        <li>Luz &lt; 80 → sugerencia de encender más luz</li>
+      </ul>
+    </div>
+  </div>
+
+  ${duaBox('imp', [
+    '<strong>Relevancia:</strong> este ejercicio mide condiciones reales del aula. El alumnado puede proponer qué rangos consideran confortables, conectando la programación con su bienestar físico.',
+    '<strong>Proyecto real:</strong> deja la micro:bit funcionando durante una sesión para recoger datos reales. Los datos cobran valor al ser reales.',
+  ])}
+
+  <h2>6.4 El micrófono (micro:bit v2 únicamente)</h2>
+  ${codeBlock('microfono_v2.py', [
+    '# Solo disponible en micro:bit v2',
+    'from microbit import *',
+    '',
+    'while True:',
+    '    nivel = microphone.sound_level()    # 0-255',
+    '    display.scroll(str(nivel))',
+    '',
+    '    if microphone.was_event(SoundEvent.LOUD):',
+    '        display.show(Image.SURPRISED)',
+    '    elif microphone.was_event(SoundEvent.QUIET):',
+    '        display.show(Image.ASLEEP)',
+    '    sleep(200)',
+  ])}
+
+  ${warnBox([
+    'El micrófono solo está disponible en micro:bit v2. En v1 dará error.',
+    'Para proyectos con v1, sustituye el micrófono por los botones o el acelerómetro.',
+  ])}
+`;
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MicroPython en el Aula — Manual con DUA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-eyebrow">Manual para educadores · micro:bit</div>
+      <h1>micro<em>Python</em><br>en el Aula</h1>
+      <p class="hero-desc">
+        Guía práctica de programación con micro:bit para educadores de Primaria y Secundaria.
+        Diseñada con el marco del <strong style="color:#fff">Diseño Universal para el Aprendizaje (DUA)</strong>
+        para que todos los alumnos, de 6 a 16 años, puedan participar.
+      </p>
+      <div class="hero-pills">
+        <span class="pill">🎓 Primaria y Secundaria</span>
+        <span class="pill">🎯 6 – 16 años</span>
+        <span class="pill">🔧 micro:bit v1 / v2</span>
+        <span class="pill">♿ Enfoque DUA</span>
+        <span class="pill">🐍 MicroPython</span>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="content" style="max-width:960px">
+
+      <h2>¿Qué es este manual?</h2>
+      <p>
+        Este sitio es una adaptación web del manual <em>MicroPython en el Aula</em>. Cada módulo es
+        una página independiente con ejemplos de código interactivos, ejercicios graduados por nivel
+        y adaptaciones DUA integradas en cada actividad.
+      </p>
+      <p>
+        No hace falta seguir el orden: cada capítulo es autocontenido. Usa la barra lateral para
+        navegar directamente al tema que necesites.
+      </p>
+
+      <!-- DUA summary -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:24px 0">
+        <div style="background:var(--dua-red-bg);border:1px solid #fca5a5;border-radius:12px;padding:18px">
+          <div style="font-size:22px;margin-bottom:6px">🟥</div>
+          <div style="font-weight:700;color:var(--dua-red);font-size:14px;margin-bottom:4px">Representación</div>
+          <div style="font-size:13px;color:var(--dua-red)">Múltiples formas de presentar el contenido</div>
+        </div>
+        <div style="background:var(--dua-blue-bg);border:1px solid #93c5fd;border-radius:12px;padding:18px">
+          <div style="font-size:22px;margin-bottom:6px">🟦</div>
+          <div style="font-weight:700;color:var(--dua-blue);font-size:14px;margin-bottom:4px">Acción y Expresión</div>
+          <div style="font-size:13px;color:var(--dua-blue)">Múltiples formas de demostrar lo aprendido</div>
+        </div>
+        <div style="background:var(--dua-green-bg);border:1px solid #86efac;border-radius:12px;padding:18px">
+          <div style="font-size:22px;margin-bottom:6px">🟩</div>
+          <div style="font-weight:700;color:var(--dua-green);font-size:14px;margin-bottom:4px">Implicación</div>
+          <div style="font-size:13px;color:var(--dua-green)">Múltiples formas de motivar y conectar con el alumno</div>
+        </div>
+      </div>
+
+      <h2>Módulos del manual</h2>
+      <div class="card-grid" id="card-grid"></div>
+
+      <h2>Cómo usar este sitio</h2>
+      <ul>
+        <li><strong>Navega por la barra lateral</strong> para ir directamente a cualquier capítulo.</li>
+        <li>Cada ejercicio tiene <strong>cajas DUA desplegables</strong> (🟥🟦🟩) con adaptaciones concretas.</li>
+        <li>Los ejercicios están marcados por nivel: <span class="level-badge level-1">🟢 Iniciación</span> <span class="level-badge level-2">🟡 Básico</span> <span class="level-badge level-3">🟠 Intermedio</span> <span class="level-badge level-4">🔴 Avanzado</span></li>
+        <li>Los bloques de código tienen resaltado de sintaxis y nombre de archivo para identificarlos fácilmente.</li>
+      </ul>
+
+    </div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('index');
+// Build module cards (skip index)
+const grid = document.getElementById('card-grid');
+const descs = {
+  dua:      'El marco DUA: sus 3 principios y cómo leer las marcas en este manual.',
+  cap1:     'Editor online, primer programa y carga de imágenes en los LEDs.',
+  cap2:     'Variables, tipos de datos, operaciones y el sensor de temperatura.',
+  cap3:     'Condicionales if/elif/else, botones A y B, y toma de decisiones.',
+  cap4:     'Bucles while y for, animaciones LED y patrones con píxeles.',
+  cap5:     'Listas como colecciones de datos y funciones reutilizables.',
+  cap6:     'Acelerómetro, gestos, sensor de luz, temperatura y micrófono.',
+  cap7:     'Melodías predefinidas, composición con notas y frecuencias.',
+  cap8:     'Comunicación inalámbrica radio entre varias micro:bits.',
+  cap9:     'Cuatro proyectos completos con tres niveles DUA cada uno.',
+  cap10:    'Estrategias pedagógicas DUA, evaluación y gestión del aula.',
+  apendice: 'Referencia rápida de funciones, errores frecuentes y glosario.',
+};
+PAGES.filter(p => p.id !== 'index').forEach(p => {
+  grid.innerHTML += `
+    <a href="${p.file}" class="module-card">
+      <span class="card-num">${p.num ? 'Módulo ' + p.num : ''}</span>
+      <span class="card-icon">${p.icon}</span>
+      <span class="card-title">${p.title}</span>
+      <span class="card-desc">${descs[p.id] || ''}</span>
+    </a>`;
+});
+</script>
+</body>
+</html>

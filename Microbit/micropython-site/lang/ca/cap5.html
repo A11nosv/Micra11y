@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Llistes i Funcions — MicroPython a l'Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🧩 Capítol 05</div>
+      <h1>Llistes i Funcions</h1>
+      <p class="subtitle">Col·leccions de dades amb llistes i codi reutilitzable amb funcions.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap5');
+document.getElementById('mc').innerHTML=`
+
+  <h2>5.1 Llistes</h2>
+  ${duaBox('rep',["<strong>Activitat física:</strong> 5 alumnes en fila numerats 0-4. 'Alumne número 2, quin és el teu nom?' → Han actuat l'accés per índex.", '<strong>Analogia:</strong> una llista és com una llista de la compra numerada.'])}
+  ${codeBlock('lists.py',['from microbit import *', '', "colors = ['red', 'green', 'blue']", '', "display.scroll(colors[0])       # 'red'", 'display.scroll(str(len(colors))) # 3', '', 'for c in colors:', '    display.scroll(c)', '    sleep(200)'])}
+  ${table(['Operació', 'Exemple'],[['Accedir', 'llista[0], llista[-1]'], ['Afegir', "llista.append('nou')"], ['Longitud', 'len(llista)'], ['Ordenar', 'llista.sort()']])}
+  <h2>5.2 Funcions</h2>
+  ${duaBox('rep',["<strong>Metàfora:</strong> una funció és com una recepta amb nom: 'fer_pastís()' agrupa tots els passos.", "<strong>Diagrama:</strong> rectangle amb el nom a dalt, entrades (paràmetres) entrant per l'esquerra, sortida (return) sortint per la dreta."])}
+  ${codeBlock('funcs.py',['from microbit import *', '', 'def show_temp():', '    t = temperature()', '    display.scroll(str(t))', '', 'def blink(img, times):', '    for i in range(times):', '        display.show(img)', '        sleep(300)', '        display.clear()', '        sleep(200)', '', 'def to_fahrenheit(c):', '    return (c * 9 / 5) + 32', '', 'show_temp()', 'blink(Image.HEART, 3)'])}
+  ${conceptBox(['def nom(parametres):       ← definició', '    codi sangrat           ← cos', '    return valor           ← opcional', "Una funció s'ha de definir ABANS d'usar-la."])}
+  <h3>✏️ Exercici 5.1 — Biblioteca d'animacions ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Crea 4 funcions: celebrar(), fracassar(), comptar_enrere(n), mostrar_info(). Escriu un programa principal que les cridi en ordre.</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Amb buits:</strong> def celebrar(): display.show(____) sleep(____)', '<strong>Portfolio:</strong> fitxes de funció físiques amb nom, paràmetres i què fa.', "<strong>Oral:</strong> l'alumne explica una funció davant la classe."])}
+`;
+</script>
+</body>
+</html>

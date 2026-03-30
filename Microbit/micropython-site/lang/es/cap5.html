@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Listas y Funciones — MicroPython en el Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">&#9776;</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">🧩 Capítulo 05</div>
+      <h1>Listas y Funciones</h1>
+      <p class="subtitle">Colecciones de datos con listas y código reutilizable con funciones.</p>
+      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap5');
+document.getElementById('mc').innerHTML=`
+
+  <h2>5.1 Listas</h2>
+  ${duaBox('rep',["<strong>Actividad física:</strong> 5 alumnos en fila numerados 0-4. 'Alumno número 2, ¿cuál es tu nombre?' → Han actuado el acceso por índice.", '<strong>Analogía:</strong> una lista es como una lista de la compra numerada.'])}
+  ${codeBlock('lists.py',['from microbit import *', '', "colors = ['red', 'green', 'blue']", '', "display.scroll(colors[0])       # 'red'", 'display.scroll(str(len(colors))) # 3', '', 'for c in colors:', '    display.scroll(c)', '    sleep(200)'])}
+  ${table(['Operación', 'Ejemplo'],[['Acceder', 'lista[0], lista[-1]'], ['Añadir', "lista.append('nuevo')"], ['Longitud', 'len(lista)'], ['Ordenar', 'lista.sort()']])}
+  <h2>5.2 Funciones</h2>
+  ${duaBox('rep',["<strong>Metáfora:</strong> una función es como una receta con nombre: 'hacer_pastel()' agrupa todos los pasos.", '<strong>Diagrama:</strong> rectángulo con el nombre arriba, entradas (parámetros) entrando por la izquierda, salida (return) saliendo por la derecha.'])}
+  ${codeBlock('funcs.py',['from microbit import *', '', 'def show_temp():', '    t = temperature()', '    display.scroll(str(t))', '', 'def blink(img, times):', '    for i in range(times):', '        display.show(img)', '        sleep(300)', '        display.clear()', '        sleep(200)', '', 'def to_fahrenheit(c):', '    return (c * 9 / 5) + 32', '', 'show_temp()', 'blink(Image.HEART, 3)'])}
+  ${conceptBox(['def nombre(parametros):    ← definición', '    código indentado       ← cuerpo', '    return valor           ← opcional', 'Una función debe definirse ANTES de usarla.'])}
+  <h3>✏️ Ejercicio 5.1 — Librería de animaciones ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
+    <p>Crea 4 funciones: celebrar(), fracasar(), contar_atras(n), mostrar_info(). Escribe un programa principal que las llame en orden.</p>
+  </div></div>
+  ${duaBox('ace',['<strong>Con huecos:</strong> def celebrar(): display.show(____) sleep(____)', '<strong>Portfolio:</strong> fichas de función físicas con nombre, parámetros y lo que hace.', '<strong>Oral:</strong> el alumno explica una función ante la clase.'])}
+`;
+</script>
+</body>
+</html>
