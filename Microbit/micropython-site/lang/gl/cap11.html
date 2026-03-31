@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cap. 11: Accesibilidade e Deseño — MicroPython na Aula</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">♿ Capítulo 11</div>
+      <h1>Accesibilidade e Deseño</h1>
+      <p class="subtitle">Creación de produtos finais accesibles: interfaces físicas adaptadas, saídas multimodais e código inclusivo.</p>
+      <div class="header-badges">
+        <span class="badge badge-blue">Educadores</span>
+        <span class="badge badge-purple">Deseño Inclusivo</span>
+        <span class="badge badge-info">A11Y</span>
+      </div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap11');
+document.getElementById('mc').innerHTML = `
+  <h2>11.1 Saídas Multimodais</h2>
+  <p>Deseña os teus proxectos para que funcionen con múltiples saídas sensoriais (visual, sonora, táctil) e sexan accesibles para todos.</p>
+  
+  ${codeBlock('multimodal_saudo.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    'while True:',
+    '    if button_a.is_pressed():',
+    '        display.show(Image.HEART)',
+    '        music.play(music.PYTHON) # Son curto de Python',
+    '    elif button_b.is_pressed():',
+    '        display.scroll("A11Y")',
+    '        music.pitch(440, 500) # Nota La4 por 0.5 seg',
+    '    else:',
+    '        display.clear()',
+    '        music.stop() # Deter son se non hai acción',
+    '    sleep(100)'
+  ])}
+
+  ${noteBox([
+    '<strong>Redundancia:</strong> Sempre que sexa posible, combina a información visual (LEDs, texto) coa sonora (pitidos, música). Isto beneficia a alumnos con baixa visión, xordeira ou dificultades de atención.'
+  ])}
+
+  <h2>11.2 Interfaces físicas adaptadas</h2>
+  <p>Crea controis máis grandes e fáciles de usar mediante os pins da micro:bit e materiais condutores.</p>
+
+  ${codeBlock('botons_xiigantes.py', [
+    'from microbit import *',
+    '',
+    '# Pins 0 e 1 como entradas (botóns)',
+    '# Conectar pin 0 a GND para pulsar botón XIGANTE',
+    '',
+    'while True:',
+    '    if pin0.is_touched(): # Detecta se o pin está conectado a GND',
+    '        display.show(Image.YES)',
+    '    elif pin1.is_touched():',
+    '        display.show(Image.NO)',
+    '    else:',
+    '        display.clear()',
+    '    sleep(50)'
+  ])}
+
+  ${exerciseBox('Reto: Botón Xigante', [
+    'Crea un "pulsador" xigante usando papel de aluminio e pinzas de cocodrilo. Que ao tocalo, a micro:bit amose un emoticono.'
+  ])}
+
+  <h2>11.3 Código Inclusivo para Lectores de Pantalla</h2>
+  <p>Escribe código que sexa fácil de entender e navegar, tanto para os teus alumnos como para ti se usas lectores de pantalla.</p>
+
+  ${codeBlock('asistente_acelerometro.py', [
+    'from microbit import *',
+    '',
+    '# Exemplo conceptual de control adaptado',
+    'while True:',
+    '    x = accelerometer.get_x()',
+    '    y = accelerometer.get_y()',
+    '',
+    '    # Usa nomes de variables descriptivos',
+    '    # Engade comentarios claros explicando a lóxica',
+    '',
+    '    if button_a.was_pressed():',
+    '        print("MOUSE_LEFT_CLICK")',
+    '',
+    '    sleep(50)'
+  ])}
+
+  ${tipBox([
+    '<strong>Boas prácticas:</strong> Usa nomes de variables descriptivos (ex: <code>nivel_luz</code> en lugar de <code>nl</code>). Engade comentarios claros explicando bloques de código complexos. Evita aniñar excesivamente os condicionais.'
+  ])}
+`;
+</script>
+</body>
+</html>

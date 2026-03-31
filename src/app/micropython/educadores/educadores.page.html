@@ -6,67 +6,67 @@
   <ion-menu contentId="main-content" type="overlay">
       <ion-header>
         <ion-toolbar color="light">
-          <ion-title>Contenidos</ion-title>
+          <ion-title>{{ 'EDUCADORES_PAGE.SIDEBAR_TITLE' | translate }}</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content>
         <ion-list>
           <ion-list-header>
-            <ion-label>General</ion-label>
+            <ion-label>{{ 'EDUCADORES_PAGE.SECTION_GENERAL' | translate }}</ion-label>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="selectModule(null)" [class.active-item]="currentModule === null">
               <span slot="start">🏠</span>
-              <ion-label>Inicio</ion-label>
-              <span class="scr-reader" *ngIf="currentModule === null"> (Módulo actual)</span>
+              <ion-label>{{ 'EDUCADORES_PAGE.BACK_TO_HOME' | translate }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule === null"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
             <ion-item button (click)="selectModule('dua')" [class.active-item]="currentModule?.id === 'dua'" *ngIf="userRole === 'educator'">
               <span slot="start">♿</span>
-              <ion-label>DUA en este manual</ion-label>
-              <span class="scr-reader" *ngIf="currentModule?.id === 'dua'"> (Módulo actual)</span>
+              <ion-label>{{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'dua'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-list-header>
-            <ion-label>Capítulos</ion-label>
+            <ion-label>{{ 'EDUCADORES_PAGE.SECTION_CHAPTERS' | translate }}</ion-label>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false">
             <ion-item button *ngFor="let m of modules.slice(1, 9)" (click)="selectModule(m.id)" [class.active-item]="currentModule?.id === m.id">
               <span slot="start">{{ m.icon }}</span>
               <ion-label>{{ m.num }} {{ m.title }}</ion-label>
-              <span class="scr-reader" *ngIf="currentModule?.id === m.id"> (Módulo actual)</span>
+              <span class="scr-reader" *ngIf="currentModule?.id === m.id"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-list-header>
-            <ion-label>Proyectos y Guía</ion-label>
+            <ion-label>{{ 'EDUCADORES_PAGE.SECTION_GUIDE' | translate }}</ion-label>
           </ion-list-header>
           <ion-menu-toggle auto-hide="false">
             <ion-item button (click)="selectModule('cap9')" [class.active-item]="currentModule?.id === 'cap9'">
               <span slot="start">🚀</span>
-              <ion-label>09 Proyectos completos</ion-label>
-              <span class="scr-reader" *ngIf="currentModule?.id === 'cap9'"> (Módulo actual)</span>
+              <ion-label>09 {{ 'EDUCADORES_PAGE.MODULES.cap9.title' | translate }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap9'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
             <ion-item button (click)="selectModule('cap10')" [class.active-item]="currentModule?.id === 'cap10'" *ngIf="userRole === 'educator'">
               <span slot="start">🎓</span>
-              <ion-label>10 Guía pedagógica DUA</ion-label>
-              <span class="scr-reader" *ngIf="currentModule?.id === 'cap10'"> (Módulo actual)</span>
+              <ion-label>10 {{ 'EDUCADORES_PAGE.MODULES.cap10.title' | translate }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap10'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
             <ion-item button (click)="selectModule('cap11')" [class.active-item]="currentModule?.id === 'cap11'">
               <span slot="start">♿</span>
-              <ion-label>11 Accesibilidad y Diseño</ion-label>
-              <span class="scr-reader" *ngIf="currentModule?.id === 'cap11'"> (Módulo actual)</span>
+              <ion-label>11 {{ 'EDUCADORES_PAGE.MODULES.cap11.title' | translate }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap11'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
           </ion-menu-toggle>
 
           <ion-list-header>
-            <ion-label>Referencia</ion-label>
+            <ion-label>{{ 'EDUCADORES_PAGE.SECTION_REFERENCE' | translate }}</ion-label>
           </ion-list-header>
             <ion-menu-toggle auto-hide="false">
               <ion-item button (click)="selectModule('apendice')" [class.active-item]="currentModule?.id === 'apendice'">
                 <span slot="start">📋</span>
-                <ion-label>Referencia rápida</ion-label>
-                <span class="scr-reader" *ngIf="currentModule?.id === 'apendice'"> (Módulo actual)</span>
+                <ion-label>{{ 'EDUCADORES_PAGE.MODULES.apendice.title' | translate }}</ion-label>
+                <span class="scr-reader" *ngIf="currentModule?.id === 'apendice'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
               </ion-item>
             </ion-menu-toggle>
         </ion-list>
@@ -74,63 +74,64 @@
     </ion-menu>
     <!-- End Sidebar menu -->
 
-    <ion-content id="main-content" #mainContent>
-    <!-- Start menu  btns -->
-    <ion-header>
-        <ion-toolbar class="aligned-with-content">
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-            <ion-back-button defaultHref="/tabs/micropython"></ion-back-button>
-          </ion-buttons>
-          <ion-title class="ion-text-left">
-            {{ (userRole === 'educator' ? 'MICROPYTHON_PAGE.BTN_EDUCATORS' : 'MICROPYTHON_PAGE.BTN_STUDENTS') | translate }}
-          </ion-title>
-          <ion-buttons slot="end">
-            <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-              <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-            </ion-button>
-            <app-language-chooser></app-language-chooser>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <!-- End menu  btns -->
+    <div class="ion-page" id="main-content">
+      <!-- Start menu  btns -->
+      <ion-header>
+          <ion-toolbar class="aligned-with-content">
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+              <ion-back-button defaultHref="/tabs/micropython"></ion-back-button>
+            </ion-buttons>
+            <ion-title class="ion-text-left">
+              {{ (userRole === 'educator' ? 'MICROPYTHON_PAGE.BTN_EDUCATORS' : 'MICROPYTHON_PAGE.BTN_STUDENTS') | translate }}
+            </ion-title>
+            <ion-buttons slot="end">
+              <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+                <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+              </ion-button>
+              <app-language-chooser></app-language-chooser>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <!-- End menu  btns -->
 
-      <div class="content-wrapper">
+      <ion-content #mainContent>
+        <div class="content-wrapper">
 
         <!-- Home: Inicio -->
         <div *ngIf="currentModule === null">
           <div class="hero-section ion-margin-bottom">
-            <div class="hero-eyebrow">{{ (userRole === 'educator' ? 'Guía para Educadores' : 'Guía para Estudiantes') }}</div>
-            <h1>Aprende <span class="python-text">Python</span> con micro:bit</h1>
-            <p class="hero-desc" *ngIf="userRole === 'educator'">Bienvenido al manual interactivo diseñado bajo el marco DUA (Diseño Universal para el Aprendizaje). Esta guía te acompañará desde los conceptos básicos hasta proyectos avanzados de accesibilidad.</p>
-            <p class="hero-desc" *ngIf="userRole === 'student'">¡Bienvenido! En este manual aprenderás a programar tu micro:bit paso a paso usando el lenguaje Python. Descubre cómo crear juegos, sensores y proyectos increíbles.</p>
+            <div class="hero-eyebrow">{{ (userRole === 'educator' ? ('EDUCADORES_PAGE.HERO_TITLE' | translate) : ('EDUCADORES_PAGE.HERO_SUBTITLE' | translate)) }}</div>
+            <h1>{{ 'EDUCADORES_PAGE.HEAD_1' | translate }} <span class="python-text">{{ 'EDUCADORES_PAGE.HEAD_Py' | translate }}</span> {{ 'EDUCADORES_PAGE.HEADE_2' | translate }}</h1>
+            <p class="hero-desc" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.HERO_DESC' | translate }}</p>
+            <p class="hero-desc" *ngIf="userRole === 'student'">{{ 'EDUCADORES_PAGE.SUBTITLE' | translate }}</p>
             <div class="hero-pills">
-              <ion-badge *ngIf="userRole === 'educator'">♿ DUA-Ready</ion-badge>
+              <ion-badge *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.PILL_DUA' | translate }}</ion-badge>
               <ion-badge>🐍 MicroPython</ion-badge>
-              <ion-badge>💻 Simulador + Placa</ion-badge>
-              <ion-badge *ngIf="userRole === 'educator'">🎓 Pedagógico</ion-badge>
-              <ion-badge *ngIf="userRole === 'student'">🎮 Proyectos</ion-badge>
+              <ion-badge>💻 {{ 'EDUCADORES_PAGE.PILL_HARDWARE' | translate }}</ion-badge>
+              <ion-badge *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.PILL_LEVELS' | translate }}</ion-badge>
+              <ion-badge *ngIf="userRole === 'student'">🎮 {{ 'EDUCADORES_PAGE.PILL_AGES' | translate }}</ion-badge>
             </div>
           </div>
 
           <div class="main-content-wrapper">
-            <h2>Cómo usar esta guía</h2>
-            <p *ngIf="userRole === 'educator'">Este manual no es solo una lista de ejercicios. Cada capítulo incluye pautas pedagógicas específicas para atender a la diversidad en tu aula:</p>
-            <p *ngIf="userRole === 'student'">Este manual está dividido en capítulos que te enseñarán los secretos de MicroPython:</p>
+            <h2>{{ 'EDUCADORES_PAGE.HOW_TO_USE_TITLE' | translate }}</h2>
+            <p *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.HOW_TO_USE_1' | translate }}</p>
+            <p *ngIf="userRole === 'student'">{{ 'EDUCADORES_PAGE.HOW_TO_USE_2' | translate }}</p>
             <ul>
-              <li *ngIf="userRole === 'educator'"><strong>Marcas DUA:</strong> Busca los bloques de colores (rojo, azul, verde) para encontrar adaptaciones de Representación, Acción/Expresión e Implicación.</li>
-              <li><strong>Niveles de dificultad:</strong> Los ejercicios están graduados para que cada alumno encuentre su reto óptimo.</li>
-              <li><strong>Código real:</strong> Copia y pega el código directamente en el editor online o úsalo como referencia.</li>
+              <li *ngIf="userRole === 'educator'"><strong>{{ 'EDUCADORES_PAGE.DUA_REP' | translate }}:</strong> {{ 'EDUCADORES_PAGE.HOW_TO_USE_2' | translate }}</li>
+              <li><strong>{{ 'EDUCADORES_PAGE.MODULES_TITLE' | translate }}:</strong> {{ 'EDUCADORES_PAGE.HOW_TO_USE_3' | translate }}</li>
+              <li><strong>{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}:</strong> {{ 'EDUCADORES_PAGE.HOW_TO_USE_1' | translate }}</li>
             </ul>
 
-            <h2 class="ion-margin-top">Explora los módulos</h2>
+            <h2 class="ion-margin-top">{{ 'EDUCADORES_PAGE.MODULES_TITLE' | translate }}</h2>
             <ion-grid fixed>
               <ion-row>
                 <ng-container *ngFor="let m of modules">
                   <ion-col size="12" size-md="6" size-lg="4" *ngIf="userRole === 'educator' || !m.educatorOnly">
                     <ion-card class="module-card" (click)="selectModule(m.id)" button="true">
                       <ion-card-header>
-                        <ion-card-subtitle>Capítulo {{ m.num }}</ion-card-subtitle>
+                        <ion-card-subtitle>{{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: m.num} }}</ion-card-subtitle>
                         <ion-card-title>
                           <span class="card-icon">{{ m.icon }}</span>
                           {{ m.title }}
@@ -138,7 +139,7 @@
                       </ion-card-header>
                       <ion-card-content>
                         <p>{{ m.desc }}</p>
-                        <ion-button fill="clear" size="small">Explorar módulo →</ion-button>
+                        <ion-button fill="clear" size="small">{{ 'EDUCADORES_PAGE.NEXT' | translate }} →</ion-button>
                       </ion-card-content>
                     </ion-card>
                   </ion-col>
@@ -151,9 +152,9 @@
         <!-- Module 00: DUA en este manual -->
         <div *ngIf="currentModule?.id === 'dua' && userRole === 'educator'">
           <div class="module-header ion-padding ion-margin-bottom">
-            <div class="module-tag">♿ Módulo 00</div>
-            <h1>El Diseño Universal para el Aprendizaje</h1>
-            <p class="subtitle">El marco pedagógico que vertebra todo el manual: qué es el DUA, sus tres principios y cómo están integrados en cada capítulo.</p>
+            <div class="module-tag">♿ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '00'} }}</div>
+            <h1>{{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</h1>
+            <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.dua.desc' | translate }}</p>
             <div class="header-badges">
               <ion-badge color="primary">Marco teórico</ion-badge>
               <ion-badge color="secondary">3 principios</ion-badge>
@@ -169,7 +170,7 @@
 
             <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c; border-left-width: 8px;">
               <div class="box-body">
-                <div class="box-title" style="color: #b91c1c;">🟥 PRINCIPIO I — Múltiples formas de REPRESENTACIÓN</div>
+                <div class="box-title" style="color: #b91c1c;">🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</div>
                 <p>Ofrecer la información de varias maneras: texto, imagen, sonido, demostración física, vídeo, código. Ningún alumno queda excluido por su forma de procesar la información.</p>
                 <p><strong>Pautas en programación:</strong> metáforas cotidianas, combinación de pantalla y placa física, glosario visual, código con comentarios en español.</p>
               </div>
@@ -177,7 +178,7 @@
 
             <div class="box box-note ion-margin-vertical" style="background-color: #dbeafe; border-color: #93c5fd; color: #1d4ed8; border-left-width: 8px;">
               <div class="box-body">
-                <div class="box-title" style="color: #1d4ed8;">🟦 PRINCIPIO II — Múltiples formas de ACCIÓN Y EXPRESIÓN</div>
+                <div class="box-title" style="color: #1d4ed8;">🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</div>
                 <p>Dar opciones para demostrar lo aprendido: no solo texto escrito, también oralidad, vídeo, prototipo físico, diagrama, portfolio. El alumno elige cómo se expresa.</p>
                 <p><strong>Pautas en programación:</strong> plantillas de código, pseudocódigo, diagrama dibujado, explicación oral, herramientas de apoyo como el simulador y autocompletado.</p>
               </div>
@@ -185,7 +186,7 @@
 
             <div class="box box-note ion-margin-vertical" style="background-color: #dcfce7; border-color: #86efac; color: #15803d; border-left-width: 8px;">
               <div class="box-body">
-                <div class="box-title" style="color: #15803d;">🟩 PRINCIPIO III — Múltiples formas de IMPLICACIÓN</div>
+                <div class="box-title" style="color: #15803d;">🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</div>
                 <p>Captar y mantener el interés y la motivación: elección de contexto y tema, retos graduados, conexión con intereses personales, comunidad de aprendizaje.</p>
                 <p><strong>Pautas en programación:</strong> el alumno elige el tema del proyecto, datos personales reales, cultura del error, retos visibles y opcionales, celebración de logros parciales.</p>
               </div>
@@ -198,7 +199,7 @@
               <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap0_1>
                 <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                   <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap0_1', duaGroupCap0_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap0_1')">
-                    <ion-label>🟥 DUA — Representación</ion-label>
+                    <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
@@ -211,7 +212,7 @@
 
                 <ion-accordion value="ace_cap0_1" class="dua-accordion ace ion-margin-vertical">
                   <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap0_1', duaGroupCap0_1)" role="button" [attr.aria-expanded]="isExpanded('ace_cap0_1')">
-                    <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                    <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
@@ -222,9 +223,9 @@
                   </div>
                 </ion-accordion>
 
-                <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                <ion-accordion value="imp_cap0_1" class="dua-accordion imp" *ngIf="userRole === 'educator'">
                   <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap0_1', duaGroupCap0_1)" role="button" [attr.aria-expanded]="isExpanded('imp_cap0_1')">
-                    <ion-label>🟩 DUA — Implicación</ion-label>
+                    <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
@@ -276,13 +277,9 @@
         <!-- Module 1: Entorno de trabajo -->
         <div *ngIf="currentModule?.id === 'cap1'">
           <div class="module-header ion-padding ion-margin-bottom">
-            <div class="module-tag">🖥️ Capítulo 01</div>
+            <div class="module-tag">🖥️ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '01'} }}</div>
             <h1>{{ currentModule.title }}</h1>
-            <p class="subtitle">Editor online, primer programa y carga de imágenes en los LEDs.</p>
-            <!--<div class="header-badges">
-              <ion-badge color="success">🟢 Iniciación</ion-badge>
-              <ion-badge color="warning">🟡 Básico</ion-badge>
-            </div>-->
+            <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap1.desc' | translate }}</p>
           </div>
 
           <div class="main-content-wrapper">
@@ -298,7 +295,7 @@
             <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
               <span class="box-icon">💡</span>
               <div class="box-body">
-                <div class="box-title">Nota para el educador</div>
+                <div class="box-title">{{ 'EDUCADORES_PAGE.NOTE_FOR_TEACHER' | translate }}</div>
                 <p>La micro:bit v2 es recomendable para cursos de 5.º de Primaria en adelante por sus capacidades de audio.</p>
                 <p>Para grupos grandes, un juego de 6-8 micro:bits compartidas en rotación es suficiente para talleres de 30 alumnos.</p>
                 <p>El editor python.microbit.org funciona también en tabletas con teclado Bluetooth.</p>
@@ -307,9 +304,9 @@
 
             <ng-container *ngIf="userRole === 'educator'">
               <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap1_1>
-                <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                <ion-accordion value="rep_cap1_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                   <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap1_1', duaGroupCap1_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap1_1')">
-                    <ion-label>🟥 DUA — Representación</ion-label>
+                    <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                     <span class="scr-reader">({{ isExpanded('rep_cap1_1') ? 'Extendido' : 'Contraído' }})</span>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
@@ -376,7 +373,7 @@
               <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap1_2>
                 <ion-accordion value="ace_cap1_1" class="dua-accordion ace">
                   <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap1_1', duaGroupCap1_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap1_1')">
-                    <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                    <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                     <span class="scr-reader">({{ isExpanded('ace_cap1_1') ? 'Extendido' : 'Contraído' }})</span>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
@@ -408,7 +405,7 @@
               </div>
             </div>
 
-            <h3>✏️ Ejercicio 1.2 — Historia emocional</h3>
+            <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 1.2 — Historia emocional</h3>
             <div class="box box-exercise ion-margin-vertical">
               <span class="box-icon">✏️</span>
               <div class="box-body">
@@ -424,12 +421,12 @@
           <!-- Module 2: Variables y tipos de datos -->
           <div *ngIf="currentModule?.id === 'cap2'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">📦 Capítulo 02</div>
+              <div class="module-tag">📦 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '02'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Qué es una variable, los cuatro tipos básicos, operaciones matemáticas y lectura del sensor de temperatura.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap2.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="success">🟢 Iniciación</ion-badge>
-                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="success">{{ 'EDUCADORES_PAGE.LEVEL_1' | translate }}</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -439,9 +436,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap2_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap2_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap2_1', duaGroupCap2_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap2_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap2_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -483,7 +480,7 @@
               <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title" style="color: #b91c1c;">Atención</div>
+                  <div class="box-title" style="color: #b91c1c;">{{ 'EDUCADORES_PAGE.ATTENTION' | translate }}</div>
                   <p>Para mostrar un número en los LEDs hay que convertirlo a texto con <code>str()</code>.</p>
                   <p><code>display.scroll(5)</code> dará error. La forma correcta: <code>display.scroll(str(5))</code>.</p>
                 </div>
@@ -497,7 +494,7 @@
                 <pre><code [highlight]="pythonCode_2_2" language="python"></code></pre>
               </div>
 
-              <h3>✏️ Ejercicio 2.1 — Calculadora en la micro:bit</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 2.1 — Calculadora en la micro:bit</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -511,7 +508,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap2_2>
                   <ion-accordion value="ace_cap2_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap2_1', duaGroupCap2_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap2_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap2_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -542,7 +539,7 @@
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
                 <span class="box-icon">📝</span>
                 <div class="box-body">
-                  <div class="box-title">Conceptos clave</div>
+                  <div class="box-title">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <p><code>temperature()</code> devuelve la temperatura del chip (±2 °C de error). Para el ambiente, resta 3 grados.</p>
                   <p>La micro:bit v2 tiene también un micrófono con <code>microphone.sound_level()</code></p>
                 </div>
@@ -553,12 +550,12 @@
           <!-- Module 3: Condicionales -->
           <div *ngIf="currentModule?.id === 'cap3'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🚦 Capítulo 03</div>
+              <div class="module-tag">🚦 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '03'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Toma de decisiones con if/elif/else, operadores lógicos y uso de los botones A y B de la micro:bit.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap3.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="success">🟢 Iniciación</ion-badge>
-                <ion-badge color="warning">🟡 Básico</ion-badge>
+                <ion-badge color="success">{{ 'EDUCADORES_PAGE.LEVEL_1' | translate }}</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -568,9 +565,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap3_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap3_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap3_1', duaGroupCap3_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap3_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap3_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -642,7 +639,7 @@
                 </div>
               </div>
 
-              <h3>✏️ Ejercicio 3.1 — Semáforo</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 3.1 — Semáforo</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -659,7 +656,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap3_2>
                   <ion-accordion value="ace_cap3_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap3_1', duaGroupCap3_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap3_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap3_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -673,7 +670,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap3_1" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap3_1', duaGroupCap3_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap3_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap3_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -685,7 +682,7 @@
                 </ion-accordion-group>
               </ng-container>
 
-              <h3>✏️ Ejercicio 3.2 — Piedra, Papel o Tijera</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 3.2 — Piedra, Papel o Tijera</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -699,7 +696,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap3_3>
                   <ion-accordion value="ace_cap3_2" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap3_2', duaGroupCap3_3)" role="button" [attr.aria-expanded]="isExpanded('ace_cap3_2')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap3_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -717,7 +714,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap3_2" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap3_2', duaGroupCap3_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap3_2')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap3_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -735,13 +732,13 @@
           <!-- Module 4: Bucles -->
           <div *ngIf="currentModule?.id === 'cap4'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🔄 Capítulo 04</div>
+              <div class="module-tag">🔄 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '04'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Bucles while y for con range(), bucles anidados para animar la pantalla LED y patrones con píxeles.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap4.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="warning">🟡 Básico</ion-badge>
-                <ion-badge color="danger">🟠 Intermedio</ion-badge>
-                <ion-badge color="primary">🔴 Avanzado</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
+                <ion-badge color="danger">{{ 'EDUCADORES_PAGE.LEVEL_3' | translate }}</ion-badge>
+                <ion-badge color="primary">{{ 'EDUCADORES_PAGE.LEVEL_4' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -751,9 +748,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap4_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap4_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap4_1', duaGroupCap4_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap4_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap4_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -776,7 +773,7 @@
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title">Conceptos clave</div>
+                  <div class="box-title">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <ul>
                     <li>El bucle <code>while</code> sigue repitiendo mientras la condición sea <code>True</code>.</li>
                     <li><strong>CUIDADO:</strong> si la condición nunca se hace <code>False</code>, el bucle es infinito y el programa se cuelga.</li>
@@ -810,7 +807,7 @@
                 <pre><code [highlight]="pythonCode_4_3" language="python"></code></pre>
               </div>
 
-              <h3>✏️ Ejercicio 4.1 — Contador digital</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 4.1 — Contador digital</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -824,7 +821,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap4_2>
                   <ion-accordion value="ace_cap4_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap4_1', duaGroupCap4_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap4_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap4_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -838,7 +835,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap4_1" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap4_1', duaGroupCap4_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap4_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap4_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -862,12 +859,12 @@
           <!-- Module 5: Listas y funciones -->
           <div *ngIf="currentModule?.id === 'cap5'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🧩 Capítulo 05</div>
+              <div class="module-tag">🧩 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '05'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Listas como colecciones de datos y código reutilizable con funciones. Primer paso hacia la programación modular.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap5.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="warning">🟡 Básico</ion-badge>
-                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
+                <ion-badge color="danger">{{ 'EDUCADORES_PAGE.LEVEL_3' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -877,9 +874,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap5_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap5_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap5_1', duaGroupCap5_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap5_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap5_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -924,9 +921,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap5_2>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap5_2" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap5_2', duaGroupCap5_2)" role="button" [attr.aria-expanded]="isExpanded('rep_cap5_2')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap5_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -960,7 +957,7 @@
                 </div>
               </div>
 
-              <h3>✏️ Ejercicio 5.1 — Librería de animaciones</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 5.1 — Librería de animaciones</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -979,7 +976,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap5_3>
                   <ion-accordion value="ace_cap5_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap5_1', duaGroupCap5_3)" role="button" [attr.aria-expanded]="isExpanded('ace_cap5_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap5_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -997,7 +994,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap5_1" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap5_1', duaGroupCap5_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap5_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap5_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1015,13 +1012,13 @@
           <!-- Module 6: Sensores -->
           <div *ngIf="currentModule?.id === 'cap6'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🌡️ Capítulo 06</div>
+              <div class="module-tag">🌡️ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '06'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Acelerómetro, gestos predefinidos, sensor de luz, temperatura y micrófono (v2). Conectar el código con el mundo real.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap6.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="warning">🟡 Básico</ion-badge>
-                <ion-badge color="danger">🟠 Intermedio</ion-badge>
-                <ion-badge color="primary">🔴 Avanzado</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
+                <ion-badge color="danger">{{ 'EDUCADORES_PAGE.LEVEL_3' | translate }}</ion-badge>
+                <ion-badge color="primary">{{ 'EDUCADORES_PAGE.LEVEL_4' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -1031,9 +1028,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap6_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap6_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap6_1', duaGroupCap6_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap6_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap6_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1081,7 +1078,7 @@
                 </table>
               </div>
 
-              <h3>✏️ Ejercicio 6.1 — Dado electrónico</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 6.1 — Dado electrónico</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -1096,7 +1093,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap6_2>
                   <ion-accordion value="ace_cap6_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap6_1', duaGroupCap6_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap6_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap6_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1110,7 +1107,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap6_1" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap6_1', duaGroupCap6_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap6_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap6_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1130,7 +1127,7 @@
                 <pre><code [highlight]="pythonCode_6_3" language="python"></code></pre>
               </div>
 
-              <h3>✏️ Ejercicio 6.2 — Alarma de confort</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 6.2 — Alarma de confort</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -1146,9 +1143,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap6_3>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap6_2" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap6_2', duaGroupCap6_3)" role="button" [attr.aria-expanded]="isExpanded('rep_cap6_2')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap6_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1160,7 +1157,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap6_2" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap6_2', duaGroupCap6_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap6_2')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap6_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1184,7 +1181,7 @@
               <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title" style="color: #b91c1c;">Atención</div>
+                  <div class="box-title" style="color: #b91c1c;">{{ 'EDUCADORES_PAGE.ATTENTION' | translate }}</div>
                   <p>El micrófono solo está disponible en micro:bit v2. En v1 dará error.</p>
                   <p>Para proyectos con v1, sustituye el micrófono por los botones o el acelerómetro.</p>
                 </div>
@@ -1195,21 +1192,21 @@
           <!-- Module 7: Sonido y música -->
           <div *ngIf="currentModule?.id === 'cap7'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🎵 Capítulo 07</div>
+              <div class="module-tag">🎵 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '07'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Melodías predefinidas, composición con notas musicales en formato texto y sonidos con frecuencias en Hz.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap7.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="warning">🟡 Básico</ion-badge>
-                <ion-badge color="danger">🟠 Intermedio</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
+                <ion-badge color="danger">{{ 'EDUCADORES_PAGE.LEVEL_3' | translate }}</ion-badge>
               </div>
             </div>
 
             <div class="main-content-wrapper">
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap7_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap7_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap7_1', duaGroupCap7_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap7_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap7_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1259,7 +1256,7 @@
                 <pre><code [highlight]="pythonCode_7_2" language="python"></code></pre>
               </div>
 
-              <h3>✏️ Ejercicio 7.1 — Compositor</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 7.1 — Compositor</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -1273,7 +1270,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap7_2>
                   <ion-accordion value="ace_cap7_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap7_1', duaGroupCap7_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap7_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap7_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1287,7 +1284,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap7_1" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap7_1', duaGroupCap7_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap7_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap7_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1322,13 +1319,13 @@
           <!-- Module 8: Comunicación radio -->
           <div *ngIf="currentModule?.id === 'cap8'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">📡 Capítulo 08</div>
+              <div class="module-tag">📡 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '08'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Radio inalámbrica 2,4 GHz para proyectos colaborativos y juegos multijugador en el aula.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap8.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="warning">🟡 Básico</ion-badge>
-                <ion-badge color="danger">🟠 Intermedio</ion-badge>
-                <ion-badge color="primary">🔴 Avanzado</ion-badge>
+                <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
+                <ion-badge color="danger">{{ 'EDUCADORES_PAGE.LEVEL_3' | translate }}</ion-badge>
+                <ion-badge color="primary">{{ 'EDUCADORES_PAGE.LEVEL_4' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -1338,9 +1335,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap8_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap8_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap8_1', duaGroupCap8_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap8_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap8_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1370,7 +1367,7 @@
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title">Conceptos clave</div>
+                  <div class="box-title">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <ul>
                     <li><code>radio.config(group=N)</code> con el mismo número asegura que solo hablen entre sí las micro:bits del grupo.</li>
                     <li>En un aula con varios grupos, asigna grupos diferentes (1-255) para evitar interferencias.</li>
@@ -1388,7 +1385,7 @@
                 <pre><code [highlight]="pythonCode_8_3" language="python"></code></pre>
               </div>
 
-              <h3>✏️ Ejercicio 8.1 — Chat de emoticonos</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 8.1 — Chat de emoticonos</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -1406,7 +1403,7 @@
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap8_2>
                   <ion-accordion value="ace_cap8_1" class="dua-accordion ace">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap8_1', duaGroupCap8_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap8_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap8_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1418,7 +1415,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap8_1" class="dua-accordion imp ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap8_1', duaGroupCap8_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap8_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap8_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1436,12 +1433,12 @@
           <!-- Module 9: Proyectos completos -->
           <div *ngIf="currentModule?.id === 'cap9'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🚀 Capítulo 09</div>
+              <div class="module-tag">🚀 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '09'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Cuatro proyectos completos que integran sensores, comunicación y decisiones para consolidar lo aprendido.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap9.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="primary" *ngIf="userRole === 'educator'">Educadores</ion-badge>
-                <ion-badge color="tertiary">Todos los niveles</ion-badge>
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.TITLE' | translate }}</ion-badge>
+                <ion-badge color="tertiary">{{ 'EDUCADORES_PAGE.MODULES_TITLE' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -1458,9 +1455,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_1>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap9_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap9_1', duaGroupCap9_1)" role="button" [attr.aria-expanded]="isExpanded('rep_cap9_1')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1472,7 +1469,7 @@
                   </ion-accordion>
                   <ion-accordion value="ace_cap9_1" class="dua-accordion ace ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_1', duaGroupCap9_1)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1486,7 +1483,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap9_1" class="dua-accordion imp">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_1', duaGroupCap9_1)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1512,7 +1509,7 @@
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title">Conceptos clave</div>
+                  <div class="box-title">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <ul>
                     <li>Se mide la diferencia de la aceleración en el eje Z (gravedad) entre lecturas.</li>
                     <li><code>umbral</code>: Si la diferencia es mayor, se cuenta como paso.</li>
@@ -1521,7 +1518,7 @@
                 </div>
               </div>
 
-              <h3>✏️ Ejercicio 9.1 — ¿Cuántos pasos doy hoy?</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 9.1 — ¿Cuántos pasos doy hoy?</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -1536,10 +1533,10 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_2>
-                  <ion-accordion value="ace_cap9_1" class="dua-accordion ace">
-                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_1', duaGroupCap9_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_1')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
-                      <span class="scr-reader">({{ isExpanded('ace_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                  <ion-accordion value="ace_cap9_2" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_2', duaGroupCap9_2)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_2')">
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
@@ -1549,10 +1546,10 @@
                       </ul>
                     </div>
                   </ion-accordion>
-                  <ion-accordion value="imp_cap9_1" class="dua-accordion imp ion-margin-vertical">
-                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_1', duaGroupCap9_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_1')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
-                      <span class="scr-reader">({{ isExpanded('imp_cap9_1') ? 'Extendido' : 'Contraído' }})</span>
+                  <ion-accordion value="imp_cap9_2" class="dua-accordion imp ion-margin-vertical">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_2', duaGroupCap9_2)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_2')">
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
+                      <span class="scr-reader">({{ isExpanded('imp_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
@@ -1577,14 +1574,14 @@
               <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title" style="color: #b91c1c;">Conceptos clave</div>
+                  <div class="box-title" style="color: #b91c1c;">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <p>El sensor de temperatura lee el chip interno (±2 °C de error). Para el ambiente, resta 3 grados.</p>
                   <p>El sensor de luz da un valor de 0 (oscuro) a 255 (muy brillante).</p>
                   <p><code>button_a.was_pressed()</code> es ideal para mostrar el resumen sin resetear.</p>
                 </div>
               </div>
 
-              <h3>✏️ Ejercicio 9.2 — Alarma de confort</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 9.2 — Alarma de confort</h3>
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
@@ -1600,9 +1597,9 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_3>
-                  <ion-accordion value="rep_cap0_1" class="dua-accordion rep" *ngIf="userRole === 'educator'">
+                  <ion-accordion value="rep_cap9_2" class="dua-accordion rep" *ngIf="userRole === 'educator'">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap9_2', duaGroupCap9_3)" role="button" [attr.aria-expanded]="isExpanded('rep_cap9_2')">
-                      <ion-label>🟥 DUA — Representación</ion-label>
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('rep_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1614,7 +1611,7 @@
                   </ion-accordion>
                   <ion-accordion value="ace_cap9_2" class="dua-accordion ace ion-margin-vertical">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_2', duaGroupCap9_3)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_2')">
-                      <ion-label>🟦 DUA — Acción y Expresión</ion-label>
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('ace_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1628,7 +1625,7 @@
                   </ion-accordion>
                   <ion-accordion value="imp_cap9_2" class="dua-accordion imp">
                     <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_2', duaGroupCap9_3)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_2')">
-                      <ion-label>🟩 DUA — Implicación</ion-label>
+                      <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
                       <span class="scr-reader">({{ isExpanded('imp_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
@@ -1654,7 +1651,7 @@
               <div class="box box-note ion-margin-vertical" style="background-color: #dbeafe; border-color: #93c5fd; color: #1d4ed8;">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <div class="box-title" style="color: #1d4ed8;">Consideraciones de seguridad</div>
+                  <div class="box-title" style="color: #1d4ed8;">{{ 'EDUCADORES_PAGE.ATTENTION' | translate }}</div>
                   <p>La contraseña se envía en texto plano; NO es segura para aplicaciones reales.</p>
                   <p>Este proyecto sirve para aprender el concepto de transmisión de datos y control de acceso.</p>
                 </div>
@@ -1662,10 +1659,10 @@
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap9_4>
-                  <ion-accordion value="ace_cap9_2" class="dua-accordion ace">
-                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_2', duaGroupCap9_4)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_2')">
-                    <ion-label>🟦 DUA — Acción y Expresión</ion-label>
-                    <span class="scr-reader">({{ isExpanded('ace_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                  <ion-accordion value="ace_cap9_3" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap9_3', duaGroupCap9_4)" role="button" [attr.aria-expanded]="isExpanded('ace_cap9_3')">
+                    <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
+                    <span class="scr-reader">({{ isExpanded('ace_cap9_3') ? 'Extendido' : 'Contraído' }})</span>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
@@ -1676,10 +1673,10 @@
                     </ul>
                   </div>
                 </ion-accordion>
-                <ion-accordion value="imp_cap9_2" class="dua-accordion imp ion-margin-vertical">
-                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_2', duaGroupCap9_4)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_2')">
-                    <ion-label>🟩 DUA — Implicación</ion-label>
-                    <span class="scr-reader">({{ isExpanded('imp_cap9_2') ? 'Extendido' : 'Contraído' }})</span>
+                <ion-accordion value="imp_cap9_3" class="dua-accordion imp ion-margin-vertical">
+                  <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'imp_cap9_3', duaGroupCap9_4)" role="button" [attr.aria-expanded]="isExpanded('imp_cap9_3')">
+                    <ion-label>🟩 {{ 'EDUCADORES_PAGE.DUA_IMP' | translate }}</ion-label>
+                    <span class="scr-reader">({{ isExpanded('imp_cap9_3') ? 'Extendido' : 'Contraído' }})</span>
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
@@ -1696,12 +1693,12 @@
           <!-- Module 10: Guía pedagógica DUA -->
           <div *ngIf="currentModule?.id === 'cap10' && userRole === 'educator'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🎓 Capítulo 10</div>
+              <div class="module-tag">🎓 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '10'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Estrategias didácticas, evaluación DUA-compatible, pair programming, gestión del aula y conexiones curriculares.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap10.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="primary" *ngIf="userRole === 'educator'">Educadores</ion-badge>
-                <ion-badge color="tertiary">Todos los niveles</ion-badge>
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.TITLE' | translate }}</ion-badge>
+                <ion-badge color="tertiary">{{ 'EDUCADORES_PAGE.MODULES_TITLE' | translate }}</ion-badge>
               </div>
             </div>
 
@@ -1885,12 +1882,12 @@
           <!-- Module 11: Accesibilidad y Diseño para Todos -->
           <div *ngIf="currentModule?.id === 'cap11'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">♿ Módulo 11</div>
+              <div class="module-tag">♿ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '11'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">Creación de productos finales accesibles: interfaces físicas adaptadas, salidas multimodales y código inclusivo.</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap11.desc' | translate }}</p>
               <div class="header-badges">
-                <ion-badge color="primary" *ngIf="userRole === 'educator'">Educadores</ion-badge>
-                <ion-badge color="tertiary">Diseño Inclusivo</ion-badge>
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.TITLE' | translate }}</ion-badge>
+                <ion-badge color="tertiary">{{ 'EDUCADORES_PAGE.PILL_DUA' | translate }}</ion-badge>
                 <ion-badge color="info">A11Y</ion-badge>
               </div>
             </div>
@@ -1918,7 +1915,7 @@
               <div class="box box-exercise ion-margin-vertical">
                 <span class="box-icon">✏️</span>
                 <div class="box-body">
-                  <p><strong>Reto:</strong> Crea un "pulsador" gigante usando papel de aluminio y pinzas de cocodrilo. Que al tocarlo, la micro:bit muestre un emoticono.</p>
+                  <p><strong>{{ 'EDUCADORES_PAGE.CHALLENGE' | translate }}:</strong> Crea un "pulsador" gigante usando papel de aluminio y pinzas de cocodrilo. Que al tocarlo, la micro:bit muestre un emoticono.</p>
                 </div>
               </div>
 
@@ -1931,7 +1928,7 @@
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
                 <span class="box-icon">💡</span>
                 <div class="box-body">
-                  <p><strong>Buenas prácticas:</strong> Usa nombres de variables descriptivos (ej: <code>nivel_luz</code> en lugar de <code>nl</code>). Añade comentarios claros explicando bloques de código complejos. Evita anidar excesivamente los condicionales.</p>
+                  <p><strong>{{ 'EDUCADORES_PAGE.TEACHING_TIP' | translate }}:</strong> Usa nombres de variables descriptivos (ej: <code>nivel_luz</code> en lugar de <code>nl</code>). Añade comentarios claros explicando bloques de código complejos. Evita anidar excesivamente los condicionales.</p>
                 </div>
               </div>
             </div>
@@ -1941,11 +1938,12 @@
           <div *ngIf="currentModule !== null && currentModule.id !== 'dua' && currentModule.id !== 'cap1' && currentModule.id !== 'cap2' && currentModule.id !== 'cap3' && currentModule.id !== 'cap4' && currentModule.id !== 'cap5' && currentModule.id !== 'cap6' && currentModule.id !== 'cap7' && currentModule.id !== 'cap8' && currentModule.id !== 'cap9' && currentModule.id !== 'cap10' && currentModule.id !== 'cap11'" class="ion-text-center ion-padding">
             <ion-icon name="construct-outline" size="large" color="medium"></ion-icon>
             <h2>Módulo en construcción</h2>
-            <p>El contenido de "{{ currentModule.title }}" se añadirá próximamente.</p>
-            <ion-button (click)="selectModule(null)">Volver al inicio</ion-button>
+            <p>{{ 'EDUCADORES_PAGE.MODULE_NOT_READY' | translate:{title: currentModule.title} }}</p>
+            <ion-button (click)="selectModule(null)">{{ 'EDUCADORES_PAGE.BACK_TO_HOME' | translate }}</ion-button>
           </div>
 
       </div>
     </ion-content>
+    </div>
     </ion-split-pane>
   </ng-container>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>11. kap.: Irisgarritasuna eta Diseinua — MicroPython Ikasgelan</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button class="menu-btn" id="menu-btn">☰</button>
+<div class="overlay" id="overlay"></div>
+<div class="layout">
+  <aside class="sidebar" id="sidebar"></aside>
+  <main class="main">
+    <div class="page-header">
+      <div class="chapter-tag">♿ 11. Kapitulua</div>
+      <h1>Irisgarritasuna eta Diseinua</h1>
+      <p class="subtitle">Azken produktu irisgarriak sortzea: egokitutako interfaze fisikoak, irteera multimodal-ak eta kode inklusiboa.</p>
+      <div class="header-badges">
+        <span class="badge badge-blue">Hezitzaileak</span>
+        <span class="badge badge-purple">Diseinu Inklusiboa</span>
+        <span class="badge badge-info">A11Y</span>
+      </div>
+    </div>
+    <div class="content" id="mc"></div>
+    <div id="page-nav"></div>
+  </main>
+</div>
+<script src="nav.js"></script>
+<script>
+initPage('cap11');
+document.getElementById('mc').innerHTML = `
+  <h2>11.1 Irteera Multimodalak</h2>
+  <p>Diseinatu zure proiektuak irteera sentsorial anitzekin (bisuala, soinuduna, taktila) funtziona dezaten eta guztientzako irisgarriak izan daitezen.</p>
+  
+  ${codeBlock('multimodal_agurra.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    'while True:',
+    '    if button_a.is_pressed():',
+    '        display.show(Image.HEART)',
+    '        music.play(music.PYTHON) # Python soinu laburra',
+    '    elif button_b.is_pressed():',
+    '        display.scroll("A11Y")',
+    '        music.pitch(440, 500) # La4 nota 0.5 seg-z',
+    '    else:',
+    '        display.clear()',
+    '        music.stop() # Soinua gelditu ekintzarik ez badago',
+    '    sleep(100)'
+  ])}
+
+  ${noteBox([
+    '<strong>Erredundantzia:</strong> Ahal denean, konbinatu informazio bisuala (LEDak, testua) eta soinuduna (be-beak, musika). Horrek ikusmen urriko, gortasuneko edo arreta-zailtasunetako ikasleei mesede egiten die.'
+  ])}
+
+  <h2>11.2 Egokitutako interfaze fisikoak</h2>
+  <p>Sortu kontrol handiagoak eta erabilerrazagoak micro:bit-en pinen eta material eroaleen bidez.</p>
+
+  ${codeBlock('botoi_erraldoiak.py', [
+    'from microbit import *',
+    '',
+    '# 0 eta 1 pinak sarrera gisa (botoiak)',
+    '# Konektatu 0 pina GNDra botoi ERRALDOIA sakatzeko',
+    '',
+    'while True:',
+    '    if pin0.is_touched(): # Pin-a GNDra konektatuta dagoen detektatzen du',
+    '        display.show(Image.YES)',
+    '    elif pin1.is_touched():',
+    '        display.show(Image.NO)',
+    '    else:',
+    '        display.clear()',
+    '    sleep(50)'
+  ])}
+
+  ${exerciseBox('Erronka: Botoi Erraldoia', [
+    'Sortu "sakagailu" erraldoi bat aluminiozko papera eta krokodilo-pintzak erabiliz. Ukitzean, micro:bit-ek emotikono bat erakutsi dezala.'
+  ])}
+
+  <h2>11.3 Pantaila-irakurgailuentzako kode inklusiboa</h2>
+  <p>Idatzi ulertzeko eta nabigatzeko erraza den kodea, bai zure ikasleentzat, bai zuretzat pantaila-irakurgailuak erabiltzen badituzu.</p>
+
+  ${codeBlock('akelerometro_laguntzailea.py', [
+    'from microbit import *',
+    '',
+    '# Kontrol egokituaren adibide kontzeptuala',
+    'while True:',
+    '    x = accelerometer.get_x()',
+    '    y = accelerometer.get_y()',
+    '',
+    '    # Erabili aldagai-izen deskribatzaileak',
+    '    # Gehitu iruzkin argiak logika azalduz',
+    '',
+    '    if button_a.was_pressed():',
+    '        print("MOUSE_LEFT_CLICK")',
+    '',
+    '    sleep(50)'
+  ])}
+
+  ${tipBox([
+    '<strong>Jarduunbide egokiak:</strong> Erabili aldagai-izen deskribatzaileak (adib: <code>argi_maila</code>, <code>am</code>-ren ordez). Gehitu iruzkin argiak kode-bloke konplexuak azalduz. Saihestu baldintzazkoak gehiegi habiaratzea.'
+  ])}
+`;
+</script>
+</body>
+</html>

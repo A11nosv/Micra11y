@@ -1,45 +1,43 @@
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule, IonContent } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSplitPane, IonMenu, IonList, IonListHeader, IonItem, IonLabel, IonMenuToggle, IonBadge, IonAccordionGroup, IonAccordion, IonBackButton, IonMenuButton } from '@ionic/angular/standalone';
 import { RouterLink, ActivatedRoute } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { LanguageChooserComponent } from '../../components/language-chooser/language-chooser.component';
 import { Highlight } from 'ngx-highlightjs';
+import { Subscription } from 'rxjs';
+import { LanguageService } from '../../services/language.service';
+import { addIcons } from 'ionicons';
+import { accessibilityOutline, constructOutline, homeOutline, schoolOutline, bookOutline, documentTextOutline, chevronForwardOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-educadores',
   templateUrl: './educadores.page.html',
   styleUrls: ['./educadores.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, RouterLink, TranslateModule, LanguageChooserComponent, Highlight]
+  imports: [
+    IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent, IonSplitPane, IonMenu, IonList, IonListHeader, IonItem, IonLabel, IonMenuToggle, IonBadge, IonAccordionGroup, IonAccordion, IonBackButton, IonMenuButton,
+    CommonModule, FormsModule, RouterLink, TranslateModule, LanguageChooserComponent, Highlight]
 })
-export class EducadoresPage implements OnInit {
+export class EducadoresPage implements OnInit, OnDestroy {
   @ViewChild('mainContent', { static: false }) content!: IonContent;
   
   private route = inject(ActivatedRoute);
+  private translate = inject(TranslateService);
+  private languageService = inject(LanguageService);
+  private langSub!: Subscription;
+
   userRole: 'educator' | 'student' = 'educator';
   
   currentModule: any = null;
   openAccordions: string[] = [];
 
-  modules = [
-    { id: 'dua',      num: '00', title: 'DUA en este manual',           icon: '♿', desc: 'El marco DUA: sus 3 principios y cómo leer las marcas en este manual.', educatorOnly: true },
-    { id: 'cap1',     num: '01', title: 'Entorno de trabajo',           icon: '🖥️', desc: 'Editor online, primer programa y carga de imágenes en los LEDs.' },
-    { id: 'cap2',     num: '02', title: 'Variables y tipos de datos',   icon: '📦', desc: 'Variables, tipos de datos, operaciones y el sensor de temperatura.' },
-    { id: 'cap3',     num: '03', title: 'Condicionales',                icon: '🚦', desc: 'Condicionales if/elif/else, botones A y B, y toma de decisiones.' },
-    { id: 'cap4',     num: '04', title: 'Bucles',                       icon: '🔄', desc: 'Bucles while y for, animaciones LED y patrones con píxeles.' },
-    { id: 'cap5',     num: '05', title: 'Listas y funciones',           icon: '🧩', desc: 'Listas como colecciones de datos y funciones reutilizables.' },
-    { id: 'cap6',     num: '06', title: 'Sensores',                     icon: '🌡️', desc: 'Acelerómetro, gestos predefinidos, sensor de luz, temperatura y micrófono.' },
-    { id: 'cap7',     num: '07', title: 'Sonido y música',              icon: '🎵', desc: 'Melodías predefinidas, composición con notas y frecuencias.' },
-    { id: 'cap8',     num: '08', title: 'Comunicación radio',           icon: '📡', desc: 'Comunicación inalámbrica radio entre varias micro:bits.' },
-    { id: 'cap9',     num: '09', title: 'Proyectos completos',          icon: '🚀', desc: 'Cuatro proyectos completos con tres niveles DUA cada uno.' },
-    { id: 'cap10',    num: '10', title: 'Guía pedagógica DUA',          icon: '🎓', desc: 'Estrategias pedagógicas DUA, evaluación y gestión del aula.', educatorOnly: true },
-    { id: 'cap11',    num: '11', title: 'Accesibilidad y Diseño',       icon: '♿', desc: 'Creación de productos finales accesibles: interfaces físicas adaptadas, salidas multimodales y código inclusivo.' },
-    { id: 'apendice', num: 'A',  title: 'Referencia rápida',            icon: '📋', desc: 'Referencia rápida de funciones, errores frecuentes y glosario.' },
-  ];
+  modules: any[] = [];
 
-  constructor() { }
+  constructor() { 
+    addIcons({ accessibilityOutline, constructOutline, homeOutline, schoolOutline, bookOutline, documentTextOutline, chevronForwardOutline });
+  }
 
   ngOnInit() {
     // Detect role based on URL
@@ -48,6 +46,48 @@ export class EducadoresPage implements OnInit {
       this.userRole = 'student';
     } else {
       this.userRole = 'educator';
+    }
+
+    // Subscribe to language changes to update translated modules
+    this.langSub = this.languageService.currentLanguage$.subscribe(() => {
+      this.updateModulesTranslation();
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.langSub) {
+      this.langSub.unsubscribe();
+    }
+  }
+
+  updateModulesTranslation() {
+    const moduleIds = [
+      { id: 'dua',      num: '00', icon: '♿', educatorOnly: true },
+      { id: 'cap1',     num: '01', icon: '🖥️' },
+      { id: 'cap2',     num: '02', icon: '📦' },
+      { id: 'cap3',     num: '03', icon: '🚦' },
+      { id: 'cap4',     num: '04', icon: '🔄' },
+      { id: 'cap5',     num: '05', icon: '🧩' },
+      { id: 'cap6',     num: '06', icon: '🌡️' },
+      { id: 'cap7',     num: '07', icon: '🎵' },
+      { id: 'cap8',     num: '08', icon: '📡' },
+      { id: 'cap9',     num: '09', icon: '🚀' },
+      { id: 'cap10',    num: '10', icon: '🎓', educatorOnly: true },
+      { id: 'cap11',    num: '11', icon: '♿' },
+      { id: 'apendice', num: 'A',  icon: '📋' },
+    ];
+
+    this.modules = moduleIds.map(m => {
+      return {
+        ...m,
+        title: this.translate.instant(`EDUCADORES_PAGE.MODULES.${m.id}.title`),
+        desc: this.translate.instant(`EDUCADORES_PAGE.MODULES.${m.id}.desc`)
+      };
+    });
+
+    // If a module is selected, update its reference to reflect translation changes
+    if (this.currentModule) {
+      this.currentModule = this.modules.find(m => m.id === this.currentModule.id);
     }
   }
 

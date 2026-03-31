@@ -587,6 +587,105 @@
     "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo No accesible",
     "ACCESSIBLE_EXAMPLE_BUTTON": "Ejemplo Accesible"
   },
+  "EDUCADORES_PAGE": {
+    "TITLE": "Área de Educadores",
+    "SUBTITLE": "Guía práctica con micro:bit diseñada con el marco DUA para una enseñanza inclusiva.",
+    "HERO_MAIN_TITLE": "Aprende Python con micro:bit",
+    "HERO_TITLE": "MicroPython en el Aula",
+    "HERO_SUBTITLE": "Manual con enfoque DUA",
+    "HEAD_1": "Aprende",
+    "HEAD_Py": "Python",
+    "HEADE_2": "con micro:bit",
+    "HERO_DESC": "Guia práctica con micro:bit para educadores de Primaria y Secundaria. Diseñada con el marco del Diseño Universal para el Aprendizaje (DUA) para que todos los alumnos puedan participar.",
+    "PILL_LEVELS": "🎓 Primaria y Secundaria",
+    "PILL_AGES": "🎯 6–16 años",
+    "PILL_HARDWARE": "🔧 micro:bit v1/v2",
+    "PILL_DUA": "♿ DUA",
+    "MODULES_TITLE": "Módulos del manual",
+    "HOW_TO_USE_TITLE": "Cómo usar este sitio",
+    "HOW_TO_USE_1": "Navega por la barra lateral para ir directamente a cualquier capítulo.",
+    "HOW_TO_USE_2": "Cada ejercicio tiene cajas DUA desplegables (🟥🟦🟩) con adaptaciones concretas.",
+    "HOW_TO_USE_3": "Los ejercicios están marcados por nivel: Iniciación, Básico, Intermedio o Avanzado.",
+    "BACK_TO_HOME": "Volver al inicio",
+    "MODULE_NOT_READY": "El contenido de \"{{ title }}\" se añadirá próximamente.",
+    "MODULE_IN_CONSTRUCTION": "Módulo en construcción",
+    "SECTION_GENERAL": "General",
+    "SECTION_CHAPTERS": "Capítulos",
+    "SECTION_GUIDE": "Proyectos y Guía",
+    "SECTION_REFERENCE": "Referencia",
+    "SIDEBAR_TITLE": "microPython en el Aula",
+    "SIDEBAR_SUBTITLE": "Manual con enfoque DUA",
+    "PREVIOUS": "Anterior",
+    "NEXT": "Siguiente",
+    "DUA_REP": "DUA — Representación",
+    "DUA_ACE": "DUA — Acción y Expresión",
+    "DUA_IMP": "DUA — Implicación",
+    "NOTE_FOR_TEACHER": "Nota para el educador",
+    "TEACHING_TIP": "Consejo didáctico",
+    "ATTENTION": "Atención",
+    "KEY_CONCEPT": "Concepto clave",
+    "EXERCISE": "Ejercicio",
+    "CHALLENGE": "Reto",
+    "MODULE_NUM": "Módulo {{num}}",
+    "LEVEL_1": "🟢 Iniciación (6-8)",
+    "LEVEL_2": "🟡 Básico (9-11)",
+    "LEVEL_3": "🟠 Intermedio (12-13)",
+    "LEVEL_4": "🔴 Avanzado (14-16)",
+    "MODULES": {
+      "dua": {
+        "title": "DUA en este manual",
+        "desc": "El marco DUA: sus 3 principios y cómo leer las marcas en este manual."
+      },
+      "cap1": {
+        "title": "Entorno de trabajo",
+        "desc": "Editor online, primer programa y carga de imágenes en los LEDs."
+      },
+      "cap2": {
+        "title": "Variables y tipos de datos",
+        "desc": "Variables, tipos de datos, operaciones y el sensor de temperatura."
+      },
+      "cap3": {
+        "title": "Condicionales",
+        "desc": "Condicionales if/elif/else, botones A y B, y toma de decisiones."
+      },
+      "cap4": {
+        "title": "Bucles",
+        "desc": "Bucles while y for, animaciones LED y patrones con píxeles."
+      },
+      "cap5": {
+        "title": "Listas y funciones",
+        "desc": "Listas como colecciones de datos y funciones reutilizables."
+      },
+      "cap6": {
+        "title": "Sensores",
+        "desc": "Acelerómetro, gestos predefinidos, sensor de luz, temperatura y micrófono."
+      },
+      "cap7": {
+        "title": "Sonido y música",
+        "desc": "Melodías predefinidas, composición con notas y frecuencias."
+      },
+      "cap8": {
+        "title": "Comunicación radio",
+        "desc": "Comunicación inalámbrica radio entre varias micro:bits."
+      },
+      "cap9": {
+        "title": "Proyectos completos",
+        "desc": "Cuatro proyectos completos con tres niveles DUA cada uno."
+      },
+      "cap10": {
+        "title": "Guía pedagógica DUA",
+        "desc": "Estrategias pedagógicas DUA, evaluación y gestión del aula."
+      },
+      "cap11": {
+        "title": "Accesibilidad y Diseño",
+        "desc": "Creación de productos finales accesibles: interfaces físicas adaptadas, salidas multimodales y código inclusivo."
+      },
+      "apendice": {
+        "title": "Referencia rápida",
+        "desc": "Referencia rápida de funciones, errores frecuentes y glosario."
+      }
+    }
+  },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Evaluador de accesibilidad",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidad (Automática)",
   "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprobar Accesibilidad (Manual)",

@@ -11,12 +11,13 @@ const PAGES=[
   {id:'cap8',file:"cap8.html",num:'08',title:'Comunicacion radio',icon:'📡'},
   {id:'cap9',file:"cap9.html",num:'09',title:'Proxectos completos',icon:'🚀'},
   {id:'cap10',file:"cap10.html",num:'10',title:'Guia pedagoxica DUA',icon:'🎓'},
+  {id:'cap11',file:"cap11.html",num:'11',title:'Accesibilidade e Deseño',icon:'♿'},
   {id:'apendice',file:"apendice.html",num:'A',title:'Referencia rapida',icon:'📋'},
 ];
 const SECS=[
   {title:'Xeral',ids:['index','dua']},
   {title:'Capítulos',ids:['cap1','cap2','cap3','cap4','cap5','cap6','cap7','cap8']},
-  {title:'Proxectos e Guía',ids:['cap9','cap10']},
+  {title:'Proxectos e Guía',ids:['cap9','cap10','cap11']},
   {title:'Referencia',ids:['apendice']},
 ];
 function buildSidebar(a){

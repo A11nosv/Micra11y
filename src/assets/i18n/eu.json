@@ -639,7 +639,106 @@
     "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Adibide ez-irisgarria",
     "ACCESSIBLE_EXAMPLE_BUTTON": "Adibide Irisgarria"
   },
-  "ACCESSIBILITY_EVALUATOR_TITLE": "Irisgarritasun Ebaluatzailea",
+  "EDUCADORES_PAGE": {
+    "TITLE": "Hezitzaileen Arloa",
+    "SUBTITLE": "Irakaskuntza inklusiborako DBU markoaren bidez diseinatutako micro:bit-erako gida praktikoa.",
+    "HERO_MAIN_TITLE": "Ikasi Python micro:bit-ekin",
+    "HERO_TITLE": "MicroPython Ikasgelan",
+    "HERO_SUBTITLE": "DBU ikuspegidun eskuliburua",
+    "HEAD_1": "Ikasi",
+    "HEAD_Py": "Python",
+    "HEADE_2": "micro:bit-ekin",
+    "HERO_DESC": "micro:bit-ekin Lehen eta Bigarren Hezkuntzako irakasleekin programatzeko gida praktikoa. Ikaskuntza Diseinu Unibertsala (DBU) markoaren bidez diseinatua, ikasle guztiek parte har dezaten.",
+    "PILL_LEVELS": "🎓 LH eta DBH",
+    "PILL_AGES": "🎯 6–16 urte",
+    "PILL_HARDWARE": "🔧 micro:bit v1/v2",
+    "PILL_DUA": "♿ DUA",
+    "MODULES_TITLE": "Eskuliburuaren moduluak",
+    "HOW_TO_USE_TITLE": "Nola erabili gune hau",
+    "HOW_TO_USE_1": "Erabili alboko barra edozein kapituluratara zuzenean joateko.",
+    "HOW_TO_USE_2": "Jarduera bakoitzak DBU lauki tolesgarriak (🟥🟦🟩) ditu egokitzapen zehatzak.",
+    "HOW_TO_USE_3": "Jarduerak mailaren arabera markatuta daude: Hasiera, Oinarrizkoa, Ertaina edo Aurreratua.",
+    "BACK_TO_HOME": "Hasierara itzuli",
+    "MODULE_NOT_READY": "\"{{ title }}\"-(r)en edukia laster gehituko da.",
+    "MODULE_IN_CONSTRUCTION": "Modulua eraikitzen",
+    "SECTION_GENERAL": "Orokorra",
+    "SECTION_CHAPTERS": "Kapituluak",
+    "SECTION_GUIDE": "Proiektuak eta Gida",
+    "SECTION_REFERENCE": "Erreferentzia",
+    "SIDEBAR_TITLE": "microPython Ikasgelan",
+    "SIDEBAR_SUBTITLE": "DBU ikuspegidun eskuliburua",
+    "PREVIOUS": "Aurrekoa",
+    "NEXT": "Hurrengoa",
+    "DUA_REP": "DBU — Irudikapena",
+    "DUA_ACE": "DBU — Ekintza eta Adierazpena",
+    "DUA_IMP": "DBU — Inplikazioa",
+    "NOTE_FOR_TEACHER": "Irakaslearentzako oharra",
+    "TEACHING_TIP": "Aholku didaktikoa",
+    "ATTENTION": "Kontuz",
+    "KEY_CONCEPT": "Kontzeptu gakoa",
+    "EXERCISE": "Jarduera",
+    "CHALLENGE": "Erronka",
+    "MODULE_NUM": "Modulua {{num}}",
+    "LEVEL_1": "🟢 Hasiera (6-8)",
+    "LEVEL_2": "🟡 Oinarrizkoa (9-11)",
+    "LEVEL_3": "🟠 Ertaina (12-13)",
+    "LEVEL_4": "🔴 Aurreratua (14-16)",
+    "MODULES": {
+      "dua": {
+        "title": "DBU eskuliburuan",
+        "desc": "DBUren 3 printzipioak eta eskuliburuko markak nola irakurri."
+      },
+      "cap1": {
+        "title": "Ingurunea prestatzen",
+        "desc": "Lineako editorea, lehen programa eta LED irudiak."
+      },
+      "cap2": {
+        "title": "Aldagaiak eta datu motak",
+        "desc": "Aldagaiak, datu motak, eragiketak eta tenperatura sentsorea."
+      },
+      "cap3": {
+        "title": "Baldintzazkoak",
+        "desc": "if/elif/else baldintzazkoak, A eta B botoiak, eta erabakiak hartzea."
+      },
+      "cap4": {
+        "title": "Begiztak",
+        "desc": "while eta for begiztak, LED animazioak eta pixel-ereduak."
+      },
+      "cap5": {
+        "title": "Zerrendak eta funtzioak",
+        "desc": "Zerrendak datu-bilduma gisa eta funtzio berrerabilgarriak."
+      },
+      "cap6": {
+        "title": "Sentsoreak",
+        "desc": "Azelerometroa, aurredefinitutako keinuak, argi sentsorea, tenperatura eta mikrofonoa."
+      },
+      "cap7": {
+        "title": "Soinua eta musika",
+        "desc": "Aurredefinitutako melodiak, notekin eta maiztasunekin konposizioa."
+      },
+      "cap8": {
+        "title": "Irrati komunikazioa",
+        "desc": "Haririk gabeko irrati-komunikazioa hainbat micro:biten artean."
+      },
+      "cap9": {
+        "title": "Proiektu osoak",
+        "desc": "Lau proiektu oso hiru DBU maila bakoitzarekin."
+      },
+      "cap10": {
+        "title": "Gida pedagogikoa DUA",
+        "desc": "DBU estrategiak, ebaluazioa eta gela-kudeaketa."
+      },
+      "cap11": {
+        "title": "Irisgarritasuna eta Diseinua",
+        "desc": "Azken produktu irisgarriak sortzea: egokitutako interfaze fisikoak, irteera multimodal-ak eta kode inklusiboa."
+      },
+      "apendice": {
+        "title": "Erreferentzia azkarra",
+        "desc": "Funtzioen erreferentzia azkarra, ohiko akatsak eta hiztegia."
+      }
+    }
+  },
+  "ACCESSIBILITY_EVALUATOR_TITLE": "Irisgarritasun ebaluatzailea",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Irisgarritasuna Egiaztatu (Automatikoa)",
   "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Irisgarritasuna Egiaztatu (Eskuzkoa)",
   "SETTINGS_TITLE": "Ezarpenak",

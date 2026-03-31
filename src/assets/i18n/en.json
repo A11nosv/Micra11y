@@ -744,6 +744,105 @@
       "PROJECT_PUBLISHED_SUCCESS": "Project published successfully! 🎉"
     }
   },
+  "EDUCADORES_PAGE": {
+    "TITLE": "Educators Area",
+    "SUBTITLE": "Practical guide with micro:bit designed with the UDL framework for inclusive teaching.",
+    "HERO_MAIN_TITLE": "Learn Python with micro:bit",
+    "HERO_TITLE": "MicroPython in the Classroom",
+    "HERO_SUBTITLE": "Manual with UDL approach",
+    "HEAD_1": "Learn",
+    "HEAD_Py": "Python",
+    "HEADE_2": "with micro:bit",
+    "HERO_DESC": "Practical guide with micro:bit for Primary and Secondary teachers. Designed with the Universal Design for Learning (UDL) framework so all students can participate.",
+    "PILL_LEVELS": "🎓 Primary & Secondary",
+    "PILL_AGES": "🎯 6–16 years",
+    "PILL_HARDWARE": "🔧 micro:bit v1/v2",
+    "PILL_DUA": "♿ UDL",
+    "MODULES_TITLE": "Manual modules",
+    "HOW_TO_USE_TITLE": "How to use this site",
+    "HOW_TO_USE_1": "Use the sidebar to navigate directly to any chapter.",
+    "HOW_TO_USE_2": "Each exercise has collapsible UDL boxes (🟥🟦🟩) with concrete adaptations.",
+    "HOW_TO_USE_3": "Exercises are labelled by level: Starter, Basic, Intermediate or Advanced.",
+    "BACK_TO_HOME": "Back to home",
+    "MODULE_NOT_READY": "The content of \"{{ title }}\" will be added soon.",
+    "MODULE_IN_CONSTRUCTION": "Module under construction",
+    "SECTION_GENERAL": "General",
+    "SECTION_CHAPTERS": "Chapters",
+    "SECTION_GUIDE": "Projects & Guide",
+    "SECTION_REFERENCE": "Reference",
+    "SIDEBAR_TITLE": "microPython in the Classroom",
+    "SIDEBAR_SUBTITLE": "Manual with UDL approach",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next",
+    "DUA_REP": "UDL — Representation",
+    "DUA_ACE": "UDL — Action & Expression",
+    "DUA_IMP": "UDL — Engagement",
+    "NOTE_FOR_TEACHER": "Note for the teacher",
+    "TEACHING_TIP": "Teaching tip",
+    "ATTENTION": "Warning",
+    "KEY_CONCEPT": "Key concept",
+    "EXERCISE": "Exercise",
+    "CHALLENGE": "Challenge",
+    "MODULE_NUM": "Module {{num}}",
+    "LEVEL_1": "🟢 Starter (6-8)",
+    "LEVEL_2": "🟡 Basic (9-11)",
+    "LEVEL_3": "🟠 Intermediate (12-13)",
+    "LEVEL_4": "🔴 Advanced (14-16)",
+    "MODULES": {
+      "dua": {
+        "title": "UDL in this manual",
+        "desc": "The UDL framework: its 3 principles and how to read the markers in this manual."
+      },
+      "cap1": {
+        "title": "Setting up",
+        "desc": "Online editor, first program and loading images on LEDs."
+      },
+      "cap2": {
+        "title": "Variables & data types",
+        "desc": "Variables, data types, operations and the temperature sensor."
+      },
+      "cap3": {
+        "title": "Conditionals",
+        "desc": "if/elif/else conditionals, A and B buttons, and decision making."
+      },
+      "cap4": {
+        "title": "Loops",
+        "desc": "while and for loops, LED animations and pixel patterns."
+      },
+      "cap5": {
+        "title": "Lists & functions",
+        "desc": "Lists as data collections and reusable functions."
+      },
+      "cap6": {
+        "title": "Sensors",
+        "desc": "Accelerometer, predefined gestures, light, temperature and microphone sensors."
+      },
+      "cap7": {
+        "title": "Sound & music",
+        "desc": "Predefined melodies, composition with notes and frequencies."
+      },
+      "cap8": {
+        "title": "Radio communication",
+        "desc": "Wireless radio communication between several micro:bits."
+      },
+      "cap9": {
+        "title": "Complete projects",
+        "desc": "Four complete projects with three UDL levels each."
+      },
+      "cap10": {
+        "title": "Pedagogical Guide",
+        "desc": "UDL strategies, evaluation and classroom management."
+      },
+      "cap11": {
+        "title": "Accessibility and Design",
+        "desc": "Creating accessible end products: adapted physical interfaces, multimodal outputs, and inclusive code."
+      },
+      "apendice": {
+        "title": "Quick Reference",
+        "desc": "Quick reference of functions, common errors and glossary."
+      }
+    }
+  },
   "TAG_CATEGORIES": {
     "GENERAL": "General",
     "MICROBIT": "Micro:bit",

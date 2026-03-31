@@ -592,6 +592,105 @@
     "NON_ACCESSIBLE_EXAMPLE_BUTTON": "Exemplo non accesible",
     "ACCESSIBLE_EXAMPLE_BUTTON": "Exemplo Accesible"
   },
+  "EDUCADORES_PAGE": {
+    "TITLE": "Área de Educadores",
+    "SUBTITLE": "Guía práctica con micro:bit deseñada co marco DUA para un ensino inclusivo.",
+    "HERO_MAIN_TITLE": "Aprende Python con micro:bit",
+    "HERO_TITLE": "MicroPython na Aula",
+    "HERO_SUBTITLE": "Manual con enfoque DUA",
+    "HEAD_1": "Aprende",
+    "HEAD_Py": "Python",
+    "HEADE_2": "con micro:bit",
+    "HERO_DESC": "Guía práctica con micro:bit para educadores de Primaria e Secundaria. Deseñada co marco do Deseño Universal para a Aprendizaxe (DUA) para que todos os alumnos poidan participar.",
+    "PILL_LEVELS": "🎓 Primaria e Secundaria",
+    "PILL_AGES": "🎯 6–16 anos",
+    "PILL_HARDWARE": "🔧 micro:bit v1/v2",
+    "PILL_DUA": "♿ DUA",
+    "MODULES_TITLE": "Módulos do manual",
+    "HOW_TO_USE_TITLE": "Como usar este sitio",
+    "HOW_TO_USE_1": "Navega pola barra lateral para ir directamente a calquera capítulo.",
+    "HOW_TO_USE_2": "Cada exercicio ten caixas DUA desplegables (🟥🟦🟩) con adaptacións concretas.",
+    "HOW_TO_USE_3": "Os exercicios están marcados por nivel: Iniciación, Básico, Intermedio ou Avanzado.",
+    "BACK_TO_HOME": "Volver ao inicio",
+    "MODULE_NOT_READY": "O contido de \"{{ title }}\" engadirase proximamente.",
+    "MODULE_IN_CONSTRUCTION": "Módulo en construción",
+    "SECTION_GENERAL": "Xeral",
+    "SECTION_CHAPTERS": "Capítulos",
+    "SECTION_GUIDE": "Proxectos e Guía",
+    "SECTION_REFERENCE": "Referencia",
+    "SIDEBAR_TITLE": "microPython na Aula",
+    "SIDEBAR_SUBTITLE": "Manual con enfoque DUA",
+    "PREVIOUS": "Anterior",
+    "NEXT": "Seguinte",
+    "DUA_REP": "DUA — Representación",
+    "DUA_ACE": "DUA — Acción e Expresión",
+    "DUA_IMP": "DUA — Implicación",
+    "NOTE_FOR_TEACHER": "Nota para o educador",
+    "TEACHING_TIP": "Consello didáctico",
+    "ATTENTION": "Atención",
+    "KEY_CONCEPT": "Concepto clave",
+    "EXERCISE": "Exercicio",
+    "CHALLENGE": "Reto",
+    "MODULE_NUM": "Módulo {{num}}",
+    "LEVEL_1": "🟢 Iniciación (6-8)",
+    "LEVEL_2": "🟡 Básico (9-11)",
+    "LEVEL_3": "🟠 Intermedio (12-13)",
+    "LEVEL_4": "🔴 Avanzado (14-16)",
+    "MODULES": {
+      "dua": {
+        "title": "DUA neste manual",
+        "desc": "Os 3 principios DUA e como ler as marcas neste manual."
+      },
+      "cap1": {
+        "title": "Contorno de traballo",
+        "desc": "Editor en liña, primeiro programa e imaxes nos LEDs."
+      },
+      "cap2": {
+        "title": "Variables e tipos de datos",
+        "desc": "Variables, tipos de datos e o sensor de temperatura."
+      },
+      "cap3": {
+        "title": "Condicionais",
+        "desc": "Condicionais if/elif/else, botóns A e B."
+      },
+      "cap4": {
+        "title": "Bucles",
+        "desc": "Bucles while e for, animacións LED."
+      },
+      "cap5": {
+        "title": "Listas e funcións",
+        "desc": "Listas e funcións reutilizables."
+      },
+      "cap6": {
+        "title": "Sensores",
+        "desc": "Acelerómetro, xestos, sensores de luz e temperatura."
+      },
+      "cap7": {
+        "title": "Son e música",
+        "desc": "Melodías e composición con notas."
+      },
+      "cap8": {
+        "title": "Comunicación radio",
+        "desc": "Comunicación radio entre micro:bits."
+      },
+      "cap9": {
+        "title": "Proxectos completos",
+        "desc": "Catro proxectos con tres niveis DUA."
+      },
+      "cap10": {
+        "title": "Guia pedagoxica DUA",
+        "desc": "Estratexias DUA, avaliacion e xestion da aula."
+      },
+      "cap11": {
+        "title": "Accesibilidade e Deseño",
+        "desc": "Creación de produtos finais accesibles: interfaces físicas adaptadas, saídas multimodales e código inclusivo."
+      },
+      "apendice": {
+        "title": "Referencia rapida",
+        "desc": "Referencia rapida, erros frecuentes e glosario."
+      }
+    }
+  },
   "ACCESSIBILITY_EVALUATOR_TITLE": "Avaliador de accesibilidade",
   "COMPROBAR_ACCESIBILIDAD_TITLE": "Comprobar Accesibilidade (Automática)",
   "COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE": "Comprobar Accesibilidade (Manual)",
