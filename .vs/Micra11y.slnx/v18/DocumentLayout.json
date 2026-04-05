@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\App\\Apps\\Ionic\\Micra11y\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\App\\Apps\\Ionic\\Micra11y\\src\\assets\\i18n\\es.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\assets\\i18n\\es.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\App\\Apps\\Ionic\\Micra11y\\src\\app\\micropython\\educadores\\educadores.page.html||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\micropython\\educadores\\educadores.page.html||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,15 +18,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "es.json",
+              "DocumentMoniker": "D:\\App\\Apps\\Ionic\\Micra11y\\src\\assets\\i18n\\es.json",
+              "RelativeDocumentMoniker": "src\\assets\\i18n\\es.json",
+              "ToolTip": "D:\\App\\Apps\\Ionic\\Micra11y\\src\\assets\\i18n\\es.json",
+              "RelativeToolTip": "src\\assets\\i18n\\es.json",
+              "ViewState": "AgIAAJgEAAAAAAAAAADwv8EEAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-02T08:10:04.5Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "educadores.page.html",
+              "DocumentMoniker": "D:\\App\\Apps\\Ionic\\Micra11y\\src\\app\\micropython\\educadores\\educadores.page.html",
+              "RelativeDocumentMoniker": "src\\app\\micropython\\educadores\\educadores.page.html",
+              "ToolTip": "D:\\App\\Apps\\Ionic\\Micra11y\\src\\app\\micropython\\educadores\\educadores.page.html",
+              "RelativeToolTip": "src\\app\\micropython\\educadores\\educadores.page.html",
+              "ViewState": "AgIAADEFAAAAAAAAAAAAADEFAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-04-01T08:53:23.276Z",
+              "EditorCaption": ""
             }
           ]
         }
