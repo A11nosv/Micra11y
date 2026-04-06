@@ -395,11 +395,12 @@
               <div class="code-header">
                 <span>{{ 'EDUCADORES_PAGE.MODULES.cap1.code' | translate }}</span>
                 <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_1_1, 'c1_1')" [class.copying]="copyStates['c1_1'] === 'copying'" [class.copied]="copyStates['c1_1'] === 'copied'" class="copy-btn">
-                  <ion-icon [name]="copyStates['c1_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                  <span class="copy-label">
-                    {{ (copyStates['c1_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                        copyStates['c1_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                  <ion-icon *ngIf="copyStates['c1_1'] === 'idle' || !copyStates['c1_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                  <span *ngIf="copyStates['c1_1'] === 'copying'" class="copy-label">
+                    {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                   </span>
+                  <ion-icon *ngIf="copyStates['c1_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                  
                   <span class="scr-reader">
                     {{ (copyStates['c1_1'] === 'copied' ? 
                        ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap1.code' | translate)}) : 
@@ -460,11 +461,12 @@
               <div class="code-header">
                 <span>{{ 'EDUCADORES_PAGE.MODULES.cap1.code2' | translate }}</span>
                 <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_1_2, 'c1_2')" [class.copying]="copyStates['c1_2'] === 'copying'" [class.copied]="copyStates['c1_2'] === 'copied'" class="copy-btn">
-                  <ion-icon [name]="copyStates['c1_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                  <span class="copy-label">
-                    {{ (copyStates['c1_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                        copyStates['c1_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                  <ion-icon *ngIf="copyStates['c1_2'] === 'idle' || !copyStates['c1_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                  <span *ngIf="copyStates['c1_2'] === 'copying'" class="copy-label">
+                    {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                   </span>
+                  <ion-icon *ngIf="copyStates['c1_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                  
                   <span class="scr-reader">
                     {{ (copyStates['c1_2'] === 'copied' ? 
                        ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap1.code2' | translate)}) : 
@@ -566,11 +568,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap2.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_2_1, 'c2_1')" [class.copying]="copyStates['c2_1'] === 'copying'" [class.copied]="copyStates['c2_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c2_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c2_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c2_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c2_1'] === 'idle' || !copyStates['c2_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c2_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c2_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c2_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap2.code1' | translate)}) : 
@@ -595,11 +598,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap2.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_2_2, 'c2_2')" [class.copying]="copyStates['c2_2'] === 'copying'" [class.copied]="copyStates['c2_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c2_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c2_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c2_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c2_2'] === 'idle' || !copyStates['c2_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c2_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c2_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c2_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap2.code2' | translate)}) : 
@@ -649,11 +653,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap2.code3' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_2_3, 'c2_3')" [class.copying]="copyStates['c2_3'] === 'copying'" [class.copied]="copyStates['c2_3'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c2_3'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c2_3'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c2_3'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c2_3'] === 'idle' || !copyStates['c2_3']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c2_3'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c2_3'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c2_3'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap2.code3' | translate)}) : 
@@ -713,11 +718,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap3.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_3_1, 'c3_1')" [class.copying]="copyStates['c3_1'] === 'copying'" [class.copied]="copyStates['c3_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c3_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c3_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c3_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c3_1'] === 'idle' || !copyStates['c3_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c3_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c3_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c3_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap3.code1' | translate)}) : 
@@ -789,11 +795,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap3.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_3_2, 'c3_2')" [class.copying]="copyStates['c3_2'] === 'copying'" [class.copied]="copyStates['c3_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c3_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c3_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c3_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c3_2'] === 'idle' || !copyStates['c3_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c3_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c3_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c3_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap3.code2' | translate)}) : 
@@ -941,11 +948,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap4.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_4_1, 'c4_1')" [class.copying]="copyStates['c4_1'] === 'copying'" [class.copied]="copyStates['c4_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c4_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c4_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c4_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c4_1'] === 'idle' || !copyStates['c4_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c4_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c4_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c4_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap4.code1' | translate)}) : 
@@ -973,11 +981,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap4.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_4_2, 'c4_2')" [class.copying]="copyStates['c4_2'] === 'copying'" [class.copied]="copyStates['c4_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c4_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c4_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c4_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c4_2'] === 'idle' || !copyStates['c4_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c4_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c4_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c4_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap4.code2' | translate)}) : 
@@ -1002,11 +1011,12 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap4.code3' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_4_3, 'c4_3')" [class.copying]="copyStates['c4_3'] === 'copying'" [class.copied]="copyStates['c4_3'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c4_3'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c4_3'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c4_3'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c4_3'] === 'idle' || !copyStates['c4_3']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c4_3'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c4_3'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                    
                     <span class="scr-reader">
                       {{ (copyStates['c4_3'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap4.code3' | translate)}) : 
@@ -1061,18 +1071,18 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap4.code4' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_4_4, 'c4_4')" [class.copying]="copyStates['c4_4'] === 'copying'" [class.copied]="copyStates['c4_4'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c4_4'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c4_4'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c4_4'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c4_4'] === 'idle' || !copyStates['c4_4']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c4_4'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c4_4'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+
                     <span class="scr-reader">
                       {{ (copyStates['c4_4'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap4.code4' | translate)}) : 
                          ('EDUCADORES_PAGE.COPY_CODE_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap4.code4' | translate)})) }}
                     </span>
-                  </ion-button>
-                </div>
+                  </ion-button>                </div>
                 <pre><code [highlight]="pythonCode_4_4" language="python"></code></pre>
               </div>
             </div>
@@ -1115,11 +1125,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap5.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_5_1, 'c5_1')" [class.copying]="copyStates['c5_1'] === 'copying'" [class.copied]="copyStates['c5_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c5_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c5_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c5_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c5_1'] === 'idle' || !copyStates['c5_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c5_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c5_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c5_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap5.code1' | translate)}) : 
@@ -1196,11 +1206,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap5.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_5_2, 'c5_2')" [class.copying]="copyStates['c5_2'] === 'copying'" [class.copied]="copyStates['c5_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c5_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c5_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c5_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c5_2'] === 'idle' || !copyStates['c5_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c5_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c5_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c5_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap5.code2' | translate)}) : 
@@ -1315,11 +1325,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap6.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_6_1, 'c6_1')" [class.copying]="copyStates['c6_1'] === 'copying'" [class.copied]="copyStates['c6_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c6_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c6_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c6_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c6_1'] === 'idle' || !copyStates['c6_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c6_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c6_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c6_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap6.code1' | translate)}) : 
@@ -1334,11 +1344,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap6.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_6_2, 'c6_2')" [class.copying]="copyStates['c6_2'] === 'copying'" [class.copied]="copyStates['c6_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c6_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c6_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c6_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c6_2'] === 'idle' || !copyStates['c6_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c6_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c6_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c6_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap6.code2' | translate)}) : 
@@ -1562,11 +1572,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_7_1, 'c7_1')" [class.copying]="copyStates['c7_1'] === 'copying'" [class.copied]="copyStates['c7_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c7_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c7_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c7_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c7_1'] === 'idle' || !copyStates['c7_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c7_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c7_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c7_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap7.code1' | translate)}) : 
@@ -1624,11 +1634,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_7_2, 'c7_2')" [class.copying]="copyStates['c7_2'] === 'copying'" [class.copied]="copyStates['c7_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c7_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c7_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c7_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c7_2'] === 'idle' || !copyStates['c7_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c7_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c7_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c7_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap7.code2' | translate)}) : 
@@ -1687,11 +1697,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code3' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_7_3, 'c7_3')" [class.copying]="copyStates['c7_3'] === 'copying'" [class.copied]="copyStates['c7_3'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c7_3'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c7_3'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c7_3'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c7_3'] === 'idle' || !copyStates['c7_3']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c7_3'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c7_3'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c7_3'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap7.code3' | translate)}) : 
@@ -1723,11 +1733,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code4' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_7_4, 'c7_4')" [class.copying]="copyStates['c7_4'] === 'copying'" [class.copied]="copyStates['c7_4'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c7_4'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c7_4'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c7_4'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c7_4'] === 'idle' || !copyStates['c7_4']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c7_4'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c7_4'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c7_4'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap7.code4' | translate)}) : 
@@ -1773,11 +1783,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code5' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_7_5, 'c7_5')" [class.copying]="copyStates['c7_5'] === 'copying'" [class.copied]="copyStates['c7_5'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c7_5'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c7_5'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c7_5'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c7_5'] === 'idle' || !copyStates['c7_5']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c7_5'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c7_5'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c7_5'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap7.code5' | translate)}) : 
@@ -1969,11 +1979,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_9_1, 'c9_1')" [class.copying]="copyStates['c9_1'] === 'copying'" [class.copied]="copyStates['c9_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c9_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c9_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c9_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c9_1'] === 'idle' || !copyStates['c9_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c9_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c9_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c9_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap9.code1' | translate)}) : 
@@ -2034,11 +2044,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_9_2, 'c9_2')" [class.copying]="copyStates['c9_2'] === 'copying'" [class.copied]="copyStates['c9_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c9_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c9_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c9_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c9_2'] === 'idle' || !copyStates['c9_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c9_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c9_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c9_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap9.code2' | translate)}) : 
@@ -2111,11 +2121,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code3' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_9_3, 'c9_3')" [class.copying]="copyStates['c9_3'] === 'copying'" [class.copied]="copyStates['c9_3'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c9_3'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c9_3'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c9_3'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c9_3'] === 'idle' || !copyStates['c9_3']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c9_3'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c9_3'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c9_3'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap9.code3' | translate)}) : 
@@ -2200,11 +2210,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code4' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_9_4, 'c9_4')" [class.copying]="copyStates['c9_4'] === 'copying'" [class.copied]="copyStates['c9_4'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c9_4'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c9_4'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c9_4'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c9_4'] === 'idle' || !copyStates['c9_4']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c9_4'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c9_4'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c9_4'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap9.code4' | translate)}) : 
@@ -2277,11 +2287,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap11.code1' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_11_1, 'c10_1')" [class.copying]="copyStates['c10_1'] === 'copying'" [class.copied]="copyStates['c10_1'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c10_1'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c10_1'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c10_1'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c10_1'] === 'idle' || !copyStates['c10_1']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c10_1'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c10_1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c10_1'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap11.code1' | translate)}) : 
@@ -2304,11 +2314,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap11.code2' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_11_2, 'c10_2')" [class.copying]="copyStates['c10_2'] === 'copying'" [class.copied]="copyStates['c10_2'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c10_2'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c10_2'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c10_2'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c10_2'] === 'idle' || !copyStates['c10_2']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c10_2'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c10_2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c10_2'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap11.code2' | translate)}) : 
@@ -2331,11 +2341,11 @@
                 <div class="code-header">
                   <span>{{ 'EDUCADORES_PAGE.MODULES.cap11.code3' | translate }}</span>
                   <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_11_3, 'c10_3')" [class.copying]="copyStates['c10_3'] === 'copying'" [class.copied]="copyStates['c10_3'] === 'copied'" class="copy-btn">
-                    <ion-icon [name]="copyStates['c10_3'] === 'copied' ? 'checkmark-outline' : 'copy-outline'" slot="start"></ion-icon>
-                    <span class="copy-label">
-                      {{ (copyStates['c10_3'] === 'copying' ? 'EDUCADORES_PAGE.COPIED' : 
-                          copyStates['c10_3'] === 'copied' ? '' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                    <ion-icon *ngIf="copyStates['c10_3'] === 'idle' || !copyStates['c10_3']" name="copy-outline" slot="icon-only"></ion-icon>
+                    <span *ngIf="copyStates['c10_3'] === 'copying'" class="copy-label">
+                      {{ 'EDUCADORES_PAGE.COPIED' | translate }}
                     </span>
+                    <ion-icon *ngIf="copyStates['c10_3'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
                     <span class="scr-reader">
                       {{ (copyStates['c10_3'] === 'copied' ? 
                          ('EDUCADORES_PAGE.CODE_COPIED_ALT' | translate:{name: ('EDUCADORES_PAGE.MODULES.cap11.code3' | translate)}) : 
