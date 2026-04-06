@@ -48,15 +48,15 @@
               <ion-label>09 {{ 'EDUCADORES_PAGE.MODULES.cap9.title' | translate }}</ion-label>
               <span class="scr-reader" *ngIf="currentModule?.id === 'cap9'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
-            <ion-item button (click)="selectModule('cap10')" [class.active-item]="currentModule?.id === 'cap10'" *ngIf="userRole === 'educator'">
-              <span slot="start">🎓</span>
-              <ion-label>10 {{ 'EDUCADORES_PAGE.MODULES.cap10.title' | translate }}</ion-label>
-              <span class="scr-reader" *ngIf="currentModule?.id === 'cap10'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
-            </ion-item>
             <ion-item button (click)="selectModule('cap11')" [class.active-item]="currentModule?.id === 'cap11'">
               <span slot="start">♿</span>
-              <ion-label>11 {{ 'EDUCADORES_PAGE.MODULES.cap11.title' | translate }}</ion-label>
+              <ion-label>10 {{ 'EDUCADORES_PAGE.MODULES.cap11.title' | translate }}</ion-label>
               <span class="scr-reader" *ngIf="currentModule?.id === 'cap11'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
+            </ion-item>
+            <ion-item button (click)="selectModule('cap10')" [class.active-item]="currentModule?.id === 'cap10'" *ngIf="userRole === 'educator'">
+              <span slot="start">🎓</span>
+              <ion-label>11 {{ 'EDUCADORES_PAGE.MODULES.cap10.title' | translate }}</ion-label>
+              <span class="scr-reader" *ngIf="currentModule?.id === 'cap10'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
           </ion-menu-toggle>
 
@@ -1909,10 +1909,65 @@
             </div>
           </div>
 
-          <!-- Module 10: Guía pedagógica DUA -->
+          <!-- Module 10: Accesibilidad y Diseño para Todos -->
+          <div *ngIf="currentModule?.id === 'cap11'">
+            <div class="module-header ion-padding ion-margin-bottom">
+              <div class="module-tag">♿ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '10'} }}</div>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap11.desc' | translate }}</p>
+              <div class="header-badges">
+                <ion-badge color="primary" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.TITLE' | translate }}</ion-badge>
+                <ion-badge color="tertiary">{{ 'EDUCADORES_PAGE.PILL_DUA' | translate }}</ion-badge>
+                <ion-badge color="info">A11Y</ion-badge>
+              </div>
+            </div>
+
+            <div class="main-content-wrapper">
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap11.hd1' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap11.p1' | translate }}</p>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header"><span>{{ 'EDUCADORES_PAGE.MODULES.cap11.code1' | translate }}</span></div>
+                <pre><code [highlight]="pythonCode_11_1" language="python"></code></pre>
+              </div>
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon" aria-hidden="true">💡</span>
+                <div class="box-body">
+                  <p><strong>{{ 'EDUCADORES_PAGE.MODULES.cap11.p2' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap11.p21' | translate }}</p>
+                </div>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap11.hd2' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap11.p3' | translate }}</p>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header"><span>{{ 'EDUCADORES_PAGE.MODULES.cap11.code2' | translate }}</span></div>
+                <pre><code [highlight]="pythonCode_11_2" language="python"></code></pre>
+              </div>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon" aria-hidden="true">✏️</span>
+                <div class="box-body">
+                  <p><strong>{{ 'EDUCADORES_PAGE.CHALLENGE' | translate }}:</strong> {{ 'EDUCADORES_PAGE.MODULES.cap11.p4' | translate }}</p>
+                </div>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap11.hd3' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap11.p5' | translate }}</p>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header"><span>{{ 'EDUCADORES_PAGE.MODULES.cap11.code3' | translate }}</span></div>
+                <pre><code [highlight]="pythonCode_11_3" language="python"></code></pre>
+              </div>
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon" aria-hidden="true">💡</span>
+                <div class="box-body">
+                  <p><strong>{{ 'EDUCADORES_PAGE.TEACHING_TIP' | translate }}:</strong> {{ 'EDUCADORES_PAGE.MODULES.cap11.p6' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap11.p61' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap11.p62' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap11.p63' | translate }}></code>{{ 'EDUCADORES_PAGE.MODULES.cap11.p64' | translate }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module 11: Guía pedagógica DUA -->
           <div *ngIf="currentModule?.id === 'cap10' && userRole === 'educator'">
             <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">🎓 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '10'} }}</div>
+              <div class="module-tag">🎓 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '11'} }}</div>
               <h1>{{ currentModule.title }}</h1>
               <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap10.desc' | translate }}</p>
               <div class="header-badges">
@@ -1922,7 +1977,7 @@
             </div>
 
             <div class="main-content-wrapper">
-              <h2>10.1 ¿Por qué DUA en la programación?</h2>
+              <h2>11.1 ¿Por qué DUA en la programación?</h2>
               <p>La programación se presenta históricamente como una actividad para «los que tienen cabeza para ello». El DUA desmonta esta idea: cualquier persona puede aprender a programar si se le ofrece el acceso correcto.</p>
 
               <div class="table-container ion-margin-vertical">
@@ -1944,7 +1999,7 @@
                 </table>
               </div>
 
-              <h2>10.2 Diseño de sesión tipo</h2>
+              <h2>11.2 Diseño de sesión tipo</h2>
               <div class="table-container ion-margin-vertical">
                 <table class="custom-table">
                   <thead>
@@ -1964,7 +2019,7 @@
                 </table>
               </div>
 
-              <h2>10.3 Pair Programming y roles cooperativos</h2>
+              <h2>11.3 Pair Programming y roles cooperativos</h2>
               <p>El pair programming (programación en parejas) es una práctica de la industria del software especialmente eficaz en el aula por sus beneficios DUA:</p>
               <ul>
                 <li><strong>Conductor/a:</strong> escribe el código.</li>
@@ -1997,7 +2052,7 @@
                 </table>
               </div>
 
-              <h2>10.4 Evaluación DUA-compatible</h2>
+              <h2>11.4 Evaluación DUA-compatible</h2>
               <p>Si aceptamos múltiples formas de expresión durante el aprendizaje, la evaluación no puede ser únicamente un examen escrito.</p>
 
               <div class="table-container ion-margin-vertical">
@@ -2021,7 +2076,7 @@
                 </table>
               </div>
 
-              <h2>10.5 Rúbrica DUA-compatible</h2>
+              <h2>11.5 Rúbrica DUA-compatible</h2>
               <div class="table-container ion-margin-vertical">
                 <table class="custom-table">
                   <thead>
@@ -2048,7 +2103,7 @@
                 </div>
               </div>
 
-              <h2>10.6 Gestión del aula — situaciones frecuentes</h2>
+              <h2>11.6 Gestión del aula — situaciones frecuentes</h2>
               <div class="table-container ion-margin-vertical">
                 <table class="custom-table">
                   <thead>
@@ -2067,7 +2122,7 @@
                 </table>
               </div>
 
-              <h2>10.7 Conexiones curriculares</h2>
+              <h2>11.7 Conexiones curriculares</h2>
               <div class="table-container ion-margin-vertical">
                 <table class="custom-table">
                   <thead>
@@ -2088,68 +2143,13 @@
                 </table>
               </div>
 
-              <h2>10.8 Recursos</h2>
+              <h2>11.8 Recursos</h2>
               <ul>
                 <li><a href="https://python.microbit.org" target="_blank"><strong>python.microbit.org</strong></a> — Editor oficial, referencia, proyectos de ejemplo.</li>
                 <li><a href="https://microbit.org/teach" target="_blank"><strong>microbit.org/teach</strong></a> — Guías gratuitas para docentes.</li>
                 <li><a href="https://udlguidelines.cast.org" target="_blank"><strong>udlguidelines.cast.org</strong></a> — Pautas DUA interactivas (disponible en español).</li>
                 <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Actividades de programación desenchufadas (unplugged).</li>
               </ul>
-            </div>
-          </div>
-
-          <!-- Module 11: Accesibilidad y Diseño para Todos -->
-          <div *ngIf="currentModule?.id === 'cap11'">
-            <div class="module-header ion-padding ion-margin-bottom">
-              <div class="module-tag">♿ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '11'} }}</div>
-              <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap11.desc' | translate }}</p>
-              <div class="header-badges">
-                <ion-badge color="primary" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.TITLE' | translate }}</ion-badge>
-                <ion-badge color="tertiary">{{ 'EDUCADORES_PAGE.PILL_DUA' | translate }}</ion-badge>
-                <ion-badge color="info">A11Y</ion-badge>
-              </div>
-            </div>
-
-            <div class="main-content-wrapper">
-              <h2>11.1 Salidas Multimodales</h2>
-              <p>Diseña tus proyectos para que funcionen con múltiples salidas sensoriales (visual, sonora, táctil) y sean accesibles para todos.</p>
-              <div class="code-container ion-margin-vertical">
-                <div class="code-header"><span>multimodal_saludo.py</span></div>
-                <pre><code [highlight]="pythonCode_11_1" language="python"></code></pre>
-              </div>
-              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
-                <span class="box-icon">💡</span>
-                <div class="box-body">
-                  <p><strong>Redundancia:</strong> Siempre que sea posible, combina la información visual (LEDs, texto) con la sonora (pitidos, música). Esto beneficia a alumnos con baja visión, sordera o dificultades de atención.</p>
-                </div>
-              </div>
-
-              <h2>11.2 Interfaces físicas adaptadas</h2>
-              <p>Crea controles más grandes y fáciles de usar mediante los pines de la micro:bit y materiales conductores.</p>
-              <div class="code-container ion-margin-vertical">
-                <div class="code-header"><span>botones_gigantes.py</span></div>
-                <pre><code [highlight]="pythonCode_11_2" language="python"></code></pre>
-              </div>
-              <div class="box box-exercise ion-margin-vertical">
-                <span class="box-icon">✏️</span>
-                <div class="box-body">
-                  <p><strong>{{ 'EDUCADORES_PAGE.CHALLENGE' | translate }}:</strong> Crea un "pulsador" gigante usando papel de aluminio y pinzas de cocodrilo. Que al tocarlo, la micro:bit muestre un emoticono.</p>
-                </div>
-              </div>
-
-              <h2>11.3 Código Inclusivo para Lectores de Pantalla</h2>
-              <p>Escribe código que sea fácil de entender y navegar, tanto para tus alumnos como para ti si usas lectores de pantalla.</p>
-              <div class="code-container ion-margin-vertical">
-                <div class="code-header"><span>asistente_acelerometro.py</span></div>
-                <pre><code [highlight]="pythonCode_11_3" language="python"></code></pre>
-              </div>
-              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
-                <span class="box-icon">💡</span>
-                <div class="box-body">
-                  <p><strong>{{ 'EDUCADORES_PAGE.TEACHING_TIP' | translate }}:</strong> Usa nombres de variables descriptivos (ej: <code>nivel_luz</code> en lugar de <code>nl</code>). Añade comentarios claros explicando bloques de código complejos. Evita anidar excesivamente los condicionales.</p>
-                </div>
-              </div>
             </div>
           </div>
 

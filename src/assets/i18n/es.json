@@ -1412,12 +1412,29 @@
         "list521": "algunos alumnos actúan como 'hackers intentando adivinar la contraseña, mientras otros defienden su sistema."
       },
       "cap10": {
-        "title": "Guía pedagógica DUA",
+        "title": "Guía Pedagógica DUA",
         "desc": "Estrategias pedagógicas DUA, evaluación y gestión del aula."
       },
       "cap11": {
         "title": "Accesibilidad y Diseño",
-        "desc": "Creación de productos finales accesibles: interfaces físicas adaptadas, salidas multimodales y código inclusivo."
+        "desc": "Creación de productos finales accesibles: interfaces físicas adaptadas, salidas multimodales y código inclusivo.",
+        "hd1": "10.1 Salidas Multimodales",
+        "p1": "Diseña tus proyectos para que funcionen con múltiples salidas sensoriales (visual, sonora, táctil) y sean accesibles para todos.",
+        "code1": "multimodal_saludo.py",
+        "p2": "Redundancia:",
+        "p21": "Siempre que sea posible, combina la información visual (LEDs, texto) con la sonora (pitidos, música). Esto beneficia a alumnos con baja visión, sordera o dificultades de atención.",
+        "hd2": "10.2 Interfaces físicas adaptadas",
+        "p3": "Crea controles más grandes y fáciles de usar mediante los pines de la micro:bit y materiales conductores.",
+        "code2": "botones_gigantes.py",
+        "p4": "Crea un 'pulsador' gigante usando papel de aluminio y pinzas de cocodrilo. Que al tocarlo, la micro:bit muestre un emoticono.",
+        "hd3": "10.3 Código Inclusivo para Lectores de Pantalla",
+        "p5": "Escribe código que sea fácil de entender y navegar, tanto para tus alumnos como para ti si usas lectores de pantalla.",
+        "code3": "asistente_acelerometro.py",
+        "p6": "Usa nombres de variables descriptivos (ej:",
+        "p61": "nivel_luz",
+        "p62": "en lugar de",
+        "p63": "n1",
+        "p64": "). Añade comentarios claros explicando bloques de código complejos. Evita anidar excesivamente los condicionales."
       },
       "apendice": {
         "title": "Referencia rápida",

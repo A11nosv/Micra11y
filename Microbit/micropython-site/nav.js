@@ -11,8 +11,8 @@ const PAGES = [
   { id: 'cap7',     file: 'cap7.html',     num: '07',  title: 'Sonido y música',              icon: '🎵' },
   { id: 'cap8',     file: 'cap8.html',     num: '08',  title: 'Comunicación radio',           icon: '📡' },
   { id: 'cap9',     file: 'cap9.html',     num: '09',  title: 'Proyectos completos',          icon: '🚀' },
-  { id: 'cap10',    file: 'cap10.html',    num: '10',  title: 'Guía pedagógica DUA',          icon: '🎓' },
-  { id: 'cap11',    file: 'cap11.html',    num: '11',  title: 'Accesibilidad y Diseño',       icon: '♿' },
+  { id: 'cap11',    file: 'cap11.html',    num: '10',  title: 'Accesibilidad y Diseño',       icon: '♿' },
+  { id: 'cap10',    file: 'cap10.html',    num: '11',  title: 'Guía Pedagógica DUA',          icon: '🎓' },
   { id: 'apendice', file: 'apendice.html', num: 'A',   title: 'Referencia rápida',            icon: '📋' },
 ];
 

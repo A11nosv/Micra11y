@@ -72,8 +72,8 @@ export class EducadoresPage implements OnInit, OnDestroy {
       { id: 'cap7',     num: '07', icon: '🎵' },
       { id: 'cap8',     num: '08', icon: '📡' },
       { id: 'cap9',     num: '09', icon: '🚀' },
-      { id: 'cap10',    num: '10', icon: '🎓', educatorOnly: true },
-      { id: 'cap11',    num: '11', icon: '♿' },
+      { id: 'cap11',    num: '10', icon: '♿' },
+      { id: 'cap10',    num: '11', icon: '🎓', educatorOnly: true },
       { id: 'apendice', num: 'A',  icon: '📋' },
     ];
 
