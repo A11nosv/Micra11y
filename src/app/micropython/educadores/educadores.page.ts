@@ -9,7 +9,7 @@ import { Highlight } from 'ngx-highlightjs';
 import { Subscription } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
 import { addIcons } from 'ionicons';
-import { accessibilityOutline, constructOutline, homeOutline, schoolOutline, bookOutline, documentTextOutline, chevronForwardOutline } from 'ionicons/icons';
+import { accessibilityOutline, constructOutline, homeOutline, schoolOutline, bookOutline, documentTextOutline, chevronForwardOutline, copyOutline, checkmarkOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-educadores',
@@ -35,8 +35,10 @@ export class EducadoresPage implements OnInit, OnDestroy {
 
   modules: any[] = [];
 
+  copyStates: { [key: string]: 'idle' | 'copying' | 'copied' } = {};
+
   constructor() { 
-    addIcons({ accessibilityOutline, constructOutline, homeOutline, schoolOutline, bookOutline, documentTextOutline, chevronForwardOutline });
+    addIcons({ accessibilityOutline, constructOutline, homeOutline, schoolOutline, bookOutline, documentTextOutline, chevronForwardOutline, copyOutline, checkmarkOutline });
   }
 
   ngOnInit() {
@@ -58,6 +60,20 @@ export class EducadoresPage implements OnInit, OnDestroy {
     if (this.langSub) {
       this.langSub.unsubscribe();
     }
+  }
+
+  copyToClipboard(code: string, id: string) {
+    navigator.clipboard.writeText(code).then(() => {
+      this.copyStates[id] = 'copying';
+      
+      setTimeout(() => {
+        this.copyStates[id] = 'copied';
+        
+        setTimeout(() => {
+          this.copyStates[id] = 'idle';
+        }, 30000);
+      }, 2000);
+    });
   }
 
   updateModulesTranslation() {

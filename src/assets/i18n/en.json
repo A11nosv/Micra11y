@@ -788,6 +788,10 @@
     "LEVEL_2": "🟡 Basic (9-11)",
     "LEVEL_3": "🟠 Intermediate (12-13)",
     "LEVEL_4": "🔴 Advanced (14-16)",
+    "COPY_CODE": "Copy",
+    "COPIED": "Copied",
+    "COPY_CODE_ALT": "copy {{name}}",
+    "CODE_COPIED_ALT": "code {{name}} copied",
     "MODULES": {
       "dua": {
         "title": "UDL in this manual",

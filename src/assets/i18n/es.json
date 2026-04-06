@@ -631,6 +631,10 @@
     "LEVEL_2": "🟡 Básico (9-11)",
     "LEVEL_3": "🟠 Intermedio (12-13)",
     "LEVEL_4": "🔴 Avanzado (14-16)",
+    "COPY_CODE": "Copiar",
+    "COPIED": "Copiado",
+    "COPY_CODE_ALT": "copiar {{name}}",
+    "CODE_COPIED_ALT": "código {{name}} copiado",
     "MODULES": {
       "dua": {
         "title": "DUA en este manual",

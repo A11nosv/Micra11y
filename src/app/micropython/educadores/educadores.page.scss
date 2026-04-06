@@ -245,14 +245,46 @@ ion-toolbar.aligned-with-content {
   border-radius: 8px;
   overflow: hidden;
   background-color: #282c34;
+  margin-bottom: 20px;
   
   .code-header {
     background-color: #21252b;
-    padding: 8px 15px;
+    padding: 4px 15px;
     color: #abb2bf;
     font-size: 0.85rem;
     font-family: monospace;
     border-bottom: 1px solid #181a1f;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 40px;
+
+    .copy-btn {
+      --padding-start: 8px;
+      --padding-end: 8px;
+      margin: 0;
+      height: 32px;
+      font-size: 0.75rem;
+      text-transform: none;
+      --color: #abb2bf;
+      
+      ion-icon {
+        font-size: 1.1rem;
+      }
+
+      .copy-label {
+        margin-left: 6px;
+        font-weight: 500;
+      }
+
+      &.copying {
+        --color: var(--ion-color-success);
+      }
+
+      &.copied {
+        --color: var(--ion-color-success);
+      }
+    }
   }
   
   pre {
