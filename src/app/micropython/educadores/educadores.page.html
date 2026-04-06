@@ -1005,7 +1005,7 @@
                       <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap5.tr32' | translate }}</code></td>
                     </tr>
                     <tr>
-                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap5.tr41' | translate }}/td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap5.tr41' | translate }}</td>
                       <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap5.tr42' | translate }}</code></td>
                     </tr>
                     <tr>
@@ -1328,7 +1328,7 @@
             <div class="module-header ion-padding ion-margin-bottom">
               <div class="module-tag">🎵 {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '07'} }}</div>
               <h1>{{ currentModule.title }}</h1>
-              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap7.desc' | translate }}</p>
+              <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.cap7.desc' | translate }}, síntesis de voz y frecuencias en Hz.</p>
               <div class="header-badges">
                 <ion-badge color="warning">{{ 'EDUCADORES_PAGE.LEVEL_2' | translate }}</ion-badge>
                 <ion-badge color="danger">{{ 'EDUCADORES_PAGE.LEVEL_3' | translate }}</ion-badge>
@@ -1345,58 +1345,79 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l11' | translate }}</strong> para alumnos con hipoacusia o sordera, todos los ejercicios pueden completarse reemplazando <code>music.play()</code> por <code>display.show()</code> o <code>display.scroll()</code>. La nota se muestra como texto ("Do", "Re"...) o como número de frecuencia.</li>
-                        <li>Los alumnos con sensibilidad auditiva pueden trabajar con auriculares o con el volumen bajo.</li>
-                        <li>El capítulo es completamente accesible en modo solo visual.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l11' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l111' | translate }}<code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l112' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap7.l113' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l114' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap7.l115' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l116' | translate }}</code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l117' | translate }}</li>
+                        <li>{{ 'EDUCADORES_PAGE.MODULES.cap7.l12' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
                 </ion-accordion-group>
               </ng-container>
 
-              <h2>7.1 Melodías predefinidas</h2>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap7.hd1' | translate }}</h2>
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>melodias.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code1' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_7_1" language="python"></code></pre>
               </div>
 
               <div class="table-container ion-margin-vertical">
                 <table class="custom-table">
+                  <caption>{{ 'EDUCADORES_PAGE.MODULES.cap7.tablecap' | translate }}</caption>
                   <thead>
                     <tr>
-                      <th>Melodía</th>
-                      <th>Descripción</th>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.cap7.tr11' | translate }}</th>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.cap7.tr12' | translate }}</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr><td><code>music.BIRTHDAY</code></td><td>Cumpleaños feliz</td></tr>
-                    <tr><td><code>music.WEDDING</code></td><td>Marcha nupcial</td></tr>
-                    <tr><td><code>music.FUNERAL</code></td><td>Marcha fúnebre</td></tr>
-                    <tr><td><code>music.POWER_UP</code></td><td>Sonido de inicio / victoria</td></tr>
-                    <tr><td><code>music.POWER_DOWN</code></td><td>Sonido de apagado / derrota</td></tr>
-                    <tr><td><code>music.JUMP_UP / JUMP_DOWN</code></td><td>Efectos de salto</td></tr>
-                    <tr><td><code>music.BA_DING</code></td><td>Notificación corta</td></tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr21' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr22' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr31' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr32' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr41' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr42' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr51' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr52' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr61' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr62' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr71' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr72' | translate }}</td>
+                     </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr81' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap7.tr82' | translate }}</td>
+                    </tr>
                   </tbody>
                 </table>
               </div>
 
-              <h2>7.2 Composición con notas</h2>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap7.hd2' | translate }}</h2>
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>escala.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code2' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_7_2" language="python"></code></pre>
               </div>
 
-              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 7.1 — Compositor</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} {{ 'EDUCADORES_PAGE.MODULES.cap7.exe1' | translate }}</h3>
               <div class="box box-exercise ion-margin-vertical">
-                <span class="box-icon">✏️</span>
+                <span class="box-icon" aria-hidden="true">✏️</span>
                 <div class="box-body">
-                  <p>Compón una melodía propia de al menos <strong>8 notas</strong>.</p>
-                  <p>Usa al menos 2 duraciones diferentes (4 y 8).</p>
-                  <p>Dale un nombre y documenta con comentarios qué parte es estrofa y cuál es estribillo.</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p1' | translate }} <strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.p11' | translate }}</strong>.</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p2' | translate }}</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p3' | translate }}</p>
                 </div>
               </div>
 
@@ -1409,10 +1430,10 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Opción sonora:</strong> componer directamente en código.</li>
-                        <li><strong>Opción visual:</strong> escribir las notas en un pentagrama o tabla (Do-Re-Mi...) y luego transcribir al código.</li>
-                        <li><strong>Opción corporal:</strong> tocar la melodía con body percussion y luego transcribirla.</li>
-                        <li><strong>Opción investigación:</strong> transcribir al código una melodía existente que ya conoces.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l21' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l211' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l22' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l221' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l23' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l231' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l24' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l241' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1423,28 +1444,92 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Elección total:</strong> el alumno elige qué melodía compone. Sin restricciones de estilo. Rap, clásica, pop, inventada...</li>
-                        <li><strong>Colaboración interdisciplinar:</strong> coordina con el/la profesor/a de Música para que el ejercicio cuente también como actividad de esa asignatura.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l31' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l311' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l32' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l321' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
                 </ion-accordion-group>
               </ng-container>
 
-              <h2>7.3 Frecuencias y pitidos</h2>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap7.hd3' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p4' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.p41' | translate }}</code>. {{ 'EDUCADORES_PAGE.MODULES.cap7.p42' | translate }}</p>
+              
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>frecuencias.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code3' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_7_3" language="python"></code></pre>
               </div>
 
-              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
-                <span class="box-icon">📝</span>
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap7_speech>
+                  <ion-accordion value="rep_cap7_speech" class="dua-accordion rep">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'rep_cap7_speech', duaGroupCap7_speech)" role="button" [attr.aria-expanded]="isExpanded('rep_cap7_speech')">
+                      <ion-label>🟥 {{ 'EDUCADORES_PAGE.DUA_REP' | translate }}</ion-label>
+                      <span class="scr-reader">({{ isExpanded('rep_cap7_speech') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li>{{ 'EDUCADORES_PAGE.MODULES.cap7.l41' | translate }}<strong></strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l411' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l42' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l421' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l422' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap7.l423' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l424' | translate }}</code>.</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code4' | translate }}</span>
+                </div>
+                <pre><code [highlight]="pythonCode_7_4" language="python"></code></pre>
+              </div>
+
+              <h3>{{ 'EDUCADORES_PAGE.MODULES.cap7.hd4' | translate }}</h3>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p5' | translate }}</p>
+
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} {{ 'EDUCADORES_PAGE.MODULES.cap7.exe2' | translate }}</h3>
+              <div class="box box-exercise ion-margin-vertical">
+                <span class="box-icon">✏️</span>
                 <div class="box-body">
-                  <p>Escala musical en Hz: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494.</p>
-                  <p>Duplicar la frecuencia equivale a subir una octava.</p>
-                  <p><code>music.pitch()</code> requiere altavoz (integrado en v2, o externo en pins 0 y GND para v1).</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p6' | translate }}</p>
+                  <p><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.p7' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.p71' | translate }}</p>
+                  <p><strong><abbr title="{{ 'EDUCADORES_PAGE.MODULES.cap7.p81' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.cap7.p8' | translate }}</abbr>:</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.p82' | translate }}</p>
+                </div>
+              </div>
+
+              <ng-container *ngIf="userRole === 'educator'">
+                <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap7_speech_ex>
+                  <ion-accordion value="ace_cap7_speech" class="dua-accordion ace">
+                    <ion-item slot="header" button="true" (keydown)="handleSpaceKey($event, 'ace_cap7_speech', duaGroupCap7_speech_ex)" role="button" [attr.aria-expanded]="isExpanded('ace_cap7_speech')">
+                      <ion-label>🟦 {{ 'EDUCADORES_PAGE.DUA_ACE' | translate }}</ion-label>
+                      <span class="scr-reader">({{ isExpanded('ace_cap7_speech') ? 'Extendido' : 'Contraído' }})</span>
+                    </ion-item>
+                    <div class="dua-content ion-padding" slot="content">
+                      <ul>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l81' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l811' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap7.l82' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap7.l821' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l822' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap7.l823' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap7.l824' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap7.l825' | translate }}</li>
+                      </ul>
+                    </div>
+                  </ion-accordion>
+                </ion-accordion-group>
+              </ng-container>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap7.hd5' | translate }}</h2>
+              <div class="code-container ion-margin-vertical">
+                <div class="code-header">
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap7.code5' | translate }}</span>
+                </div>
+                <pre><code [highlight]="pythonCode_7_5" language="python"></code></pre>
+              </div>
+
+              <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
+                <span class="box-icon" aria-hidden="true">📝</span>
+                <div class="box-body">
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p9' | translate }}</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap7.p10' | translate }}</p>
+                  <p><code>{{ 'EDUCADORES_PAGE.MODULES.cap7.p12' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap7.p121' | translate }}</p>
                 </div>
               </div>
             </div>
@@ -1464,8 +1549,8 @@
             </div>
 
             <div class="main-content-wrapper">
-              <h2>8.1 Radio inalámbrica</h2>
-              <p>La radio funciona como los walkie-talkies: el mismo canal (<code>group=N</code>) = mismo grupo de chat. Diferentes grupos no se escuchan.</p>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap8.hd1' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap8.p1' | translate }}<code>{{ 'EDUCADORES_PAGE.MODULES.cap8.p11' | translate }}</code>{{ 'EDUCADORES_PAGE.MODULES.cap8.p12' | translate }}</p>
 
               <ng-container *ngIf="userRole === 'educator'">
                 <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap8_1>
@@ -1476,8 +1561,8 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Metáfora física:</strong> pasa la micro:bit de mano en mano mientras el simulador muestra los valores en tiempo real. Los alumnos ven cómo los números cambian con el movimiento.</li>
-                        <li><strong>Diagrama:</strong> dibuja dos micro:bits con una flecha de radio entre ellas, etiquetando <code>radio.send()</code> (salida) y <code>radio.receive()</code> (entrada).</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap8.l11' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap8.l111' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap8.l12' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap8.l121' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l122' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap8.l124' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l125' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap8.l126' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1486,50 +1571,50 @@
 
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>radio_emisor.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap8.code1' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_8_1" language="python"></code></pre>
               </div>
 
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>radio_receptor.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap8.code2' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_8_2" language="python"></code></pre>
               </div>
 
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
-                <span class="box-icon">💡</span>
+                <span class="box-icon" aria-hidden="true">💡</span>
                 <div class="box-body">
-                  <div class="box-title">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
+                  <div class="box-title" role="hearing" aria-level="3">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <ul>
-                    <li><code>radio.config(group=N)</code> con el mismo número asegura que solo hablen entre sí las micro:bits del grupo.</li>
-                    <li>En un aula con varios grupos, asigna grupos diferentes (1-255) para evitar interferencias.</li>
-                    <li><code>radio.send()</code> solo puede enviar cadenas de texto. Para enviar números, usa <code>str()</code>.</li>
-                    <li><code>radio.receive()</code> devuelve <code>None</code> si no hay mensajes; siempre comprobar antes de usar el valor.</li>
+                    <li><code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l21' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap8.l211' | translate }}</li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap8.l22' | translate }}</li>
+                    <li><code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l23' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap8.l231' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l232' | translate }}</code>.</li>
+                    <li><code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l24' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap8.l241' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l242' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap8.l243' | translate }}</li>
                   </ul>
                 </div>
               </div>
 
-              <h2>8.2 Enviando datos numéricos</h2>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap8.hd2' | translate }}</h2>
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>radio_temperatura.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap8.code3' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_8_3" language="python"></code></pre>
               </div>
 
-              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 8.1 — Chat de emoticonos</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} {{ 'EDUCADORES_PAGE.MODULES.cap8.exe' | translate }}</h3>
               <div class="box box-exercise ion-margin-vertical">
-                <span class="box-icon">✏️</span>
+                <span class="box-icon" aria-hidden="true">✏️</span>
                 <div class="box-body">
-                  <p>En parejas, crea un sistema de emoticonos por radio:</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap8.p2' | translate }}</p>
                   <ul>
-                    <li>Botón A → envía "feliz" → receptor muestra <code>Image.HAPPY</code></li>
-                    <li>Botón B → envía "triste" → receptor muestra <code>Image.SAD</code></li>
-                    <li>Ambos → envía "sorpresa" → receptor muestra <code>Image.SURPRISED</code></li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap8.l31' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap8.l311' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap8.l312' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap8.l313' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap8.l31' | translate }}4 <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l315' | translate }}</code></li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap8.l32' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap8.l311' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap8.l321' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap8.l313' | translate }}">→</span> {{ 'EDUCADORES_PAGE.MODULES.cap8.l322' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l323' | translate }}</code></li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap8.l33' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap8.l311' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap8.l331' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap8.l313' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap8.l332' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap8.l333' | translate }}</code></li>
                   </ul>
-                  <p>Cada micro:bit debe poder enviar Y recibir simultáneamente.</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap8.p3' | translate }}</p>
                 </div>
               </div>
 
@@ -1542,8 +1627,8 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Roles claros:</strong> uno es "emisor principal" y otro "receptor principal" los primeros 10 minutos. Luego se intercambian. Reduce la carga cognitiva de gestionar las dos funciones a la vez.</li>
-                        <li><strong>Tarjeta de referencia:</strong> crea una tarjeta con los mensajes posibles y la imagen que produce cada uno.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap8.l41' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap8.l411' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap8.l42' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap8.l421' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1554,8 +1639,8 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Interdependencia:</strong> el código de un alumno no funciona sin el de su compañero/a. La interdependencia es el motor de la implicación.</li>
-                        <li><strong>Debate:</strong> ¿cómo se parece esto a WhatsApp? ¿Qué pasaría si el canal (group) no fuera el mismo?</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap8.l51' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap8.l511' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap8.l52' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap8.l521' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1577,12 +1662,12 @@
             </div>
 
             <div class="main-content-wrapper">
-              <h2>9.1 Robot Emocional</h2>
-              <p>Crea un robot que reacciona a gestos (agitar) y pulsaciones de botones (A, B, ambos) mostrando diferentes emociones.</p>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap9.hd1' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p1' | translate }}</p>
 
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>robot_emocional.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code1' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_9_1" language="python"></code></pre>
               </div>
@@ -1596,8 +1681,8 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Sensor de gestos:</strong> haz que los alumnos "vivan" los gestos: agitar, inclinar, caer. ¿Qué sienten? ¿Cómo se traduce eso en código?</li>
-                        <li><strong>Robots reales:</strong> si hay varias micro:bits, que cada alumno tenga una para probar el código en hardware real.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l11' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l111' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l12' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l121' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1608,10 +1693,10 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Nivel 1 — Botones:</strong> programa solo la reacción a los botones A y B.</li>
-                        <li><strong>Nivel 2 — Gestos:</strong> programa la reacción a 'shake' y 'face down'.</li>
-                        <li><strong>Nivel 3 — Combinación:</strong> programa reacción a 3+ gestos y botones.</li>
-                        <li><strong>Nivel 4 — Creación:</strong> el alumno inventa su propio "robot emocional" con sensores y respuestas personalizadas.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l21' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l211' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l22' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l221' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l23' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l231' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l24' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l241' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1622,45 +1707,45 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Contexto personal:</strong> pide que el robot reaccione a sus emociones. ¿Qué imagen pongo si estoy contento? ¿Y si estoy enfadado?</li>
-                        <li><strong>Juego de rol:</strong> el robot es un personaje (mascota, compañero) al que hay que cuidar.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l31' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l311' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l32' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l321' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
                 </ion-accordion-group>
               </ng-container>
 
-              <h2>9.2 Podómetro</h2>
-              <p>Cuenta los pasos (movimientos bruscos) usando el acelerómetro.</p>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap9.hd2' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p1' | translate }}</p>
 
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>podometro.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code2' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_9_2" language="python"></code></pre>
               </div>
 
               <div class="box box-note ion-margin-vertical" *ngIf="userRole === 'educator'">
-                <span class="box-icon">💡</span>
+                <span class="box-icon" aria-hidden="true">💡</span>
                 <div class="box-body">
                   <div class="box-title">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
                   <ul>
-                    <li>Se mide la diferencia de la aceleración en el eje Z (gravedad) entre lecturas.</li>
-                    <li><code>umbral</code>: Si la diferencia es mayor, se cuenta como paso.</li>
-                    <li>Botón A → Muestra total de pasos. Botón B → Resetea el contador.</li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l41' | translate }}</li>
+                    <li><code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l42' | translate }}</code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l421' | translate }}</li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l43' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap9.l431' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap9.l432' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap9.l433' | translate }}">→</span>  {{ 'EDUCADORES_PAGE.MODULES.cap9.l434' | translate }}</li>
                   </ul>
                 </div>
               </div>
 
-              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 9.1 — ¿Cuántos pasos doy hoy?</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} {{ 'EDUCADORES_PAGE.MODULES.cap9.exe1' | translate }}</h3>
               <div class="box box-exercise ion-margin-vertical">
-                <span class="box-icon">✏️</span>
+                <span class="box-icon" aria-hidden="true">✏️</span>
                 <div class="box-body">
-                  <p>El programa cuenta pasos. ¿Cómo podemos hacerlo más útil?</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p3' | translate }}</p>
                   <ol>
-                    <li>Que la micro:bit vibre suavemente cada 11 pasos.</li>
-                    <li>Que muestre una cara feliz si se superan los 100 pasos en total.</li>
-                    <li>(Avanzado) Envía los pasos por radio a otra micro:bit.</li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l51' | translate }}</li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l52' | translate }}</li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l53' | translate }}</li>
                   </ol>
                 </div>
               </div>
@@ -1674,9 +1759,9 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Nivel básico:</strong> el programa tal como está.</li>
-                        <li><strong>Nivel estándar:</strong> usar <code>was_pressed()</code> para el reset, y <code>get_presses()</code> para mostrar el total sin resetear.</li>
-                        <li><strong>Nivel avanzado:</strong> que el número de pasos se muestre en la pantalla LED (quizás solo la decena).</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l61' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l611' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l62' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l621' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l622' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap9.l623' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l624' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap9.l625' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l63' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l631' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1687,20 +1772,20 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Competición sana:</strong> la clase compite por ver quién da más pasos en un día.</li>
-                        <li><strong>Objetivos personales:</strong> cada alumno se pone su meta diaria (ej: 5000 pasos) y la micro:bit le ayuda a seguirla.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l71' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l711' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.l72' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.l721' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
                 </ion-accordion-group>
               </ng-container>
 
-              <h2>9.3 Estación meteorológica</h2>
-              <p>Combina los sensores de temperatura y luz para crear un indicador del ambiente del aula.</p>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap9.hd3' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p4' | translate }}</p>
 
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>estacion_meteo.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code3' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_9_3" language="python"></code></pre>
               </div>
@@ -1709,21 +1794,21 @@
                 <span class="box-icon">💡</span>
                 <div class="box-body">
                   <div class="box-title" style="color: #b91c1c;">{{ 'EDUCADORES_PAGE.KEY_CONCEPT' | translate }}</div>
-                  <p>El sensor de temperatura lee el chip interno (±2 °C de error). Para el ambiente, resta 3 grados.</p>
-                  <p>El sensor de luz da un valor de 0 (oscuro) a 255 (muy brillante).</p>
-                  <p><code>button_a.was_pressed()</code> es ideal para mostrar el resumen sin resetear.</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p5' | translate }}</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p6' | translate }}</p>
+                  <p><code>{{ 'EDUCADORES_PAGE.MODULES.cap9.p7' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap9.p71' | translate }}</p>
                 </div>
               </div>
 
-              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} 9.2 — Alarma de confort</h3>
+              <h3>✏️ {{ 'EDUCADORES_PAGE.EXERCISE' | translate }} {{ 'EDUCADORES_PAGE.MODULES.cap9.exe2' | translate }}</h3>
               <div class="box box-exercise ion-margin-vertical">
-                <span class="box-icon">✏️</span>
+                <span class="box-icon" aria-hidden="true">✏️</span>
                 <div class="box-body">
-                  <p>Crea un "indicador de confort" del aula:</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p8' | translate }}</p>
                   <ul>
-                    <li>Temperatura 20-24 °C y luz &gt; 100 → <code>Image.HAPPY</code></li>
-                    <li>Temperatura &gt; 27 °C → <code>Image.SURPRISED</code></li>
-                    <li>Temperatura &lt; 18 °C → <code>Image.SAD</code></li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l81' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap9.l811' | translate }}">→</span>  <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l812' | translate }}</code></li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l82' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap9.l811' | translate }}">→</span>  <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l821' | translate }}</code></li>
+                    <li>{{ 'EDUCADORES_PAGE.MODULES.cap9.l83' | translate }}  <span title="{{ 'EDUCADORES_PAGE.MODULES.cap9.l811' | translate }}">→</span>  <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.l831' | translate }}</code></li>
                     <li>Luz &lt; 80 → <code>Image.ARROW_N</code> (sugerencia: encender luz)</li>
                   </ul>
                 </div>
@@ -1738,8 +1823,8 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Gráficos en tiempo real:</strong> si se conecta a MakeCode/Python Editor online, los datos se visualizan en gráficos.</li>
-                        <li><strong>Alertas sonoras:</strong> añade pitidos o melodías cortas con `music.pitch()` para indicar condiciones extremas.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list11' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list111' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list12' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list121' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1750,10 +1835,10 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Nivel 1 — Solo mostrar valores:</strong> solo <code>display.scroll()</code> de T y L.</li>
-                        <li><strong>Nivel 2 — Indicador visual:</strong> el ejercicio propuesto con <code>Image.HAPPY/SAD/SURPRISED</code>.</li>
-                        <li><strong>Nivel 3 — Alarma sonora:</strong> añade pitidos personalizados según la temperatura.</li>
-                        <li><strong>Nivel 4 — Proyecto integrado:</strong> crea un termostato que encienda un ventilador (simulado con un LED) si la T &gt; 27.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list21' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list211' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.list212' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap9.list213' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list22' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list221' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.list222' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap9.list223' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.list224' | translate }}</code> {{ 'EDUCADORES_PAGE.MODULES.cap9.list223' | translate }} <code>{{ 'EDUCADORES_PAGE.MODULES.cap9.list225' | translate }}</code>.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list23' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list231' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list24' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list241' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
@@ -1764,30 +1849,30 @@
                     </ion-item>
                     <div class="dua-content ion-padding" slot="content">
                       <ul>
-                        <li><strong>Relevancia:</strong> el alumno mide su entorno y toma decisiones basadas en datos reales. El proyecto resuelve un problema (calor, frío, poca luz).</li>
-                        <li><strong>Colaboración:</strong> crea una red de micro:bits para medir la temperatura en diferentes puntos del aula y comparar.</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list31' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list311' | translate }}</li>
+                        <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list32' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list321' | translate }}</li>
                       </ul>
                     </div>
                   </ion-accordion>
                 </ion-accordion-group>
               </ng-container>
 
-              <h2>9.4 Cerradura electrónica</h2>
-              <p>Usa la radio para enviar una contraseña secreta y abrir la micro:bit.</p>
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.cap9.hd4' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p9' | translate }}</p>
 
               <div class="code-container ion-margin-vertical">
                 <div class="code-header">
-                  <span>cerradura.py</span>
+                  <span>{{ 'EDUCADORES_PAGE.MODULES.cap9.code4' | translate }}</span>
                 </div>
                 <pre><code [highlight]="pythonCode_9_4" language="python"></code></pre>
               </div>
 
               <div class="box box-note ion-margin-vertical" style="background-color: #dbeafe; border-color: #93c5fd; color: #1d4ed8;">
-                <span class="box-icon">💡</span>
+                <span class="box-icon" aria-hidden="true">💡</span>
                 <div class="box-body">
                   <div class="box-title" style="color: #1d4ed8;">{{ 'EDUCADORES_PAGE.ATTENTION' | translate }}</div>
-                  <p>La contraseña se envía en texto plano; NO es segura para aplicaciones reales.</p>
-                  <p>Este proyecto sirve para aprender el concepto de transmisión de datos y control de acceso.</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p10' | translate }}</p>
+                  <p>{{ 'EDUCADORES_PAGE.MODULES.cap9.p11' | translate }}</p>
                 </div>
               </div>
 
@@ -1800,10 +1885,10 @@
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
-                      <li><strong>Nivel 1 — Emisor simple:</strong> solo envía la contraseña correcta.</li>
-                      <li><strong>Nivel 2 — Receptor con fallos:</strong> implementa el contador de intentos y el bloqueo tras 3 fallos.</li>
-                      <li><strong>Nivel 3 — Comunicación bidireccional:</strong> el receptor envía un mensaje de "FALLO" al emisor tras cada intento incorrecto.</li>
-                      <li><strong>Nivel 4 — Juego:</strong> crea un juego de escape donde la micro:bit emite pistas y otra micro:bit actúa de "cerradura".</li>
+                      <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list41' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list411' | translate }}</li>
+                      <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list42' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list421' | translate }}</li>
+                      <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list43' | translate }}</strong> el {{ 'EDUCADORES_PAGE.MODULES.cap9.list431' | translate }}</li>
+                      <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list44' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list441' | translate }}</li>
                     </ul>
                   </div>
                 </ion-accordion>
@@ -1814,8 +1899,8 @@
                   </ion-item>
                   <div class="dua-content ion-padding" slot="content">
                     <ul>
-                      <li><strong>Relevancia social:</strong> debate sobre la seguridad en la tecnología. ¿Qué pasaría si la cerradura fuera real? ¿Cómo se protege la información?</li>
-                      <li><strong>Rol de auditor:</strong> algunos alumnos actúan como "hackers" intentando adivinar la contraseña, mientras otros defienden su sistema.</li>
+                      <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list51' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list511' | translate }}</li>
+                      <li><strong>{{ 'EDUCADORES_PAGE.MODULES.cap9.list52' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.cap9.list521' | translate }}</li>
                     </ul>
                   </div>
                 </ion-accordion>

@@ -405,6 +405,27 @@ escala = ['C4:4','D4:4','E4:4','F4:4','G4:4','A4:4','B4:4','C5:4']
 music.play(escala)`;
 
   pythonCode_7_3 = `from microbit import *
+import speech
+
+# Saludo básico en inglés
+speech.say("Hello world")
+sleep(500)
+
+# Personalizar la voz
+# speed (0-255), pitch (0-255), throat (0-255), mouth (0-255)
+speech.say("I am a robot", speed=80, pitch=100, throat=200, mouth=150)`;
+
+  pythonCode_7_4 = `from microbit import *
+import speech
+
+palabras = ["Hello", "Happy", "Microbit"]
+
+for p in palabras:
+    display.scroll(p, wait=False) # No espera a terminar el scroll
+    speech.say(p)
+    sleep(1000)`;
+
+  pythonCode_7_5 = `from microbit import *
 import music
 
 # music.pitch(frecuencia_Hz, duracion_ms)

@@ -2,20 +2,23 @@
 <html lang="eu">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Soinua eta Musika — MicroPython Ikasgelan</title>
+<title>7. Kap: Soinua eta Musika — MicroPython Ikasgelan</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button class="menu-btn" id="menu-btn">&#9776;</button>
+<button class="menu-btn" id="menu-btn">☰</button>
 <div class="overlay" id="overlay"></div>
 <div class="layout">
   <aside class="sidebar" id="sidebar"></aside>
   <main class="main">
     <div class="page-header">
-      <div class="chapter-tag">🎵 Kapitulua 07</div>
+      <div class="chapter-tag">🎵 07. Kapitulua</div>
       <h1>Soinua eta Musika</h1>
-      <p class="subtitle">Aurredefinitutako melodiak, notakekin konposizioa eta Hz-ko maiztasunak.</p>
-      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+      <p class="subtitle">Aurredefinitutako melodiak, konposizioa notekin, ahots-sintesia eta maiztasunak Hz-etan.</p>
+      <div class="header-badges">
+        <span class="badge badge-amber">🟡 Oinarrizkoa</span>
+        <span class="badge badge-coral">🟠 Erdi-mailakoa</span>
+      </div>
     </div>
     <div class="content" id="mc"></div>
     <div id="page-nav"></div>
@@ -24,22 +27,158 @@
 <script src="nav.js"></script>
 <script>
 initPage('cap7');
-document.getElementById('mc').innerHTML=`
+const contentHTML = `
+  ${duaBox('rep', [
+    '<strong>Entzumen-irisgarritasuna:</strong> hipoakusia edo gortasuna duten ikasleentzat, ariketa guztiak music.play() display.show() edo display.scroll() bidez ordezkatuz egin daitezke. Nota testu gisa ("Do", "Re"...) edo maiztasun-zenbaki gisa agertzen da.',
+    'Entzumen-sentsibilitatea duten ikasleek entzungailuekin edo bolumen baxuarekin lan egin dezakete.',
+    'Kapitulua guztiz irisgarria da modu bisual hutsean.'
+  ])}
 
-  ${duaBox('rep',['<strong>Entzumen-irisgarritasuna:</strong> entzumen-urritasuna duten ikasleentzat, ordeztu music.play() display.show()-ekin. Kapitulua ikus-moduan erabat irisgarria da.', 'Entzumen-sentikortasuna duten ikasleek entzugailuekin edo bolumen baxuarekin lan egin dezakete.'])}
   <h2>7.1 Aurredefinitutako melodiak</h2>
-  ${codeBlock('melodies.py',['from microbit import *', 'import music', '', 'music.play(music.BIRTHDAY)', 'sleep(500)', 'music.play(music.POWER_UP)', 'sleep(500)'])}
-  ${table(['Melodia', 'Deskribapena'],[['music.BIRTHDAY', 'Zorionak'], ['music.POWER_UP', 'Hasiera/Garaipena'], ['music.POWER_DOWN', 'Porrota'], ['music.FUNERAL', 'Hileta martxa'], ['music.BA_DING', 'Jakinarazpena']])}
-  <h2>7.2 Notakekin konposizioa</h2>
-  ${codeBlock('scale.py',['from microbit import *', 'import music', '', "# Format: 'NOTE OCTAVE : DURATION'", '# Notes: C D E F G A B', '# Duration: 4=quarter 8=eighth 2=half 1=whole', '', "scale = ['C4:4','D4:4','E4:4','F4:4',", "         'G4:4','A4:4','B4:4','C5:4']", 'music.play(scale)'])}
-  ${noteBox(['Eskala Hz-tan: C=262, D=294, E=330, F=349, G=392, A=440, B=494.', 'Maiztasuna bikoiztea = oktaba bat igo.'])}
+  ${codeBlock('melodiak.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    'music.play(music.BIRTHDAY)    # Zorionak zuri',
+    'sleep(500)',
+    'music.play(music.POWER_UP)    # Hasierako soinua',
+    'sleep(500)',
+    'music.play(music.FUNERAL)     # Hileta-martxa'
+  ])}
+
+  ${table(
+    ['Melodia', 'Deskribapena'],
+    [
+      ['music.BIRTHDAY', 'Zorionak zuri'],
+      ['music.WEDDING', 'Ezkontza-martxa'],
+      ['music.FUNERAL', 'Hileta-martxa'],
+      ['music.POWER_UP', 'Hasiera / Garaipen soinua'],
+      ['music.POWER_DOWN', 'Itzaltze / Galdu soinua'],
+      ['music.JUMP_UP / JUMP_DOWN', 'Jauzi efektuak'],
+      ['music.BA_DING', 'Jakinarazpen laburra']
+    ]
+  )}
+
+  <h2>7.2 Konposizioa notekin</h2>
+  ${codeBlock('eskala.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    "# Nota formatua: 'NOTA OKTABA : IRAUPENA'",
+    '# Notak: C D E F G A B = Do Re Mi Fa Sol La Si',
+    '# Iraupena: 4=beltza  8=kortxea  2=zuria  1=borobila',
+    '',
+    "escala = ['C4:4','D4:4','E4:4','F4:4','G4:4','A4:4','B4:4','C5:4']",
+    'music.play(escala)'
+  ])}
+
   <h3>✏️ 7.1 Ariketa — Konpositorea ${level(2)} ${level(3)}</h3>
-  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
-    <p>Konposatu gutxienez 8 notako zure melodia 2 iraupenekin. Eman iezaiozu izena eta dokumentatu iruzkinak idatziz.</p>
-  </div></div>
-  ${duaBox('ace',['<strong>Aukera bisuala:</strong> idatzi notak pentagrama edo taula batean (Do-Re-Mi...) eta gero kodora transkribatu.', '<strong>Aukera ahozkoa:</strong> tararea melodia micro:bit-ak erreproduzitzen duen bitartean.', '<strong>Aukera librea:</strong> dagoeneko ezagutzen duzun melodia bat kodora transkribatu.'])}
-  ${duaBox('imp',['<strong>Erabateko hautaketa:</strong> ikasleak zein melodia konposatzen duen aukeratzen du. Estilo-mugarik gabe.'])}
-`;
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Konposatu zure melodia propioa gutxienez <strong>8 notarekin</strong>.</p>
+      <p>Erabili gutxienez 2 iraupen ezberdin (4 eta 8).</p>
+      <p>Eman izen bat eta dokumentatu iruzkinekin zein zati den ahapaldia eta zein errepika.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Soinu aukera:</strong> zuzenean kodean konposatzea.',
+    '<strong>Aukera bisuala:</strong> notak pentagrama edo taula batean idaztea (Do-Re-Mi...) eta gero kodera pasatzea.',
+    '<strong>Gorputz aukera:</strong> melodia body percussion-ekin jotzea eta ondoren transkribatzea.',
+    '<strong>Ikerketa aukera:</strong> lehendik ezagutzen duzun melodia bat kodera transkribatzea.'
+  ])}
+  ${duaBox('imp', [
+    '<strong>Erabateko aukera:</strong> ikasleak aukeratzen du zein melodia konposatu. Estilo mugarik gabe. Rap, klasikoa, pop, asmatua...',
+    '<strong>Diziplinarteko lankidetza:</strong> koordinatu Musika irakaslearekin ariketa horrek ikasgai horretarako ere balio dezan.'
+  ])}
+
+  <h2>7.3 Ahots-sintesia (Speech)</h2>
+  <p>micro:bitek notak emititu ez ezik, "hitz egin" eta "kantatu" ere egin dezake <code>speech</code> moduluaren bidez. Horrek proiektu narratiboagoak eta inklusiboagoak sortzeko aukera ematen du.</p>
+  
+  ${codeBlock('kaixo_mundua.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    '# Oinarrizko agurra ingelesez',
+    'speech.say("Hello world")',
+    'sleep(500)',
+    '',
+    '# Ahotsa pertsonalizatu',
+    '# speed (0-255), pitch (0-255), throat (0-255), mouth (0-255)',
+    'speech.say("I am a robot", speed=80, pitch=100, throat=200, mouth=150)'
+  ])}
+
+  ${duaBox('rep', [
+    '<strong>Multimodalitatea:</strong> micro:bitek "hitz egiten" duen bakoitzean, testua edo ikono bat erakutsi behar dugu LED matrizean entzumen-desgaitasuna duten ikasleentzat.',
+    '<strong>Laguntza bisuala:</strong> erabili <code>display.scroll()</code> edo <code>display.show()</code> <code>speech.say()</code> bakoitzaren aurretik.'
+  ])}
+
+  ${codeBlock('narratzailea.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    'hitzak = ["Hello", "Happy", "Microbit"]',
+    '',
+    'for h in hitzak:',
+    '    display.scroll(h, wait=False)',
+    '    speech.say(h)',
+    '    sleep(1000)'
+  ])}
+
+  <h3>Kantatu eta fonemak</h3>
+  <p>Erabateko kontrolerako, fonemak erabil ditzakegu. Hau erabilgarria da euskarazko hitzentzat, ahots-motorra ingeleserako optimizatuta baitago.</p>
+  
+  ${codeBlock('kantatu.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    '# "Egun on" fonemak erabiliz (hurbilketa)',
+    'speech.pronounce("EHGUHN OHN")',
+    '',
+    '# Nota zehatz bat kantatu',
+    '# Formatua: [fonema][tonua]',
+    'speech.sing("HAY2LOOOO4")'
+  ])}
+
+  <h3>✏️ 7.2 Ariketa — Robot poliglota ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Sortu programa bat non micro:bitek esaldi ezberdin bat esango duen sakatzen duzun botoiaren arabera (A edo B).</p>
+      <p><strong>Baldintza:</strong> Esaldi bat agurra izan behar da eta bestea abisua.</p>
+      <p><strong>DUA:</strong> Testua aldi berean agertu behar da LED pantailan.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Malgutasuna:</strong> ikasleak aukera dezake robotak ingelesez (naturala) hitz egiten duen edo beste hizkuntza batzuetan "hitz egiten" saiatzen den fonemak erabiliz.',
+    '<strong>Adierazpena:</strong> <code>pitch</code> eta <code>speed</code> parametroak doitzeko aukera ematen du "nortasuna" emateko (erraldoi ahotsa, sagu ahotsa, ahots tristea...)..'
+  ])}
+
+  <h2>7.4 Maiztasunak eta hotsak</h2>
+  ${codeBlock('maiztasunak.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    '# music.pitch(maiztasuna_Hz, iraupena_ms)',
+    'music.pitch(440, 500)     # La4 0,5 segundoz',
+    'sleep(200)',
+    'music.pitch(880, 500)     # La5 (bikoitza = oktaba altuagoa)',
+    '',
+    '# Larrialdi sirena',
+    'for i in range(5):',
+    '    music.pitch(800, 200)',
+    '    music.pitch(600, 200)'
+  ])}
+
+  ${noteBox([
+    'Eskala musikala Hz-etan: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494.',
+    'Maiztasuna bikoiztea oktaba bat igotzearen baliokidea da.',
+    'music.pitch() funtzioak bozgorailua behar du (v2-an integratua, edo kanpokoa 0 eta GND pinetan v1-erako).'
+  ])}
+\`;
+document.getElementById('mc').innerHTML = contentHTML;
 </script>
 </body>
 </html>

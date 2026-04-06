@@ -2,20 +2,23 @@
 <html lang="gl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Son e Musica — MicroPython na Aula</title>
+<title>Cap. 7: Son e Música — MicroPython na Aula</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button class="menu-btn" id="menu-btn">&#9776;</button>
+<button class="menu-btn" id="menu-btn">☰</button>
 <div class="overlay" id="overlay"></div>
 <div class="layout">
   <aside class="sidebar" id="sidebar"></aside>
   <main class="main">
     <div class="page-header">
-      <div class="chapter-tag">🎵 Capitulo 07</div>
-      <h1>Son e Musica</h1>
-      <p class="subtitle">Melodias predefinidas, composicion con notas e frecuencias en Hz.</p>
-      <div class="header-badges"><span class="badge badge-amber">${level(2)}</span><span class="badge badge-coral">${level(3)}</span></div>
+      <div class="chapter-tag">🎵 Capítulo 07</div>
+      <h1>Son e Música</h1>
+      <p class="subtitle">Melodías predefinidas, composición con notas, síntese de voz e sons con frecuencias en Hz.</p>
+      <div class="header-badges">
+        <span class="badge badge-amber">🟡 Básico</span>
+        <span class="badge badge-coral">🟠 Intermedio</span>
+      </div>
     </div>
     <div class="content" id="mc"></div>
     <div id="page-nav"></div>
@@ -24,22 +27,158 @@
 <script src="nav.js"></script>
 <script>
 initPage('cap7');
-document.getElementById('mc').innerHTML=`
+const contentHTML = `
+  ${duaBox('rep', [
+    '<strong>Accesibilidade auditiva:</strong> para alumnos con hipoacusia ou xordeira, todos os exercicios poden completarse substituíndo music.play() por display.show() ou display.scroll(). A nota móstrase como texto ("Do", "Re"...) ou como número de frecuencia.',
+    'Os alumnos con sensibilidade auditiva poden traballar con auriculares ou co volume baixo.',
+    'O capítulo é completamente accesible en modo só visual.'
+  ])}
 
-  ${duaBox('rep',['<strong>Accesibilidade auditiva:</strong> para alumnos con hipoacusia, substitue music.play() por display.show(). O capitulo e completamente accesible en modo visual.', 'Os alumnos con sensibilidade auditiva poden traballar con auricularees ou con volume baixo.'])}
-  <h2>7.1 Melodias predefinidas</h2>
-  ${codeBlock('melodies.py',['from microbit import *', 'import music', '', 'music.play(music.BIRTHDAY)', 'sleep(500)', 'music.play(music.POWER_UP)', 'sleep(500)'])}
-  ${table(['Melodia', 'Descripcion'],[['music.BIRTHDAY', 'Feliz aniversario'], ['music.POWER_UP', 'Inicio/Victoria'], ['music.POWER_DOWN', 'Derrota'], ['music.FUNERAL', 'Marcha funbre'], ['music.BA_DING', 'Notificacion']])}
-  <h2>7.2 Composicion con notas</h2>
-  ${codeBlock('scale.py',['from microbit import *', 'import music', '', "# Format: 'NOTE OCTAVE : DURATION'", '# Notes: C D E F G A B', '# Duration: 4=quarter 8=eighth 2=half 1=whole', '', "scale = ['C4:4','D4:4','E4:4','F4:4',", "         'G4:4','A4:4','B4:4','C5:4']", 'music.play(scale)'])}
-  ${noteBox(['Escala en Hz: C=262, D=294, E=330, F=349, G=392, A=440, B=494.', 'Duplicar a frecuencia = subir unha octava.'])}
-  <h3>✏️ Exercicio 7.1 — Compositor ${level(2)} ${level(3)}</h3>
-  <div class="box box-exercise"><span class="box-icon">✏️</span><div class="box-body">
-    <p>Compón unha melodia propia de polo menos 8 notas con 2 duracins diferentes. Dalle un nome e documentaa con comentarios.</p>
-  </div></div>
-  ${duaBox('ace',['<strong>Opcion visual:</strong> escribe as notas nunha partitura ou taboa (Do-Re-Mi...) e logo transcribe ao codigo.', '<strong>Opcion oral:</strong> taralea a melodia mentres a micro:bit a reproduce.', '<strong>Opcion libre:</strong> transcribe ao codigo unha melodia existente que xa connezas.'])}
-  ${duaBox('imp',['<strong>Eleccion total:</strong> o alumno elixe que melodia compón. Sen restriccins de estilo. Rap, clasica, pop, inventada...'])}
-`;
+  <h2>7.1 Melodías predefinidas</h2>
+  ${codeBlock('melodias.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    'music.play(music.BIRTHDAY)    # Aniversario feliz',
+    'sleep(500)',
+    'music.play(music.POWER_UP)    # Son de inicio',
+    'sleep(500)',
+    'music.play(music.FUNERAL)     # Marcha fúnebre'
+  ])}
+
+  ${table(
+    ['Melodía', 'Descrición'],
+    [
+      ['music.BIRTHDAY', 'Aniversario feliz'],
+      ['music.WEDDING', 'Marcha nupcial'],
+      ['music.FUNERAL', 'Marcha fúnebre'],
+      ['music.POWER_UP', 'Son de inicio / vitoria'],
+      ['music.POWER_DOWN', 'Son de apagado / derrota'],
+      ['music.JUMP_UP / JUMP_DOWN', 'Efectos de salto'],
+      ['music.BA_DING', 'Notificación curta']
+    ]
+  )}
+
+  <h2>7.2 Composición con notas</h2>
+  ${codeBlock('escala.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    "# Formato de nota: 'NOTA OITAVA : DURACIÓN'",
+    '# Notas: C D E F G A B = Do Re Mi Fa Sol La Si',
+    '# Duración: 4=negra  8=corchea  2=branca  1=redonda',
+    '',
+    "escala = ['C4:4','D4:4','E4:4','F4:4','G4:4','A4:4','B4:4','C5:4']",
+    'music.play(escala)'
+  ])}
+
+  <h3>✏️ Exercercicio 7.1 — Compositor ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Compón unha melodía propia de polo menos <strong>8 notas</strong>.</p>
+      <p>Usa polo menos 2 duracións diferentes (4 e 8).</p>
+      <p>Dalle un nom e documenta con comentarios que parte é estrofa e cal é estribillo.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Opción sonora:</strong> compoñer directamente en código.',
+    '<strong>Opción visual:</strong> escribir as notas nun pentagrama ou táboa (Do-Re-Mi...) e despois transferir ao código.',
+    '<strong>Opción corporal:</strong> tocar a melodía con body percussion e despois transcribila.',
+    '<strong>Opción investigación:</strong> transcribir ao código unha melodía existente que xa coñeces.'
+  ])}
+  ${duaBox('imp', [
+    '<strong>Elección total:</strong> o alumno elixe que melodía compón. Sen restricións de estilo. Rap, clásica, pop, inventada...',
+    '<strong>Colaboración interdisciplinar:</strong> coordina co profesor/a de Música para que o exercicio conte tamén como actividade desa materia.'
+  ])}
+
+  <h2>7.3 Síntese de voz (Speech)</h2>
+  <p>A micro:bit non só pode emitir notas, sinó tamén "falar" e "cantar" mediante o módulo <code>speech</code>. Isto permite crear proxectos moito máis narrativos e inclusivos.</p>
+  
+  ${codeBlock('ola_mundo.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    '# Saúdo básico en inglés',
+    'speech.say("Hello world")',
+    'sleep(500)',
+    '',
+    '# Personalizar a voz',
+    '# speed (0-255), pitch (0-255), throat (0-255), mouth (0-255)',
+    'speech.say("I am a robot", speed=80, pitch=100, throat=200, mouth=150)'
+  ])}
+
+  ${duaBox('rep', [
+    '<strong>Multimodalidade:</strong> sempre que la micro:bit "fale", debemos mostrar o texto ou unha icona na matriz LED para os alumnos con discapacidade auditiva.',
+    '<strong>Apoio visual:</strong> usa <code>display.scroll()</code> ou <code>display.show()</code> antes de cada <code>speech.say()</code>.'
+  ])}
+
+  ${codeBlock('narrador.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    'palabras = ["Hello", "Happy", "Microbit"]',
+    '',
+    'for p in palabras:',
+    '    display.scroll(p, wait=False)',
+    '    speech.say(p)',
+    '    sleep(1000)'
+  ])}
+
+  <h3>Cantar e fonemas</h3>
+  <p>Para un control total, podemos usar fonemas. Isto é útil para palabras en galego, xa que o motor de voz está optimizado para o inglés.</p>
+  
+  ${codeBlock('cantar.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    '# "Bo día" usando fonemas (aproximación)',
+    'speech.pronounce("BOH DIYAA")',
+    '',
+    '# Cantar una nota específica',
+    '# Format: [fonema][tono]',
+    'speech.sing("HAY2LOOOO4")'
+  ])}
+
+  <h3>✏️ Exercercicio 7.2 — O robot políglota ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Crea un programa onde a micro:bit diga unha frase diferente segundo o botón que pulses (A o B).</p>
+      <p><strong>Requisito:</strong> Unha frase debe ser un saúdo e a outra unha advertencia.</p>
+      <p><strong>DUA:</strong> O texto debe aparecer simultaneamente na pantalla LED.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Flexibilidade:</strong> o alumno pode elixir se o robot fala en inglés (natural) ou intenta "falar" galego usando fonemas.',
+    '<strong>Expresión:</strong> permite axustar os parámetros <code>pitch</code> e <code>speed</code> para darlle "personalidade" (voz de xigante, voz de rato, voz triste...)..'
+  ])}
+
+  <h2>7.4 Frecuencias e asubíos</h2>
+  ${codeBlock('frecuencias.py', [
+    'from microbit import *',
+    'import music',
+    '',
+    '# music.pitch(frecuencia_Hz, duracion_ms)',
+    'music.pitch(440, 500)     # La4 durante 0,5 segundos',
+    'sleep(200)',
+    'music.pitch(880, 500)     # La5 (o dobre = oitava superior)',
+    '',
+    '# Serea de emerxencia',
+    'for i in range(5):',
+    '    music.pitch(800, 200)',
+    '    music.pitch(600, 200)'
+  ])}
+
+  ${noteBox([
+    'Escala musical en Hz: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494.',
+    'Duplicar la frecuencia equivale a subir una oitava.',
+    'music.pitch() require altofalante (integrado en v2, ou externo en pins 0 e GND para v1).'
+  ])}
+\`;
+document.getElementById('mc').innerHTML = contentHTML;
 </script>
 </body>
 </html>

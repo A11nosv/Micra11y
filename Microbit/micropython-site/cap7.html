@@ -14,24 +14,24 @@
     <div class="page-header">
       <div class="chapter-tag">🎵 Capítulo 07</div>
       <h1>Sonido y Música</h1>
-      <p class="subtitle">Melodías predefinidas, composición con notas musicales en formato texto y sonidos con frecuencias en Hz.</p>
+      <p class="subtitle">Melodías predefinidas, composición con notas, síntesis de voz y frecuencias en Hz.</p>
       <div class="header-badges">
         <span class="badge badge-amber">🟡 Básico</span>
         <span class="badge badge-coral">🟠 Intermedio</span>
       </div>
     </div>
-    <div class="content" id="main-content"></div>
+    <div class="content" id="mc"></div>
     <div id="page-nav"></div>
   </main>
 </div>
 <script src="nav.js"></script>
 <script>
 initPage('cap7');
-document.getElementById('main-content').innerHTML = `
+const htmlContent = `
   ${duaBox('rep', [
-    '<strong>Accesibilidad auditiva:</strong> para alumnos con hipoacusia o sordera, todos los ejercicios pueden completarse reemplazando music.play() por display.show() o display.scroll(). La nota se muestra como texto ("Do", "Re"...) o como número de frecuencia.',
+    '<strong>Accesibilidad auditiva:</strong> para alumnos con hipoacusia o sordera, todos los ejercicios pueden completarse reemplazando music.play() por display.show() o display.scroll().',
     'Los alumnos con sensibilidad auditiva pueden trabajar con auriculares o con el volumen bajo.',
-    'El capítulo es completamente accesible en modo solo visual.',
+    'El capítulo es completamente accesible en modo solo visual.'
   ])}
 
   <h2>7.1 Melodías predefinidas</h2>
@@ -43,7 +43,7 @@ document.getElementById('main-content').innerHTML = `
     'sleep(500)',
     'music.play(music.POWER_UP)    # Sonido de inicio',
     'sleep(500)',
-    'music.play(music.FUNERAL)     # Marcha fúnebre',
+    'music.play(music.FUNERAL)     # Marcha fúnebre'
   ])}
 
   ${table(
@@ -55,7 +55,7 @@ document.getElementById('main-content').innerHTML = `
       ['music.POWER_UP', 'Sonido de inicio / victoria'],
       ['music.POWER_DOWN', 'Sonido de apagado / derrota'],
       ['music.JUMP_UP / JUMP_DOWN', 'Efectos de salto'],
-      ['music.BA_DING', 'Notificación corta'],
+      ['music.BA_DING', 'Notificación corta']
     ]
   )}
 
@@ -64,12 +64,12 @@ document.getElementById('main-content').innerHTML = `
     'from microbit import *',
     'import music',
     '',
-    "# Formato de nota: 'NOTA OCTAVA : DURACION'",
+    "# Formato: 'NOTA OCTAVA : DURACION'",
     '# Notas: C D E F G A B = Do Re Mi Fa Sol La Si',
     '# Duración: 4=negra  8=corchea  2=blanca  1=redonda',
     '',
     "escala = ['C4:4','D4:4','E4:4','F4:4','G4:4','A4:4','B4:4','C5:4']",
-    'music.play(escala)',
+    'music.play(escala)'
   ])}
 
   <h3>✏️ Ejercicio 7.1 — Compositor ${level(2)} ${level(3)}</h3>
@@ -85,15 +85,76 @@ document.getElementById('main-content').innerHTML = `
   ${duaBox('ace', [
     '<strong>Opción sonora:</strong> componer directamente en código.',
     '<strong>Opción visual:</strong> escribir las notas en un pentagrama o tabla (Do-Re-Mi...) y luego transferir al código.',
-    '<strong>Opción corporal:</strong> tocar la melodía con body percussion y luego transcribirla.',
-    '<strong>Opción investigación:</strong> transcribir al código una melodía existente que ya conoces.',
+    '<strong>Opción corporal:</strong> tocar la melodía con body percussion.',
+    '<strong>Opción investigación:</strong> transcribir una melodía existente que ya conozcas.'
   ])}
   ${duaBox('imp', [
-    '<strong>Elección total:</strong> el alumno elige qué melodía compone. Sin restricciones de estilo. Rap, clásica, pop, inventada...',
-    '<strong>Colaboración interdisciplinar:</strong> coordina con el/la profesor/a de Música para que el ejercicio cuente también como actividad de esa asignatura.',
+    '<strong>Elección total:</strong> el alumno elige qué melodía compone.',
+    '<strong>Colaboración:</strong> coordina con el/la profesor/a de Música.'
   ])}
 
-  <h2>7.3 Frecuencias y pitidos</h2>
+  <h2>7.3 Síntesis de voz (Speech)</h2>
+  <p>La micro:bit no solo puede emitir notas, sino también "hablar" y "cantar" mediante el módulo <code>speech</code>. Esto permite crear proyectos mucho más narrativos e inclusivos.</p>
+  
+  ${codeBlock('hola_mundo.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    '# Saludo básico en inglés',
+    'speech.say("Hello world")',
+    'sleep(500)',
+    '',
+    '# Personalizar la voz (velocidad, tono, garganta, boca)',
+    'speech.say("I am a robot", speed=80, pitch=100, throat=200, mouth=150)'
+  ])}
+
+  ${duaBox('rep', [
+    '<strong>Multimodalidad:</strong> siempre que la micro:bit "hable", debemos mostrar el texto o un icono en la matriz LED para los alumnos con discapacidad auditiva.',
+    '<strong>Apoyo visual:</strong> usa display.scroll() antes de cada speech.say().'
+  ])}
+
+  ${codeBlock('narrador.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    'palabras = ["Hello", "Happy", "Microbit"]',
+    '',
+    'for p in palabras:',
+    '    display.scroll(p, wait=False)',
+    '    speech.say(p)',
+    '    sleep(1000)'
+  ])}
+
+  <h3>Cantar y fonemas</h3>
+  <p>Para un control total, podemos usar fonemas. Esto es útil para palabras en español, ya que el motor de voz está optimizado para inglés.</p>
+  
+  ${codeBlock('cantar.py', [
+    'from microbit import *',
+    'import speech',
+    '',
+    '# "Hola" usando fonemas (aproximación)',
+    'speech.pronounce("OH LAA")',
+    '',
+    '# Cantar una nota específica: [fonema][tono]',
+    'speech.sing("HAY2LOOOO4")'
+  ])}
+
+  <h3>✏️ Ejercicio 7.2 — El robot políglota ${level(2)} ${level(3)}</h3>
+  <div class="box box-exercise">
+    <span class="box-icon">✏️</span>
+    <div class="box-body">
+      <p>Crea un programa donde la micro:bit diga una frase diferente según el botón que pulses (A o B).</p>
+      <p><strong>Requisito:</strong> Una frase debe ser un saludo y la otra una advertencia.</p>
+      <p><strong>DUA:</strong> El texto debe aparecer simultáneamente en la pantalla LED.</p>
+    </div>
+  </div>
+
+  ${duaBox('ace', [
+    '<strong>Flexibilidad:</strong> el alumno puede elegir si el robot habla en inglés o español (fonemas).',
+    '<strong>Expresión:</strong> permite ajustar pitch y speed para darle personalidad.'
+  ])}
+
+  <h2>7.4 Frecuencias y pitidos</h2>
   ${codeBlock('frecuencias.py', [
     'from microbit import *',
     'import music',
@@ -101,20 +162,20 @@ document.getElementById('main-content').innerHTML = `
     '# music.pitch(frecuencia_Hz, duracion_ms)',
     'music.pitch(440, 500)     # La4 durante 0,5 segundos',
     'sleep(200)',
-    'music.pitch(880, 500)     # La5 (el doble = octava superior)',
+    'music.pitch(880, 500)     # La5 (octava superior)',
     '',
     '# Sirena de emergencia',
     'for i in range(5):',
     '    music.pitch(800, 200)',
-    '    music.pitch(600, 200)',
+    '    music.pitch(600, 200)'
   ])}
 
   ${noteBox([
     'Escala musical en Hz: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494.',
-    'Duplicar la frecuencia equivale a subir una octava.',
-    'music.pitch() requiere altavoz (integrado en v2, o externo en pins 0 y GND para v1).',
+    'music.pitch() requiere altavoz (integrado en v2, o pins 0/GND en v1).'
   ])}
 `;
+document.getElementById('mc').innerHTML = htmlContent;
 </script>
 </body>
 </html>
