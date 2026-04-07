@@ -902,6 +902,7 @@
         "hr82": "Negación: not button_a.is_pressed()",
         "hd4": "3.3 Los botones A y B",
         "code2": "botones_emociones.py",
+        "code3": "piedra_papel_tijera.py",
         "p2": "is_pressed()",
         "p21": "devuelve",
         "p22": "True si el botón está pulsado en ese instante.",

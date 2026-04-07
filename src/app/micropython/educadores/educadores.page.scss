@@ -259,6 +259,12 @@ ion-toolbar.aligned-with-content {
     align-items: center;
     min-height: 40px;
 
+    .code-actions {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
     .copy-btn {
       --padding-start: 8px;
       --padding-end: 8px;
