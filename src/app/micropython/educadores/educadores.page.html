@@ -2841,11 +2841,11 @@
                       <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr642' | translate }}</td>
                     </tr>
                     <tr>
-                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr6151' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr651' | translate }}</td>
                       <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr652' | translate }}</td>
                     </tr>
                     <tr>
-                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr6161' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr661' | translate }}</td>
                       <td>{{ 'EDUCADORES_PAGE.MODULES.cap10.tr662' | translate }}</td>
                     </tr>
                   </tbody>
@@ -2902,14 +2902,241 @@
               <ul>
                 <li><a href="https://python.microbit.org" target="_blank" title="{{ 'EDUCADORES_PAGE.MODULES.cap10.l21' | translate }}"><strong>python.microbit.org</strong></a> {{ 'EDUCADORES_PAGE.MODULES.cap10.l211' | translate }}</li>
                 <li><a href="https://microbit.org/teach" target="_blank" title="{{ 'EDUCADORES_PAGE.MODULES.cap10.l22' | translate }}"><strong>microbit.org/teach</strong></a> {{ 'EDUCADORES_PAGE.MODULES.cap10.l221' | translate }}</li>
-                <li><a href="https://udlguidelines.cast.org" target="_blank" title="{{ 'EDUCADORES_PAGE.MODULES.cap10.l23' | translate }}"><strong>udlguidelines.cast.org</strong></a> {{ 'EDUCADORES_PAGE.MODULES.cap10.l231' | translate }}</li>
+                <li><a href="https://udlguidelines.cast.org" target="_blank" title="{{ 'EDUCADORES_PAGE.MODULES.cap10.l23' | translate }}"><strong>udlguidelines.cast.org</strong></a> {{ 'EDUCADORES_PAGE.MODULES.cap10.l231' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.cap10.dua_abbr' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.cap10.dua' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.cap10.l232' | translate }}</li>
                 <li><a href="https://csunplugged.org" target="_blank"><strong>csunplugged.org</strong></a> — Actividades de programación desenchufadas (unplugged).</li>
               </ul>
             </div>
           </div>
 
+          <!-- Módulo A: Apéndice -->
+          <div *ngIf="currentModule?.id === 'apendice'" class="module-content animate__animated animate__fadeIn">
+            <div class="module-header">
+              <ion-badge color="warning">{{ 'EDUCADORES_PAGE.MODULES.apendice.badge1' | translate }}</ion-badge>
+              <ion-badge color="tertiary" class="ion-margin-start">{{ 'EDUCADORES_PAGE.MODULES.apendice.badge2' | translate }}</ion-badge>
+              <h1>{{ currentModule.title }}</h1>
+              <p class="lead">{{ 'EDUCADORES_PAGE.MODULES.apendice.subtitle' | translate }}</p>
+            </div>
+
+            <div class="module-body">
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd1' | translate }}</h2>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>python</span>
+                  <div class="code-actions">
+                    <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_A_1, 'A1')" [class.copying]="copyStates['A1'] === 'copying'" [class.copied]="copyStates['A1'] === 'copied'" class="copy-btn">
+                      <ion-icon *ngIf="copyStates['A1'] === 'idle' || !copyStates['A1']" name="copy-outline" slot="icon-only"></ion-icon>
+                      <span *ngIf="copyStates['A1'] === 'copying'" class="copy-label">
+                        {{ 'EDUCADORES_PAGE.COPIED' | translate }}
+                      </span>
+                      <ion-icon *ngIf="copyStates['A1'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                      <span class="scr-reader">
+                        {{ (copyStates['A1'] === 'copied' ? 'EDUCADORES_PAGE.COPIED' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                      </span>
+                    </ion-button>
+                  </div>
+                </div>
+                <pre><code [highlight]="pythonCode_A_1" [language]="'python'"></code></pre>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd2' | translate }}</h2>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>python</span>
+                  <div class="code-actions">
+                    <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_A_2, 'A2')" [class.copying]="copyStates['A2'] === 'copying'" [class.copied]="copyStates['A2'] === 'copied'" class="copy-btn">
+                      <ion-icon *ngIf="copyStates['A2'] === 'idle' || !copyStates['A2']" name="copy-outline" slot="icon-only"></ion-icon>
+                      <span *ngIf="copyStates['A2'] === 'copying'" class="copy-label">
+                        {{ 'EDUCADORES_PAGE.COPIED' | translate }}
+                      </span>
+                      <ion-icon *ngIf="copyStates['A2'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                      <span class="scr-reader">
+                        {{ (copyStates['A2'] === 'copied' ? 'EDUCADORES_PAGE.COPIED' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                      </span>
+                    </ion-button>
+                  </div>
+                </div>
+                <pre><code [highlight]="pythonCode_A_2" [language]="'python'"></code></pre>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd3' | translate }}</h2>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>python</span>
+                  <div class="code-actions">
+                    <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_A_3, 'A3')" [class.copying]="copyStates['A3'] === 'copying'" [class.copied]="copyStates['A3'] === 'copied'" class="copy-btn">
+                      <ion-icon *ngIf="copyStates['A3'] === 'idle' || !copyStates['A3']" name="copy-outline" slot="icon-only"></ion-icon>
+                      <span *ngIf="copyStates['A3'] === 'copying'" class="copy-label">
+                        {{ 'EDUCADORES_PAGE.COPIED' | translate }}
+                      </span>
+                      <ion-icon *ngIf="copyStates['A3'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                      <span class="scr-reader">
+                        {{ (copyStates['A3'] === 'copied' ? 'EDUCADORES_PAGE.COPIED' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                      </span>
+                    </ion-button>
+                  </div>
+                </div>
+                <pre><code [highlight]="pythonCode_A_3" [language]="'python'"></code></pre>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd4' | translate }}</h2>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>python</span>
+                  <div class="code-actions">
+                    <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_A_4, 'A4')" [class.copying]="copyStates['A4'] === 'copying'" [class.copied]="copyStates['A4'] === 'copied'" class="copy-btn">
+                      <ion-icon *ngIf="copyStates['A4'] === 'idle' || !copyStates['A4']" name="copy-outline" slot="icon-only"></ion-icon>
+                      <span *ngIf="copyStates['A4'] === 'copying'" class="copy-label">
+                        {{ 'EDUCADORES_PAGE.COPIED' | translate }}
+                      </span>
+                      <ion-icon *ngIf="copyStates['A4'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                      <span class="scr-reader">
+                        {{ (copyStates['A4'] === 'copied' ? 'EDUCADORES_PAGE.COPIED' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                      </span>
+                    </ion-button>
+                  </div>
+                </div>
+                <pre><code [highlight]="pythonCode_A_4" [language]="'python'"></code></pre>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd5' | translate }}</h2>
+              <div class="code-container">
+                <div class="code-header">
+                  <span>python</span>
+                  <div class="code-actions">
+                    <ion-button fill="clear" size="small" (click)="copyToClipboard(pythonCode_A_5, 'A5')" [class.copying]="copyStates['A5'] === 'copying'" [class.copied]="copyStates['A5'] === 'copied'" class="copy-btn">
+                      <ion-icon *ngIf="copyStates['A5'] === 'idle' || !copyStates['A5']" name="copy-outline" slot="icon-only"></ion-icon>
+                      <span *ngIf="copyStates['A5'] === 'copying'" class="copy-label">
+                        {{ 'EDUCADORES_PAGE.COPIED' | translate }}
+                      </span>
+                      <ion-icon *ngIf="copyStates['A5'] === 'copied'" name="checkmark-outline" slot="icon-only"></ion-icon>
+                      <span class="scr-reader">
+                        {{ (copyStates['A5'] === 'copied' ? 'EDUCADORES_PAGE.COPIED' : 'EDUCADORES_PAGE.COPY_CODE') | translate }}
+                      </span>
+                    </ion-button>
+                  </div>
+                </div>
+                <pre><code [highlight]="pythonCode_A_5" [language]="'python'"></code></pre>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd6' | translate }}</h2>
+              <div class="table-responsive">
+                <table class="dua-table">
+                  <caption>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.caption' | translate }}</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.th1' | translate }}</th>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.th2' | translate }}</th>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.th3' | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr11' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr12' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr13' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr21' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr22' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr23' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr31' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr32' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr33' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr41' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr42' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr43' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <td><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr51' | translate }}</code></td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr52' | translate }}</td>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table1.tr53' | translate }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <h2>{{ 'EDUCADORES_PAGE.MODULES.apendice.hd7' | translate }}</h2>
+              <p>{{ 'EDUCADORES_PAGE.MODULES.apendice.p1' | translate }}</p>
+              
+              <div class="table-responsive">
+                <table class="dua-table">
+                  <caption>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.caption' | translate }}</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.th1' | translate }}</th>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.th2' | translate }}</th>
+                      <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.th3' | translate }}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr11' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr12' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr13' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr21' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr22' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr23' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr31' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr32' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr33' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr41' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr42' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr43' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr51' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr52' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr53' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr61' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr62' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr63' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr71' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr72' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr73' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr81' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr82' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr83' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr91' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr92' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr93' | translate }}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row"><code>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr101' | translate }}</code></th>
+                      <td>{{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr102' | translate }}</td>
+                      <td><ion-icon name="school-outline" color="primary"></ion-icon> {{ 'EDUCADORES_PAGE.MODULES.apendice.table2.tr103' | translate }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <a href="../../assets/pdfs/glosario_dua_es.pdf" download >{{ 'EDUCADORES_PAGE.MODULES.apendice.a1' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.apendice.a11' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.apendice.a12' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.apendice.a13' | translate }}</a>
+
+              <div class="ion-padding ion-margin-top ion-text-center" style="background:var(--ion-color-light);border-radius:12px">
+                <p class="ion-no-margin" style="font-weight:600;color:var(--ion-color-primary);margin-bottom:8px">{{ 'EDUCADORES_PAGE.MODULES.apendice.footer1' | translate }}</p>
+                <p style="color:var(--ion-color-medium);font-style:italic;margin:0">{{ 'EDUCADORES_PAGE.MODULES.apendice.footer2' | translate }}</p>
+              </div>
+            </div>
+          </div>
+
           <!-- Other modules placeholders -->
-          <div *ngIf="currentModule !== null && currentModule.id !== 'dua' && currentModule.id !== 'cap1' && currentModule.id !== 'cap2' && currentModule.id !== 'cap3' && currentModule.id !== 'cap4' && currentModule.id !== 'cap5' && currentModule.id !== 'cap6' && currentModule.id !== 'cap7' && currentModule.id !== 'cap8' && currentModule.id !== 'cap9' && currentModule.id !== 'cap10' && currentModule.id !== 'cap11'" class="ion-text-center ion-padding">
+          <div *ngIf="currentModule !== null && currentModule.id !== 'dua' && currentModule.id !== 'cap1' && currentModule.id !== 'cap2' && currentModule.id !== 'cap3' && currentModule.id !== 'cap4' && currentModule.id !== 'cap5' && currentModule.id !== 'cap6' && currentModule.id !== 'cap7' && currentModule.id !== 'cap8' && currentModule.id !== 'cap9' && currentModule.id !== 'cap10' && currentModule.id !== 'cap11' && currentModule.id !== 'apendice'" class="ion-text-center ion-padding">
             <ion-icon name="construct-outline" size="large" color="medium"></ion-icon>
             <h2>Módulo en construcción</h2>
             <p>{{ 'EDUCADORES_PAGE.MODULE_NOT_READY' | translate:{title: currentModule.title} }}</p>

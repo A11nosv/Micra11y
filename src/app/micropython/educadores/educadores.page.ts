@@ -29,6 +29,7 @@ export class EducadoresPage implements OnInit, OnDestroy {
   private langSub!: Subscription;
 
   userRole: 'educator' | 'student' = 'educator';
+  currentLanguage: string = 'es';
   
   currentModule: any = null;
   openAccordions: string[] = [];
@@ -52,7 +53,8 @@ export class EducadoresPage implements OnInit, OnDestroy {
     }
 
     // Subscribe to language changes to update translated modules
-    this.langSub = this.languageService.currentLanguage$.subscribe(() => {
+    this.langSub = this.languageService.currentLanguage$.subscribe((lang) => {
+      this.currentLanguage = lang;
       this.updateModulesTranslation();
     });
   }
@@ -1121,5 +1123,54 @@ while True:
         print("CLICK")
         music.pitch(1000, 50) # Feedback sonoro del click
     sleep(100)`;
+
+  // Helper for Apéndice code blocks
+  pythonCode_A_1 = `from microbit import *
+display.show(Image.HAPPY)            # Mostrar imagen
+display.scroll('texto')              # Desplazar texto
+display.scroll('txt', delay=100)     # delay menor = más rápido
+display.clear()                      # Apagar todos los LEDs
+display.set_pixel(x, y, brillo)      # LED en col x, fila y, brillo 0-9
+display.get_pixel(x, y)             # Leer brillo de un LED
+display.read_light_level()           # Sensor de luz (0-255)
+display.on() / display.off()        # Encender/apagar pantalla`;
+
+  pythonCode_A_2 = `from microbit import *
+button_a.is_pressed()         # True si pulsado AHORA
+button_a.was_pressed()        # True si pulsado desde la última vez
+button_a.get_presses()        # Número de pulsaciones acumuladas
+
+accelerometer.get_x()         # Eje X (-2000 a +2000 mili-g)
+accelerometer.get_y()         # Eje Y
+accelerometer.get_z()         # Eje Z
+accelerometer.current_gesture() # 'shake','up','down','left','right'...
+
+temperature()                 # Temperatura del chip en °C
+display.read_light_level()    # Luz ambiente (0-255)`;
+
+  pythonCode_A_3 = `from microbit import *
+sleep(ms)               # Pausa en milisegundos (1000 = 1 segundo)
+running_time()          # Tiempo en ms desde el inicio
+
+import random
+random.randint(a, b)    # Entero aleatorio entre a y b (inclusive)
+random.choice(lista)    # Elemento aleatorio de una lista
+random.random()         # Float aleatorio entre 0.0 y 1.0`;
+
+  pythonCode_A_4 = `import music
+music.play(music.BIRTHDAY)           # Melodía predefinida
+music.play(['C4:4', 'D4:4'])         # Lista de notas
+music.pitch(frecuencia, duracion)    # Tono en Hz durante ms
+music.stop()
+# Notas: C D E F G A B = Do Re Mi Fa Sol La Si
+# Duración: 4=negra  8=corchea  2=blanca  1=redonda
+# Hz: Do=262, Re=294, Mi=330, Fa=349, Sol=392, La=440, Si=494`;
+
+  pythonCode_A_5 = `import radio
+radio.on()                   # SIEMPRE primero
+radio.config(group=N)        # Canal 1-255
+radio.config(power=7)        # Potencia 0-7 (7=máxima)
+radio.send('mensaje')        # Enviar cadena de texto
+radio.receive()              # Recibir cadena (None si no hay)`;
 
 }
