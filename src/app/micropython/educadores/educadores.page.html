@@ -22,8 +22,8 @@
               <span class="scr-reader" *ngIf="currentModule === null"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
             <ion-item button (click)="selectModule('dua')" [class.active-item]="currentModule?.id === 'dua'" *ngIf="userRole === 'educator'">
-              <span slot="start">♿</span>
-              <ion-label>{{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</ion-label>
+              <span slot="start" aria-hidden="true">♿</span>
+              <ion-label><abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</ion-label>
               <span class="scr-reader" *ngIf="currentModule?.id === 'dua'"> ({{ 'EDUCADORES_PAGE.SIDEBAR_SUBTITLE' | translate }})</span>
             </ion-item>
           </ion-menu-toggle>
@@ -154,8 +154,8 @@
         <div *ngIf="currentModule?.id === 'dua' && userRole === 'educator'">
           <div class="module-header ion-padding ion-margin-bottom">
             <div class="module-tag">♿ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '00'} }}</div>
-            <h1>{{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</h1>
-            <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.dua.desc' | translate }}</p>
+            <h1><abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</h1>
+            <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.dua.desc' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr>{{ 'EDUCADORES_PAGE.MODULES.dua.desc1' | translate }}</p>
             <div class="header-badges">
               <ion-badge color="primary">{{ 'EDUCADORES_PAGE.MODULES.dua.badge1' | translate }}</ion-badge>
               <ion-badge color="secondary">{{ 'EDUCADORES_PAGE.MODULES.dua.badge2' | translate }}</ion-badge>
@@ -164,10 +164,15 @@
           </div>
 
           <div class="main-content-wrapper">
-            <p>{{ 'EDUCADORES_PAGE.MODULES.dua.p1' | translate }} <strong>{{ 'EDUCADORES_PAGE.MODULES.dua.p1s' | translate }}</strong>{{ 'EDUCADORES_PAGE.MODULES.dua.p1c' | translate }}</p>
-            <p>{{ 'EDUCADORES_PAGE.MODULES.dua.p2' | translate }}</p>
+            <p>
+              {{ 'EDUCADORES_PAGE.MODULES.dua.p1' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr>
+              {{ 'EDUCADORES_PAGE.MODULES.dua.p11' | translate }} <strong>{{ 'EDUCADORES_PAGE.MODULES.dua.p1s' | translate }}</strong> {{ 'EDUCADORES_PAGE.MODULES.dua.p1c' | translate }}
+              <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.p1c1' | translate }}
+            </p>
+            <p>
+              {{ 'EDUCADORES_PAGE.MODULES.dua.p2' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.p21' | translate }}</p>
 
-            <h2>{{ 'EDUCADORES_PAGE.MODULES.dua.hd2' | translate }}<abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abredua' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.dua' | translate }}</abbr></h2>
+            <h2>{{ 'EDUCADORES_PAGE.MODULES.dua.hd2' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr></h2>
 
             <div class="box box-note ion-margin-vertical" style="background-color: #fee2e2; border-color: #fca5a5; color: #b91c1c; border-left-width: 8px;">
               <div class="box-body">
@@ -193,8 +198,8 @@
               </div>
             </div>
 
-            <h2>{{ 'EDUCADORES_PAGE.MODULES.dua.hd3' | translate }}</h2>
-            <p>{{ 'EDUCADORES_PAGE.MODULES.dua.p9' | translate }}</p>
+            <h2>{{ 'EDUCADORES_PAGE.MODULES.dua.hd3' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.hd31' | translate }}</h2>
+            <p>{{ 'EDUCADORES_PAGE.MODULES.dua.p9' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.p91' | translate }}</p>
 
             <ng-container *ngIf="userRole === 'educator'">
               <ion-accordion-group class="ion-margin-vertical" (ionChange)="handleAccordionChange($event)" #duaGroupCap0_1>
@@ -244,15 +249,15 @@
               <span class="box-icon" aria-hidden="true">💡</span>
               <div class="box-body">
                 <ul>
-                  <li>{{ 'EDUCADORES_PAGE.MODULES.dua.l41' | translate }}</li>
+                  <li>{{ 'EDUCADORES_PAGE.MODULES.dua.l41' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.l411' | translate }}</li>
                   <li>{{ 'EDUCADORES_PAGE.MODULES.dua.l42' | translate }}</li>
                   <li>{{ 'EDUCADORES_PAGE.MODULES.dua.l43' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abredua' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.dua' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.l431' | translate }} "{{ 'EDUCADORES_PAGE.MODULES.dua.l432' | translate }}" {{ 'EDUCADORES_PAGE.MODULES.dua.l433' | translate }} </li>
                 </ul>
               </div>
             </div>
 
-            <h2>{{ 'EDUCADORES_PAGE.MODULES.dua.hd4' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abredua' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.dua' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.hd41' | translate }}</h2>
-            <p>{{ 'EDUCADORES_PAGE.MODULES.dua.p10' | translate }} «{{ 'EDUCADORES_PAGE.MODULES.dua.p101' | translate }}». {{ 'EDUCADORES_PAGE.MODULES.dua.p102' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abredua' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.dua' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.p103' | translate }}</p>
+            <h2>{{ 'EDUCADORES_PAGE.MODULES.dua.hd4' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.hd41' | translate }}</h2>
+            <p>{{ 'EDUCADORES_PAGE.MODULES.dua.p10' | translate }} «{{ 'EDUCADORES_PAGE.MODULES.dua.p101' | translate }}». {{ 'EDUCADORES_PAGE.MODULES.dua.p102' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.p103' | translate }}</p>
 
             <div class="table-container ion-margin-vertical">
               <table class="custom-table">
@@ -260,7 +265,7 @@
                 <thead>
                   <tr>
                     <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.dua.th1' | translate }}</th>
-                    <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.dua.th2' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abredua' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.dua' | translate }}</abbr></th>
+                    <th scope="col">{{ 'EDUCADORES_PAGE.MODULES.dua.th2' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -269,7 +274,7 @@
                     <td>{{ 'EDUCADORES_PAGE.MODULES.dua.tr12' | translate }}</td>
                   </tr>
                   <tr>
-                    <th scope="row"> <abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abretdah' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.tdah' | translate }}</abbr> / {{ 'EDUCADORES_PAGE.MODULES.dua.tr21' | translate }}</th>
+                    <th scope="row"> <abbr title="{{ 'EDUCADORES_PAGE.MODULES.dua.abretdah' | translate }}">{{ 'EDUCADORES_PAGE.MODULES.dua.tdah' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.tr21' | translate }}</th>
                     <td>{{ 'EDUCADORES_PAGE.MODULES.dua.tr22' | translate }}</td>
                   </tr>
                   <tr class="band">

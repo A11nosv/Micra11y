@@ -1,12 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Microbit\\micropython-site",
     "\\src",
     "\\src\\assets",
     "\\src\\assets\\i18n",
     "\\src\\assets\\pdfs"
   ],
-  "SelectedNode": "\\src\\assets\\pdfs\\glosario_dua_en.pdf",
+  "SelectedNode": "\\src\\assets\\i18n\\ca.json",
   "PreviewInSolutionExplorer": true
 }
