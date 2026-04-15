@@ -31,6 +31,10 @@ export class EducadoresPage implements OnInit, OnDestroy {
   userRole: 'educator' | 'student' = 'educator';
   currentLanguage: string = 'es';
   
+  get duaPdfPath(): string {
+    return `assets/pdfs/glosario_dua_${this.currentLanguage}.pdf`;
+  }
+  
   currentModule: any = null;
   openAccordions: string[] = [];
 
