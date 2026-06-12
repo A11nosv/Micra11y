@@ -54,6 +54,9 @@
   "DUEL_PAGE": {
     "TITLE": "Duelo ao Sol",
     "VIDEO_NOT_SUPPORTED": "O teu navegador non soporta a etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcrición do vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcrición do vídeo: Duelo ao Sol",
+    "VIDEO_TRANSCRIPTION_TEXT": "A micro:bit amosa no seu display unha conta atrás desde o número 10. Ao cambiar de número soa un pitido para que os usuarios con baixa visión poidan detectar que se produce un cambio no display. Por último, ao finalizar a conta atrás emítese un son diferente para que se saiba que se finalizou a conta atrás. Entón empeza o xogo onde un xogador debe pulsar o botón A e outro o botón B. O xogador máis rápido gaña a tirada. O gañador da partida é o mellor a 5 tiradas. Este xogador amósase polo display da micro:bit e é enunciado pola voz.",
     "INTRODUCTION_TITLE": "Introdución",
     "INTRODUCTION_TEXT": "Este proxecto ensina a crear un xogo de reflexos para dous xogadores na Micro:bit. Prepárate para o duelo!",
     "MATERIALS_TITLE": "Materiais",
@@ -157,6 +160,9 @@
   "HEART_PAGE": {
     "TITLE": "O Latexado da Micro:bit",
     "VIDEO_NOT_SUPPORTED": "O teu navegador non soporta a etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcrición do vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcrición do vídeo: Latexado",
+    "VIDEO_TRANSCRIPTION_TEXT": "A micro:bit parpadea amosando un corazón en sincronización co son dun latexado.",
     "INTRODUCTION_TITLE": "Introdución",
     "INTRODUCTION_TEXT": [
       "Este proxecto permítenos visualizar o latexado da Micro:bit e experimentar co ritmo cardíaco.",
@@ -271,6 +277,9 @@
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mensaxe Secreta",
     "VIDEO_NOT_SUPPORTED": "O teu navegador non soporta a etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcrición do vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcrición do vídeo: Mensaxe Secreta",
+    "VIDEO_TRANSCRIPTION_TEXT": "Ao pulsar sobre o botón A da micro:bit amósase en pantalla un punto morse e ao pulsar sobre o botón B unha raia. Cando se inclina a micro:bit cara a un lado a serie de puntos ou raias queda almacenada para formar unha letra do alfabeto morse. Para que se amose e diga a palabra escrita débese sacudir a micro:bit.",
     "MORSE_CODE_CAPTION": "Alfabeto de Código Morse",
     "INTRODUCTION_TITLE": "Introdución",
     "INTRODUCTION_TEXT": "Este proxecto ensina a utilizar a Micro:bit para enviar e recibir mensaxes secretas mediante o código Morse.",
@@ -466,6 +475,9 @@
   "COUNTDOWN_PAGE": {
     "TITLE": "A Conta Atrás Final",
     "VIDEO_NOT_SUPPORTED": "O teu navegador non soporta a etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcrición do vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcrición do vídeo: Conta atrás",
+    "VIDEO_TRANSCRIPTION_TEXT": "A micro:bit amosa no seu display unha conta atrás desde o número 10. Ao cambiar de número soa un pitido para que os usuarios con baixa visión poidan detectar que se produce un cambio no display. Por último, ao finalizar a conta atrás emítese un son diferente para que se saiba que se finalizou a conta atrás.",
     "INTRODUCTION_H2": "Introdución",
     "INTRODUCTION_P": [
       "Este proxecto é a programación dunha conta atrás desde 10 ata 0. A conta atrás mostrarase na pantalla da Micro:bit e irá acompañada dunha pulsación, a mesma que se fixo no proxecto O latexado da Micro:bit, para ter unha estimulación sonora ademais dunha visual.",

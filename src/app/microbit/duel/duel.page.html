@@ -18,9 +18,13 @@
     <h1>{{ title }}</h1>
 
     <video controls width="100%" height="auto">
-      <source src="assets/videos/duel_clip.mp4" type="video/mp4">
+      <source src="assets/videos/shooter.mp4" type="video/mp4">
       {{ 'DUEL_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
     </video>
+
+    <ion-button expand="block" (click)="openTranscription()" class="ion-margin-top">
+      {{ 'DUEL_PAGE.VIDEO_TRANSCRIPTION_LABEL' | translate }}
+    </ion-button>
 
     <h2>{{ 'DUEL_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
     <p>{{ 'DUEL_PAGE.INTRODUCTION_TEXT' | translate }}</p>

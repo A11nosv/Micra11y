@@ -54,6 +54,9 @@
   "DUEL_PAGE": {
     "TITLE": "Duelua Eguzkitan",
     "VIDEO_NOT_SUPPORTED": "Zure arakatzaileak ez du bideo etiketa onartzen.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Bideoaren transkripzioa",
+    "VIDEO_TRANSCRIPTION_TITLE": "Bideoaren transkripzioa: Duelua Eguzkitan",
+    "VIDEO_TRANSCRIPTION_TEXT": "Micro:bit-ak 10 zenbakitik hasitako atzerako kontaketa erakusten du bere pantailan. Zenbakiz aldatzean, txistu-soinu bat entzuten da, ikusmen baxua duten erabiltzaileek pantailan aldaketa bat gertatzen dela hauteman dezaten. Azkenik, atzerako kontaketa amaitzean, soinu desberdin bat igortzen da, atzerako kontaketa amaitu dela jakinarazteko. Orduan hasten da jokoa: jokalari batek A botoia sakatu behar du eta besteak B botoia. Jokalari azkarrenak irabazten du txanda. Partidaren irabazlea 5 txandatatik onena da. Jokalari hau micro:bit-aren pantailan erakusten da eta ahotsak ozen esaten du.",
     "INTRODUCTION_TITLE": "Sarrera",
     "INTRODUCTION_TEXT": "Micro:bit-ean bi jokalarirentzako erreflexu joko bat sortzen irakasten dizu proiektu honek. Prest duelu honetarako!",
     "MATERIALS_TITLE": "Materialak",
@@ -155,8 +158,11 @@
     "STEP_13_TEXT": "Aldatu kodea jokoaren aldaerak sortzeko, modu berriak gehitzeko edo beste proiektu batzuekin integratzeko."
   },
   "HEART_PAGE": {
-    "TITLE": "Micro:bit-aren Taupada",
+    "TITLE": "Micro:bit-aren Bihotz-taupada",
     "VIDEO_NOT_SUPPORTED": "Zure arakatzaileak ez du bideo etiketa onartzen.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Bideoaren transkripzioa",
+    "VIDEO_TRANSCRIPTION_TITLE": "Bideoaren transkripzioa: Bihotz-taupada",
+    "VIDEO_TRANSCRIPTION_TEXT": "Micro:bit-ak keinu egiten du bihotz bat erakutsiz, bihotz-taupada baten soinuarekin sinkronizatuta.",
     "INTRODUCTION_TITLE": "Sarrera",
     "INTRODUCTION_TEXT": [
       "Proiektu honek Micro:bit-aren taupadak ikusi eta bihotz-taupadarekin esperimentatzeko aukera ematen digu.",
@@ -271,6 +277,9 @@
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mezu Sekretua",
     "VIDEO_NOT_SUPPORTED": "Zure arakatzaileak ez du bideo etiketa onartzen.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Bideoaren transkripzioa",
+    "VIDEO_TRANSCRIPTION_TITLE": "Bideoaren transkripzioa: Mezu Sekretua",
+    "VIDEO_TRANSCRIPTION_TEXT": "Micro:bit-eko A botoia sakatzean pantailan morse puntu bat erakusten da eta B botoia sakatzean marra bat. Micro:bit-a alde batera okertzean, puntu edo marra seriea gorde egiten da morse alfabetoko letra bat osatzeko. Idatzitako hitza erakusteko eta esateko, micro:bit-a astindu behar da.",
     "MORSE_CODE_CAPTION": "Morse Alfabetoa",
     "INTRODUCTION_TITLE": "Sarrera",
     "INTRODUCTION_TEXT": "Proiektu honek Micro:bit-a erabiltzen irakasten dizu mezu sekretuak Morse kode bidez bidaltzeko eta jasotzeko.",
@@ -466,6 +475,9 @@
   "COUNTDOWN_PAGE": {
     "TITLE": "Atzerako Azken Kontaketa",
     "VIDEO_NOT_SUPPORTED": "Zure arakatzaileak ez du bideo etiketa onartzen.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Bideoaren transkripzioa",
+    "VIDEO_TRANSCRIPTION_TITLE": "Bideoaren transkripzioa: Atzerako kontaketa",
+    "VIDEO_TRANSCRIPTION_TEXT": "Micro:bit-ak 10 zenbakitik hasitako atzerako kontaketa erakusten du bere pantailan. Zenbakiz aldatzean, txistu-soinu bat entzuten da, ikusmen baxua duten erabiltzaileek pantailan aldaketa bat gertatzen dela hauteman dezaten. Azkenik, atzerako kontaketa amaitzean, soinu desberdin bat igortzen da, atzerako kontaketa amaitu dela jakinarazteko.",
     "INTRODUCTION_H2": "Sarrera",
     "INTRODUCTION_P": [
       "Proiektu hau 10etik 0ra arteko atzerako kontaketa bat programatzean datza. Atzerako kontaketa Micro:bit pantailan erakutsiko da eta taupada batekin batera joango da, 'Micro:bit-aren taupada' proiektuan egindako berbera, ikusmen-estimulazioaz gain entzumen-estimulazioa ere izateko.",

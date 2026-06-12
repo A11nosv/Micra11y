@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators'; // Import map operator
 import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
 
 import { LanguageChooserComponent } from '../../components/language-chooser/language-chooser.component'; // Add this import
+import { TranscriptionModalComponent } from '../countdown/transcription-modal.component';
 
 @Component({
   selector: 'app-secret-message',
@@ -18,7 +19,7 @@ import { LanguageChooserComponent } from '../../components/language-chooser/lang
   standalone: true,
   imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, TranslateModule, HttpClientModule, Highlight, IonButton, IonIcon, RouterModule, NgFor, LanguageChooserComponent]
 })
-export class SecretMessagePage implements OnInit {
+export class SecretMessagePage implements OnInit, OnDestroy {
 
   pythonCode: string = '';
   pythonCode_1_1: string = '';
@@ -54,11 +55,23 @@ export class SecretMessagePage implements OnInit {
   constructor(
     private http: HttpClient,
     private translate: TranslateService,
-    private languageService: LanguageService // Inject LanguageService
+    private languageService: LanguageService, // Inject LanguageService
+    private modalController: ModalController
   ) {
     this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
       map(() => this.languageService.getCurrentLanguageFlag())
     );
+  }
+
+  async openTranscription() {
+    const modal = await this.modalController.create({
+      component: TranscriptionModalComponent,
+      componentProps: {
+        title: 'SECRET_MESSAGE_PAGE.VIDEO_TRANSCRIPTION_TITLE',
+        content: 'SECRET_MESSAGE_PAGE.VIDEO_TRANSCRIPTION_TEXT'
+      }
+    });
+    return await modal.present();
   }
 
   ngOnInit() {

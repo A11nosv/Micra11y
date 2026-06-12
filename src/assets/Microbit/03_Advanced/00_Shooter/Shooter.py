@@ -12,28 +12,23 @@ result = [j, playerA, playerB]
 # Funtions
 def countdown(i):
     while i > 0:
-        for n in range(4):
-            set_volume(255)
+        for n in range(4): 
             display.show(i)
             music.play('d') 
-            sleep(750)
-            set_volume(0)
-            sleep(250)
+            sleep(1000)
             i = i - 1
  
         if i == 0:
-            set_volume(255)
-            music.play(music.POWER_UP)
             display.show(0)
  
 def btn_presed(btn, result):
     if btn == 0:
-        display.show(Image.ARROW_W)
+        display.show(Image.ARROW_W, wait=False)
         music.play('a')
         result[1] = result[1] + 1
         
     elif btn == 1:
-        display.show(Image.ARROW_E)
+        display.show(Image.ARROW_E, wait=False)
         music.play('b')
         result[2] = result[2] + 1
 
@@ -61,17 +56,13 @@ while j < 5:
         
     j = result[0]
     
-    if j == 5:
-        A = result[1]
-        B = result[2]
-        
-        if A > B:
-            display.show('A')
-            speech.say('Guanya el jugador A')
-        else:
-            display.show('B')
-            speech.say('Guanya el jugador B')
-        
-        j = 0
+if j == 5:
+    A = result[1]
+    B = result[2]
     
-        
+    if A > B:
+        display.show('A')
+        speech.say('Guanya el jugador A')
+    else:
+        display.show('B')
+        speech.say('Guanya el jugador B')

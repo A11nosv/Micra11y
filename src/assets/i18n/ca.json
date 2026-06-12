@@ -54,6 +54,9 @@
   "DUEL_PAGE": {
     "TITLE": "Duel al Sol",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no és compatible amb l'etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripció del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripció del vídeo: Duel al Sol",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit mostra en el seu display un compte enrere des del número 10. Al canviar de número sona un xiulet perquè els usuaris amb baixa visió puguin detectar que es produeix un canvi en el display. Finalment, en acabar el compte enrere s'emet un so diferent perquè se sàpiga que s'ha finalitzat el compte enrere. Llavors comença el joc on un jugador ha de prémer el botó A i l'altre el botó B. El jugador més ràpid guanya la tirada. El guanyador de la partida és el millor a 5 tirades. Aquest jugador es mostra pel display de la micro:bit i és enunciat per la veu.",
     "INTRODUCTION_TITLE": "Introducció",
     "INTRODUCTION_TEXT": "Aquest projecte t'ensenya a crear un joc de reflexos per a dos jugadors a la Micro:bit. Prepara't per al duel!",
     "MATERIALS_TITLE": "Materials",
@@ -155,8 +158,11 @@
     "STEP_13_TEXT": "Modifica el codi per crear variacions del joc, afegir nous modes, o integrar-lo amb altres projectes."
   },
   "HEART_PAGE": {
-    "TITLE": "El Batec de la Micro:bit",
+    "TITLE": "El Batec de la micro:bit",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripció del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripció del vídeo: Batec",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit parpelleja mostrant un cor en sincronització amb el so d'un batec.",
     "INTRODUCTION_TITLE": "Introducció",
     "INTRODUCTION_TEXT": [
       "Aquest projecte ens permet visualitzar el batec de la Micro:bit i experimentar amb el ritme cardíac.",
@@ -271,6 +277,9 @@
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Missatge Secret",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripció del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripció del vídeo: Missatge Secret",
+    "VIDEO_TRANSCRIPTION_TEXT": "En prémer el botó A de la micro:bit es mostra a la pantalla un punt morse i en prémer el botó B una ratlla. Quan s'inclina la micro:bit cap a un costat la sèrie de punts o ratlles queda emmagatzemada per formar una lletra de l'alfabet morse. Perquè es mostri i digui la paraula escrita s'ha de sacsejar la micro:bit.",
     "MORSE_CODE_CAPTION": "Alfabet de Codi Morse",
     "INTRODUCTION_TITLE": "Introducció",
     "INTRODUCTION_TEXT": "Aquest projecte t'ensenya a utilitzar la Micro:bit per enviar i rebre missatges secrets mitjançant el codi Morse.",
@@ -466,6 +475,9 @@
   "COUNTDOWN_PAGE": {
     "TITLE": "El Compte Enrere Final",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripció del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripció del vídeo: Compte enrere",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit mostra en el seu display un compte enrere des del número 10. Al canviar de número sona un xiulet perquè els usuaris amb baixa visió puguin detectar que es produeix un canvi en el display. Finalment, en acabar el compte enrere s'emet un so diferent perquè se sàpiga que s'ha finalitzat el compte enrere.",
     "INTRODUCTION_H2": "Introducció",
     "INTRODUCTION_P": [
       "Aquest projecte és la programació d’una conta enrere des de 10 fins a 0. La conta enrere es mostrarà a la pantalla de la Micro:bit i anirà acompanyada d’una pulsació, la mateixa que es va fer al projecte El batec de la Micro:bit, per tenir una estimulació sonora a banda d’una visual.",

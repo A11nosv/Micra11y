@@ -53,6 +53,9 @@
   "DUEL_PAGE": {
     "TITLE": "Duelo al Sol",
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripción del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripción del vídeo: Duelo al Sol",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit muestra en su display una cuenta atrás desde el número 10. Al cambiar de número suena un pitido para que los usuarios con baja visión puedan detectar que se produce un cambio en el display. Por último, al finalizar la cuenta atrás se emite un sonido diferente para que se sepa que se ha finalizado la cuenta atrás. Entonces empieza el juego donde un jugador debe pulsar el botón A y otro el botón B. El jugador más rápido gana la tirada. El ganador de la partida es el mejor a 5 tiradas. Este jugador se muestra por el display de la micro:bit y es enunciado por la voz.",
     "INTRODUCTION_TITLE": "Introducción",
     "INTRODUCTION_TEXT": "Este proyecto te enseña a crear un juego de reflejos para dos jugadores en la Micro:bit. ¡Prepárate para el duelo!",
     "MATERIALS_TITLE": "Materiales",
@@ -154,8 +157,11 @@
     "STEP_13_TEXT": "Modifica el código para crear variaciones del juego, añadir nuevos modos o integrarlo con otros proyectos."
   },
   "HEART_PAGE": {
-    "TITLE": "El Latido de la Micro:bit",
+    "TITLE": "El Latido de la micro:bit",
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripción del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripción del vídeo: Latido",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit parpadea mostrando un corazón en sincronización con el sonido de un latido.",
     "INTRODUCTION_TITLE": "Introducción",
     "INTRODUCTION_TEXT": [
       "Este proyecto nos permite visualizar el latido de la Micro:bit y experimentar con el ritmo cardíaco.",
@@ -270,6 +276,9 @@
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Mensaje Secreto",
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripción del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripción del vídeo: Mensaje Secreto",
+    "VIDEO_TRANSCRIPTION_TEXT": "Al pulsar sobre el botón A de la micro:bit se muestra en pantalla un punto morse y al pulsar sobre el botón B una raya. Cuando se inclina la micro:bit hacia un lado la serie de puntos o rayas queda almacenada para formar una letra del alfabeto morse. Para que se muestre y diga la palabra escrita se debe sacudir la micro:bit.",
     "MORSE_CODE_CAPTION": "Alfabeto de Código Morse",
     "INTRODUCTION_TITLE": "Introducción",
     "INTRODUCTION_TEXT": "Este proyecto te enseña a utilizar la Micro:bit para enviar y recibir mensajes secretos mediante el código Morse.",
@@ -355,6 +364,9 @@
   "RPS_PAGE": {
     "TITLE": "Piedra, Papel, Tijera",
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripción del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripción del vídeo: Piedra, Papel, Tijera",
+    "VIDEO_TRANSCRIPTION_TEXT": "Se muestra la micro:bit con el tradicional juego de Piedra, Papel y Tijera. El jugador debe seleccionar su tirada pulsando el botón A, el B o el Logo. Después la micro:bit realiza una tirada aleatoria y mira quién ha ganado. El resultado se muestra por el display de la micro:bit y es enunciado por la voz.",
     "INTRODUCTION_TITLE": "Introducción",
     "INTRODUCTION_TEXT": "Este proyecto te enseña a utilizar la Micro:bit para crear el clásico juego de 'Piedra, Papel, Tijera'. ¡Prepárate para enfrentarte a la inteligencia artificial!",
     "INTRODUCTION_TEXT_1": "Aprenderás a utilizar la pantalla de LEDs para mostrar las opciones (piedra, papel o tijera) y los botones para hacer tu elección. También incorporaremos un generador de números aleatorios para la decisión de la Micro:bit.",
@@ -465,6 +477,9 @@
   "COUNTDOWN_PAGE": {
     "TITLE": "La Cuenta Atrás Final",
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripción del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripción del vídeo: Cuenta atrás",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit muestra en su display una cuenta atrás desde el número 10. Al cambiar de número suena un pitido para que los usuarios con baja visión puedan detectar que se produce un cambio en el display. Por último, al finalizar la cuenta atrás se emite un sonido diferente para que se sepa que se ha finalizado la cuenta atrás.",
     "INTRODUCTION_H2": "Introducción",
     "INTRODUCTION_P": [
       "Este proyecto es la programación de una cuenta atrás desde 10 hasta 0. La cuenta atrás se mostrará en la pantalla de la Micro:bit e irá acompañada de una pulsación, la misma que se hizo en el proyecto El latido de la Micro:bit, para tener una estimulación sonora además de una visual.",

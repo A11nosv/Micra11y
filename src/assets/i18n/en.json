@@ -53,6 +53,9 @@
   "DUEL_PAGE": {
     "TITLE": "Duel in the Sun",
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Video transcription",
+    "VIDEO_TRANSCRIPTION_TITLE": "Video transcription: Duel in the Sun",
+    "VIDEO_TRANSCRIPTION_TEXT": "The micro:bit shows a countdown from number 10 on its display. When the number changes, a beep sounds so that users with low vision can detect that a change is occurring on the display. Finally, at the end of the countdown, a different sound is emitted so that it is known that the countdown has ended. Then the game begins where one player must press button A and another button B. The fastest player wins the round. The winner of the game is the best of 5 rounds. This player is shown on the micro:bit display and is announced by the voice.",
     "INTRODUCTION_TITLE": "Introduction",
     "INTRODUCTION_TEXT": "This project teaches you how to create a reflex game for two players on the Micro:bit. Get ready for the duel!",
     "MATERIALS_TITLE": "Materials",
@@ -154,8 +157,11 @@
     "STEP_13_TEXT": "Modify the code to create game variations, add new modes, or integrate it with other projects."
   },
   "HEART_PAGE": {
-    "TITLE": "The Micro:bit's Heartbeat",
+    "TITLE": "The Micro:bit Heartbeat",
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Video transcription",
+    "VIDEO_TRANSCRIPTION_TITLE": "Video transcription: Heartbeat",
+    "VIDEO_TRANSCRIPTION_TEXT": "The micro:bit flashes showing a heart in synchronization with the sound of a heartbeat.",
     "INTRODUCTION_TITLE": "Introduction",
     "INTRODUCTION_TEXT": [
       "This project allows us to visualize the Micro:bit's heartbeat and experiment with heart rate.",
@@ -270,6 +276,9 @@
   "SECRET_MESSAGE_PAGE": {
     "TITLE": "Secret Message",
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Video transcription",
+    "VIDEO_TRANSCRIPTION_TITLE": "Video transcription: Secret Message",
+    "VIDEO_TRANSCRIPTION_TEXT": "When pressing button A on the micro:bit, a Morse dot is shown on the screen, and when pressing button B, a dash. When the micro:bit is tilted to one side, the series of dots or dashes is stored to form a letter of the Morse alphabet. To show and speak the written word, the micro:bit must be shaken.",
     "MORSE_CODE_CAPTION": "Morse Code Alphabet",
     "INTRODUCTION_TITLE": "Introduction",
     "INTRODUCTION_TEXT": "This project teaches you how to use the Micro:bit to send and receive secret messages using Morse code.",
@@ -465,6 +474,9 @@
   "COUNTDOWN_PAGE": {
     "TITLE": "The Final Countdown",
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Video transcription",
+    "VIDEO_TRANSCRIPTION_TITLE": "Video transcription: Countdown",
+    "VIDEO_TRANSCRIPTION_TEXT": "The micro:bit shows a countdown from number 10 on its display. When the number changes, a beep sounds so that users with low vision can detect that a change is occurring on the display. Finally, at the end of the countdown, a different sound is emitted so that it is known that the countdown has ended.",
     "INTRODUCTION_H2": "Introduction",
     "INTRODUCTION_P": [
       "This project is about programming a countdown from 10 to 0. The countdown will be displayed on the Micro:bit screen and will be accompanied by a pulse, similar to the one in 'The Micro:bit's Heartbeat' project, to provide both sound and visual stimulation.",

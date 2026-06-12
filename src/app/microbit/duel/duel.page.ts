@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService, LangChangeEvent } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
@@ -9,6 +9,7 @@ import { Subscription, Observable } from 'rxjs';
 import { map } from 'rxjs/operators'; // Import map operator
 import { LanguageService } from 'src/app/services/language.service'; // Adjust path if necessary
 import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component';
+import { TranscriptionModalComponent } from '../countdown/transcription-modal.component';
 
 @Component({
   selector: 'app-duel',
@@ -62,8 +63,20 @@ export class DuelPage implements OnInit, OnDestroy {
   constructor(
     private http: HttpClient,
     private translate: TranslateService,
-    private languageService: LanguageService // Inject LanguageService
+    private languageService: LanguageService, // Inject LanguageService
+    private modalController: ModalController
   ) {
+  }
+
+  async openTranscription() {
+    const modal = await this.modalController.create({
+      component: TranscriptionModalComponent,
+      componentProps: {
+        title: 'DUEL_PAGE.VIDEO_TRANSCRIPTION_TITLE',
+        content: 'DUEL_PAGE.VIDEO_TRANSCRIPTION_TEXT'
+      }
+    });
+    return await modal.present();
   }
 
   ngOnInit() {

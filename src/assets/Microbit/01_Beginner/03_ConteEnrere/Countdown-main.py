@@ -16,6 +16,6 @@ for index in range(11):
         set_volume(0)
         sleep(250)
 
-    if i == 0:
+    else:
         set_volume(255)
         music.play(music.POWER_UP)

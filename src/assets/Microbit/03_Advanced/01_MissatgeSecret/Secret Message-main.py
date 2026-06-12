@@ -44,6 +44,7 @@ while True:
     if accelerometer.was_gesture('left') | accelerometer.was_gesture('right'):
         if letter in ALPHABET:
                 word = word + ALPHABET[letter]
+                speech.say(letter)
                 music.play(music.POWER_UP)
                 letter = ''
         else:
@@ -53,6 +54,8 @@ while True:
     display.clear()
 
     if accelerometer.was_gesture('shake'):
+        display.scroll(word, wait=False)
+        speech.say(word)
         radio.send(word)
         
     if radio.receive():
@@ -60,3 +63,4 @@ while True:
         
         if msg:
             display.scroll(msg)
+            speech.say(msg)
