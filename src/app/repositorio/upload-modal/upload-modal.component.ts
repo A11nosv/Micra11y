@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, IonCheckbox, IonLabel } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, ModalController, IonCheckbox } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RepositoryItem } from '../../interfaces/repository';
 
@@ -21,7 +21,6 @@ import { RepositoryItem } from '../../interfaces/repository';
     IonButton,
     IonIcon,
     IonCheckbox,
-    IonLabel,
     TranslateModule,
   ],
 })

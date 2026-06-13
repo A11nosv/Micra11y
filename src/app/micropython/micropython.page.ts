@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Highlight } from 'ngx-highlightjs';
 import { Title } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 
@@ -18,15 +16,13 @@ import { LanguageChooserComponent } from '../components/language-chooser/languag
   imports: [
     IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, 
     IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-    RouterModule, TranslateModule, CommonModule, HttpClientModule, Highlight, LanguageChooserComponent
+    RouterModule, TranslateModule, CommonModule, LanguageChooserComponent
   ], // Added LanguageChooserComponent and Grid/Card components
 })
 export class MicropythonPage implements OnInit, OnDestroy {
-  pythonCode: string = '';
   private langChangeSubscription: Subscription | undefined;
 
   constructor(
-    private http: HttpClient,
     private titleService: Title,
     private translate: TranslateService
   ) { }
@@ -36,11 +32,6 @@ export class MicropythonPage implements OnInit, OnDestroy {
     this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
       this.updateTitle();
     });
-
-    this.http.get('assets/microbit_code/beatingHeart/beatingHeart.py', { responseType: 'text' })
-      .subscribe(data => {
-        this.pythonCode = data;
-      });
   }
 
   private updateTitle() {
