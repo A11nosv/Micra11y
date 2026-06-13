@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonBackButton, IonButton, IonIcon, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Highlight } from 'ngx-highlightjs';
@@ -9,6 +9,7 @@ import { Observable, Subscription } from 'rxjs'; // Import Observable and Subscr
 import { map } from 'rxjs/operators'; // Import map operator
 import { LanguageService } from 'src/app/services/language.service'; // Import LanguageService
 import { LanguageChooserComponent } from '../../components/language-chooser/language-chooser.component'; // Add this import
+import { TranscriptionModalComponent } from '../countdown/transcription-modal.component';
 
 @Component({
   selector: 'app-stone-paper-scissors',
@@ -57,7 +58,8 @@ export class StonePaperScissorsPage implements OnInit {
   constructor(
     private http: HttpClient,
     private translate: TranslateService,
-    private languageService: LanguageService // Inject LanguageService
+    private languageService: LanguageService,
+    private modalController: ModalController
   ) {
     this.currentLanguageFlag$ = this.languageService.currentLanguage$.pipe(
       map(() => this.languageService.getCurrentLanguageFlag())
@@ -106,6 +108,17 @@ export class StonePaperScissorsPage implements OnInit {
       this.updateTitle();
       this.updateAccessibleLabel();
     });
+  }
+
+  async openTranscription() {
+    const modal = await this.modalController.create({
+      component: TranscriptionModalComponent,
+      componentProps: {
+        title: 'RPS_PAGE.VIDEO_TRANSCRIPTION_TITLE',
+        content: 'RPS_PAGE.VIDEO_TRANSCRIPTION_TEXT'
+      }
+    });
+    return await modal.present();
   }
 
   private updateTitle() {

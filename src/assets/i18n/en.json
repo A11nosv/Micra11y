@@ -364,6 +364,9 @@
   "RPS_PAGE": {
     "TITLE": "Rock, Paper, Scissors",
     "VIDEO_NOT_SUPPORTED": "Your browser does not support the video tag.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Video transcription",
+    "VIDEO_TRANSCRIPTION_TITLE": "Video transcription: Rock, Paper, Scissors",
+    "VIDEO_TRANSCRIPTION_TEXT": "The micro:bit shows the typical game of rock, paper and scissors. The player can choose between rock (button A), paper (button B) or scissors (logo). Then they must wait for the micro:bit's throw (random) to know who the winner is. The micro:bit's display shows if the player has won or lost and it is also said out loud.",
     "INTRODUCTION_TITLE": "Introduction",
     "INTRODUCTION_TEXT": "This project teaches you how to create the classic 'Rock, Paper, Scissors' game on your Micro:bit. Get ready to face artificial intelligence!",
     "INTRODUCTION_TEXT_1": "You will learn to use the LED screen to display the options (rock, paper or scissors) and the buttons to make your choice. We will also incorporate a random number generator for the Micro:bit's decision.",

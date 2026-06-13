@@ -365,6 +365,9 @@
   "RPS_PAGE": {
     "TITLE": "Pedra, Paper, Tisora",
     "VIDEO_NOT_SUPPORTED": "El teu navegador no suporta l'etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcripció del vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcripció del vídeo: Pedra, Paper, Tisora",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit mostra el típic joc de pedra, paper i tisora. El jugador pot triar entre pedra (botó A), paper (botó B) o tisora (logo). Després ha d'esperar la tirada de la micro:bit (aleatòria) per saber qui és el guanyador. Al display de la micro:bit es mostra si el jugador ha guanyat o perdut i també es diu en veu alta.",
     "INTRODUCTION_TITLE": "Introducció",
     "INTRODUCTION_TEXT": "Aquest projecte t'ensenya a crear el clàssic joc de 'Pedra, Paper, Tisora' a la teva Micro:bit. Prepara't per enfrontar-te a la intel·ligència artificial!",
     "INTRODUCTION_TEXT_1": "Aprendràs a utilitzar la pantalla de LEDs per mostrar les opcions (pedra, paper o tisora) i els botons per fer la teva tria. També incorporarem un generador de nombres aleatoris per a la decisió de la Micro:bit.",

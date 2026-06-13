@@ -365,6 +365,9 @@
   "RPS_PAGE": {
     "TITLE": "Pedra, Papel, Tesoura",
     "VIDEO_NOT_SUPPORTED": "O teu navegador non soporta a etiqueta de vídeo.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Transcrición do vídeo",
+    "VIDEO_TRANSCRIPTION_TITLE": "Transcrición do vídeo: Pedra, Papel, Tesoura",
+    "VIDEO_TRANSCRIPTION_TEXT": "A micro:bit mostra o típico xogo de pedra, papel e tesoura. O xogador pode elixir entre pedra (botón A), papel (botón B) ou tesoura (logo). Despois debe esperar a tirada da micro:bit (aleatoria) para saber quen é o gañador. No display da micro:bit móstrase se o xogador gañou ou perdeu e tamén se di en voz alta.",
     "INTRODUCTION_TITLE": "Introdución",
     "INTRODUCTION_TEXT": "Este proxecto ensina a utilizar a Micro:bit para crear o clásico xogo de 'Pedra, Papel, Tesoura'. Prepárate para enfrontarte á intelixencia artificial!",
     "INTRODUCTION_TEXT_1": "Aprenderás a utilizar a pantalla de LEDs para mostrar as opcións (pedra, papel ou tesoura) e os botóns para facer a túa elección. Tamén incorporaremos un xerador de números aleatorios para a decisión da Micro:bit.",

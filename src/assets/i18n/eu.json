@@ -365,6 +365,9 @@
   "RPS_PAGE": {
     "TITLE": "Harri, Orri, Ar",
     "VIDEO_NOT_SUPPORTED": "Zure arakatzaileak ez du bideo etiketa onartzen.",
+    "VIDEO_TRANSCRIPTION_LABEL": "Bideoaren transkripzioa",
+    "VIDEO_TRANSCRIPTION_TITLE": "Bideoaren transkripzioa: Harri, Orri, Ar",
+    "VIDEO_TRANSCRIPTION_TEXT": "Micro:bit-ak harri, orri, ar joko tipikoa erakusten du. Jokalariak harria (A botoia), orria (B botoia) edo ar (logoa) aukeratu ditzake. Ondoren, micro:bit-aren tiraldia (ausazkoa) itxaron behar du nor den irabazlea jakiteko. Micro:bit-aren pantailan jokalariak irabazi edo galdu duen erakusten da eta ahots altuan ere esaten da.",
     "INTRODUCTION_TITLE": "Sarrera",
     "INTRODUCTION_TEXT": "Proiektu honek Micro:bit-a erabiltzen irakasten dizu 'Harri, Orri, Ar' joko klasikoa sortzeko. Prest inteligentzia artifizialari aurre egiteko!",
     "INTRODUCTION_TEXT_1": "LED pantaila aukerak (harria, orria edo ar) erakusteko eta botoiak zure aukera egiteko nola erabili ikasiko duzu. Gainera, zenbaki ausazkoen sortzaile bat ere sartuko dugu Micro:bit-aren erabakirako.",

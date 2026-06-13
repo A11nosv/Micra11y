@@ -366,7 +366,7 @@
     "VIDEO_NOT_SUPPORTED": "Tu navegador no soporta la etiqueta de vídeo.",
     "VIDEO_TRANSCRIPTION_LABEL": "Transcripción del vídeo",
     "VIDEO_TRANSCRIPTION_TITLE": "Transcripción del vídeo: Piedra, Papel, Tijera",
-    "VIDEO_TRANSCRIPTION_TEXT": "Se muestra la micro:bit con el tradicional juego de Piedra, Papel y Tijera. El jugador debe seleccionar su tirada pulsando el botón A, el B o el Logo. Después la micro:bit realiza una tirada aleatoria y mira quién ha ganado. El resultado se muestra por el display de la micro:bit y es enunciado por la voz.",
+    "VIDEO_TRANSCRIPTION_TEXT": "La micro:bit muestra el típico juego de piedra papel y tijera. El jugador puede elegir entre piedra (botón A), papel (botón B) o tijera (logo). Después debe esperar la tirada de la micro:bit (aleatoria) para saber quién es el ganador. En el display de la micro:bit se muestra si el jugador ha ganado o perdido y también se dice en voz alta.",
     "INTRODUCTION_TITLE": "Introducción",
     "INTRODUCTION_TEXT": "Este proyecto te enseña a utilizar la Micro:bit para crear el clásico juego de 'Piedra, Papel, Tijera'. ¡Prepárate para enfrentarte a la inteligencia artificial!",
     "INTRODUCTION_TEXT_1": "Aprenderás a utilizar la pantalla de LEDs para mostrar las opciones (piedra, papel o tijera) y los botones para hacer tu elección. También incorporaremos un generador de números aleatorios para la decisión de la Micro:bit.",
