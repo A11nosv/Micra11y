@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>{{ 'MANUAL_CHECK_MODAL_TITLE' | translate }} (Score: {{ totalScore }})</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="cancel()" [ariaLabel]="'CLOSE' | translate" class="close-modal-button">
+      <ion-button (click)="cancel()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
         <ion-icon name="close" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -32,9 +32,9 @@
     <ion-item *ngFor="let q of questions">
       <ion-label>{{ q.textKey | translate }}</ion-label>
         <div class="radio-group-container">
-          <input type="radio" [name]="'opcion_' + q.id" value="yes" [checked]="q.answer === 'yes'" (change)="onAnswerChange(q, 'yes')"> 
-          <input type="radio" [name]="'opcion_' + q.id" value="partial" [checked]="q.answer === 'partial'" (change)="onAnswerChange(q, 'partial')"> 
-          <input type="radio" [name]="'opcion_' + q.id" value="no" [checked]="q.answer === 'no'" (change)="onAnswerChange(q, 'no')"> 
+          <input type="radio" [name]="'opcion_' + q.id" value="yes" [checked]="q.answer === 'yes'" (change)="onAnswerChange(q, 'yes')" [attr.aria-label]="('MANUAL_CHECK_MODAL_OPTION_YES' | translate) + ': ' + (q.textKey | translate)"> 
+          <input type="radio" [name]="'opcion_' + q.id" value="partial" [checked]="q.answer === 'partial'" (change)="onAnswerChange(q, 'partial')" [attr.aria-label]="('MANUAL_CHECK_MODAL_OPTION_PARTIAL' | translate) + ': ' + (q.textKey | translate)"> 
+          <input type="radio" [name]="'opcion_' + q.id" value="no" [checked]="q.answer === 'no'" (change)="onAnswerChange(q, 'no')" [attr.aria-label]="('MANUAL_CHECK_MODAL_OPTION_NO' | translate) + ': ' + (q.textKey | translate)"> 
         </div>      </ion-item>
   </div>
 

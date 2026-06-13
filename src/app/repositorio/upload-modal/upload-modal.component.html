@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.TITLE' | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()" [ariaLabel]="'CLOSE' | translate" class="close-modal-button">
+      <ion-button (click)="closeModal()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
         <ion-icon name="close" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -39,8 +39,7 @@
         <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.MATERIALS_LABEL' | translate }}</label>
         <div class="materials-container">
           <div *ngFor="let material of availableMaterials" class="material-checkbox">
-            <ion-checkbox (ionChange)="updateMaterials(material, $event)" [checked]="isMaterialSelected(material)"></ion-checkbox>
-            <ion-label>{{ material }}</ion-label>
+            <ion-checkbox (ionChange)="updateMaterials(material, $event)" [checked]="isMaterialSelected(material)">{{ material }}</ion-checkbox>
           </div>
         </div>
       </div>
@@ -70,6 +69,8 @@
                     class="tag-item-selectable"
                     [class.selected]="isTagSelected(tag)"
                     (click)="toggleTagSelection(tag)"
+                    (keydown.enter)="toggleTagSelection(tag)"
+                    (keydown.space)="$event.preventDefault(); toggleTagSelection(tag)"
                     role="button"
                     tabindex="0"
                     [attr.aria-pressed]="isTagSelected(tag) ? 'true' : 'false'">

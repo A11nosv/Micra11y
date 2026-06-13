@@ -12,7 +12,7 @@ import { close } from 'ionicons/icons';
       <ion-toolbar>
         <ion-title>{{ title | translate }}</ion-title>
         <ion-buttons slot="end">
-          <ion-button (click)="closeModal()" [ariaLabel]="'CLOSE' | translate">
+          <ion-button (click)="closeModal()" [attr.aria-label]="'CLOSE' | translate">
             <ion-icon name="close" slot="icon-only"></ion-icon>
           </ion-button>
         </ion-buttons>

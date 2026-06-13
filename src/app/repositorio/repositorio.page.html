@@ -82,7 +82,7 @@
 
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" [(ngModel)]="searchTerm" (input)="renderProjects()" placeholder="{{ 'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate }}">
+        <input type="text" [(ngModel)]="searchTerm" (input)="renderProjects()" placeholder="{{ 'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate }}" [attr.aria-label]="'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate">
       </div>
     </div>
 
@@ -108,7 +108,7 @@
                 <span>⬇️</span>
                 <span>{{ project.downloads }}</span>
               </span>
-              <span class="stat-item like-clickable" (click)="likeProject(project.id!, $event)" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
+              <span class="stat-item like-clickable" (click)="likeProject(project.id!, $event)" (keydown.enter)="likeProject(project.id!, $event)" (keydown.space)="$event.preventDefault(); likeProject(project.id!, $event)" tabindex="0" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
                 <span>❤️</span>
                 <span>{{ project.likes }}</span>
               </span>
