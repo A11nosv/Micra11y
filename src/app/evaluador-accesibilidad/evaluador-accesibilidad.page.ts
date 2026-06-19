@@ -57,6 +57,8 @@ while True:
   redundancyStatus: string = 'ACCESSIBILITY_EVALUATOR_PAGE.NO';
   errorCount: number = 0;
   warningCount: number = 0;
+  evaluationStatus: string = '';
+  accessibilityMessage: string = '';
 
   private validator: MicrobitValidatorPro;
 
@@ -77,6 +79,7 @@ while True:
     this.updateTitle();
     this.langChangeSubscription = this.translate.onLangChange.subscribe(() => {
       this.updateTitle();
+      this.updateAccessibilityMessageOnLangChange();
     });
   }
 
@@ -84,6 +87,36 @@ while True:
     this.translate.get('ACCESSIBILITY_EVALUATOR_TITLE').subscribe(title => {
       this.titleService.setTitle(title);
     });
+  }
+
+  updateAccessibilityMessageOnLangChange() {
+    if (this.evaluationStatus === 'ACCESSIBILITY_EVALUATOR_PAGE.CHECKING') {
+      this.translate.get('ACCESSIBILITY_EVALUATOR_PAGE.CHECKING').subscribe(msg => {
+        this.accessibilityMessage = msg;
+      });
+    } else if (this.evaluationStatus === 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED') {
+      const summaryKeys = [
+        'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED',
+        'ACCESSIBILITY_EVALUATOR_PAGE.SCORE',
+        'ACCESSIBILITY_EVALUATOR_PAGE.ERRORS',
+        'ACCESSIBILITY_EVALUATOR_PAGE.WARNINGS',
+        'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED',
+        this.redundancyStatus
+      ];
+
+      this.translate.get(summaryKeys).subscribe(sumTranslations => {
+        const checkFinished = sumTranslations['ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED'];
+        const scoreLabel = sumTranslations['ACCESSIBILITY_EVALUATOR_PAGE.SCORE'];
+        const errorsLabel = sumTranslations['ACCESSIBILITY_EVALUATOR_PAGE.ERRORS'];
+        const warningsLabel = sumTranslations['ACCESSIBILITY_EVALUATOR_PAGE.WARNINGS'];
+        const redundancyLabel = sumTranslations['ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED'];
+        const redundancyValue = sumTranslations[this.redundancyStatus];
+
+        this.accessibilityMessage = `${checkFinished} ${scoreLabel}: ${this.score}/10. ${errorsLabel}: ${this.errorCount}. ${warningsLabel}: ${this.warningCount}. ${redundancyLabel}: ${redundancyValue}.`;
+      });
+    } else {
+      this.accessibilityMessage = '';
+    }
   }
 
   ngOnDestroy() {
@@ -98,6 +131,10 @@ while True:
   }
 
   checkAccessibility() {
+    this.evaluationStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.CHECKING';
+    this.translate.get('ACCESSIBILITY_EVALUATOR_PAGE.CHECKING').subscribe(msg => {
+      this.accessibilityMessage = msg;
+    });
     const codeToValidate = this.userCode;
     console.log('Validating code:', codeToValidate); // Added for debugging if possible
     const result = this.validator.validate(codeToValidate);
@@ -114,6 +151,7 @@ while True:
     const allTranslationKeys = [...new Set([...messageKeys, ...suggestionKeys])];
 
     this.translate.get(allTranslationKeys).subscribe(translations => {
+      this.evaluationStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED';
       this.improvementSuggestions = [...new Set(
         suggestionKeys.map(key => translations[key])
       )];
@@ -213,6 +251,7 @@ while True:
 
       this.correctedCode = lines.join('\n');
       this.highlightedCode = this.correctedCode;
+      this.updateAccessibilityMessageOnLangChange();
     });
   }
 

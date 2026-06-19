@@ -1,150 +1,153 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" role="banner">
   <ion-toolbar class="aligned-with-content">
     <ion-title>{{ 'TABS.REPOSITORIO' | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-      </ion-button>
-      <app-language-chooser></app-language-chooser>
+      <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+        <ion-button routerLink="/evaluador-accesibilidad" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <app-language-chooser></app-language-chooser>
+      </nav>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar class="aligned-with-content">
-      <ion-title size="large">{{ 'TABS.REPOSITORIO' | translate }}</ion-title>
-      <ion-buttons slot="end">
-        <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+  <main>
+    <ion-header collapse="condense">
+      <ion-toolbar class="aligned-with-content">
+        <ion-title size="large">{{ 'TABS.REPOSITORIO' | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+            <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <app-language-chooser></app-language-chooser>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+    <div class="repository-content">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1 id="main-heading" tabindex="-1">{{ 'REPOSITORIO_PAGE.HERO.TITLE' | translate }}</h1>
+          <p>{{ 'REPOSITORIO_PAGE.HERO.SUBTITLE' | translate }}</p>
+          <ion-button class="btn-upload" (click)="openUploadModal()">
+            <span>📤</span>
+            {{ 'REPOSITORIO_PAGE.HERO.UPLOAD_PROJECT_BUTTON' | translate }}
+          </ion-button>
+        </div>
+      </section>
+
+      <!-- Stats Bar -->
+      <section class="stats-bar">
+        <div class="stats-container">
+          <div class="stat">
+            <span class="stat-number">{{ totalProjects }}</span>
+            <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.PROJECTS_PUBLISHED' | translate }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">{{ totalDownloads }}</span>
+            <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.TOTAL_DOWNLOADS' | translate }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">{{ totalContributors }}</span>
+            <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.CONTRIBUTORS' | translate }}</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">{{ totalCategories }}</span>
+            <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.CATEGORIES' | translate }}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Filters -->
+      <div class="filters" role="region" [attr.aria-label]="'REPOSITORIO_PAGE.FILTERS.LABEL' | translate">
+        <span class="filter-label">{{ 'REPOSITORIO_PAGE.FILTERS.LABEL' | translate }}</span>
+        <ion-button class="filter-btn" [class.active]="selectedCategories.includes('todos')" (click)="filterProjects('todos')">
+          {{ 'REPOSITORIO_PAGE.FILTERS.ALL' | translate }}
         </ion-button>
-        <app-language-chooser></app-language-chooser>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-
-  <div class="repository-content">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-content">
-        <h1>{{ 'REPOSITORIO_PAGE.HERO.TITLE' | translate }}</h1>
-        <p>{{ 'REPOSITORIO_PAGE.HERO.SUBTITLE' | translate }}</p>
-        <ion-button class="btn-upload" (click)="openUploadModal()">
-          <span>📤</span>
-          {{ 'REPOSITORIO_PAGE.HERO.UPLOAD_PROJECT_BUTTON' | translate }}
+        <ion-button class="filter-btn" [class.active]="selectedCategories.includes('accesibilidad')" (click)="filterProjects('accesibilidad')">
+          {{ 'REPOSITORIO_PAGE.CATEGORIES.ACCESSIBILITY' | translate }}
         </ion-button>
-      </div>
-    </section>
+        <ion-button class="filter-btn" [class.active]="selectedCategories.includes('sensores')" (click)="filterProjects('sensores')">
+          {{ 'REPOSITORIO_PAGE.CATEGORIES.SENSORS' | translate }}
+        </ion-button>
+        <ion-button class="filter-btn" [class.active]="selectedCategories.includes('comunicacion')" (click)="filterProjects('comunicacion')">
+          {{ 'REPOSITORIO_PAGE.CATEGORIES.COMMUNICATION' | translate }}
+        </ion-button>
+        <ion-button class="filter-btn" [class.active]="selectedCategories.includes('educacion')" (click)="filterProjects('educacion')">
+          {{ 'REPOSITORIO_PAGE.CATEGORIES.EDUCATION' | translate }}
+        </ion-button>
+        <ion-button class="filter-btn" [class.active]="selectedCategories.includes('entretenimiento')" (click)="filterProjects('entretenimiento')">
+          {{ 'REPOSITORIO_PAGE.CATEGORIES.ENTERTAINMENT' | translate }}
+        </ion-button>
 
-    <!-- Stats Bar -->
-    <section class="stats-bar">
-      <div class="stats-container">
-        <div class="stat">
-          <span class="stat-number">{{ totalProjects }}</span>
-          <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.PROJECTS_PUBLISHED' | translate }}</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">{{ totalDownloads }}</span>
-          <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.TOTAL_DOWNLOADS' | translate }}</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">{{ totalContributors }}</span>
-          <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.CONTRIBUTORS' | translate }}</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">{{ totalCategories }}</span>
-          <span class="stat-label">{{ 'REPOSITORIO_PAGE.STATS.CATEGORIES' | translate }}</span>
+        <div class="search-box" role="search">
+          <span class="search-icon">🔍</span>
+          <input type="text" [(ngModel)]="searchTerm" (input)="renderProjects()" placeholder="{{ 'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate }}" [attr.aria-label]="'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate">
         </div>
       </div>
-    </section>
 
-    <!-- Filters -->
-    <div class="filters">
-      <span class="filter-label">{{ 'REPOSITORIO_PAGE.FILTERS.LABEL' | translate }}</span>
-      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('todos')" (click)="filterProjects('todos')">
-        {{ 'REPOSITORIO_PAGE.FILTERS.ALL' | translate }}
-      </ion-button>
-      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('accesibilidad')" (click)="filterProjects('accesibilidad')">
-        {{ 'REPOSITORIO_PAGE.CATEGORIES.ACCESSIBILITY' | translate }}
-      </ion-button>
-      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('sensores')" (click)="filterProjects('sensores')">
-        {{ 'REPOSITORIO_PAGE.CATEGORIES.SENSORS' | translate }}
-      </ion-button>
-      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('comunicacion')" (click)="filterProjects('comunicacion')">
-        {{ 'REPOSITORIO_PAGE.CATEGORIES.COMMUNICATION' | translate }}
-      </ion-button>
-      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('educacion')" (click)="filterProjects('educacion')">
-        {{ 'REPOSITORIO_PAGE.CATEGORIES.EDUCATION' | translate }}
-      </ion-button>
-      <ion-button class="filter-btn" [class.active]="selectedCategories.includes('entretenimiento')" (click)="filterProjects('entretenimiento')">
-        {{ 'REPOSITORIO_PAGE.CATEGORIES.ENTERTAINMENT' | translate }}
-      </ion-button>
-
-      <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" [(ngModel)]="searchTerm" (input)="renderProjects()" placeholder="{{ 'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate }}" [attr.aria-label]="'REPOSITORIO_PAGE.FILTERS.SEARCH_PLACEHOLDER' | translate">
+      <div class="scr-reader" aria-live="polite">
+        {{ filterStatus }}
       </div>
+
+      <!-- Projects Grid -->
+      <section class="projects-section" aria-live="polite" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECTS_GRID.SECTION_LABEL' | translate">
+        <div class="projects-grid" *ngIf="filteredProjects.length > 0">
+          <div class="project-card" *ngFor="let project of filteredProjects">
+            <div class="project-header">
+              <span class="project-category">{{ getCategoryLabel(project.category) | translate }}</span>
+              <h3 class="project-title">{{ project.title }} <span class="project-level">({{ getLevelLabel(project.level) | translate }})</span></h3>
+              <div class="project-author">
+                <span>👤</span>
+                <span>{{ project.author }}</span>
+              </div>
+            </div>
+            <div class="project-content">
+              <p class="project-description">{{ project.description }}</p>
+              <div class="project-tags">
+                <span class="tag" *ngFor="let tag of project.tags">{{ tag | translate }}</span>
+              </div>
+              <div class="project-stats">
+                <span class="stat-item">
+                  <span>⬇️</span>
+                  <span>{{ project.downloads }}</span>
+                </span>
+                <span class="stat-item like-clickable" (click)="likeProject(project.id!, $event)" (keydown.enter)="likeProject(project.id!, $event)" (keydown.space)="$event.preventDefault(); likeProject(project.id!, $event)" tabindex="0" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
+                  <span>❤️</span>
+                  <span>{{ project.likes }}</span>
+                </span>
+                <span class="stat-item">
+                  <span>📅</span>
+                  <span>{{ formatDate(project.date) }}</span>
+                </span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <ion-button class="btn-primary" (click)="downloadProject(project.id!, $event)" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_BUTTON' | translate">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;"><path d="M320 336h76c55 0 100-21.21 100-75.6s-53-73.47-96-75.6C391.11 99.74 329 48 256 48c-69 0-113.44 45.79-128 91.2-60 5.7-112 35.88-112 98.4S70 336 136 336h56M192 400.1l64 63.9 64-63.9M256 224v224.03" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" /></svg>
+              </ion-button>
+
+              
+
+              <ion-button *ngIf="project.instructions" class="btn-primary" (click)="downloadInstructions(project.id!, $event)" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;"><path d="M336 176h40a40 40 0 0140 40v208a40 40 0 01-40 40H136a40 40 0 01-40-40V216a40 40 0 0140-40h40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M176 272l80 80 80-80M256 48v288"/></svg>
+              </ion-button>
+
+              <ion-button class="btn-secondary" (click)="viewProject(project.id!, $event)" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.VIEW_CODE_BUTTON' | translate">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 368L32 256l128-112M352 368l128-112-128-112M192 288.1l64 63.9 64-63.9M256 160v176.03"/></svg>
+              </ion-button>
+            </div>
+          </div>
+        </div>
+        <div class="empty-state" *ngIf="filteredProjects.length === 0">
+          <div class="empty-icon">📦</div>
+          <h3>{{ 'REPOSITORIO_PAGE.PROJECTS_GRID.EMPTY_STATE_TITLE' | translate }}</h3>
+          <p>{{ 'REPOSITORIO_PAGE.PROJECTS_GRID.EMPTY_STATE_SUBTITLE' | translate }}</p>
+        </div>
+      </section>
     </div>
-
-    <!-- Projects Grid -->
-    <section class="projects-section">
-      <div class="projects-grid" *ngIf="filteredProjects.length > 0">
-        <div class="project-card" *ngFor="let project of filteredProjects">
-          <div class="project-header">
-            <span class="project-category">{{ getCategoryLabel(project.category) | translate }}</span>
-            <h3 class="project-title">{{ project.title }} <span class="project-level">({{ getLevelLabel(project.level) | translate }})</span></h3>
-            <div class="project-author">
-              <span>👤</span>
-              <span>{{ project.author }}</span>
-            </div>
-          </div>
-          <div class="project-content">
-            <p class="project-description">{{ project.description }}</p>
-            <div class="project-tags">
-              <span class="tag" *ngFor="let tag of project.tags">{{ tag | translate }}</span>
-            </div>
-            <div class="project-stats">
-              <span class="stat-item">
-                <span>⬇️</span>
-                <span>{{ project.downloads }}</span>
-              </span>
-              <span class="stat-item like-clickable" (click)="likeProject(project.id!, $event)" (keydown.enter)="likeProject(project.id!, $event)" (keydown.space)="$event.preventDefault(); likeProject(project.id!, $event)" tabindex="0" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
-                <span>❤️</span>
-                <span>{{ project.likes }}</span>
-              </span>
-              <span class="stat-item">
-                <span>📅</span>
-                <span>{{ formatDate(project.date) }}</span>
-              </span>
-            </div>
-          </div>
-          <div class="project-footer">
-            <ion-button class="btn-primary" (click)="downloadProject(project.id!, $event)" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_BUTTON' | translate">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;"><path d="M320 336h76c55 0 100-21.21 100-75.6s-53-73.47-96-75.6C391.11 99.74 329 48 256 48c-69 0-113.44 45.79-128 91.2-60 5.7-112 35.88-112 98.4S70 336 136 336h56M192 400.1l64 63.9 64-63.9M256 224v224.03" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" /></svg>
-            </ion-button>
-
-            
-
-            <ion-button *ngIf="project.instructions" class="btn-primary" (click)="downloadInstructions(project.id!, $event)" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.DOWNLOAD_INSTRUCTIONS_BUTTON' | translate">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;"><path d="M336 176h40a40 40 0 0140 40v208a40 40 0 01-40 40H136a40 40 0 01-40-40V216a40 40 0 0140-40h40" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M176 272l80 80 80-80M256 48v288"/></svg>
-            </ion-button>
-
-            <ion-button class="btn-secondary" (click)="viewProject(project.id!, $event)" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.VIEW_CODE_BUTTON' | translate">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" style="width: 24px; height: 24px;"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M160 368L32 256l128-112M352 368l128-112-128-112M192 288.1l64 63.9 64-63.9M256 160v176.03"/></svg>
-            </ion-button>
-          </div>
-        </div>
-      </div>
-      <div class="empty-state" *ngIf="filteredProjects.length === 0">
-        <div class="empty-icon">📦</div>
-        <h3>{{ 'REPOSITORIO_PAGE.PROJECTS_GRID.EMPTY_STATE_TITLE' | translate }}</h3>
-        <p>{{ 'REPOSITORIO_PAGE.PROJECTS_GRID.EMPTY_STATE_SUBTITLE' | translate }}</p>
-      </div>
-    </section>
-  </div>
-
-
-
-
+  </main>
 </ion-content>
-

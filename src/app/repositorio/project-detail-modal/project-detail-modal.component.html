@@ -20,7 +20,7 @@
           <span>👤</span>
           <span>{{ selectedProject.author }}</span>
         </div>
-        <div class="project-stats-modal" (click)="likeProject(selectedProject.id!)" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
+        <div class="project-stats-modal" (click)="likeProject(selectedProject.id!)" (keydown.enter)="likeProject(selectedProject.id!)" (keydown.space)="$event.preventDefault(); likeProject(selectedProject.id!)" tabindex="0" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.PROJECT_CARD.LIKE_BUTTON' | translate">
           <span>❤️</span>
           <span>{{ selectedProject.likes }}</span>
         </div>

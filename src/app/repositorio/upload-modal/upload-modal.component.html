@@ -83,7 +83,7 @@
 
       <div class="form-group">
         <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CODE_LABEL' | translate }}</label>
-        <div class="file-upload-area" (click)="fileInput.click()" (dragover)="handleDragOver($event)" (dragleave)="handleDragLeave($event)" (drop)="handleFileDrop($event)">
+        <div class="file-upload-area" (click)="fileInput.click()" (keydown.enter)="fileInput.click()" (keydown.space)="$event.preventDefault(); fileInput.click()" tabindex="0" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate">
           <div class="file-upload-icon">📁</div>
           <p><strong>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DRAG_FILE_TEXT_BOLD' | translate }}</strong></p>
           <p style="color: var(--text-secondary); font-size: 0.9rem;">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate }}</p>
@@ -96,7 +96,7 @@
 
       <div class="form-group">
         <label class="form-label">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.INSTRUCTIONS_LABEL' | translate }}</label>
-        <div class="file-upload-area" (click)="instructionsFileInput.click()">
+        <div class="file-upload-area" (click)="instructionsFileInput.click()" (keydown.enter)="instructionsFileInput.click()" (keydown.space)="$event.preventDefault(); instructionsFileInput.click()" tabindex="0" role="button" [attr.aria-label]="'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate">
           <div class="file-upload-icon">📄</div>
           <p><strong>{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.DRAG_INSTRUCTIONS_FILE_TEXT_BOLD' | translate }}</strong></p>
           <p style="color: var(--text-secondary); font-size: 0.9rem;">{{ 'REPOSITORIO_PAGE.UPLOAD_MODAL.CLICK_TO_SELECT_TEXT' | translate }} (.txt, .md)</p>

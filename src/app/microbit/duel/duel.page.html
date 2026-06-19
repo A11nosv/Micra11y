@@ -1,220 +1,224 @@
-<ion-header>
+<ion-header role="banner">
   <ion-toolbar class="aligned-with-content">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/microbit"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ title }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-      </ion-button>
-      <app-language-chooser></app-language-chooser>
+      <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+        <ion-button routerLink="/evaluador-accesibilidad" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <app-language-chooser></app-language-chooser>
+      </nav>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="content-wrapper">
-    <h1>{{ title }}</h1>
+  <main>
+    <div class="content-wrapper">
+      <h1 id="main-heading" tabindex="-1">{{ title }}</h1>
 
-    <video controls width="100%" height="auto">
-      <source src="assets/videos/shooter.mp4" type="video/mp4">
-      <track src="assets/captions/duel/captions_es.vtt" kind="subtitles" srclang="es" label="Español">
-      <track src="assets/captions/duel/captions_ca.vtt" kind="subtitles" srclang="ca" label="Català">
-      <track src="assets/captions/duel/captions_en.vtt" kind="subtitles" srclang="en" label="English">
-      <track src="assets/captions/duel/captions_eu.vtt" kind="subtitles" srclang="eu" label="Euskara">
-      <track src="assets/captions/duel/captions_gl.vtt" kind="subtitles" srclang="gl" label="Galego">
-      <track src="assets/captions/duel/description_es.vtt" kind="captions" srclang="es" label="Español [AD]">
-      <track src="assets/captions/duel/description_ca.vtt" kind="captions" srclang="ca" label="Català [AD]">
-      <track src="assets/captions/duel/description_en.vtt" kind="captions" srclang="en" label="English [AD]">
-      <track src="assets/captions/duel/description_eu.vtt" kind="captions" srclang="eu" label="Euskara [AD]">
-      <track src="assets/captions/duel/description_gl.vtt" kind="captions" srclang="gl" label="Galego [AD]">
-      {{ 'DUEL_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
-    </video>
+      <video controls width="100%" height="auto">
+        <source src="assets/videos/shooter.mp4" type="video/mp4">
+        <track src="assets/captions/duel/captions_es.vtt" kind="subtitles" srclang="es" label="Español">
+        <track src="assets/captions/duel/captions_ca.vtt" kind="subtitles" srclang="ca" label="Català">
+        <track src="assets/captions/duel/captions_en.vtt" kind="subtitles" srclang="en" label="English">
+        <track src="assets/captions/duel/captions_eu.vtt" kind="subtitles" srclang="eu" label="Euskara">
+        <track src="assets/captions/duel/captions_gl.vtt" kind="subtitles" srclang="gl" label="Galego">
+        <track src="assets/captions/duel/description_es.vtt" kind="subtitles" srclang="es" label="Español [Descripción]">
+        <track src="assets/captions/duel/description_ca.vtt" kind="subtitles" srclang="ca" label="Català [Descripción]">
+        <track src="assets/captions/duel/description_en.vtt" kind="subtitles" srclang="en" label="English [Description]">
+        <track src="assets/captions/duel/description_eu.vtt" kind="subtitles" srclang="eu" label="Euskara [Descripción]">
+        <track src="assets/captions/duel/description_gl.vtt" kind="subtitles" srclang="gl" label="Galego [Descripción]">
+        {{ 'DUEL_PAGE.VIDEO_NOT_SUPPORTED' | translate }}
+      </video>
 
-    <ion-button expand="block" (click)="openTranscription()" class="ion-margin-top">
-      {{ 'DUEL_PAGE.VIDEO_TRANSCRIPTION_LABEL' | translate }}
-    </ion-button>
+      <ion-button expand="block" (click)="openTranscription()" class="ion-margin-top">
+        {{ 'DUEL_PAGE.VIDEO_TRANSCRIPTION_LABEL' | translate }}
+      </ion-button>
 
-    <h2>{{ 'DUEL_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
-    <p>{{ 'DUEL_PAGE.INTRODUCTION_TEXT' | translate }}</p>
+      <h2>{{ 'DUEL_PAGE.INTRODUCTION_TITLE' | translate }}</h2>
+      <p>{{ 'DUEL_PAGE.INTRODUCTION_TEXT' | translate }}</p>
 
-    <h2>{{ 'DUEL_PAGE.MATERIALS_TITLE' | translate }}</h2>
-    <ul>
-      <li *ngFor="let item of ('DUEL_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
-    </ul>
+      <h2>{{ 'DUEL_PAGE.MATERIALS_TITLE' | translate }}</h2>
+      <ul>
+        <li *ngFor="let item of ('DUEL_PAGE.MATERIALS_LIST' | translate)">{{ item }}</li>
+      </ul>
 
-    <h2>{{ 'DUEL_PAGE.TARGET' | translate }}</h2>
-    <p>{{ 'DUEL_PAGE.TARGET_TEXT_1' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.TARGET_TEXT_2' | translate }}</p>
+      <h2>{{ 'DUEL_PAGE.TARGET' | translate }}</h2>
+      <p>{{ 'DUEL_PAGE.TARGET_TEXT_1' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.TARGET_TEXT_2' | translate }}</p>
 
-    <h2>{{ 'DUEL_PAGE.STEPS_TITLE' | translate }}</h2>
-    <h3>{{ 'DUEL_PAGE.STEP_1_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1" [language]="'python'"></code></pre>
+      <h2>{{ 'DUEL_PAGE.STEPS_TITLE' | translate }}</h2>
+      <h3>{{ 'DUEL_PAGE.STEP_1_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_1' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1_2" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT_1' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1_2" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_2' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_3' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1_3" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT_2' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT_3' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1_3" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_4' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_5' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1_4" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT_4' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT_5' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1_4" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_1_TEXT_6' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_1_TEXT_6' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_2_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_2_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1_5" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_2_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_2_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1_5" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_2_TEXT_1' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1_6" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_2_TEXT_1' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1_6" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_2_TEXT_2' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_1_7" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_2_TEXT_2' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_1_7" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_2_TEXT_3' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_2_TEXT_4' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_2_TEXT_5' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_2_TEXT_3' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_2_TEXT_4' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_2_TEXT_5' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_3_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_2_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_3_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_2_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_1' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_2_2" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_1' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_2_2" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_2' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_3' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_2_3" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_2' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_3' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_2_3" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_4' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_5' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_6' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_7' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_8' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_2_4" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_4' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_5' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_6' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_7' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_8' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_2_4" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_9' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_3_TEXT_10' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_9' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_3_TEXT_10' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_4_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_1' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_3_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_4_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_1' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_3_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_2' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_3' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_3_2" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_2' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_3' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_3_2" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_4' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_5' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_6' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_3_3" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_4' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_5' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_6' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_3_3" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_7' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_3_4" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_7' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_3_4" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_8' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_9' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_10' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_3_5" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_8' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_9' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_10' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_3_5" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_11' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_4_TEXT_12' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_3_6" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_11' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_4_TEXT_12' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_3_6" [language]="'python'"></code></pre>
 
-    <h3>{{ 'DUEL_PAGE.STEP_5_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_5_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_4_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_5_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_5_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_4_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_5_TEXT_1' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_5_TEXT_2' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_4_2" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_5_TEXT_1' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_5_TEXT_2' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_4_2" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_5_TEXT_3' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_4_3" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_5_TEXT_3' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_4_3" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_5_TEXT_4' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_5_TEXT_5' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_4_4" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_5_TEXT_4' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_5_TEXT_5' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_4_4" [language]="'python'"></code></pre>
 
-    <h3>{{ 'DUEL_PAGE.STEP_6_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_1' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_5_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_6_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_1' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_5_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_2' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_5_2" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_2' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_5_2" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_3' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_4' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_5_3" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_3' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_4' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_5_3" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_5' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_5_4" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_5' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_5_4" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_6' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_7' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_5_5" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_6' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_7' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_5_5" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_6_TEXT_8' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_6_TEXT_8' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_7_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_7_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_6_1" [language]="'python'"></code></pre>
-    <p>{{ 'DUEL_PAGE.STEP_7_TEXT_1' | translate }}</p>
+      <h3>{{ 'DUEL_PAGE.STEP_7_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_7_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_6_1" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_7_TEXT_1' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_8_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_7_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_8_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_7_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_1' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_2' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_7_2" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_1' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_2' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_7_2" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_3' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_4' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_7_3" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_3' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_4' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_7_3" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_5' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_7_4" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_5' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_7_4" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_6' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_7' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_7_5" [language]="'python'"></code></pre>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_6' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_7' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_7_5" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_8_TEXT_7' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_8_TEXT_7' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_9_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_9_TEXT' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_9_TEXT_1' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_9_TEXT_2' | translate }}</p>
+      <h3>{{ 'DUEL_PAGE.STEP_9_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_9_TEXT' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_9_TEXT_1' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_9_TEXT_2' | translate }}</p>
 
-    <h3>{{ 'DUEL_PAGE.STEP_10_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_10_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_8_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_10_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_10_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_8_1" [language]="'python'"></code></pre>
 
-    <h3>{{ 'DUEL_PAGE.STEP_11_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_11_TEXT' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_9_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_11_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_11_TEXT' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_9_1" [language]="'python'"></code></pre>
 
-    <h3>{{ 'DUEL_PAGE.STEP_12_TITLE' | translate }}</h3>
-    <p>{{ 'DUEL_PAGE.STEP_12_TEXT' | translate }}</p>
-    <p>{{ 'DUEL_PAGE.STEP_12_TEXT_1' | translate }}</p>
-    <pre><code [highlight]="pythonCode_step_10_1" [language]="'python'"></code></pre>
+      <h3>{{ 'DUEL_PAGE.STEP_12_TITLE' | translate }}</h3>
+      <p>{{ 'DUEL_PAGE.STEP_12_TEXT' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_12_TEXT_1' | translate }}</p>
+      <pre><code [highlight]="pythonCode_step_10_1" [language]="'python'"></code></pre>
 
-    <p>{{ 'DUEL_PAGE.STEP_12_TEXT_2' | translate }}</p>
+      <p>{{ 'DUEL_PAGE.STEP_12_TEXT_2' | translate }}</p>
 
-    <h2>{{ 'DUEL_PAGE.STEPS_TITLE_2' | translate }}</h2>
-    <a href="../../../assets/Microbit/03_Advanced/00_Shooter/Shooter.hex" target="_blank">{{ 'DUEL_PAGE.STEPS_TEXT_2' | translate }}</a>
-    <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
+      <h2>{{ 'DUEL_PAGE.STEPS_TITLE_2' | translate }}</h2>
+      <a href="../../../assets/Microbit/03_Advanced/00_Shooter/Shooter.hex" target="_blank">{{ 'DUEL_PAGE.STEPS_TEXT_2' | translate }}</a>
+      <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
 
 
-    <h2>{{ 'DUEL_PAGE.STEPS_TITLE_3' | translate }}</h2>
-    <p>{{ 'DUEL_PAGE.STEP_13_TEXT' | translate }}</p>
-  </div>
+      <h2>{{ 'DUEL_PAGE.STEPS_TITLE_3' | translate }}</h2>
+      <p>{{ 'DUEL_PAGE.STEP_13_TEXT' | translate }}</p>
+    </div>
+  </main>
 </ion-content>

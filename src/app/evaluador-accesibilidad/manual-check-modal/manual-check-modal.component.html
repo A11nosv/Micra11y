@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{ 'MANUAL_CHECK_MODAL_TITLE' | translate }} (Score: {{ totalScore }})</ion-title>
+    <ion-title>
+      {{ 'MANUAL_CHECK_MODAL_TITLE' | translate }} 
+      <span aria-live="polite">(Score: {{ totalScore }})</span>
+    </ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="cancel()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
         <ion-icon name="close" slot="icon-only"></ion-icon>

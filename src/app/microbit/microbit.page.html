@@ -1,244 +1,250 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" role="banner">
   <ion-toolbar class="aligned-with-content">
     <ion-title>
       {{ 'MICROBIT_PAGE.TITLE' | translate }}
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/evaluador-accesibilidad">
-        <ion-icon name="accessibility-outline" slot="icon-only" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate"></ion-icon>
-      </ion-button>
-      <app-language-chooser></app-language-chooser>
+      <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+        <ion-button routerLink="/evaluador-accesibilidad" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <app-language-chooser></app-language-chooser>
+      </nav>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar class="aligned-with-content">
-      <ion-title size="large">{{ 'MICROBIT_PAGE.TITLE' | translate }}</ion-title>
-      <ion-buttons slot="end">
-        <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-        </ion-button>
-        <app-language-chooser></app-language-chooser>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <main>
+    <ion-header collapse="condense">
+      <ion-toolbar class="aligned-with-content">
+        <ion-title size="large">{{ 'MICROBIT_PAGE.TITLE' | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate" routerLink="/evaluador-accesibilidad">
+            <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <app-language-chooser></app-language-chooser>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-  <div class="projects-grid">
-    <ion-card *ngFor="let projectEntry of (projects$ | async | keyvalue)" class="project-card">
-      <a [routerLink]="projectEntry.value.route" button="true" [attr.aria-label]="('MICROBIT_PAGE.OPEN_PROJECT_PREFIX' | translate) + projectEntry.value.TITLE">
-        <ng-container *ngIf="projectEntry.key === 'HEARTBEAT' || projectEntry.key === 'DUEL' || projectEntry.key === 'COUNTDOWN' || projectEntry.key === 'STONE_PAPER_SCISSORS' || projectEntry.key === 'SECRET_MESSAGE'; else regularImage">
-          <div class="microbit">
-              <div class="logo">micro:bit</div>
-              
-              <ng-container [ngSwitch]="projectEntry.key">
-                <div class="led-matrix" *ngSwitchCase="'HEARTBEAT'">
-                    <!-- Fila 1 -->
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 2 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 3 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 4 -->
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 5 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                </div>
-                <div class="led-matrix" *ngSwitchCase="'DUEL'">
-                    <!-- Fila 1 -->
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 2 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 3 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 4 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 5 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                </div>
-                <div class="led-matrix" *ngSwitchCase="'COUNTDOWN'">
-                    <!-- Fila 1 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 2 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 3 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 4 -->
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 5 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                </div>
-                <div class="led-matrix" *ngSwitchCase="'STONE_PAPER_SCISSORS'">
-                    <!-- Fila 1 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 2 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 3 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 4 -->
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 5 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                </div>
-                <div class="led-matrix" *ngSwitchCase="'SECRET_MESSAGE'">
-                    <!-- Fila 1 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 2 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    
-                    <!-- Fila 3 -->
-                    <div class="led on"></div>
-                    <div class="led on"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 4 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    
-                    <!-- Fila 5 -->
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                    <div class="led"></div>
-                </div>
-              </ng-container>
+    <h1 id="main-heading" tabindex="-1" class="ion-margin-bottom">{{ 'MICROBIT_PAGE.TITLE' | translate }}</h1>
 
-              <div class="buttons">
-                  <div class="button">A</div>
-                  <div class="button">B</div>
-              </div>
+    <div class="projects-grid">
+      <ion-card *ngFor="let projectEntry of (projects$ | async | keyvalue)" class="project-card">
+        <a [routerLink]="projectEntry.value.route" button="true" [attr.aria-label]="('MICROBIT_PAGE.OPEN_PROJECT_PREFIX' | translate) + projectEntry.value.TITLE">
+          <ng-container *ngIf="projectEntry.key === 'HEARTBEAT' || projectEntry.key === 'DUEL' || projectEntry.key === 'COUNTDOWN' || projectEntry.key === 'STONE_PAPER_SCISSORS' || projectEntry.key === 'SECRET_MESSAGE'; else regularImage">
+            <div class="microbit">
+                <div class="logo">micro:bit</div>
+                
+                <ng-container [ngSwitch]="projectEntry.key">
+                  <div class="led-matrix" *ngSwitchCase="'HEARTBEAT'">
+                      <!-- Fila 1 -->
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 2 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 3 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 4 -->
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 5 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                  </div>
+                  <div class="led-matrix" *ngSwitchCase="'DUEL'">
+                      <!-- Fila 1 -->
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 2 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 3 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 4 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 5 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                  </div>
+                  <div class="led-matrix" *ngSwitchCase="'COUNTDOWN'">
+                      <!-- Fila 1 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 2 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 3 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 4 -->
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 5 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                  </div>
+                  <div class="led-matrix" *ngSwitchCase="'STONE_PAPER_SCISSORS'">
+                      <!-- Fila 1 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 2 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 3 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 4 -->
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 5 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                  </div>
+                  <div class="led-matrix" *ngSwitchCase="'SECRET_MESSAGE'">
+                      <!-- Fila 1 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 2 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      
+                      <!-- Fila 3 -->
+                      <div class="led on"></div>
+                      <div class="led on"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 4 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      
+                      <!-- Fila 5 -->
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                      <div class="led"></div>
+                  </div>
+                </ng-container>
 
-              <div class="pins">
-                  <div class="pin"></div>
-                  <div class="pin"></div>
-                  <div class="pin"></div>
-                  <div class="pin"></div>
-                  <div class="pin"></div>
-              </div>
-          </div>
-        </ng-container>
-        <ng-template #regularImage>
-          <img [src]="projectEntry.value.img" [alt]="projectEntry.value.alt" />
-        </ng-template>
-        <ion-card-header>
-          <ion-card-title>{{ projectEntry.value.TITLE }}</ion-card-title>
-        </ion-card-header>
-      </a>
-      <ion-card-content>
-        {{ projectEntry.value.DESCRIPTION }}
-      </ion-card-content>
-    </ion-card>
-  </div>
+                <div class="buttons">
+                    <div class="button">A</div>
+                    <div class="button">B</div>
+                </div>
+
+                <div class="pins">
+                    <div class="pin"></div>
+                    <div class="pin"></div>
+                    <div class="pin"></div>
+                    <div class="pin"></div>
+                    <div class="pin"></div>
+                </div>
+            </div>
+          </ng-container>
+          <ng-template #regularImage>
+            <img [src]="projectEntry.value.img" [alt]="projectEntry.value.alt" />
+          </ng-template>
+          <ion-card-header>
+            <ion-card-title>{{ projectEntry.value.TITLE }}</ion-card-title>
+          </ion-card-header>
+        </a>
+        <ion-card-content>
+          {{ projectEntry.value.DESCRIPTION }}
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </main>
 </ion-content>

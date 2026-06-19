@@ -1,5 +1,5 @@
 <ion-tabs>
-  <ion-tab-bar slot="bottom">
+  <ion-tab-bar slot="bottom" role="navigation" [attr.aria-label]="'TABS.BAR_LABEL' | translate">
     <ion-tab-button tab="micropython" href="/tabs/micropython">
       <ion-icon aria-hidden="true" name="logo-python"></ion-icon>
       <ion-label>{{ 'TABS.MICROPYTHON' | translate }}</ion-label>

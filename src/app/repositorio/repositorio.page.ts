@@ -43,6 +43,7 @@ export class RepositorioPage implements OnInit {
   filteredProjects: RepositoryItem[] = [];
   selectedCategories: string[] = ['todos']; // Now an array for multiple selections
   searchTerm: string = '';
+  filterStatus: string = '';
 
   totalProjects: number = 0;
   totalDownloads: number = 0;
@@ -134,6 +135,16 @@ export class RepositorioPage implements OnInit {
                             project.tags.some(tag => tag.toLowerCase().includes(this.searchTerm.toLowerCase()));
       return matchesFilter && matchesSearch;
     });
+
+    if (this.filteredProjects.length > 0) {
+      this.translate.get('REPOSITORIO_PAGE.FILTERS.FILTER_STATUS', { count: this.filteredProjects.length }).subscribe(status => {
+        this.filterStatus = status;
+      });
+    } else {
+      this.translate.get('REPOSITORIO_PAGE.PROJECTS_GRID.EMPTY_STATE_TITLE').subscribe(status => {
+        this.filterStatus = status;
+      });
+    }
   }
 
   filterProjects(category: string): void {

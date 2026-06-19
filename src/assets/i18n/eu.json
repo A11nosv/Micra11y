@@ -1,13 +1,16 @@
 {
   "CLOSE": "Itxi",
   "ACCESSIBILITY": {
-    "LANGUAGE_BUTTON_LABEL": "Oraingo hizkuntza {{language}} sakatu hizkuntza aldatzeko"
+    "LANGUAGE_BUTTON_LABEL": "Oraingo hizkuntza {{language}} sakatu hizkuntza aldatzeko",
+    "SKIP_TO_CONTENT": "Eduki nagusira joan",
+    "HEADER_NAV_LABEL": "Konfigurazioa eta irisgarritasuna"
   },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",
     "MICROIA": "MicroIA",
-    "REPOSITORIO": "Biltegia"
+    "REPOSITORIO": "Biltegia",
+    "BAR_LABEL": "Fitxen bidezko nabigazioa"
   },
   "MICROBIT_PAGE": {
     "TITLE": "Micro:bit Proiektuak",
@@ -1670,6 +1673,8 @@
     "H2": "MicroPython Kode Editorea Irisgarritasunean Azpimarra Jarriz",
     "P": "Sartu zure MicroPython kodea Micro:bit-erako testu-eremuan. Editoreak kodea nola ikusten den ikusten lagunduko dizu eta irisgarritasuna egiaztatzeko aukera emango dizu.",
     "BTN": "Irisgarritasuna Egiaztatu",
+    "CHECKING": "Kodea ebaluatzen...",
+    "CHECK_FINISHED": "Ebaluazioa amaitu da. Emaitzak jarraian daude ikusgai.",
     "TEXTAREA_PLACEHOLDER": "Idatzi zure MicroPython kodea hemen...",
     "EVALUATION_RESULTS_H3": "Ebaluazioaren Emaitza",
     "SCORE": "Puntuazioa",
@@ -1774,6 +1779,8 @@
       "ENTERTAINMENT": "Aisialdia"
     },
     "PROJECTS_GRID": {
+      "SECTION_LABEL": "Proiektuen zerrenda",
+      "RESULTS_COUNT": "{{count}} proiektu aurkitu dira.",
       "EMPTY_STATE_TITLE": "Ez da proiekturik aurkitu",
       "EMPTY_STATE_SUBTITLE": "Probatu beste iragazki batzuk edo izan zaitez proiektu bat igotzen lehena"
     },

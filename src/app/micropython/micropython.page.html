@@ -1,68 +1,69 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" role="banner">
   <ion-toolbar class="aligned-with-content">
     <ion-title>
       {{ 'TABS.MICROPYTHON' | translate }}
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-      </ion-button>
-      <app-language-chooser></app-language-chooser>
+      <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+        <ion-button routerLink="/evaluador-accesibilidad" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <app-language-chooser></app-language-chooser>
+      </nav>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar class="aligned-with-content">
-      <ion-title size="large">{{ 'TABS.MICROPYTHON' | translate }}</ion-title>
-      <ion-buttons slot="end">
-        <app-language-chooser></app-language-chooser>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <main>
+    <ion-header collapse="condense">
+      <ion-toolbar class="aligned-with-content">
+        <ion-title size="large">{{ 'TABS.MICROPYTHON' | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <app-language-chooser></app-language-chooser>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-  <div class="content-wrapper">
-    <h1>{{ 'MICROPYTHON_PAGE.H1' | translate }}</h1>
-
-    <div class="intro-section ion-margin-bottom">
+    <div class="content-wrapper">
+      <h1 id="main-heading" tabindex="-1">{{ 'MICROPYTHON_PAGE.H1' | translate }}</h1>
       <h2>{{ 'MICROPYTHON_PAGE.H2_INTRO' | translate }}</h2>
       <p>{{ 'MICROPYTHON_PAGE.P_INTRO' | translate }}</p>
-    </div>
 
-    <ion-grid class="ion-no-padding">
-      <ion-row>
-        <ion-col size="12" size-md="6" class="ion-padding-end">
-          <ion-card class="ion-no-margin ion-margin-bottom height-100">
-            <ion-card-header>
-              <ion-card-title>
-                <h2>{{ 'MICROPYTHON_PAGE.H2_EDUCATORS' | translate }}</h2>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>{{ 'MICROPYTHON_PAGE.P_EDUCATORS' | translate }}</p>
-              <ion-button expand="block" class="ion-margin-top" routerLink="/micropython/educadores">
-                {{ 'MICROPYTHON_PAGE.BTN_EDUCATORS' | translate }}
-              </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col size="12" size-md="6" class="ion-padding-start">
-          <ion-card class="ion-no-margin ion-margin-bottom height-100">
-            <ion-card-header>
-              <ion-card-title>
-                <h2>{{ 'MICROPYTHON_PAGE.H2_STUDENTS' | translate }}</h2>
-              </ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-              <p>{{ 'MICROPYTHON_PAGE.P_STUDENTS' | translate }}</p>
-              <ion-button expand="block" class="ion-margin-top" routerLink="/micropython/estudiantes">
-                {{ 'MICROPYTHON_PAGE.BTN_STUDENTS' | translate }}
-              </ion-button>
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </div>
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12" size-md="6" class="ion-padding-end">
+            <ion-card class="ion-no-margin ion-margin-bottom height-100">
+              <ion-card-header>
+                <ion-card-title>
+                  <h2>{{ 'MICROPYTHON_PAGE.H2_EDUCATORS' | translate }}</h2>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ 'MICROPYTHON_PAGE.P_EDUCATORS' | translate }}</p>
+                <ion-button expand="block" class="ion-margin-top" routerLink="/micropython/educadores">
+                  {{ 'MICROPYTHON_PAGE.BTN_EDUCATORS' | translate }}
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col size="12" size-md="6" class="ion-padding-start">
+            <ion-card class="ion-no-margin ion-margin-bottom height-100">
+              <ion-card-header>
+                <ion-card-title>
+                  <h2>{{ 'MICROPYTHON_PAGE.H2_STUDENTS' | translate }}</h2>
+                </ion-card-title>
+              </ion-card-header>
+              <ion-card-content>
+                <p>{{ 'MICROPYTHON_PAGE.P_STUDENTS' | translate }}</p>
+                <ion-button expand="block" class="ion-margin-top" routerLink="/micropython/estudiantes">
+                  {{ 'MICROPYTHON_PAGE.BTN_STUDENTS' | translate }}
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </main>
 </ion-content>

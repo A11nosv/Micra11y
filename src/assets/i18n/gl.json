@@ -1,13 +1,16 @@
 {
   "CLOSE": "Pechar",
   "ACCESSIBILITY": {
-    "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} pulsa para modificar idioma"
+    "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} pulsa para modificar idioma",
+    "SKIP_TO_CONTENT": "Saltar ao contido principal",
+    "HEADER_NAV_LABEL": "Configuración e accesibilidade"
   },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",
     "MICROIA": "MicroIA",
-    "REPOSITORIO": "Repositorio"
+    "REPOSITORIO": "Repositorio",
+    "BAR_LABEL": "Navegación por pestanas"
   },
   "MICROBIT_PAGE": {
     "TITLE": "Proxectos Micro:bit",
@@ -1725,6 +1728,8 @@
       "ENTERTAINMENT": "Entretemento"
     },
     "PROJECTS_GRID": {
+      "SECTION_LABEL": "Listado de proxectos",
+      "RESULTS_COUNT": "Atopáronse {{count}} proxectos.",
       "EMPTY_STATE_TITLE": "Non se atoparon proxectos",
       "EMPTY_STATE_SUBTITLE": "Intenta con outros filtros ou sé o primeiro en subir un proxecto"
     },
@@ -1813,6 +1818,8 @@
     "H2": "Comprobador de Accesibilidade do código MicroPython",
     "P": "Introduce o teu código de MicroPython para a Micro:bit na área de texto. O editor axudarache a visualizar como se ve o código e permitirache comprobar a súa accesibilidade.",
     "BTN": "Comprobar a Accesibilidade",
+    "CHECKING": "Avaliando o código...",
+    "CHECK_FINISHED": "Avaliación finalizada. Os resultados están dispoñibles a continuación.",
     "TEXTAREA_PLACEHOLDER": "Escribe o teu código MicroPython aquí...",
     "EVALUATION_RESULTS_H3": "Resultado da avaliación",
     "SCORE": "Puntuación",

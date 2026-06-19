@@ -50,7 +50,16 @@ export class AppComponent implements OnInit {
     }
   }
 
-  private setDarkMode(isDark: boolean) {
+  setDarkMode(isDark: boolean) {
     document.body.classList.toggle('dark-theme', isDark);
+  }
+
+  skipToContent(event: Event) {
+    event.preventDefault();
+    const mainHeading = document.getElementById('main-heading');
+    if (mainHeading) {
+      mainHeading.focus();
+      mainHeading.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 }

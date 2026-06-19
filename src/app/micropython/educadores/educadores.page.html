@@ -4,7 +4,7 @@
   <ion-split-pane contentId="main-content" when="md">
 
   <!-- Start Sidebar menu -->
-  <ion-menu contentId="main-content" type="overlay">
+  <ion-menu contentId="main-content" type="overlay" role="navigation" [attr.aria-label]="'EDUCADORES_PAGE.SIDEBAR_TITLE' | translate">
       <ion-header>
         <ion-toolbar color="light">
           <ion-title>{{ 'EDUCADORES_PAGE.SIDEBAR_TITLE' | translate }}</ion-title>
@@ -77,7 +77,7 @@
 
     <div class="ion-page" id="main-content">
       <!-- Start menu  btns -->
-      <ion-header>
+      <ion-header role="banner">
           <ion-toolbar class="aligned-with-content">
             <ion-buttons slot="start">
               <ion-menu-button></ion-menu-button>
@@ -87,23 +87,26 @@
               {{ (userRole === 'educator' ? 'MICROPYTHON_PAGE.BTN_EDUCATORS' : 'MICROPYTHON_PAGE.BTN_STUDENTS') | translate }}
             </ion-title>
             <ion-buttons slot="end">
-              <ion-button routerLink="/evaluador-accesibilidad" [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-                <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-              </ion-button>
-              <app-language-chooser></app-language-chooser>
+              <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+                <ion-button routerLink="/evaluador-accesibilidad" [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+                  <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+                </ion-button>
+                <app-language-chooser></app-language-chooser>
+              </nav>
             </ion-buttons>
           </ion-toolbar>
         </ion-header>
         <!-- End menu  btns -->
 
       <ion-content #mainContent>
+        <main>
         <div class="content-wrapper">
 
         <!-- Home: Inicio -->
         <div *ngIf="currentModule === null">
           <div class="hero-section ion-margin-bottom">
             <div class="hero-eyebrow">{{ (userRole === 'educator' ? ('EDUCADORES_PAGE.HERO_TITLE' | translate) : ('EDUCADORES_PAGE.HERO_SUBTITLE' | translate)) }}</div>
-            <h1>{{ 'EDUCADORES_PAGE.HEAD_1' | translate }} <span class="python-text">{{ 'EDUCADORES_PAGE.HEAD_Py' | translate }}</span> {{ 'EDUCADORES_PAGE.HEADE_2' | translate }}</h1>
+            <h1 id="main-heading" tabindex="-1">{{ 'EDUCADORES_PAGE.HEAD_1' | translate }} <span class="python-text">{{ 'EDUCADORES_PAGE.HEAD_Py' | translate }}</span> {{ 'EDUCADORES_PAGE.HEADE_2' | translate }}</h1>
             <p class="hero-desc" *ngIf="userRole === 'educator'">{{ 'EDUCADORES_PAGE.HERO_DESC' | translate }}</p>
             <p class="hero-desc" *ngIf="userRole === 'student'">{{ 'EDUCADORES_PAGE.SUBTITLE' | translate }}</p>
             <div class="hero-pills">
@@ -130,7 +133,7 @@
               <ion-row>
                 <ng-container *ngFor="let m of modules">
                   <ion-col size="12" size-md="6" size-lg="4" *ngIf="userRole === 'educator' || !m.educatorOnly">
-                    <ion-card class="module-card" (click)="selectModule(m.id)" button="true">
+                    <ion-card class="module-card" (click)="selectModule(m.id)" (keydown.enter)="selectModule(m.id)" (keydown.space)="$event.preventDefault(); selectModule(m.id)" tabindex="0" role="button" button="true">
                       <ion-card-header>
                         <ion-card-subtitle>{{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: m.num} }}</ion-card-subtitle>
                         <ion-card-title>
@@ -154,7 +157,7 @@
         <div *ngIf="currentModule?.id === 'dua' && userRole === 'educator'">
           <div class="module-header ion-padding ion-margin-bottom">
             <div class="module-tag">♿ {{ 'EDUCADORES_PAGE.MODULE_NUM' | translate:{num: '00'} }}</div>
-            <h1><abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</h1>
+            <h1 id="main-heading" tabindex="-1"><abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr> {{ 'EDUCADORES_PAGE.MODULES.dua.title' | translate }}</h1>
             <p class="subtitle">{{ 'EDUCADORES_PAGE.MODULES.dua.desc' | translate }} <abbr title="{{ 'EDUCADORES_PAGE.DUABBR' | translate }}">{{ 'EDUCADORES_PAGE.DUA' | translate }}</abbr>{{ 'EDUCADORES_PAGE.MODULES.dua.desc1' | translate }}</p>
             <div class="header-badges">
               <ion-badge color="primary">{{ 'EDUCADORES_PAGE.MODULES.dua.badge1' | translate }}</ion-badge>
@@ -3149,6 +3152,7 @@
           </div>
 
       </div>
+    </main>
     </ion-content>
     </div>
     </ion-split-pane>

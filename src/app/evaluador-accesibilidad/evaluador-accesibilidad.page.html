@@ -1,74 +1,85 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" role="banner">
   <ion-toolbar class="aligned-with-content">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ 'ACCESSIBILITY_EVALUATOR_TITLE' | translate }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-        <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-      </ion-button>
-      <app-language-chooser></app-language-chooser>
+      <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+        <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+        <app-language-chooser></app-language-chooser>
+      </nav>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar class="aligned-with-content">
-      <ion-title size="large">{{ 'ACCESSIBILITY_EVALUATOR_TITLE' | translate }}</ion-title>
-      <ion-buttons slot="end">
-        <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
-          <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
-        </ion-button>
-        <app-language-chooser></app-language-chooser>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <main>
+    <ion-header collapse="condense">
+      <ion-toolbar class="aligned-with-content">
+        <ion-title size="large">{{ 'ACCESSIBILITY_EVALUATOR_TITLE' | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <ion-button [title]="'ACCESSIBILITY_EVALUATOR_TITLE' | translate">
+            <ion-icon name="accessibility-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <app-language-chooser></app-language-chooser>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-  <div class="content-wrapper">
-    <h2>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.H2' | translate }}</h2>
-    <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.P' | translate }}</p>
+    <div class="content-wrapper">
+      <h1 id="main-heading" tabindex="-1">{{ 'ACCESSIBILITY_EVALUATOR_PAGE.H2' | translate }}</h1>
+      <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.P' | translate }}</p>
 
-    <div class="input-and-button-row">
-      <ion-textarea
-        class="code-input"
-        [placeholder]="'ACCESSIBILITY_EVALUATOR_PAGE.TEXTAREA_PLACEHOLDER' | translate"
-        [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_PAGE.TEXTAREA_PLACEHOLDER' | translate"
-        rows="15"
-        auto-grow="true"
-        [(ngModel)]="userCode"
-        (ionInput)="onCodeChange()"
-        spellcheck="false"
-      ></ion-textarea>
+      <div class="input-and-button-row">
+        <ion-textarea
+          class="code-input"
+          [placeholder]="'ACCESSIBILITY_EVALUATOR_PAGE.TEXTAREA_PLACEHOLDER' | translate"
+          [attr.aria-label]="'ACCESSIBILITY_EVALUATOR_PAGE.TEXTAREA_PLACEHOLDER' | translate"
+          rows="15"
+          auto-grow="true"
+          [(ngModel)]="userCode"
+          (ionInput)="onCodeChange()"
+          spellcheck="false"
+        ></ion-textarea>
 
-      <div class="button-column">
-        <ion-button (click)="checkAccessibility()" [title]="'COMPROBAR_ACCESIBILIDAD_TITLE' | translate">
-          <ion-icon slot="start" name="search-outline"></ion-icon>
-          {{ 'COMPROBAR_ACCESIBILIDAD_TITLE' | translate }}
-        </ion-button>
-        <ion-button (click)="openManualCheckModal()" [title]="'COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE' | translate">
-          <ion-icon slot="start" name="pencil-outline"></ion-icon>
-          {{ 'COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE' | translate }}
-        </ion-button>
+        <div class="button-column">
+          <ion-button (click)="checkAccessibility()" [title]="'COMPROBAR_ACCESIBILIDAD_TITLE' | translate">
+            <ion-icon slot="start" name="search-outline"></ion-icon>
+            {{ 'COMPROBAR_ACCESIBILIDAD_TITLE' | translate }}
+          </ion-button>
+          
+          <div class="scr-reader" aria-live="assertive" aria-atomic="true">
+            {{ accessibilityMessage }}
+          </div>
 
-        <div class="evaluation-results">
-          <h3>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.EVALUATION_RESULTS_H3' | translate }}</h3>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.SCORE' | translate }}: <span [ngClass]="{'score-bad': score < 5, 'score-medium': score >=5 && score < 8, 'score-good': score >= 8}">{{ score }}/10</span></p>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.IMPROVEMENT' | translate }}:</p>
-          <ul *ngIf="improvementMessage">
-            <li *ngFor="let suggestion of improvementSuggestions" [innerHTML]="formatSuggestion(suggestion)"></li>
-          </ul>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED' | translate }}: {{ redundancyStatus | translate }}</p>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.ERRORS' | translate }}: {{ errorCount }}</p>
-          <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.WARNINGS' | translate }}: {{ warningCount }}</p>
+          <ion-button (click)="openManualCheckModal()" [title]="'COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE' | translate">
+            <ion-icon slot="start" name="pencil-outline"></ion-icon>
+            {{ 'COMPROBAR_ACCESIBILIDAD_MANUAL_TITLE' | translate }}
+          </ion-button>
+
+          <div class="evaluation-results" aria-live="polite" aria-atomic="true">
+            <h3 *ngIf="evaluationStatus === 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED'">{{ 'ACCESSIBILITY_EVALUATOR_PAGE.EVALUATION_RESULTS_H3' | translate }}</h3>
+            <ng-container *ngIf="evaluationStatus === 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED'">
+              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.SCORE' | translate }}: <span [ngClass]="{'score-bad': score < 5, 'score-medium': score >=5 && score < 8, 'score-good': score >= 8}">{{ score }}/10</span></p>
+              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.IMPROVEMENT' | translate }}:</p>
+              <ul *ngIf="improvementSuggestions.length > 0">
+                <li *ngFor="let suggestion of improvementSuggestions" [innerHTML]="formatSuggestion(suggestion)"></li>
+              </ul>
+              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED' | translate }}: {{ redundancyStatus | translate }}</p>
+              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.ERRORS' | translate }}: {{ errorCount }}</p>
+              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.WARNINGS' | translate }}: {{ warningCount }}</p>
+            </ng-container>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="code-display-container">
-      <h3>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.CODE_PREVIEW_H3' | translate }}</h3>
-      <pre><code [highlight]="highlightedCode" [language]="'python'"></code></pre>
+      <div class="code-display-container">
+        <h3>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.CODE_PREVIEW_H3' | translate }}</h3>
+        <pre><code [highlight]="highlightedCode" [language]="'python'"></code></pre>
+      </div>
     </div>
-  </div>
+  </main>
 </ion-content>

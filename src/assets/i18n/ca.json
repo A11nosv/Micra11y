@@ -1,13 +1,16 @@
 {
   "CLOSE": "Tancar",
   "ACCESSIBILITY": {
-    "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} prem per modificar idioma"
+    "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} prem per modificar idioma",
+    "SKIP_TO_CONTENT": "Saltar al contingut principal",
+    "HEADER_NAV_LABEL": "Configuració i accessibilitat"
   },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",
     "MICROIA": "MicroIA",
-    "REPOSITORIO": "Repositori"
+    "REPOSITORIO": "Repositori",
+    "BAR_LABEL": "Navegació per pestanyes"
   },
   "MICROBIT_PAGE": {
     "TITLE": "Projectes Micro:bit",
@@ -1817,6 +1820,7 @@
       "UPLOAD_PROJECT_BUTTON": "Puja el teu projecte"
     },
     "STATS": {
+      "SECTION_LABEL": "Estadístiques del repositori",
       "PROJECTS_PUBLISHED": "Projectes publicats",
       "TOTAL_DOWNLOADS": "Total de descàrregues",
       "CONTRIBUTORS": "Contribuidors",
@@ -1835,6 +1839,8 @@
       "ENTERTAINMENT": "Entreteniment"
     },
     "PROJECTS_GRID": {
+      "SECTION_LABEL": "Llistat de projectes",
+      "RESULTS_COUNT": "S'han trobat {{count}} projectes.",
       "EMPTY_STATE_TITLE": "No s'ha trobat cap projecte'",
       "EMPTY_STATE_SUBTITLE": "Intenta-ho amb altres filtres o sigues el primer en pujar-ne un"
     },
@@ -1924,6 +1930,8 @@
     "H2": "Comprovador d'Accesibilitat del codi",
     "P": "Introdueix el teu codi de MicroPython per la Micro:bit a l'àrea de text. L'editor t'ajudarà a comprovar la seva accessibilitat.",
     "BTN": "Comprova l'Accessibilitat",
+    "CHECKING": "Avaluant el codi...",
+    "CHECK_FINISHED": "Avaluació finalitzada. Els resultats estan disponibles a continuació.",
     "TEXTAREA_PLACEHOLDER": "Escriu el teu codi MicroPython aquí...",
     "EVALUATION_RESULTS_H3": "Resultat de l'evaluació",
     "SCORE": "Puntuació",

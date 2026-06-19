@@ -1,13 +1,51 @@
-/*
- * App Global CSS
- * ----------------------------------------------------------------------------
- * Put style rules here that you want to apply globally. These styles are for
- * the entire app and not just one component. Additionally, this file can be
- * used as an entry point to import other CSS/Sass files to be included in the
- * output CSS.
- * For more information on global stylesheets, visit the documentation:
- * https://ionicframework.com/docs/layout/global-stylesheets
- */
+/* 
+  Estilos de foco mejorados para accesibilidad (WCAG 2.4.7)
+  Se aplican tanto al foco de teclado como de ratón para consistencia.
+*/
+:focus, :focus-visible {
+  outline: 3px solid #ffcc00 !important; /* Amarillo de alta visibilidad */
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.7) !important; /* Borde oscuro externo para contraste */
+}
+
+/* Ajustes específicos para componentes de Ionic que usan shadow DOM o estilos internos */
+ion-button, ion-item, ion-card, ion-back-button, a, button {
+  --show-focus-highlight: 1;
+  &::part(native):focus, &:focus {
+    outline: 3px solid #ffcc00 !important;
+    outline-offset: 2px !important;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.7) !important;
+  }
+}
+
+/* Asegurar que el foco sea visible en modo oscuro */
+.dark-theme {
+  :focus, :focus-visible {
+    outline: 3px solid #00e5ff !important; /* Cyan vibrante para modo oscuro */
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.8) !important;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast);
+  padding: 10px;
+  z-index: 9999;
+  text-decoration: none;
+  border-radius: 0 0 5px 0;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+.ion-page {
+  outline: none;
+}
+
 
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";

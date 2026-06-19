@@ -1,12 +1,15 @@
 {
   "ACCESSIBILITY": {
-    "LANGUAGE_BUTTON_LABEL": "Current language {{language}} press to change language"
+    "LANGUAGE_BUTTON_LABEL": "Current language {{language}} click to change language",
+    "SKIP_TO_CONTENT": "Skip to main content",
+    "HEADER_NAV_LABEL": "Settings and accessibility"
   },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",
     "MICROIA": "MicroIA",
-    "REPOSITORIO": "Repository"
+    "REPOSITORIO": "Repository",
+    "BAR_LABEL": "Tab navigation"
   },
   "MICROBIT_PAGE": {
     "TITLE": "Micro:bit Projects",
@@ -710,6 +713,8 @@
       "ENTERTAINMENT": "Entertainment"
     },
     "PROJECTS_GRID": {
+      "SECTION_LABEL": "Project listing",
+      "RESULTS_COUNT": "{{count}} projects found.",
       "EMPTY_STATE_TITLE": "No projects found",
       "EMPTY_STATE_SUBTITLE": "Try with other filters or be the first to upload a project"
     },
@@ -798,6 +803,8 @@
     "H2": "MicroPython Code Accessibility Checker",
     "P": "Enter your MicroPython code for the Micro:bit in the text area. The editor will help you check its accessibility.",
     "BTN": "Check Accessibility",
+    "CHECKING": "Evaluating code...",
+    "CHECK_FINISHED": "Evaluation finished. Results are available below.",
     "TEXTAREA_PLACEHOLDER": "Write your MicroPython code here...",
     "EVALUATION_RESULTS_H3": "Evaluation Result",
     "SCORE": "Score",

@@ -1,12 +1,15 @@
 {
   "ACCESSIBILITY": {
-    "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} pulse para modificar idioma"
+    "LANGUAGE_BUTTON_LABEL": "Idioma actual {{language}} pulse para modificar idioma",
+    "SKIP_TO_CONTENT": "Saltar al contenido principal",
+    "HEADER_NAV_LABEL": "Configuración y accesibilidad"
   },
   "TABS": {
     "MICROPYTHON": "MicroPython",
     "MICROBIT": "Micro:bit",
     "MICROIA": "MicroIA",
-    "REPOSITORIO": "Repositorio"
+    "REPOSITORIO": "Repositorio",
+    "BAR_LABEL": "Navegación por pestañas"
   },
   "MICROBIT_PAGE": {
     "TITLE": "Proyectos Micro:bit",
@@ -1706,6 +1709,7 @@
       "UPLOAD_PROJECT_BUTTON": "Subir o teu Proxecto"
     },
     "STATS": {
+      "SECTION_LABEL": "Estadísticas del repositorio",
       "PROJECTS_PUBLISHED": "Proxectos publicados",
       "TOTAL_DOWNLOADS": "Descargas totais",
       "CONTRIBUTORS": "Colaboradores",
@@ -1717,11 +1721,11 @@
       "SEARCH_PLACEHOLDER": "Buscar proxectos..."
     },
     "CATEGORIES": {
-      "ACCESSIBILITY": "Accesibilidade",
+      "ACCESSIBILITY": "Accesibilidad",
       "SENSORS": "Sensores",
       "COMMUNICATION": "Comunicación",
       "EDUCATION": "Educación",
-      "ENTERTAINMENT": "Entretemento"
+      "ENTERTAINMENT": "Entretenimiento"
     },
     "PROJECTS_GRID": {
       "EMPTY_STATE_TITLE": "Non se atoparon proxectos",
@@ -1812,6 +1816,8 @@
     "H2": "Comprobador de Accesibilidad del código MicroPython",
     "P": "Introduce tu código de MicroPython para la Micro:bit en el área de texto. El editor te ayudará a visualizar cómo se ve el código y te permitirá comprobar su accesibilidad.",
     "BTN": "Comprobar la Accesibilidad",
+    "CHECKING": "Evaluando el código...",
+    "CHECK_FINISHED": "Evaluación finalizada. Los resultados están disponibles a continuación.",
     "TEXTAREA_PLACEHOLDER": "Escribe tu código MicroPython aquí...",
     "EVALUATION_RESULTS_H3": "Resultado de la evaluación",
     "SCORE": "Puntuación",

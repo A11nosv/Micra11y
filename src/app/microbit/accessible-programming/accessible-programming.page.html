@@ -1,257 +1,270 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" role="banner">
   <ion-toolbar class="aligned-with-content">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tabs/microbit"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ 'ACCESSIBLE_PROGRAMMING.TITLE' | translate }}</ion-title>
     <ion-buttons slot="end">
-      <app-language-chooser></app-language-chooser>
+      <nav [attr.aria-label]="'ACCESSIBILITY.HEADER_NAV_LABEL' | translate" style="display: flex; align-items: center;">
+        <app-language-chooser></app-language-chooser>
+      </nav>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar class="aligned-with-content">
-      <ion-title size="large">{{ 'ACCESSIBLE_PROGRAMMING.TITLE' | translate }}</ion-title>
-      <ion-buttons slot="end">
-        <app-language-chooser></app-language-chooser>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
+  <main>
+    <ion-header collapse="condense">
+      <ion-toolbar class="aligned-with-content">
+        <ion-title size="large">{{ 'ACCESSIBLE_PROGRAMMING.TITLE' | translate }}</ion-title>
+        <ion-buttons slot="end">
+          <app-language-chooser></app-language-chooser>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
 
-  <div class="ion-padding flex-container">
-    <h1 class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.H1' | translate }}</h1>
-    <div class="additional-margin-content intro-text">
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_P1' | translate }}</p>
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_P2' | translate }}</p>
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_PFINAL2' | translate }}</p>
-    </div>
-    <img [src]="currentImageSrc" [alt]="'ACCESSIBLE_PROGRAMMING.INTRO_IMAGE_ALT' | translate" class="language-image intro-image" />
-
-    <section>
-      <h2>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_TITLE' | translate }}</h2>
-
-      <div class="flex-container2">
-        <div class="flex-item">
-          <strong><ion-icon name="grid-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="volume-high-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="game-controller-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="radio-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="move-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="vibrate-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TEXT' | translate }}</p>
-        </div>
+    <div class="ion-padding flex-container">
+      <h1 class="scr-reader" id="main-heading" tabindex="-1">{{ 'ACCESSIBLE_PROGRAMMING.H1' | translate }}</h1>
+      <div class="additional-margin-content intro-text">
+        <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_P1' | translate }}</p>
+        <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_P2' | translate }}</p>
+        <p>{{ 'ACCESSIBLE_PROGRAMMING.INTRO_PFINAL2' | translate }}</p>
       </div>
+      <img [src]="currentImageSrc" [alt]="'ACCESSIBLE_PROGRAMMING.INTRO_IMAGE_ALT' | translate" class="language-image intro-image" />
 
-      <h2>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_TITLE' | translate }}</h2>
+      <section>
+        <h2>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_TITLE' | translate }}</h2>
 
-      <div class="flex-container2">
-        <div class="flex-item">
-          <strong><ion-icon name="megaphone-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TEXT' | translate }}</p>
+        <div class="flex-container2">
+          <div class="flex-item">
+            <strong><ion-icon name="grid-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI1_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="volume-high-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI2_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="game-controller-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI3_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="radio-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI4_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="move-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI5_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="vibrate-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.CREATION_LI6_TEXT' | translate }}</p>
+          </div>
         </div>
-        <div class="flex-item">
-          <strong><ion-icon name="settings-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="code-working-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item">
-          <strong><ion-icon name="options-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TITLE' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TEXT' | translate }}</p>
-        </div>
-        <div class="flex-item callout">
-          <strong><ion-icon name="bulb-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_T' | translate }}</strong>
-          <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_P' | translate }}</p>
-        </div>
-      </div>
 
-      <h3>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_TITLE' | translate }}</h3>
+        <h2>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_TITLE' | translate }}</h2>
 
-      <table class="outputs-table">
-        <thead>
-          <tr>
-            <th scope="col">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_HD' | translate }}</th>
-            <th scope="col">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_HD' | translate }}</th>
-            <th scope="col">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_HD' | translate }}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><a href="https://www.diversibit.org/" target="_blank"><strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1' | translate }} 
-              <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span></strong></a>
-            </td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L2' | translate }}</td>
-            <td><span class="tag red">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L3' | translate }}</span></td>
-          </tr>
-          <tr>
-            <td><a href="https://makecode.microbit.org/43928-23081-68011-44465" target="_blank">
-              <strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_L1' | translate }}
-              <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span></strong>
-            </a></td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_L2' | translate }}</td>
-            <td><span class="tag">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_L3' | translate }}</span></td>
-          </tr>
-          <tr>
-            <td><a href="https://blog.bricogeek.com/noticias/programacion/como-conectar-una-pantalla-oled-a-microbit/">
-              <strong>
-                {{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_L1' | translate }}
-                <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span>
-              </strong>
-          </a></td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_L2' | translate }}</td>
-            <td><span class="tag">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_L3' | translate }}</span></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://makecode.microbit.org/75478-77854-66037-19053" target="_blank"><strong>
-                {{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL4_L1' | translate }}
+        <div class="flex-container2">
+          <div class="flex-item">
+            <strong><ion-icon name="megaphone-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI1_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="settings-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI2_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="code-working-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI3_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item">
+            <strong><ion-icon name="options-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TITLE' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_LI4_TEXT' | translate }}</p>
+          </div>
+          <div class="flex-item callout">
+            <strong><ion-icon name="bulb-outline" aria-hidden="true" style="margin-right: 8px; vertical-align: middle;"></ion-icon>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_T' | translate }}</strong>
+            <p>{{ 'ACCESSIBLE_PROGRAMMING.ACCES_CALLOUT_P' | translate }}</p>
+          </div>
+        </div>
+
+        <h3>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_TITLE' | translate }}</h3>
+
+        <table class="outputs-table">
+          <thead>
+            <tr>
+              <th scope="col">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_HD' | translate }}</th>
+              <th scope="col">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_HD' | translate }}</th>
+              <th scope="col">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_HD' | translate }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="https://www.diversibit.org/" target="_blank"><strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1' | translate }} 
+                <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span></strong></a>
+              </td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L2' | translate }}</td>
+              <td><span class="tag red">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L3' | translate }}</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://makecode.microbit.org/43928-23081-68011-44465" target="_blank">
+                <strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_L1' | translate }}
                 <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span></strong>
-              </a>
-            </td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL4_L2' | translate }}</td>
-            <td><span class="tag green">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL4_L3' | translate }}</span></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://steam.bot/joystickbit-para-micro-bit" target="_blank"><strong>
-                {{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL5_L1' | translate }}
-                <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span>
-                </strong>
-              </a>
-            </td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL5_L2' | translate }}</td>
-            <td><span class="tag green">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL5_L3' | translate }}</span></td>
-          </tr>
-          <tr>
-            <td><strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL6_L1' | translate }}</strong></td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL6_L2' | translate }}</td>
-            <td><span class="tag red">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL6_L3' | translate }}</span></td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://shop.innovadidactic.com/es/micro-bit-sensores/934-keyestudio-sensor-tactil-capacitivo-para-la-micro-bit-8436574313390.html" target="_blank">
-                <strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL7_L1' | translate }}
+              </a></td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_L2' | translate }}</td>
+              <td><span class="tag">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL2_L3' | translate }}</span></td>
+            </tr>
+            <tr>
+              <td><a href="https://blog.bricogeek.com/noticias/programacion/como-conectar-una-pantalla-oled-a-microbit/">
+                <strong>
+                  {{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_L1' | translate }}
                   <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span>
                 </strong>
-               </a>
-            </td>
-            <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL7_L2' | translate }}</td>
-            <td><span class="tag green">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL7_L3' | translate }}</span></td>
-          </tr>
-        </tbody>
-      </table>
+            </a></td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_L2' | translate }}</td>
+              <td><span class="tag">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL3_L3' | translate }}</span></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://makecode.microbit.org/75478-77854-66037-19053" target="_blank"><strong>
+                  {{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL4_L1' | translate }}
+                  <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span></strong>
+                </a>
+              </td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL4_L2' | translate }}</td>
+              <td><span class="tag green">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL4_L3' | translate }}</span></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://steam.bot/joystickbit-para-micro-bit" target="_blank"><strong>
+                  {{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL5_L1' | translate }}
+                  <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span>
+                  </strong>
+                </a>
+              </td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL5_L2' | translate }}</td>
+              <td><span class="tag green">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL5_L3' | translate }}</span></td>
+            </tr>
+            <tr>
+              <td><strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL6_L1' | translate }}</strong></td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL6_L2' | translate }}</td>
+              <td><span class="tag red">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL6_L3' | translate }}</span></td>
+            </tr>
+            <tr>
+              <td>
+                <a href="https://shop.innovadidactic.com/es/micro-bit-sensores/934-keyestudio-sensor-tactil-capacitivo-para-la-micro-bit-8436574313390.html" target="_blank">
+                  <strong>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL7_L1' | translate }}
+                    <span class="scr-reader">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL1_L1_EXT' | translate }}</span>
+                  </strong>
+                 </a>
+              </td>
+              <td>{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL7_L2' | translate }}</td>
+              <td><span class="tag green">{{ 'ACCESSIBLE_PROGRAMMING.EXITS_COL7_L3' | translate }}</span></td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div class="button-container">
-        <ion-button (click)="download()">
-          {{ 'ACCESSIBLE_PROGRAMMING.MICROBIT_DOWNLOAD' | translate }}
-        </ion-button>
-      </div>
-    </section>
+        <div class="button-container">
+          <ion-button (click)="download()">
+            {{ 'ACCESSIBLE_PROGRAMMING.MICROBIT_DOWNLOAD' | translate }}
+          </ion-button>
+        </div>
+      </section>
 
-    <section>
-      <h2>{{ 'ACCESSIBLE_PROGRAMMING.CODE_TITLE' | translate }}</h2>
-      <img [src]="workflowImageSrc" [alt]="'ACCESSIBLE_PROGRAMMING.WORKFLOW_IMAGE_ALT' | translate" class="language-image workflow-image" />
-      <p>{{ 'ACCESSIBLE_PROGRAMMING.CODE_P' | translate }}</p>
-      <ul>
-        <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L1_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L1_P' | translate }}</li>
-        <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L2_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L2_P' | translate }}</li>
-        <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L3_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L3_P' | translate }}</li>
-        <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L4_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L4_P' | translate }}</li>
-      </ul>
-    </section>
-  </div>
+      <section>
+        <h2>{{ 'ACCESSIBLE_PROGRAMMING.CODE_TITLE' | translate }}</h2>
+        <img [src]="workflowImageSrc" [alt]="'ACCESSIBLE_PROGRAMMING.WORKFLOW_IMAGE_ALT' | translate" class="language-image workflow-image" />
+        <p>{{ 'ACCESSIBLE_PROGRAMMING.CODE_P' | translate }}</p>
+        <ul>
+          <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L1_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L1_P' | translate }}</li>
+          <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L2_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L2_P' | translate }}</li>
+          <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L3_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L3_P' | translate }}</li>
+          <li><strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L4_HD' | translate }}</strong>{{ 'ACCESSIBLE_PROGRAMMING.CODE_L4_P' | translate }}</li>
+        </ul>
+      </section>
+    </div>
 
-  <div class="button-container">
-    <ion-button color="danger" (click)="openModal('non-accessible')">
-      {{ 'ACCESSIBLE_PROGRAMMING.NON_ACCESSIBLE_EXAMPLE_BUTTON' | translate }}
-    </ion-button>
-    <ion-button color="success" (click)="openModal('accessible')">
-      {{ 'ACCESSIBLE_PROGRAMMING.ACCESSIBLE_EXAMPLE_BUTTON' | translate }}
-    </ion-button>
-  </div>
+    <div class="button-container">
+      <ion-button color="danger" (click)="openModal('non-accessible')">
+        {{ 'ACCESSIBLE_PROGRAMMING.NON_ACCESSIBLE_EXAMPLE_BUTTON' | translate }}
+      </ion-button>
+      <ion-button color="success" (click)="openModal('accessible')">
+        {{ 'ACCESSIBLE_PROGRAMMING.ACCESSIBLE_EXAMPLE_BUTTON' | translate }}
+      </ion-button>
+    </div>
 
-  <ion-modal #nonAccessibleModal>
-    <ng-template>
-      <ion-header>
-        <ion-toolbar class="aligned-with-content">
-          <ion-buttons slot="end">
-            <ion-button (click)="nonAccessibleModal.dismiss()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
-              <ion-icon name="close" slot="icon-only"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <h2>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_NON_ACCESSIBLE_H2' | translate }}</h2>
-        <p>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_NON_ACCESSIBLE_P' | translate }}</p>
-        <video controls width="100%" height="auto">
-          <source src="assets/videos/heart.mp4" type="video/mp4">
-          Tu navegador no soporta el tag de video.
-        </video>
-        <ion-button expand="block" color="primary" (click)="openCodeModal('non-accessible-code')">{{ 'ACCESSIBLE_PROGRAMMING.MODAL_VIEW_CODE' | translate }}</ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+    <ion-modal #nonAccessibleModal>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar class="aligned-with-content">
+            <ion-buttons slot="end">
+              <ion-button (click)="nonAccessibleModal.dismiss()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <h2>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_NON_ACCESSIBLE_H2' | translate }}</h2>
+          <p>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_NON_ACCESSIBLE_P' | translate }}</p>
+          <video controls width="100%" height="auto">
+            <source src="assets/videos/heart.mp4" type="video/mp4">
+            Tu navegador no soporta el tag de video.
+          </video>
+          <ion-button expand="block" color="primary" (click)="openCodeModal('non-accessible-code')">{{ 'ACCESSIBLE_PROGRAMMING.MODAL_VIEW_CODE' | translate }}</ion-button>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
-  <ion-modal #accessibleModal>
-    <ng-template>
-      <ion-header>
-        <ion-toolbar class="aligned-with-content">
-          <ion-title>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_TITLE' | translate }}</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="accessibleModal.dismiss()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
-              <ion-icon name="close" slot="icon-only"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <h2>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_H2' | translate }}</h2>
-        <p>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_P' | translate }}</p>
-        <video controls width="100%" height="auto">
-          <source src="assets/videos/heart_sound.mp4" type="video/mp4">
-          Tu navegador no soporta el tag de video.
-        </video>
-        <ion-button expand="block" color="primary" (click)="openCodeModal('accessible-code')">{{ 'ACCESSIBLE_PROGRAMMING.MODAL_VIEW_CODE' | translate }}</ion-button>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
+    <ion-modal #accessibleModal>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar class="aligned-with-content">
+            <ion-title>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_TITLE' | translate }}</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="accessibleModal.dismiss()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <h2>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_H2' | translate }}</h2>
+          <p>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_ACCESSIBLE_P' | translate }}</p>
+          <video controls width="100%" height="auto">
+            <source src="assets/videos/heart_sound.mp4" type="video/mp4">
+            <track src="assets/captions/heart/captions_es.vtt" kind="subtitles" srclang="es" label="Español">
+            <track src="assets/captions/heart/captions_ca.vtt" kind="subtitles" srclang="ca" label="Català">
+            <track src="assets/captions/heart/captions_en.vtt" kind="subtitles" srclang="en" label="English">
+            <track src="assets/captions/heart/captions_eu.vtt" kind="subtitles" srclang="eu" label="Euskara">
+            <track src="assets/captions/heart/captions_gl.vtt" kind="subtitles" srclang="gl" label="Galego">
+            <track src="assets/captions/heart/description_es.vtt" kind="subtitles" srclang="es" label="Español [Descripción]">
+            <track src="assets/captions/heart/description_ca.vtt" kind="subtitles" srclang="ca" label="Català [Descripción]">
+            <track src="assets/captions/heart/description_en.vtt" kind="subtitles" srclang="en" label="English [Description]">
+            <track src="assets/captions/heart/description_eu.vtt" kind="subtitles" srclang="eu" label="Euskara [Description]">
+            <track src="assets/captions/heart/description_gl.vtt" kind="subtitles" srclang="gl" label="Galego [Description]">
+            Tu navegador no soporta el tag de video.
+          </video>
+          <ion-button expand="block" color="primary" (click)="openCodeModal('accessible-code')">{{ 'ACCESSIBLE_PROGRAMMING.MODAL_VIEW_CODE' | translate }}</ion-button>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
 
-  <ion-modal #codeModal>
-    <ng-template>
-      <ion-header>
-        <ion-toolbar class="aligned-with-content">
-          <ion-title>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_CODE_TITLE' | translate }}</ion-title>
-          <ion-buttons slot="end">
-            <ion-button (click)="codeModal.dismiss()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
-              <ion-icon name="close" slot="icon-only"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-      <ion-content class="ion-padding">
-        <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
-      </ion-content>
-    </ng-template>
-  </ion-modal>
-
+    <ion-modal #codeModal>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar class="aligned-with-content">
+            <ion-title>{{ 'ACCESSIBLE_PROGRAMMING.MODAL_CODE_TITLE' | translate }}</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="codeModal.dismiss()" [attr.aria-label]="'CLOSE' | translate" class="close-modal-button">
+                <ion-icon name="close" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+          <pre><code [highlight]="pythonCode" [language]="'python'"></code></pre>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </main>
 </ion-content>

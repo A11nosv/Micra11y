@@ -18,10 +18,12 @@ import { TranslateModule } from '@ngx-translate/core';
     .language-flag-icon {
       width: 24px;
       height: 24px;
-      background-size: contain;
+      border-radius: 50%;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
       margin-right: 8px;
+      border: 1px solid var(--ion-color-step-250, #ccc);
     }
   `],
   standalone: true,
