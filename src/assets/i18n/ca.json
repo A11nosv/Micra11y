@@ -1942,7 +1942,9 @@
     "NO_BUTTONS_USED": "No s'utilitzen els botons",
     "ERRORS": "Errors",
     "WARNINGS": "Advertències",
-    "CODE_PREVIEW_H3": "Sugeriment de correcció delCodi"
+    "ISSUES_FOUND": "Problemes detectats",
+    "LINE": "Línia",
+    "CODE_PREVIEW_H3": "Sugeriment de correcció del codi"
   },
   "VALIDATOR": {
     "AUDIO_FEEDBACK": {
@@ -1952,7 +1954,16 @@
       "ERROR_SUGGESTION": "Afegeix 'speech.say('[string]')', 'music.play(music.[song])' o 'music.([number])' perquè els usuaris amb discapacitat visual rebin informació.",
       "ERROR_SUGGESTION_2": "Importa 'speech' o 'music' perquè els usuaris amb discapacitat visual rebin informació.",
       "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Només fas servir display.show() sense sortida d'àudio.",
+      "MISSING_AUDIO_WITH_DISPLAY_SCROLL": "Només fas servir display.scroll() sense sortida d'àudio.",
       "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Afegeix 'import speech' o 'import music' i utilitza 'speech.say()' o 'music.play()' per proporcionar retroalimentació auditiva als usuaris amb discapacitat visual."
+    },
+    "MISSING_IMPORT": {
+      "ERROR_MESSAGE": "Falta la importació de microbit.",
+      "ERROR_SUGGESTION": "Afegeix 'from microbit import *' a l'inici del programa."
+    },
+    "INFINITE_LOOP": {
+      "WARNING_MESSAGE": "Bucle infinit sense pausa (sleep).",
+      "WARNING_SUGGESTION": "Afegeix sleep() dins del bucle per evitar bloquejos i permetre que la Micro:bit reaccioni a les entrades."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "S'ha detectat un bucle de bloqueig.",
@@ -1960,6 +1971,7 @@
     },
     "INPUT_REDUNDANCY": {
       "SUCCESS_MESSAGE": "Entrada accessible: Utilitzes sensors tàctils o de moviment.",
+      "NO_BUTTONS_USED": "No es requereixen botons físics per interactuar.",
       "ERROR_MESSAGE": "Només fas servir botons físics.",
       "ERROR_SUGGESTION": "Afegeix 'pin_logo.is_touched()' per facilitar l'ús a persones amb dificultat motriu."
     },

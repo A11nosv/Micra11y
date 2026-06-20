@@ -121,3 +121,55 @@ ion-toolbar {
   color: var(--ion-color-success);
   font-weight: bold;
 }
+
+.issues-list {
+  margin-top: 12px;
+
+  h4 {
+    margin: 0 0 8px;
+    font-size: 0.95rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 8px 10px;
+    margin-bottom: 6px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    border-left: 4px solid transparent;
+  }
+
+  .issue-line {
+    font-family: monospace;
+    margin-right: 4px;
+    opacity: 0.85;
+  }
+
+  .issue-suggestion {
+    display: block;
+    margin-top: 4px;
+    font-style: italic;
+    opacity: 0.9;
+  }
+}
+
+.issue-error {
+  background-color: rgba(var(--ion-color-danger-rgb), 0.12);
+  border-left-color: var(--ion-color-danger);
+}
+
+.issue-warning {
+  background-color: rgba(var(--ion-color-warning-rgb), 0.12);
+  border-left-color: var(--ion-color-warning);
+}
+
+.issue-success {
+  background-color: rgba(var(--ion-color-success-rgb), 0.12);
+  border-left-color: var(--ion-color-success);
+}

@@ -2,18 +2,23 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonTextarea, ModalController } from '@ionic/angular/standalone'; // Import ModalController
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonButtons, IonButton, IonIcon, IonBackButton, IonTextarea, ModalController } from '@ionic/angular/standalone';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Highlight } from 'ngx-highlightjs';
 import { MicrobitValidatorPro } from '../../../testacce';
 import { LanguageService } from '../services/language.service';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 import { LanguageChooserComponent } from 'src/app/components/language-chooser/language-chooser.component';
-import { ManualCheckModalComponent } from './manual-check-modal/manual-check-modal.component'; // Import ManualCheckModalComponent
-import { ResultsModalComponent } from './results-modal/results-modal.component'; // Import ResultsModalComponent
+import { ManualCheckModalComponent } from './manual-check-modal/manual-check-modal.component';
+import { ResultsModalComponent } from './results-modal/results-modal.component';
 import { Title } from '@angular/platform-browser';
 
+export interface DisplayIssue {
+  type: 'error' | 'warning' | 'success';
+  message: string;
+  suggestion?: string;
+  line?: number;
+}
 
 @Component({
   selector: 'app-evaluador-accesibilidad',
@@ -54,6 +59,7 @@ while True:
   score: number = 0;
   improvementMessage: string = '';
   improvementSuggestions: string[] = [];
+  detectedIssues: DisplayIssue[] = [];
   redundancyStatus: string = 'ACCESSIBILITY_EVALUATOR_PAGE.NO';
   errorCount: number = 0;
   warningCount: number = 0;
@@ -61,13 +67,12 @@ while True:
   accessibilityMessage: string = '';
 
   private validator: MicrobitValidatorPro;
-
   private langChangeSubscription: Subscription | undefined;
 
   constructor(
     private translate: TranslateService,
     private languageService: LanguageService,
-    private modalController: ModalController, // Inject ModalController
+    private modalController: ModalController,
     private titleService: Title
   ) {
     this.highlightedCode = this.userCode;
@@ -128,6 +133,8 @@ while True:
   onCodeChange() {
     this.highlightedCode = this.userCode;
     this.correctedCode = this.userCode;
+    this.evaluationStatus = '';
+    this.detectedIssues = [];
   }
 
   checkAccessibility() {
@@ -135,27 +142,41 @@ while True:
     this.translate.get('ACCESSIBILITY_EVALUATOR_PAGE.CHECKING').subscribe(msg => {
       this.accessibilityMessage = msg;
     });
+
     const codeToValidate = this.userCode;
-    console.log('Validating code:', codeToValidate); // Added for debugging if possible
     const result = this.validator.validate(codeToValidate);
     this.score = result.score;
+    this.correctedCode = result.correctedCode;
+    this.highlightedCode = this.correctedCode;
 
     this.errorCount = result.issues.filter(issue => issue.type === 'error').length;
     this.warningCount = result.issues.filter(issue => issue.type === 'warning').length;
 
-    const suggestionKeys = result.issues
+    const issuesWithSuggestions = result.issues.filter(
+      issue => issue.type === 'error' || issue.type === 'warning'
+    );
+
+    const suggestionKeys = issuesWithSuggestions
       .filter(issue => issue.suggestion)
       .map(issue => issue.suggestion as string);
 
-    const messageKeys = result.issues.map(issue => issue.message);
+    const messageKeys = issuesWithSuggestions.map(issue => issue.message);
     const allTranslationKeys = [...new Set([...messageKeys, ...suggestionKeys])];
 
     this.translate.get(allTranslationKeys).subscribe(translations => {
       this.evaluationStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED';
+
+      this.detectedIssues = issuesWithSuggestions.map(issue => ({
+        type: issue.type,
+        message: translations[issue.message] ?? issue.message,
+        suggestion: issue.suggestion ? (translations[issue.suggestion] ?? issue.suggestion) : undefined,
+        line: issue.line
+      }));
+
       this.improvementSuggestions = [...new Set(
-        suggestionKeys.map(key => translations[key])
+        suggestionKeys.map(key => translations[key]).filter(Boolean)
       )];
-      this.improvementMessage = this.improvementSuggestions.join(';\\n');
+      this.improvementMessage = this.improvementSuggestions.join(';\n');
 
       const noButtonsIssue = result.issues.find(
         issue => issue.message === 'VALIDATOR.INPUT_REDUNDANCY.NO_BUTTONS_USED'
@@ -172,85 +193,6 @@ while True:
         this.redundancyStatus = 'ACCESSIBILITY_EVALUATOR_PAGE.NO';
       }
 
-      let lines = codeToValidate.split('\n');
-      const issuesToProcess = result.issues
-        .filter(issue => issue.type === 'error' || issue.type === 'warning')
-        .sort((a, b) => (b.line || 0) - (a.line || 0)); 
-
-      let microbitImportLine = -1;
-      let hasMicrobitImport = false;
-      let hasSpeechImport = false;
-      let hasMusicImport = false;
-
-      lines.forEach((line, index) => {
-        const trimmedLine = line.trim();
-        if (trimmedLine.startsWith("from microbit import *") || trimmedLine.startsWith("import microbit")) {
-          hasMicrobitImport = true;
-          microbitImportLine = index;
-        }
-        if (trimmedLine.startsWith("import speech")) {
-          hasSpeechImport = true;
-        }
-        if (trimmedLine.startsWith("import music")) {
-          hasMusicImport = true;
-        }
-      });
-
-      for (const issue of issuesToProcess) {
-        const translatedMessage = translations[issue.message];
-        const translatedSuggestion = issue.suggestion ? translations[issue.suggestion] : '';
-
-        if (issue.message === "VALIDATOR.AUDIO_FEEDBACK.MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW" && issue.line !== undefined) {
-          const lineNumber = issue.line - 1;
-          if (lineNumber >= 0 && lineNumber < lines.length) {
-            const originalLine = lines[lineNumber];
-            const indentationMatch = originalLine.match(/^\s*/);
-            const indentation = indentationMatch ? indentationMatch[0] : '';
-
-            const snippetToAdd = [
-              '#Auditory feedback for visual impaired users',
-              'music.play(music.BA_DING) #You can also: speech.say("Displayed")'
-            ].map(line => indentation + line);
-
-            lines.splice(lineNumber + 1, 0, ...snippetToAdd);
-          }
-        }
-        else if (issue.line !== undefined) {
-          const lineNumber = issue.line - 1;
-          if (lineNumber >= 0 && lineNumber < lines.length) {
-            const originalLine = lines[lineNumber];
-            const indentationMatch = originalLine.match(/^\s*/);
-            const indentation = indentationMatch ? indentationMatch[0] : '';
-
-            let annotation = `# ${issue.type.toUpperCase()}: ${translatedMessage}`;
-            if (translatedSuggestion) {
-              annotation += ` # SUGERENCIA: ${translatedSuggestion}`;
-            }
-            lines.splice(lineNumber + 1, 0, indentation + annotation);
-          }
-        }
-        else if (issue.message !== "VALIDATOR.AUDIO_FEEDBACK.ERROR_MESSAGE" || issue.suggestion !== "VALIDATOR.AUDIO_FEEDBACK.ERROR_SUGGESTION_2") {
-          // Only add generic annotations for issues that aren't handled by the global import fix below
-          let annotation = `# ${issue.type.toUpperCase()}: ${translatedMessage}`;
-          if (translatedSuggestion) {
-            annotation += ` # SUGERENCIA: ${translatedSuggestion}`;
-          }
-          lines.push('\n' + annotation);
-        }
-      }
-
-      // First correction: ensure music import exists if no audio import detected
-      if (!hasSpeechImport && !hasMusicImport) {
-        if (microbitImportLine !== -1) {
-          lines.splice(microbitImportLine + 1, 0, '#import a media player', 'import music');
-        } else {
-          // If no microbit import found, we add both at the top
-          lines.unshift('from microbit import *', '#import a media player', 'import music');
-        }
-      }
-
-      this.correctedCode = lines.join('\n');
-      this.highlightedCode = this.correctedCode;
       this.updateAccessibilityMessageOnLangChange();
     });
   }
@@ -261,13 +203,21 @@ while True:
     return formatted;
   }
 
+  getIssueClass(type: string): string {
+    switch (type) {
+      case 'error': return 'issue-error';
+      case 'warning': return 'issue-warning';
+      default: return 'issue-success';
+    }
+  }
+
   async openManualCheckModal() {
     const modal = await this.modalController.create({
       component: ManualCheckModalComponent,
     });
     modal.present();
 
-    const { data, role } = await modal.onDidDismiss();
+    const { data } = await modal.onDidDismiss();
 
     if (data !== undefined && data !== null) {
       this.openResultsModal(data);
@@ -280,7 +230,7 @@ while True:
       feedbackMessageKey = 'RESULTS_MODAL_FEEDBACK_0_17';
     } else if (score >= 18 && score <= 27) {
       feedbackMessageKey = 'RESULTS_MODAL_FEEDBACK_18_27';
-    } else { // score >= 28 && score <= 34 (max score)
+    } else {
       feedbackMessageKey = 'RESULTS_MODAL_FEEDBACK_28_36';
     }
 

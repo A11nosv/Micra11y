@@ -1828,6 +1828,8 @@
     "NO_BUTTONS_USED": "No se utilizan los botones",
     "ERRORS": "Errores",
     "WARNINGS": "Advertencias",
+    "ISSUES_FOUND": "Problemas detectados",
+    "LINE": "Línea",
     "CODE_PREVIEW_H3": "Sugerencia de corrección de código"
   },
   "VALIDATOR": {
@@ -1838,7 +1840,16 @@
       "ERROR_SUGGESTION": "Añade 'speech.say(\"[string]\")', 'music.play(music.[song])' o 'music.([number])' para que usuarios con discapacidad visual reciban información.",
       "ERROR_SUGGESTION_2": "Importa 'speech' o 'music' para que usuarios con discapacidad visual reciban información.",
       "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Solo usas display.show() sin salida de audio.",
+      "MISSING_AUDIO_WITH_DISPLAY_SCROLL": "Solo usas display.scroll() sin salida de audio.",
       "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Añade 'import speech' o 'import music' y utiliza 'speech.say()' o 'music.play()' para proporcionar retroalimentación auditiva a los usuarios con discapacidad visual."
+    },
+    "MISSING_IMPORT": {
+      "ERROR_MESSAGE": "Falta la importación de microbit.",
+      "ERROR_SUGGESTION": "Añade 'from microbit import *' al inicio del programa."
+    },
+    "INFINITE_LOOP": {
+      "WARNING_MESSAGE": "Bucle infinito sin pausa (sleep).",
+      "WARNING_SUGGESTION": "Añade sleep() dentro del bucle para evitar bloqueos y permitir que la Micro:bit reaccione a entradas."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "Se ha detectado un bucle de bloqueo.",
@@ -1846,6 +1857,7 @@
     },
     "INPUT_REDUNDANCY": {
       "SUCCESS_MESSAGE": "Entrada accesible: Utilizas sensores táctiles o de movimiento.",
+      "NO_BUTTONS_USED": "No se requieren botones físicos para interactuar.",
       "ERROR_MESSAGE": "Solo usas botones físicos.",
       "ERROR_SUGGESTION": "Añade 'pin_logo.is_touched()' para facilitar el uso a personas con dificultad motriz."
     },

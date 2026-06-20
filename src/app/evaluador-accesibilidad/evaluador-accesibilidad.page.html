@@ -64,13 +64,27 @@
             <h3 *ngIf="evaluationStatus === 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED'">{{ 'ACCESSIBILITY_EVALUATOR_PAGE.EVALUATION_RESULTS_H3' | translate }}</h3>
             <ng-container *ngIf="evaluationStatus === 'ACCESSIBILITY_EVALUATOR_PAGE.CHECK_FINISHED'">
               <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.SCORE' | translate }}: <span [ngClass]="{'score-bad': score < 5, 'score-medium': score >=5 && score < 8, 'score-good': score >= 8}">{{ score }}/10</span></p>
-              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.IMPROVEMENT' | translate }}:</p>
-              <ul *ngIf="improvementSuggestions.length > 0">
-                <li *ngFor="let suggestion of improvementSuggestions" [innerHTML]="formatSuggestion(suggestion)"></li>
-              </ul>
-              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED' | translate }}: {{ redundancyStatus | translate }}</p>
               <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.ERRORS' | translate }}: {{ errorCount }}</p>
               <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.WARNINGS' | translate }}: {{ warningCount }}</p>
+              <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.REDUNDANCY_DETECTED' | translate }}: {{ redundancyStatus | translate }}</p>
+
+              <div *ngIf="detectedIssues.length > 0" class="issues-list">
+                <h4>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.ISSUES_FOUND' | translate }}</h4>
+                <ul>
+                  <li *ngFor="let issue of detectedIssues" [ngClass]="getIssueClass(issue.type)">
+                    <span *ngIf="issue.line" class="issue-line">{{ 'ACCESSIBILITY_EVALUATOR_PAGE.LINE' | translate }} {{ issue.line }}:</span>
+                    <strong>{{ issue.message }}</strong>
+                    <span *ngIf="issue.suggestion" class="issue-suggestion"> — {{ issue.suggestion }}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div *ngIf="improvementSuggestions.length > 0">
+                <p>{{ 'ACCESSIBILITY_EVALUATOR_PAGE.IMPROVEMENT' | translate }}:</p>
+                <ul>
+                  <li *ngFor="let suggestion of improvementSuggestions" [innerHTML]="formatSuggestion(suggestion)"></li>
+                </ul>
+              </div>
             </ng-container>
           </div>
         </div>

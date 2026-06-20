@@ -1685,6 +1685,8 @@
     "NO_BUTTONS_USED": "Ez dira botoiak erabiltzen",
     "ERRORS": "Erroreak",
     "WARNINGS": "Abisuak",
+    "ISSUES_FOUND": "Detektatutako arazoak",
+    "LINE": "Lerroa",
     "CODE_PREVIEW_H3": "Kodea zuzentzeko iradokizuna"
   },
   "VALIDATOR": {
@@ -1695,7 +1697,16 @@
       "ERROR_SUGGESTION": "Gehitu 'speech.say(\"[string]\")', 'music.play(music.[song])' edo 'music.([number])' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko.",
       "ERROR_SUGGESTION_2": "Inportatu 'speech' edo 'music' ikusmen urritasuna duten erabiltzaileek informazioa jasotzeko.",
       "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Display.show() bakarrik erabiltzen ari zara audio irteerarik gabe.",
+      "MISSING_AUDIO_WITH_DISPLAY_SCROLL": "Display.scroll() bakarrik erabiltzen ari zara audio irteerarik gabe.",
       "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Gehitu 'import speech' edo 'import music' eta erabili 'speech.say()' edo 'music.play()' ikusmen urritasuna duten erabiltzaileei entzumen feedback-a emateko."
+    },
+    "MISSING_IMPORT": {
+      "ERROR_MESSAGE": "Microbit inportazioa falta da.",
+      "ERROR_SUGGESTION": "Gehitu 'from microbit import *' programaren hasieran."
+    },
+    "INFINITE_LOOP": {
+      "WARNING_MESSAGE": "Pausarik gabeko begizta infinitua (sleep).",
+      "WARNING_SUGGESTION": "Gehitu sleep() begiztaren barruan blokeoak saihesteko eta Micro:bit-ak sarrerei erantzuteko."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "Blokeo-begizta detektatu da.",
@@ -1703,6 +1714,7 @@
     },
     "INPUT_REDUNDANCY": {
       "SUCCESS_MESSAGE": "Sarrera irisgarria: Ukimen edo mugimendu sentsoreak erabiltzen dituzu.",
+      "NO_BUTTONS_USED": "Ez dira beharrezkoak botoi fisikoak elkarrekintzarako.",
       "ERROR_MESSAGE": "Botoi fisikoak bakarrik erabiltzen dituzu.",
       "ERROR_SUGGESTION": "Gehitu 'pin_logo.is_touched()' mugikortasun arazoak dituzten pertsonentzat erabilera errazteko."
     },

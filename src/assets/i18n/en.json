@@ -815,6 +815,8 @@
     "NO_BUTTONS_USED": "Buttons are not used",
     "ERRORS": "Errors",
     "WARNINGS": "Warnings",
+    "ISSUES_FOUND": "Issues detected",
+    "LINE": "Line",
     "CODE_PREVIEW_H3": "Code correction suggestion"
   },
   "VALIDATOR": {
@@ -825,7 +827,16 @@
       "ERROR_SUGGESTION": "Add 'speech.say(\"[string]\")', 'music.play(music.[song])' or 'music.([number])' so that visually impaired users receive information.",
       "ERROR_SUGGESTION_2": "Import 'speech' or 'music' so that visually impaired users receive information.",
       "MISSING_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "You only use display.show() without audio output.",
+      "MISSING_AUDIO_WITH_DISPLAY_SCROLL": "You only use display.scroll() without audio output.",
       "SUGGEST_AUDIO_OUTPUT_WITH_DISPLAY_SHOW": "Add 'import speech' or 'import music' and use 'speech.say()' or 'music.play()' to provide auditory feedback to visually impaired users."
+    },
+    "MISSING_IMPORT": {
+      "ERROR_MESSAGE": "Missing microbit import.",
+      "ERROR_SUGGESTION": "Add 'from microbit import *' at the beginning of the program."
+    },
+    "INFINITE_LOOP": {
+      "WARNING_MESSAGE": "Infinite loop without pause (sleep).",
+      "WARNING_SUGGESTION": "Add sleep() inside the loop to prevent blocking and allow the Micro:bit to react to inputs."
     },
     "BLOCKING_LOOPS": {
       "WARNING_MESSAGE": "A blocking loop has been detected.",
@@ -833,6 +844,7 @@
     },
     "INPUT_REDUNDANCY": {
       "SUCCESS_MESSAGE": "Accessible entry: You use touch or motion sensors.",
+      "NO_BUTTONS_USED": "Physical buttons are not required to interact.",
       "ERROR_MESSAGE": "You only use physical buttons.",
       "ERROR_SUGGESTION": "Add 'pin_logo.is_touched()' to facilitate use for people with motor difficulties."
     },
